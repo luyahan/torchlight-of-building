@@ -1,8 +1,17 @@
 import * as Affix from "./affix";
-import { DmgModType, DMG_MOD_TYPES } from "./constants";
+import {
+  DmgModType,
+  DMG_MOD_TYPES,
+  CritRatingModType,
+  CRIT_RATING_MOD_TYPES,
+} from "./constants";
 
 function isValidDmgModType(value: string): value is DmgModType {
   return DMG_MOD_TYPES.includes(value as DmgModType);
+}
+
+function isValidCritRatingModType(value: string): value is CritRatingModType {
+  return CRIT_RATING_MOD_TYPES.includes(value as CritRatingModType);
 }
 
 function parseDmgPct(input: string): Extract<Affix.Affix, { type: "DmgPct" }> | undefined {
@@ -46,14 +55,53 @@ function parseDmgPct(input: string): Extract<Affix.Affix, { type: "DmgPct" }> | 
   };
 }
 
+function parseCritRatingPct(
+  input: string
+): Extract<Affix.Affix, { type: "CritRatingPct" }> | undefined {
+  // Regex to parse: +10% [Attack] Critical Strike Rating
+  // The type word comes before "Critical Strike Rating"
+  const pattern =
+    /^([+-])?(\d+(?:\.\d+)?)%\s+(?:(\w+)\s+)?critical\s+strike\s+rating$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  // Extract components
+  const percentageStr = match[2];
+  const modTypeWord = match[3];
+
+  // Convert percentage to decimal
+  const value = parseFloat(percentageStr) / 100;
+
+  // Determine modType
+  let modType: CritRatingModType = "global";
+  if (modTypeWord) {
+    const lowerModType = modTypeWord.toLowerCase();
+    if (isValidCritRatingModType(lowerModType)) {
+      modType = lowerModType;
+    } else {
+      // Invalid mod type - not a valid CritRatingPct affix
+      return undefined;
+    }
+  }
+
+  return {
+    type: "CritRatingPct",
+    value,
+    modType,
+  };
+}
+
 export function parseAffix(input: string): Affix.Affix | undefined {
   const normalized = input.trim();
 
   // Try each parser in order
   const parsers = [
     parseDmgPct,
+    parseCritRatingPct,
     // Add more parsers here as they're implemented
-    // parseCritRatingPct,
     // parseCritDmgPct,
     // etc.
   ];

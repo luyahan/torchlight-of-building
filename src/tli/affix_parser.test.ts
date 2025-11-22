@@ -200,3 +200,62 @@ test("return undefined for malformed input - completely wrong format", () => {
   const result = parseAffix("foo bar baz");
   expect(result).toBeUndefined();
 });
+
+test("parse global critical strike rating", () => {
+  const result = parseAffix("+10% Critical Strike Rating");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.10,
+    modType: "global",
+  });
+});
+
+test("parse attack critical strike rating", () => {
+  const result = parseAffix("+10% Attack Critical Strike Rating");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.10,
+    modType: "attack",
+  });
+});
+
+test("parse spell critical strike rating", () => {
+  const result = parseAffix("+15% Spell Critical Strike Rating");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.15,
+    modType: "spell",
+  });
+});
+
+test("parse crit rating with decimal percentage", () => {
+  const result = parseAffix("+12.5% Attack Critical Strike Rating");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.125,
+    modType: "attack",
+  });
+});
+
+test("parse crit rating case insensitive", () => {
+  const result = parseAffix("+10% attack CRITICAL STRIKE rating");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.10,
+    modType: "attack",
+  });
+});
+
+test("parse crit rating with extra whitespace", () => {
+  const result = parseAffix("  +10%   Attack   Critical Strike   Rating  ");
+  expect(result).toEqual({
+    type: "CritRatingPct",
+    value: 0.10,
+    modType: "attack",
+  });
+});
+
+test("return undefined for invalid crit rating mod type", () => {
+  const result = parseAffix("+10% Fire Critical Strike Rating");
+  expect(result).toBeUndefined();
+});
