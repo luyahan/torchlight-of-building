@@ -114,3 +114,30 @@ test("parse attack speed with decimal percentage", () => {
     addn: false,
   });
 });
+
+test("parse basic cast speed", () => {
+  const result = parseAffix("+6% cast speed");
+  expect(result).toEqual({
+    type: "CspdPct",
+    value: 0.06,
+    addn: false,
+  });
+});
+
+test("parse basic attack and cast speed", () => {
+  const result = parseAffix("+6% attack and cast speed");
+  expect(result).toEqual({
+    type: "AspdAndCspdPct",
+    value: 0.06,
+    addn: false,
+  });
+});
+
+test("parse basic minion attack and cast speed", () => {
+  const result = parseAffix("+6% minion attack and cast speed");
+  expect(result).toEqual({
+    type: "MinionAspdAndCspdPct",
+    value: 0.06,
+    addn: false,
+  });
+});

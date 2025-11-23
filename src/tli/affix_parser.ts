@@ -108,13 +108,89 @@ const parseAspdPct = (input: string): AffixOfType<"AspdPct"> | undefined => {
   };
 };
 
+const parseCspdPct = (input: string): AffixOfType<"CspdPct"> | undefined => {
+  // Regex to parse: +6% [additional] cast speed
+  const pattern = /^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?cast speed$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const percentageStr = match[2];
+  const hasAdditional = match[3] !== undefined;
+
+  const value = parseFloat(percentageStr) / 100;
+  const addn = hasAdditional;
+
+  return {
+    type: "CspdPct",
+    value,
+    addn,
+  };
+};
+
+const parseAspdAndCspdPct = (
+  input: string
+): AffixOfType<"AspdAndCspdPct"> | undefined => {
+  // Regex to parse: +6% [additional] attack and cast speed
+  const pattern =
+    /^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?attack and cast speed$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const percentageStr = match[2];
+  const hasAdditional = match[3] !== undefined;
+
+  const value = parseFloat(percentageStr) / 100;
+  const addn = hasAdditional;
+
+  return {
+    type: "AspdAndCspdPct",
+    value,
+    addn,
+  };
+};
+
+const parseMinionAspdAndCspdPct = (
+  input: string
+): AffixOfType<"MinionAspdAndCspdPct"> | undefined => {
+  // Regex to parse: +6% [additional] minion attack and cast speed
+  const pattern =
+    /^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?minion attack and cast speed$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const percentageStr = match[2];
+  const hasAdditional = match[3] !== undefined;
+
+  const value = parseFloat(percentageStr) / 100;
+  const addn = hasAdditional;
+
+  return {
+    type: "MinionAspdAndCspdPct",
+    value,
+    addn,
+  };
+};
+
 export const parseAffix = (input: string): ParseResult => {
   const normalized = input.trim().toLowerCase();
 
   const parsers = [
     parseDmgPct,
     parseCritRatingPct,
+    // Speed parsers ordered by specificity (most specific first)
+    parseMinionAspdAndCspdPct,
+    parseAspdAndCspdPct,
     parseAspdPct,
+    parseCspdPct,
     // Add more parsers here as they're implemented
     // parseCritDmgPct,
     // etc.
