@@ -23,3 +23,11 @@
 * rosa ramp
 * multistrike
 * steep
+
+
+I want to make a single page application, which will serve as a charcter build planner for the game, Torchlight Infinite.
+In essence, this website will allow a user to select different things like their gear, skills, talents, etc and see different calculations, including their estimated DPS, defences, stats, etc.
+This is heavily inspired off of Path of Building, a community made tool for Path of Exile.
+I care much more for functionality and UX than an extremely polished UI, though any easy improvements there are welcome.
+You can delete or modify any of the existing code in src/app - this is the default template taken from nextjs.
+For now, I just want the ability to 
