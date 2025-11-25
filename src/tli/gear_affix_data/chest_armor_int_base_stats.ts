@@ -1,0 +1,160 @@
+import { BaseGearAffix } from "./types";
+
+export const CHEST_ARMOR_INT_BASE_STATS_AFFIXES = [
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "",
+    "valueRanges": [],
+    "rawAffix": ""
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "",
+    "valueRanges": [],
+    "rawAffix": ""
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+10gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+10`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+100gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+100`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+120gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+120`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+140gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+140`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+15gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+15`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+170gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+170`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+20gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+20`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+30gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+30`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+40gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+40`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+50gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+50`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+65gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+65`gear Energy Shield"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_int",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (INT)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+80gear Energy Shield",
+    "valueRanges": [],
+    "rawAffix": "`+80`gear Energy Shield"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type ChestArmorIntBaseStatsAffix = (typeof CHEST_ARMOR_INT_BASE_STATS_AFFIXES)[number];

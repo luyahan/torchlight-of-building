@@ -1,0 +1,138 @@
+import { BaseGearAffix } from "./types";
+
+export const GLOVES_DEX_BASE_STATS_AFFIXES = [
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1122gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1122`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1346gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1346`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1615gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1615`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+168gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+168`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1777gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1777`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1920gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1920`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+235gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+235`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+329gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+329`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+461gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+461`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+599gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+599`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+779gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+779`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "gloves_dex",
+    "equipmentSlot": "Gloves",
+    "equipmentType": "Gloves (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+935gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+935`gear Evasion"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type GlovesDexBaseStatsAffix = (typeof GLOVES_DEX_BASE_STATS_AFFIXES)[number];

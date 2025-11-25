@@ -1,0 +1,154 @@
+import { BaseGearAffix } from "./types";
+
+export const TWO_HANDED_HAMMER_CORROSION_BASE_AFFIXES = [
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}Main Skill Level",
+    "valueRanges": [
+      {
+        "min": 1,
+        "max": 2
+      }
+    ],
+    "rawAffix": "`+(1-2)`Main Skill Level"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Skill Area",
+    "valueRanges": [
+      {
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "rawAffix": "`+(10-15)`% Skill Area"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% gear Physical Damage",
+    "valueRanges": [
+      {
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "rawAffix": "`+(15-25)`% gear Physical Damage"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Attack Critical Strike Rating for this gear",
+    "valueRanges": [
+      {
+        "min": 3,
+        "max": 6
+      }
+    ],
+    "rawAffix": "`+(3-6)`% Attack Critical Strike Rating for this gear"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Elemental Damage",
+    "valueRanges": [
+      {
+        "min": 40,
+        "max": 45
+      }
+    ],
+    "rawAffix": "`+(40-45)`% Elemental Damage"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% gear Attack Speed",
+    "valueRanges": [
+      {
+        "min": 5,
+        "max": 8
+      }
+    ],
+    "rawAffix": "`+(5-8)`% gear Attack Speed"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% chance to gain 1 stack of Tenacity Blessing on defeat",
+    "valueRanges": [
+      {
+        "min": 6,
+        "max": 12
+      }
+    ],
+    "rawAffix": "`+(6-12)`% chance to gain 1 stack of Tenacity Blessing on defeat"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "Adds {0}- {1}Physical Damage to the gear",
+    "valueRanges": [
+      {
+        "min": 7,
+        "max": 10
+      },
+      {
+        "min": 14,
+        "max": 17
+      }
+    ],
+    "rawAffix": "Adds `(7-10)`- `(14-17)`Physical Damage to the gear"
+  },
+  {
+    "equipmentTypeKey": "two_handed_hammer",
+    "equipmentSlot": "Two-Handed",
+    "equipmentType": "Two-Handed Hammer",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "Damage Penetrates {0}% Elemental Resistance",
+    "valueRanges": [
+      {
+        "min": 8,
+        "max": 12
+      }
+    ],
+    "rawAffix": "Damage Penetrates `(8-12)`% Elemental Resistance"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type TwoHandedHammerCorrosionBaseAffix = (typeof TWO_HANDED_HAMMER_CORROSION_BASE_AFFIXES)[number];

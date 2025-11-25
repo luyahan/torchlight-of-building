@@ -1,0 +1,215 @@
+import { BaseGearAffix } from "./types";
+
+export const NECKLACE_BASE_STATS_AFFIXES = [
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "",
+    "valueRanges": [],
+    "rawAffix": ""
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+12Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+12`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+12Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+12`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+12Strength",
+    "valueRanges": [],
+    "rawAffix": "`+12`Strength"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+18Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+18`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+18Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+18`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+18Strength",
+    "valueRanges": [],
+    "rawAffix": "`+18`Strength"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+24Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+24`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+24Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+24`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+24Strength",
+    "valueRanges": [],
+    "rawAffix": "`+24`Strength"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+3Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+3`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+3Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+3`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+3Strength",
+    "valueRanges": [],
+    "rawAffix": "`+3`Strength"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+5Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+5`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+5Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+5`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+5Strength",
+    "valueRanges": [],
+    "rawAffix": "`+5`Strength"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+8Dexterity",
+    "valueRanges": [],
+    "rawAffix": "`+8`Dexterity"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+8Intelligence",
+    "valueRanges": [],
+    "rawAffix": "`+8`Intelligence"
+  },
+  {
+    "equipmentTypeKey": "necklace",
+    "equipmentSlot": "Trinket",
+    "equipmentType": "Necklace",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+8Strength",
+    "valueRanges": [],
+    "rawAffix": "`+8`Strength"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type NecklaceBaseStatsAffix = (typeof NECKLACE_BASE_STATS_AFFIXES)[number];

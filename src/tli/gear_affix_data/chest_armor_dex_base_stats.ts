@@ -1,0 +1,138 @@
+import { BaseGearAffix } from "./types";
+
+export const CHEST_ARMOR_DEX_BASE_STATS_AFFIXES = [
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1091gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1091`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1309gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1309`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1571gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1571`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+1885gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+1885`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+196gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+196`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+2073gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+2073`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+2240gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+2240`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+274gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+274`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+384gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+384`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+538gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+538`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+699gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+699`gear Evasion"
+  },
+  {
+    "equipmentTypeKey": "chest_armor_dex",
+    "equipmentSlot": "Chest Armor",
+    "equipmentType": "Chest Armor (DEX)",
+    "affixType": "Base Stats",
+    "craftingPool": "",
+    "tier": "",
+    "template": "+909gear Evasion",
+    "valueRanges": [],
+    "rawAffix": "`+909`gear Evasion"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type ChestArmorDexBaseStatsAffix = (typeof CHEST_ARMOR_DEX_BASE_STATS_AFFIXES)[number];

@@ -1,0 +1,150 @@
+import { BaseGearAffix } from "./types";
+
+export const SCEPTER_CORROSION_BASE_AFFIXES = [
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Cast Speed",
+    "valueRanges": [
+      {
+        "min": 10,
+        "max": 16
+      }
+    ],
+    "rawAffix": "`+(10-16)`% Cast Speed"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Spell Damage",
+    "valueRanges": [
+      {
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "rawAffix": "`+(20-30)`% Spell Damage"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Critical Strike Damage",
+    "valueRanges": [
+      {
+        "min": 25,
+        "max": 32
+      }
+    ],
+    "rawAffix": "`+(25-32)`% Critical Strike Damage"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Spell Critical Strike Rating",
+    "valueRanges": [
+      {
+        "min": 30,
+        "max": 40
+      }
+    ],
+    "rawAffix": "`+(30-40)`% Spell Critical Strike Rating"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% chance to gain 1 stack of Focus Blessing on defeat",
+    "valueRanges": [
+      {
+        "min": 4,
+        "max": 8
+      }
+    ],
+    "rawAffix": "`+(4-8)`% chance to gain 1 stack of Focus Blessing on defeat"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% chance to trigger the Main Spell Skill 1 additional time when using it",
+    "valueRanges": [
+      {
+        "min": 5,
+        "max": 8
+      }
+    ],
+    "rawAffix": "`+(5-8)`% chance to trigger the Main Spell Skill 1 additional time when using it"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "+{0}% Cooldown Recovery Speed",
+    "valueRanges": [
+      {
+        "min": 6,
+        "max": 10
+      }
+    ],
+    "rawAffix": "`+(6-10)`% Cooldown Recovery Speed"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "Adds {0}% of Elemental Damage as Erosion Damage",
+    "valueRanges": [
+      {
+        "min": 5,
+        "max": 8
+      }
+    ],
+    "rawAffix": "Adds `(5-8)`% of Elemental Damage as Erosion Damage"
+  },
+  {
+    "equipmentTypeKey": "scepter",
+    "equipmentSlot": "One-Handed",
+    "equipmentType": "Scepter",
+    "affixType": "Corrosion Base",
+    "craftingPool": "",
+    "tier": "0",
+    "template": "Damage Penetrates {0}% Elemental Resistance",
+    "valueRanges": [
+      {
+        "min": 5,
+        "max": 8
+      }
+    ],
+    "rawAffix": "Damage Penetrates `(5-8)`% Elemental Resistance"
+  }
+] as const satisfies readonly BaseGearAffix[];
+
+export type ScepterCorrosionBaseAffix = (typeof SCEPTER_CORROSION_BASE_AFFIXES)[number];
