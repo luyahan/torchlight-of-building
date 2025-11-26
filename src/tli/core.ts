@@ -1,7 +1,7 @@
 import { Mod } from "./mod";
 import { TreeName } from "./talent_tree_types";
 import { Skill } from "./offense";
-import { EquipmentType } from "./gear_affix_data/types";
+import { EquipmentType } from "./gear_data_types";
 
 export interface Affix {
   mods: Mod[];

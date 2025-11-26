@@ -11,7 +11,7 @@ import {
   isGodGoddessTree,
   loadTalentTree,
 } from "@/src/tli/talent_tree";
-import { EquipmentType } from "@/src/tli/gear_affix_data/types";
+import { EquipmentType } from "@/src/tli/gear_data_types";
 import { craft } from "@/src/tli/crafting/craft";
 
 // Lib imports
