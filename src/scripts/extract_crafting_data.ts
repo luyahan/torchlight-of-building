@@ -18,42 +18,45 @@ interface CraftingAffix {
  * - <br> tags (convert to newlines)
  * - En-dashes (–) to hyphens (-)
  */
-const parseAffixText = (td: cheerio.Cheerio<cheerio.Element>, $: cheerio.CheerioAPI): string => {
+const parseAffixText = (
+  td: cheerio.Cheerio<cheerio.Element>,
+  $: cheerio.CheerioAPI,
+): string => {
   // Clone the element to avoid modifying the original
   const clone = td.clone();
 
   // Process <span class="val"> tags: unwrap and wrap in backticks
-  clone.find('span.val').each((_, elem) => {
-    const text = $(elem).text().replace(/–/g, '-'); // Replace en-dash with hyphen
+  clone.find("span.val").each((_, elem) => {
+    const text = $(elem).text().replace(/–/g, "-"); // Replace en-dash with hyphen
     $(elem).replaceWith(`\`${text}\``);
   });
 
   // Remove <span class="tooltip"> tags but keep their text content
-  clone.find('span.tooltip').each((_, elem) => {
+  clone.find("span.tooltip").each((_, elem) => {
     const text = $(elem).text();
     $(elem).replaceWith(text);
   });
 
   // Get the HTML and replace <br> tags with a special marker
-  let html = clone.html() || '';
-  html = html.replace(/<br\s*\/?>/gi, '<<BR>>');
+  let html = clone.html() || "";
+  html = html.replace(/<br\s*\/?>/gi, "<<BR>>");
 
   // Load the processed HTML and extract text
   const processed = cheerio.load(html);
   let text = processed.text();
 
   // First, normalize all whitespace (including newlines from HTML formatting) to single spaces
-  text = text.replace(/\s+/g, ' ').trim();
+  text = text.replace(/\s+/g, " ").trim();
 
   // Then replace our BR markers with actual newlines
-  text = text.replace(/<<BR>>/g, '\n');
+  text = text.replace(/<<BR>>/g, "\n");
 
   // Clean up any lines that are now empty
   text = text
-    .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0)
-    .join('\n');
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0)
+    .join("\n");
 
   return text;
 };
@@ -64,7 +67,9 @@ const parseAffixText = (td: cheerio.Cheerio<cheerio.Element>, $: cheerio.Cheerio
 const extractCraftingData = (html: string): CraftingAffix[] => {
   // The HTML has <tbody> outside of <table>, which cheerio's HTML parser strips.
   // Fix by wrapping tbody in a table tag before parsing
-  const fixedHtml = html.replace('<tbody>', '<table><tbody>').replace('</tbody>', '</tbody></table>');
+  const fixedHtml = html
+    .replace("<tbody>", "<table><tbody>")
+    .replace("</tbody>", "</tbody></table>");
 
   const $ = cheerio.load(fixedHtml, { xml: false });
   const affixes: CraftingAffix[] = [];
@@ -74,7 +79,7 @@ const extractCraftingData = (html: string): CraftingAffix[] => {
   console.log(`Found ${rows.length} rows`);
 
   rows.each((_, row) => {
-    const tds = $(row).find('td');
+    const tds = $(row).find("td");
 
     if (tds.length !== 6) {
       console.warn(`Skipping row with ${tds.length} columns (expected 6)`);
@@ -101,25 +106,32 @@ const extractCraftingData = (html: string): CraftingAffix[] => {
  */
 const main = async () => {
   try {
-    console.log('Reading HTML file...');
-    const htmlPath = join(process.cwd(), '.garbage', 'crafting', 'codex_crafting.html');
-    const html = await readFile(htmlPath, 'utf-8');
+    console.log("Reading HTML file...");
+    const htmlPath = join(
+      process.cwd(),
+      ".garbage",
+      "crafting",
+      "codex_crafting.html",
+    );
+    const html = await readFile(htmlPath, "utf-8");
 
-    console.log('Extracting crafting data...');
+    console.log("Extracting crafting data...");
     const affixes = extractCraftingData(html);
     console.log(`Extracted ${affixes.length} affixes`);
 
-    console.log('Creating data directory...');
-    const dataDir = join(process.cwd(), 'data');
+    console.log("Creating data directory...");
+    const dataDir = join(process.cwd(), "data");
     await mkdir(dataDir, { recursive: true });
 
-    console.log('Writing JSON file...');
-    const outputPath = join(dataDir, 'crafting_data.json');
-    await writeFile(outputPath, JSON.stringify(affixes, null, 2), 'utf-8');
+    console.log("Writing JSON file...");
+    const outputPath = join(dataDir, "crafting_data.json");
+    await writeFile(outputPath, JSON.stringify(affixes, null, 2), "utf-8");
 
-    console.log(`✓ Successfully wrote ${affixes.length} affixes to ${outputPath}`);
+    console.log(
+      `✓ Successfully wrote ${affixes.length} affixes to ${outputPath}`,
+    );
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     process.exit(1);
   }
 };

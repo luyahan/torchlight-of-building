@@ -2,291 +2,298 @@ import { BaseGearAffix } from "./types";
 
 export const SPIRIT_RING_BASE_AFFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Immune to curse",
-    "valueRanges": [],
-    "rawAffix": "Immune to curse"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Immune to curse",
+    valueRanges: [],
+    rawAffix: "Immune to curse",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Focus Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Focus Blessing Stacks `+1`"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Focus Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Focus Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Tenacity Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Tenacity Blessing Stacks `+1`"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Tenacity Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Tenacity Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Triggers Lv. 20Blind Curse upon inflicting damage. Cooldown: 0.2s",
-    "valueRanges": [],
-    "rawAffix": "Triggers Lv. `20`Blind Curse upon inflicting damage. Cooldown: `0.2`s"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template:
+      "Triggers Lv. 20Blind Curse upon inflicting damage. Cooldown: 0.2s",
+    valueRanges: [],
+    rawAffix:
+      "Triggers Lv. `20`Blind Curse upon inflicting damage. Cooldown: `0.2`s",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Triggers Lv. 20Timid Curse upon inflicting damage. Cooldown: 0.2s",
-    "valueRanges": [],
-    "rawAffix": "Triggers Lv. `20`Timid Curse upon inflicting damage. Cooldown: `0.2`s"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template:
+      "Triggers Lv. 20Timid Curse upon inflicting damage. Cooldown: 0.2s",
+    valueRanges: [],
+    rawAffix:
+      "Triggers Lv. `20`Timid Curse upon inflicting damage. Cooldown: `0.2`s",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Triggers Lv. 20Entangled Pain Curse upon inflicting damage. Cooldown: 0.2s",
-    "valueRanges": [],
-    "rawAffix": "Triggers Lv. `20`Entangled Pain Curse upon inflicting damage. Cooldown: `0.2`s"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template:
+      "Triggers Lv. 20Entangled Pain Curse upon inflicting damage. Cooldown: 0.2s",
+    valueRanges: [],
+    rawAffix:
+      "Triggers Lv. `20`Entangled Pain Curse upon inflicting damage. Cooldown: `0.2`s",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+ 3Command per second",
-    "valueRanges": [],
-    "rawAffix": "+ `3`Command per second"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+ 3Command per second",
+    valueRanges: [],
+    rawAffix: "+ `3`Command per second",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Movement Speed",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Movement Speed",
+    valueRanges: [
       {
-        "min": 11,
-        "max": 15
-      }
+        min: 11,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(11-15)`% Movement Speed"
+    rawAffix: "`+(11-15)`% Movement Speed",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+32initial Growth for Spirit Magi",
-    "valueRanges": [],
-    "rawAffix": "`+32`initial Growth for Spirit Magi"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+32initial Growth for Spirit Magi",
+    valueRanges: [],
+    rawAffix: "`+32`initial Growth for Spirit Magi",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "Immune to Wilt",
-    "valueRanges": [],
-    "rawAffix": "Immune to Wilt"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "Immune to Wilt",
+    valueRanges: [],
+    rawAffix: "Immune to Wilt",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "Immune to Trauma",
-    "valueRanges": [],
-    "rawAffix": "Immune to Trauma"
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "Immune to Trauma",
+    valueRanges: [],
+    rawAffix: "Immune to Trauma",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Dexterity",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Dexterity",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Dexterity"
+    rawAffix: "`+(15-20)`Dexterity",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Intelligence",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Intelligence",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Intelligence"
+    rawAffix: "`+(15-20)`Intelligence",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Strength",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Strength",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Strength"
+    rawAffix: "`+(15-20)`Strength",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Cold Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Cold Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Cold Resistance"
+    rawAffix: "`+(5-10)`% Cold Resistance",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Erosion Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Erosion Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Erosion Resistance"
+    rawAffix: "`+(5-10)`% Erosion Resistance",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Fire Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Fire Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Fire Resistance"
+    rawAffix: "`+(5-10)`% Fire Resistance",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Lightning Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Lightning Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Lightning Resistance"
+    rawAffix: "`+(5-10)`% Lightning Resistance",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 54,
-        "max": 74
-      }
+        min: 54,
+        max: 74,
+      },
     ],
-    "rawAffix": "`+(54-74)`Max Life"
+    rawAffix: "`+(54-74)`Max Life",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Minion Movement Speed, Attack Speed, and Cast Speed",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Minion Movement Speed, Attack Speed, and Cast Speed",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Minion Movement Speed, Attack Speed, and Cast Speed"
+    rawAffix: "`+(6-8)`% Minion Movement Speed, Attack Speed, and Cast Speed",
   },
   {
-    "equipmentTypeKey": "spirit_ring",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Spirit Ring",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "spirit_ring",
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Energy Shield",
+    valueRanges: [
       {
-        "min": 87,
-        "max": 117
-      }
+        min: 87,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(87-117)`Max Energy Shield"
-  }
+    rawAffix: "`+(87-117)`Max Energy Shield",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type SpiritRingBaseAffixAffix = (typeof SPIRIT_RING_BASE_AFFIX_AFFIXES)[number];
+export type SpiritRingBaseAffixAffix =
+  (typeof SPIRIT_RING_BASE_AFFIX_AFFIXES)[number];

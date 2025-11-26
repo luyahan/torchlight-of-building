@@ -5,7 +5,12 @@ Type-safe gear affix system for Torchlight Infinite with 5,625 affixes across 38
 ## Quick Start
 
 ```typescript
-import { GearAffix, BOOTS_DEX_PREFIX_AFFIXES, craft, craftLines } from "@/tli/gear_affix_data";
+import {
+  GearAffix,
+  BOOTS_DEX_PREFIX_AFFIXES,
+  craft,
+  craftLines,
+} from "@/tli/gear_affix_data";
 import { ALL_GEAR_AFFIXES } from "@/tli/gear_affix_data/all_affixes";
 
 // Get affixes for a specific equipment type
@@ -14,14 +19,14 @@ console.log(bootsAffixes.length); // 46 affixes
 
 // Craft an affix at specific quality (0-100%)
 const affix = bootsAffixes[0];
-console.log(craft(affix, 0));    // Min roll
-console.log(craft(affix, 50));   // Mid roll (rounded)
-console.log(craft(affix, 100));  // Max roll
+console.log(craft(affix, 0)); // Min roll
+console.log(craft(affix, 50)); // Mid roll (rounded)
+console.log(craft(affix, 100)); // Max roll
 
 // Multi-effect affixes (with newlines)
-const multiEffect = ALL_GEAR_AFFIXES.find(a => a.template.includes('\n'));
+const multiEffect = ALL_GEAR_AFFIXES.find((a) => a.template.includes("\n"));
 if (multiEffect) {
-  console.log(craft(multiEffect, 100));      // Single string with \n
+  console.log(craft(multiEffect, 100)); // Single string with \n
   console.log(craftLines(multiEffect, 100)); // Array of strings
 }
 ```
@@ -34,7 +39,7 @@ if (multiEffect) {
 - **craft.ts** - `craft()` and `craftLines()` functions
 - **all_affixes.ts** - Combined `ALL_GEAR_AFFIXES` array (5,625 entries)
 - **index.ts** - Main exports and `GearAffix` discriminated union
-- **{equipment}_{affix_type}.ts** - 250 individual affix files
+- **{equipment}\_{affix_type}.ts** - 250 individual affix files
 
 ### Type System
 
@@ -65,22 +70,20 @@ interface BaseGearAffix {
 ```typescript
 // By equipment slot
 const allBootsAffixes = ALL_GEAR_AFFIXES.filter(
-  a => a.equipmentSlot === "Boots"
+  (a) => a.equipmentSlot === "Boots",
 );
 
 // By affix type
-const prefixes = ALL_GEAR_AFFIXES.filter(
-  a => a.affixType === "Prefix"
-);
+const prefixes = ALL_GEAR_AFFIXES.filter((a) => a.affixType === "Prefix");
 
 // By equipment type key
 const ringAffixes = ALL_GEAR_AFFIXES.filter(
-  a => a.equipmentTypeKey === "ring"
+  (a) => a.equipmentTypeKey === "ring",
 );
 
 // Search by template content
-const cooldownAffixes = ALL_GEAR_AFFIXES.filter(
-  a => a.template.toLowerCase().includes("cooldown")
+const cooldownAffixes = ALL_GEAR_AFFIXES.filter((a) =>
+  a.template.toLowerCase().includes("cooldown"),
 );
 ```
 
@@ -89,11 +92,11 @@ const cooldownAffixes = ALL_GEAR_AFFIXES.filter(
 ```typescript
 const affix = {
   template: "+{0}% Movement Speed",
-  valueRanges: [{ min: 20, max: 25 }]
+  valueRanges: [{ min: 20, max: 25 }],
 };
 
-craft(affix, 0);   // "+20% Movement Speed"
-craft(affix, 50);  // "+23% Movement Speed" (rounded)
+craft(affix, 0); // "+20% Movement Speed"
+craft(affix, 50); // "+23% Movement Speed" (rounded)
 craft(affix, 100); // "+25% Movement Speed"
 ```
 
@@ -104,7 +107,10 @@ Multi-effect affixes (originally separated by `<>`) have `\n` in their template:
 ```typescript
 const multiEffect = {
   template: "+{0}% Armor Pen\n +{1}% Armor Pen for Minions",
-  valueRanges: [{ min: 5, max: 7 }, { min: 5, max: 7 }]
+  valueRanges: [
+    { min: 5, max: 7 },
+    { min: 5, max: 7 },
+  ],
 };
 
 // As single string
@@ -136,7 +142,7 @@ if (affix.equipmentTypeKey === "boots_dex") {
 }
 
 // Autocomplete works
-affix.template // IDE suggests all fields
+affix.template; // IDE suggests all fields
 ```
 
 ## Testing

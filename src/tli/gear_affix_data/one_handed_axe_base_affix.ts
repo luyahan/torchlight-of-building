@@ -2,282 +2,283 @@ import { BaseGearAffix } from "./types";
 
 export const ONE_HANDED_AXE_BASE_AFFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Agility Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Agility Blessing Stacks `+1`"
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Agility Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Agility Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Focus Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Focus Blessing Stacks `+1`"
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Focus Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Focus Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Tenacity Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Tenacity Blessing Stacks `+1`"
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Tenacity Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Tenacity Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Armor DMG Mitigation Penetration",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Armor DMG Mitigation Penetration",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 7
-      }
+        min: 5,
+        max: 7,
+      },
     ],
-    "rawAffix": "`+(5-7)`% Armor DMG Mitigation Penetration"
+    rawAffix: "`+(5-7)`% Armor DMG Mitigation Penetration",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% additional damage against Traumatized enemies",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% additional damage against Traumatized enemies",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% additional damage against Traumatized enemies"
+    rawAffix: "`+(6-8)`% additional damage against Traumatized enemies",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Elemental and Erosion Resistance Penetration",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Elemental and Erosion Resistance Penetration",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Elemental and Erosion Resistance Penetration"
+    rawAffix: "`+(6-8)`% Elemental and Erosion Resistance Penetration",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% additional Steep Strike Damage",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% additional Steep Strike Damage",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 9
-      }
+        min: 6,
+        max: 9,
+      },
     ],
-    "rawAffix": "`+(6-9)`% additional Steep Strike Damage"
+    rawAffix: "`+(6-9)`% additional Steep Strike Damage",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Elemental Damage",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Elemental Damage",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 24
-      }
+        min: 20,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(20-24)`% Elemental Damage"
+    rawAffix: "`+(20-24)`% Elemental Damage",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Erosion Damage",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Erosion Damage",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 24
-      }
+        min: 20,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(20-24)`% Erosion Damage"
+    rawAffix: "`+(20-24)`% Erosion Damage",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Melee Damage",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Melee Damage",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 24
-      }
+        min: 20,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(20-24)`% Melee Damage"
+    rawAffix: "`+(20-24)`% Melee Damage",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Physical Damage",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Physical Damage",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 24
-      }
+        min: 20,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(20-24)`% Physical Damage"
+    rawAffix: "`+(20-24)`% Physical Damage",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Attack Speed",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Attack Speed",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Attack Speed"
+    rawAffix: "`+(6-8)`% Attack Speed",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "Adds {0}- {1}Lightning Damage to Attacks",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "Adds {0}- {1}Lightning Damage to Attacks",
+    valueRanges: [
       {
-        "min": 1,
-        "max": 2
+        min: 1,
+        max: 2,
       },
       {
-        "min": 28,
-        "max": 32
-      }
+        min: 28,
+        max: 32,
+      },
     ],
-    "rawAffix": "Adds `(1-2)`- `(28-32)`Lightning Damage to Attacks"
+    rawAffix: "Adds `(1-2)`- `(28-32)`Lightning Damage to Attacks",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "Adds {0}- {1}Cold Damage to Attacks",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "Adds {0}- {1}Cold Damage to Attacks",
+    valueRanges: [
       {
-        "min": 10,
-        "max": 13
+        min: 10,
+        max: 13,
       },
       {
-        "min": 14,
-        "max": 19
-      }
+        min: 14,
+        max: 19,
+      },
     ],
-    "rawAffix": "Adds `(10-13)`- `(14-19)`Cold Damage to Attacks"
+    rawAffix: "Adds `(10-13)`- `(14-19)`Cold Damage to Attacks",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "Adds {0}- {1}Physical Damage to Attacks",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "Adds {0}- {1}Physical Damage to Attacks",
+    valueRanges: [
       {
-        "min": 10,
-        "max": 13
+        min: 10,
+        max: 13,
       },
       {
-        "min": 14,
-        "max": 19
-      }
+        min: 14,
+        max: 19,
+      },
     ],
-    "rawAffix": "Adds `(10-13)`- `(14-19)`Physical Damage to Attacks"
+    rawAffix: "Adds `(10-13)`- `(14-19)`Physical Damage to Attacks",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "Adds {0}- {1}Erosion Damage to Attacks",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "Adds {0}- {1}Erosion Damage to Attacks",
+    valueRanges: [
       {
-        "min": 11,
-        "max": 13
+        min: 11,
+        max: 13,
       },
       {
-        "min": 15,
-        "max": 18
-      }
+        min: 15,
+        max: 18,
+      },
     ],
-    "rawAffix": "Adds `(11-13)`- `(15-18)`Erosion Damage to Attacks"
+    rawAffix: "Adds `(11-13)`- `(15-18)`Erosion Damage to Attacks",
   },
   {
-    "equipmentTypeKey": "one_handed_axe",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "One-Handed Axe",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "Adds {0}- {1}Fire Damage to Attacks",
-    "valueRanges": [
+    equipmentTypeKey: "one_handed_axe",
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "Adds {0}- {1}Fire Damage to Attacks",
+    valueRanges: [
       {
-        "min": 9,
-        "max": 14
+        min: 9,
+        max: 14,
       },
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "Adds `(9-14)`- `(15-20)`Fire Damage to Attacks"
-  }
+    rawAffix: "Adds `(9-14)`- `(15-20)`Fire Damage to Attacks",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type OneHandedAxeBaseAffixAffix = (typeof ONE_HANDED_AXE_BASE_AFFIX_AFFIXES)[number];
+export type OneHandedAxeBaseAffixAffix =
+  (typeof ONE_HANDED_AXE_BASE_AFFIX_AFFIXES)[number];

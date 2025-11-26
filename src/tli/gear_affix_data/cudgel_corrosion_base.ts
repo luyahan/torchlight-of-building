@@ -2,149 +2,150 @@ import { BaseGearAffix } from "./types";
 
 export const CUDGEL_CORROSION_BASE_AFFIXES = [
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}Support Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}Support Skill Level",
+    valueRanges: [
       {
-        "min": 1,
-        "max": 2
-      }
+        min: 1,
+        max: 2,
+      },
     ],
-    "rawAffix": "`+(1-2)`Support Skill Level"
+    rawAffix: "`+(1-2)`Support Skill Level",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Cast Speed",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Cast Speed",
+    valueRanges: [
       {
-        "min": 18,
-        "max": 24
-      }
+        min: 18,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(18-24)`% Cast Speed"
+    rawAffix: "`+(18-24)`% Cast Speed",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Spell Damage",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Spell Damage",
+    valueRanges: [
       {
-        "min": 35,
-        "max": 45
-      }
+        min: 35,
+        max: 45,
+      },
     ],
-    "rawAffix": "`+(35-45)`% Spell Damage"
+    rawAffix: "`+(35-45)`% Spell Damage",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Critical Strike Damage",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Critical Strike Damage",
+    valueRanges: [
       {
-        "min": 40,
-        "max": 48
-      }
+        min: 40,
+        max: 48,
+      },
     ],
-    "rawAffix": "`+(40-48)`% Critical Strike Damage"
+    rawAffix: "`+(40-48)`% Critical Strike Damage",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Spell Critical Strike Rating",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Spell Critical Strike Rating",
+    valueRanges: [
       {
-        "min": 50,
-        "max": 60
-      }
+        min: 50,
+        max: 60,
+      },
     ],
-    "rawAffix": "`+(50-60)`% Spell Critical Strike Rating"
+    rawAffix: "`+(50-60)`% Spell Critical Strike Rating",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% chance to gain 1 stack of Focus Blessing on defeat",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% chance to gain 1 stack of Focus Blessing on defeat",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 12
-      }
+        min: 6,
+        max: 12,
+      },
     ],
-    "rawAffix": "`+(6-12)`% chance to gain 1 stack of Focus Blessing on defeat"
+    rawAffix: "`+(6-12)`% chance to gain 1 stack of Focus Blessing on defeat",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Cooldown Recovery Speed",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Cooldown Recovery Speed",
+    valueRanges: [
       {
-        "min": 8,
-        "max": 15
-      }
+        min: 8,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(8-15)`% Cooldown Recovery Speed"
+    rawAffix: "`+(8-15)`% Cooldown Recovery Speed",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Adds {0}% of Elemental Damage as Erosion Damage",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "Adds {0}% of Elemental Damage as Erosion Damage",
+    valueRanges: [
       {
-        "min": 7,
-        "max": 12
-      }
+        min: 7,
+        max: 12,
+      },
     ],
-    "rawAffix": "Adds `(7-12)`% of Elemental Damage as Erosion Damage"
+    rawAffix: "Adds `(7-12)`% of Elemental Damage as Erosion Damage",
   },
   {
-    "equipmentTypeKey": "cudgel",
-    "equipmentSlot": "Two-Handed",
-    "equipmentType": "Cudgel",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Damage Penetrates {0}% Elemental Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "cudgel",
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Cudgel",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "Damage Penetrates {0}% Elemental Resistance",
+    valueRanges: [
       {
-        "min": 8,
-        "max": 12
-      }
+        min: 8,
+        max: 12,
+      },
     ],
-    "rawAffix": "Damage Penetrates `(8-12)`% Elemental Resistance"
-  }
+    rawAffix: "Damage Penetrates `(8-12)`% Elemental Resistance",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type CudgelCorrosionBaseAffix = (typeof CUDGEL_CORROSION_BASE_AFFIXES)[number];
+export type CudgelCorrosionBaseAffix =
+  (typeof CUDGEL_CORROSION_BASE_AFFIXES)[number];

@@ -36,13 +36,13 @@ const normalizeEquipmentType = (type: string): string => {
 };
 
 const normalizeAffixType = (type: string): string => {
-  return type
-    .toLowerCase()
-    .replace(/\s+/g, "_"); // spaces → "_"
+  return type.toLowerCase().replace(/\s+/g, "_"); // spaces → "_"
 };
 
 const normalizeFileKey = (equipmentType: string, affixType: string): string => {
-  return normalizeEquipmentType(equipmentType) + "_" + normalizeAffixType(affixType);
+  return (
+    normalizeEquipmentType(equipmentType) + "_" + normalizeAffixType(affixType)
+  );
 };
 
 const parseAffixString = (affix: string): ParsedAffix => {
@@ -54,10 +54,13 @@ const parseAffixString = (affix: string): ParsedAffix => {
   // Pattern 1 & 2: Range values like `+(17-24)` or `(-6--4)` (handles negatives)
   // Important: Match the full pattern including prefix like `+`
   const rangePattern = /`([+-]?)(\((-?\d+)-(-?\d+)\))`/g;
-  template = template.replace(rangePattern, (match, prefix, _rangeWithParens, min, max) => {
-    valueRanges.push({ min: parseInt(min, 10), max: parseInt(max, 10) });
-    return `${prefix}{${placeholderIndex++}}`;
-  });
+  template = template.replace(
+    rangePattern,
+    (match, prefix, _rangeWithParens, min, max) => {
+      valueRanges.push({ min: parseInt(min, 10), max: parseInt(max, 10) });
+      return `${prefix}{${placeholderIndex++}}`;
+    },
+  );
 
   // Pattern 3: Fixed values (embed directly)
   const fixedPattern = /`(-?\d+(?:\.\d+)?)`/g;
@@ -81,7 +84,7 @@ const toPascalCase = (str: string): string => {
 
 const generateEquipmentAffixFile = (
   fileKey: string,
-  affixes: BaseGearAffix[]
+  affixes: BaseGearAffix[],
 ): string => {
   const constName = fileKey.toUpperCase() + "_AFFIXES";
   const typeName = toPascalCase(fileKey) + "Affix";
@@ -103,7 +106,9 @@ const generateIndexFile = (fileKeys: string[]): string => {
     })
     .join("\n");
 
-  const typeUnion = fileKeys.map((key) => toPascalCase(key) + "Affix").join("\n  | ");
+  const typeUnion = fileKeys
+    .map((key) => toPascalCase(key) + "Affix")
+    .join("\n  | ");
 
   const exports = fileKeys.map((key) => `export * from "./${key}";`).join("\n");
 
@@ -127,7 +132,9 @@ const generateAllAffixesFile = (fileKeys: string[]): string => {
     })
     .join("\n");
 
-  const arraySpread = fileKeys.map((key) => `  ...${key.toUpperCase()}_AFFIXES,`).join("\n");
+  const arraySpread = fileKeys
+    .map((key) => `  ...${key.toUpperCase()}_AFFIXES,`)
+    .join("\n");
 
   return `${imports}
 
@@ -139,7 +146,7 @@ ${arraySpread}
 
 const generateTypesFile = (
   equipmentTypeKeys: string[],
-  affixTypes: string[]
+  affixTypes: string[],
 ): string => {
   return `import { DmgRange } from "../core";
 
@@ -288,7 +295,7 @@ const main = async (): Promise<void> => {
   const typesPath = join(outDir, "types.ts");
   const typesContent = generateTypesFile(
     Array.from(equipmentTypeKeysSet),
-    Array.from(affixTypesSet)
+    Array.from(affixTypesSet),
   );
   await writeFile(typesPath, typesContent, "utf-8");
   console.log(`✓ Generated types.ts`);
@@ -312,7 +319,9 @@ const main = async (): Promise<void> => {
   console.log(`✓ Generated all_affixes.ts`);
 
   console.log("\n✓ Code generation complete!");
-  console.log(`Generated ${grouped.size} affix files with ${rawData.length} total affixes`);
+  console.log(
+    `Generated ${grouped.size} affix files with ${rawData.length} total affixes`,
+  );
 };
 
 if (require.main === module) {

@@ -60,6 +60,7 @@ Affix {
 Discriminated union with `type` field. See [src/tli/mod.ts](../src/tli/mod.ts).
 
 **Key types:**
+
 - `DmgPct` - Damage % (value, modType, addn)
 - `FlatGearDmg` - Flat damage (damageType, dmg: {min, max})
 - `CritRatingPct`, `CritDmgPct` - Crit stats
@@ -69,10 +70,12 @@ Discriminated union with `type` field. See [src/tli/mod.ts](../src/tli/mod.ts).
 - `CoreTalent` - Core talent selection
 
 **Modifier flags:**
+
 - `addn: false` = increased (sum then multiply)
 - `addn: true` = more/additive (multiply separately)
 
 **Modifier categories:**
+
 - `DmgModType`: global, melee, area, attack, spell, physical, cold, lightning, fire, erosion, elemental
 - `CritRatingModType`: global, attack, spell
 

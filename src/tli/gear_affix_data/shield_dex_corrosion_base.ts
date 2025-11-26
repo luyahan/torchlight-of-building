@@ -2,149 +2,150 @@ import { BaseGearAffix } from "./types";
 
 export const SHIELD_DEX_CORROSION_BASE_AFFIXES = [
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Cold Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Cold Resistance",
+    valueRanges: [
       {
-        "min": 1,
-        "max": 2
-      }
+        min: 1,
+        max: 2,
+      },
     ],
-    "rawAffix": "`+(1-2)`% Max Cold Resistance"
+    rawAffix: "`+(1-2)`% Max Cold Resistance",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Fire Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Fire Resistance",
+    valueRanges: [
       {
-        "min": 1,
-        "max": 2
-      }
+        min: 1,
+        max: 2,
+      },
     ],
-    "rawAffix": "`+(1-2)`% Max Fire Resistance"
+    rawAffix: "`+(1-2)`% Max Fire Resistance",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Lightning Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Lightning Resistance",
+    valueRanges: [
       {
-        "min": 1,
-        "max": 2
-      }
+        min: 1,
+        max: 2,
+      },
     ],
-    "rawAffix": "`+(1-2)`% Max Lightning Resistance"
+    rawAffix: "`+(1-2)`% Max Lightning Resistance",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Spell Block Chance",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Spell Block Chance",
+    valueRanges: [
       {
-        "min": 12,
-        "max": 15
-      }
+        min: 12,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(12-15)`% Spell Block Chance"
+    rawAffix: "`+(12-15)`% Spell Block Chance",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Energy Shield",
+    valueRanges: [
       {
-        "min": 3,
-        "max": 5
-      }
+        min: 3,
+        max: 5,
+      },
     ],
-    "rawAffix": "`+(3-5)`% Max Energy Shield"
+    rawAffix: "`+(3-5)`% Max Energy Shield",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Life",
+    valueRanges: [
       {
-        "min": 3,
-        "max": 5
-      }
+        min: 3,
+        max: 5,
+      },
     ],
-    "rawAffix": "`+(3-5)`% Max Life"
+    rawAffix: "`+(3-5)`% Max Life",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Block Ratio",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Block Ratio",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 8
-      }
+        min: 5,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(5-8)`% Block Ratio"
+    rawAffix: "`+(5-8)`% Block Ratio",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Attack Block Chance",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Attack Block Chance",
+    valueRanges: [
       {
-        "min": 8,
-        "max": 12
-      }
+        min: 8,
+        max: 12,
+      },
     ],
-    "rawAffix": "`+(8-12)`% Attack Block Chance"
+    rawAffix: "`+(8-12)`% Attack Block Chance",
   },
   {
-    "equipmentTypeKey": "shield_dex",
-    "equipmentSlot": "Shield",
-    "equipmentType": "Shield (DEX)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Has a {0}% chance to avoid Blocked damage",
-    "valueRanges": [
+    equipmentTypeKey: "shield_dex",
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "Has a {0}% chance to avoid Blocked damage",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "Has a `(5-10)`% chance to avoid Blocked damage"
-  }
+    rawAffix: "Has a `(5-10)`% chance to avoid Blocked damage",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type ShieldDexCorrosionBaseAffix = (typeof SHIELD_DEX_CORROSION_BASE_AFFIXES)[number];
+export type ShieldDexCorrosionBaseAffix =
+  (typeof SHIELD_DEX_CORROSION_BASE_AFFIXES)[number];

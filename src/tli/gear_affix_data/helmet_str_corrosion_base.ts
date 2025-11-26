@@ -2,155 +2,160 @@ import { BaseGearAffix } from "./types";
 
 export const HELMET_STR_CORROSION_BASE_AFFIXES = [
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "{0}% Cursed Effect",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "{0}% Cursed Effect",
+    valueRanges: [
       {
-        "min": -50,
-        "max": -30
-      }
+        min: -50,
+        max: -30,
+      },
     ],
-    "rawAffix": "`(-50--30)`% Cursed Effect"
+    rawAffix: "`(-50--30)`% Cursed Effect",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Sealed Mana Compensation",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Sealed Mana Compensation",
+    valueRanges: [
       {
-        "min": 10,
-        "max": 15
-      }
+        min: 10,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(10-15)`% Sealed Mana Compensation"
+    rawAffix: "`+(10-15)`% Sealed Mana Compensation",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Energy Shield",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`% Max Energy Shield"
+    rawAffix: "`+(15-20)`% Max Energy Shield",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Life",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`% Max Life"
+    rawAffix: "`+(15-20)`% Max Life",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Gear Armor",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Gear Armor",
+    valueRanges: [
       {
-        "min": 30,
-        "max": 50
-      }
+        min: 30,
+        max: 50,
+      },
     ],
-    "rawAffix": "`+(30-50)`% Gear Armor"
+    rawAffix: "`+(30-50)`% Gear Armor",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% damage",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% damage",
+    valueRanges: [
       {
-        "min": 50,
-        "max": 70
-      }
+        min: 50,
+        max: 70,
+      },
     ],
-    "rawAffix": "`+(50-70)`% damage"
+    rawAffix: "`+(50-70)`% damage",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Immune to Blinding\nImmune to Paralysis",
-    "valueRanges": [],
-    "rawAffix": "Immune to Blinding<> Immune to Paralysis"
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "Immune to Blinding\nImmune to Paralysis",
+    valueRanges: [],
+    rawAffix: "Immune to Blinding<> Immune to Paralysis",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Max Focus Blessing Stacks +1",
-    "valueRanges": [],
-    "rawAffix": "Max Focus Blessing Stacks `+1`"
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template: "Max Focus Blessing Stacks +1",
+    valueRanges: [],
+    rawAffix: "Max Focus Blessing Stacks `+1`",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Triggers Lv. {0}Timid Curse upon inflicting damage. Cooldown: 0.3s",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template:
+      "Triggers Lv. {0}Timid Curse upon inflicting damage. Cooldown: 0.3s",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "Triggers Lv. `(15-20)`Timid Curse upon inflicting damage. Cooldown: `0.3`s"
+    rawAffix:
+      "Triggers Lv. `(15-20)`Timid Curse upon inflicting damage. Cooldown: `0.3`s",
   },
   {
-    "equipmentTypeKey": "helmet_str",
-    "equipmentSlot": "Helmet",
-    "equipmentType": "Helmet (STR)",
-    "affixType": "Corrosion Base",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "Triggers Lv. {0}Entangled Pain Curse upon inflicting damage. Cooldown: 0.3s",
-    "valueRanges": [
+    equipmentTypeKey: "helmet_str",
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
+    affixType: "Corrosion Base",
+    craftingPool: "",
+    tier: "0",
+    template:
+      "Triggers Lv. {0}Entangled Pain Curse upon inflicting damage. Cooldown: 0.3s",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "Triggers Lv. `(15-20)`Entangled Pain Curse upon inflicting damage. Cooldown: `0.3`s"
-  }
+    rawAffix:
+      "Triggers Lv. `(15-20)`Entangled Pain Curse upon inflicting damage. Cooldown: `0.3`s",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type HelmetStrCorrosionBaseAffix = (typeof HELMET_STR_CORROSION_BASE_AFFIXES)[number];
+export type HelmetStrCorrosionBaseAffix =
+  (typeof HELMET_STR_CORROSION_BASE_AFFIXES)[number];

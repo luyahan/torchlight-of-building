@@ -29,9 +29,9 @@ type GearAffix = BootsDexPrefixAffix | RingSuffixAffix | ... // 250 types
 ```typescript
 import { craft, craftLines, ALL_GEAR_AFFIXES } from "@/tli/gear_affix_data";
 
-craft(affix, 0);    // Min roll
-craft(affix, 100);  // Max roll
-craftLines(affix, 100);  // Array of strings for multi-effect
+craft(affix, 0); // Min roll
+craft(affix, 100); // Max roll
+craftLines(affix, 100); // Array of strings for multi-effect
 ```
 
 ## Template System
@@ -44,11 +44,13 @@ craftLines(affix, 100);  // Array of strings for multi-effect
 ## Regeneration
 
 When `data/crafting_data.json` changes:
+
 ```bash
 pnpm exec tsx src/scripts/generate_gear_affix_data.ts
 ```
 
 Parsing logic in script:
+
 1. Replace `<>` with `\n`
 2. Extract ranges: `/`([+-]?)(\((-?\d+)-(-?\d+)\))`/g`
 3. Embed fixed values: `/`(-?\d+(?:\.\d+)?)`/g`

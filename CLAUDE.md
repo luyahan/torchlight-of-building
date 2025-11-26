@@ -13,11 +13,13 @@ Next.js 16 + React 19 + TypeScript character build planner for Torchlight Infini
 ## Key Conventions
 
 **Code Style:**
+
 - Use `const` arrow functions, not `function` declarations
 - Derive types from const arrays: `const X = [...] as const; type T = (typeof X)[number]`
 - No backwards compatibility for localStorage schemas
 
 **Data Flow:**
+
 ```
 RawLoadout (UI, strings) → parseMod() → Loadout (typed Mods) → calculateOffense() → Results
 ```
@@ -37,6 +39,7 @@ RawLoadout (UI, strings) → parseMod() → Loadout (typed Mods) → calculateOf
 ## Code Generation Pattern
 
 For large datasets (5k+ entries), use build-time code generation:
+
 1. Script in `src/scripts/` reads JSON data
 2. Groups/transforms data into TypeScript const arrays
 3. Generates files with `satisfies readonly T[]` for type safety

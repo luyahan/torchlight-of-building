@@ -15,7 +15,7 @@ const isValidDmgModType = (value: string): value is DmgModType => {
 };
 
 const isValidCritRatingModType = (
-  value: string
+  value: string,
 ): value is CritRatingModType => {
   return CRIT_RATING_MOD_TYPES.includes(value as CritRatingModType);
 };
@@ -59,7 +59,7 @@ const parseDmgPct = (input: string): ModOfType<"DmgPct"> | undefined => {
 };
 
 const parseCritRatingPct = (
-  input: string
+  input: string,
 ): ModOfType<"CritRatingPct"> | undefined => {
   // Regex to parse: +10% [Attack] Critical Strike Rating
   // The type word comes before "Critical Strike Rating"
@@ -93,7 +93,7 @@ const parseCritRatingPct = (
 };
 
 const parseCritDmgPct = (
-  input: string
+  input: string,
 ): ModOfType<"CritDmgPct"> | undefined => {
   // Regex to parse: +5% [additional] [Attack] Critical Strike Damage
   // The type word comes before "Critical Strike Damage"
@@ -174,7 +174,7 @@ const parseCspdPct = (input: string): ModOfType<"CspdPct"> | undefined => {
 };
 
 const parseAspdAndCspdPct = (
-  input: string
+  input: string,
 ): ModOfType<"AspdAndCspdPct"> | undefined => {
   // Regex to parse: +6% [additional] attack and cast speed
   const pattern =
@@ -199,7 +199,7 @@ const parseAspdAndCspdPct = (
 };
 
 const parseMinionAspdAndCspdPct = (
-  input: string
+  input: string,
 ): ModOfType<"MinionAspdAndCspdPct"> | undefined => {
   // Regex to parse: +6% [additional] minion attack and cast speed
   const pattern =
@@ -224,7 +224,7 @@ const parseMinionAspdAndCspdPct = (
 };
 
 const parseAttackBlockChancePct = (
-  input: string
+  input: string,
 ): ModOfType<"AttackBlockChancePct"> | undefined => {
   // Regex to parse: +4% Attack Block Chance
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% attack block chance$/i;
@@ -239,7 +239,7 @@ const parseAttackBlockChancePct = (
 };
 
 const parseSpellBlockChancePct = (
-  input: string
+  input: string,
 ): ModOfType<"SpellBlockChancePct"> | undefined => {
   // Regex to parse: +4% Spell Block Chance
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% spell block chance$/i;
@@ -254,7 +254,7 @@ const parseSpellBlockChancePct = (
 };
 
 const parseMaxLifePct = (
-  input: string
+  input: string,
 ): ModOfType<"MaxLifePct"> | undefined => {
   // Regex to parse: +3% Max Life
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% max life$/i;
@@ -269,7 +269,7 @@ const parseMaxLifePct = (
 };
 
 const parseMaxEnergyShieldPct = (
-  input: string
+  input: string,
 ): ModOfType<"MaxEnergyShieldPct"> | undefined => {
   // Regex to parse: +3% Max Energy Shield
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% max energy shield$/i;
@@ -297,7 +297,7 @@ const parseArmorPct = (input: string): ModOfType<"ArmorPct"> | undefined => {
 };
 
 const parseEvasionPct = (
-  input: string
+  input: string,
 ): ModOfType<"EvasionPct"> | undefined => {
   // Regex to parse: +5% Evasion
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% evasion$/i;
@@ -312,7 +312,7 @@ const parseEvasionPct = (
 };
 
 const parseLifeRegainPct = (
-  input: string
+  input: string,
 ): ModOfType<"LifeRegainPct"> | undefined => {
   // Regex to parse: 1.5% Life Regain
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% life regain$/i;
@@ -327,7 +327,7 @@ const parseLifeRegainPct = (
 };
 
 const parseEnergyShieldRegainPct = (
-  input: string
+  input: string,
 ): ModOfType<"EnergyShieldRegainPct"> | undefined => {
   // Regex to parse: 1.5% Energy Shield Regain
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% energy shield regain$/i;
@@ -342,7 +342,7 @@ const parseEnergyShieldRegainPct = (
 };
 
 const parseMultistrikeChancePct = (
-  input: string
+  input: string,
 ): ModOfType<"MultistrikeChancePct"> | undefined => {
   // Regex to parse: +32% chance to Multistrike
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% chance to multistrike$/i;
@@ -422,7 +422,7 @@ const parseFervorEff = (input: string): ModOfType<"FervorEff"> | undefined => {
 };
 
 const parseSteepStrikeChance = (
-  input: string
+  input: string,
 ): ModOfType<"SteepStrikeChance"> | undefined => {
   // Regex to parse: +12% Steep Strike chance
   const pattern = /^([+-])?(\d+(?:\.\d+)?)% steep strike chance$/i;

@@ -2,531 +2,535 @@ import { BaseGearAffix } from "./types";
 
 export const SCEPTER_PREFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "{0}% additional damage applied to Life",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "{0}% additional damage applied to Life",
+    valueRanges: [
       {
-        "min": 31,
-        "max": 39
-      }
+        min: 31,
+        max: 39,
+      },
     ],
-    "rawAffix": "`(31-39)`% additional damage applied to Life"
+    rawAffix: "`(31-39)`% additional damage applied to Life",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "+{0}% Elemental and Erosion Resistance Penetration",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "+{0}% Elemental and Erosion Resistance Penetration",
+    valueRanges: [
       {
-        "min": 28,
-        "max": 39
-      }
+        min: 28,
+        max: 39,
+      },
     ],
-    "rawAffix": "`+(28-39)`% Elemental and Erosion Resistance Penetration"
+    rawAffix: "`+(28-39)`% Elemental and Erosion Resistance Penetration",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "+{0}Spell Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "+{0}Spell Skill Level",
+    valueRanges: [
       {
-        "min": 3,
-        "max": 4
-      }
+        min: 3,
+        max: 4,
+      },
     ],
-    "rawAffix": "`+(3-4)`Spell Skill Level"
+    rawAffix: "`+(3-4)`Spell Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "Max Terra Charge Stacks +3",
-    "valueRanges": [],
-    "rawAffix": "Max Terra Charge Stacks `+3`"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "Max Terra Charge Stacks +3",
+    valueRanges: [],
+    rawAffix: "Max Terra Charge Stacks `+3`",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "{0}% additional damage applied to Life",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "{0}% additional damage applied to Life",
+    valueRanges: [
       {
-        "min": 22,
-        "max": 30
-      }
+        min: 22,
+        max: 30,
+      },
     ],
-    "rawAffix": "`(22-30)`% additional damage applied to Life"
+    rawAffix: "`(22-30)`% additional damage applied to Life",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "+{0}% Elemental and Erosion Resistance Penetration",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "+{0}% Elemental and Erosion Resistance Penetration",
+    valueRanges: [
       {
-        "min": 22,
-        "max": 30
-      }
+        min: 22,
+        max: 30,
+      },
     ],
-    "rawAffix": "`+(22-30)`% Elemental and Erosion Resistance Penetration"
+    rawAffix: "`+(22-30)`% Elemental and Erosion Resistance Penetration",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "+3Spell Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+3`Spell Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "+3Spell Skill Level",
+    valueRanges: [],
+    rawAffix: "`+3`Spell Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "Max Terra Charge Stacks +2",
-    "valueRanges": [],
-    "rawAffix": "Max Terra Charge Stacks `+2`"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "Max Terra Charge Stacks +2",
+    valueRanges: [],
+    rawAffix: "Max Terra Charge Stacks `+2`",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Cold Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Cold Skill Level",
+    valueRanges: [
       {
-        "min": 2,
-        "max": 3
-      }
+        min: 2,
+        max: 3,
+      },
     ],
-    "rawAffix": "`+(2-3)`Cold Skill Level"
+    rawAffix: "`+(2-3)`Cold Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Erosion Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Erosion Skill Level",
+    valueRanges: [
       {
-        "min": 2,
-        "max": 3
-      }
+        min: 2,
+        max: 3,
+      },
     ],
-    "rawAffix": "`+(2-3)`Erosion Skill Level"
+    rawAffix: "`+(2-3)`Erosion Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Fire Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Fire Skill Level",
+    valueRanges: [
       {
-        "min": 2,
-        "max": 3
-      }
+        min: 2,
+        max: 3,
+      },
     ],
-    "rawAffix": "`+(2-3)`Fire Skill Level"
+    rawAffix: "`+(2-3)`Fire Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Lightning Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Lightning Skill Level",
+    valueRanges: [
       {
-        "min": 2,
-        "max": 3
-      }
+        min: 2,
+        max: 3,
+      },
     ],
-    "rawAffix": "`+(2-3)`Lightning Skill Level"
+    rawAffix: "`+(2-3)`Lightning Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Physical Skill Level",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Physical Skill Level",
+    valueRanges: [
       {
-        "min": 2,
-        "max": 3
-      }
+        min: 2,
+        max: 3,
+      },
     ],
-    "rawAffix": "`+(2-3)`Physical Skill Level"
+    rawAffix: "`+(2-3)`Physical Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Dexterity",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Dexterity",
+    valueRanges: [
       {
-        "min": 91,
-        "max": 117
-      }
+        min: 91,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(91-117)`Dexterity"
+    rawAffix: "`+(91-117)`Dexterity",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Intelligence",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Intelligence",
+    valueRanges: [
       {
-        "min": 91,
-        "max": 117
-      }
+        min: 91,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(91-117)`Intelligence"
+    rawAffix: "`+(91-117)`Intelligence",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}Strength",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}Strength",
+    valueRanges: [
       {
-        "min": 91,
-        "max": 117
-      }
+        min: 91,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(91-117)`Strength"
+    rawAffix: "`+(91-117)`Strength",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+{0}Dexterity",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+{0}Dexterity",
+    valueRanges: [
       {
-        "min": 64,
-        "max": 90
-      }
+        min: 64,
+        max: 90,
+      },
     ],
-    "rawAffix": "`+(64-90)`Dexterity"
+    rawAffix: "`+(64-90)`Dexterity",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+{0}Intelligence",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+{0}Intelligence",
+    valueRanges: [
       {
-        "min": 64,
-        "max": 90
-      }
+        min: 64,
+        max: 90,
+      },
     ],
-    "rawAffix": "`+(64-90)`Intelligence"
+    rawAffix: "`+(64-90)`Intelligence",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+{0}Strength",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+{0}Strength",
+    valueRanges: [
       {
-        "min": 64,
-        "max": 90
-      }
+        min: 64,
+        max: 90,
+      },
     ],
-    "rawAffix": "`+(64-90)`Strength"
+    rawAffix: "`+(64-90)`Strength",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+2Cold Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Cold Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+2Cold Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Cold Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+2Erosion Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Erosion Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+2Erosion Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Erosion Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+2Fire Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Fire Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+2Fire Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Fire Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+2Lightning Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Lightning Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+2Lightning Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Lightning Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+2Physical Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Physical Skill Level"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+2Physical Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Physical Skill Level",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "Reaps (0.19-0.24)s of Damage Over Time when dealing Damage Over Time. The effect has a 1s cooldown against the same target",
-    "valueRanges": [],
-    "rawAffix": "Reaps `(0.19-0.24)`s of Damage Over Time when dealing Damage Over Time. The effect has a `1`s cooldown against the same target"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template:
+      "Reaps (0.19-0.24)s of Damage Over Time when dealing Damage Over Time. The effect has a 1s cooldown against the same target",
+    valueRanges: [],
+    rawAffix:
+      "Reaps `(0.19-0.24)`s of Damage Over Time when dealing Damage Over Time. The effect has a `1`s cooldown against the same target",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}% Damage Over Time",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}% Damage Over Time",
+    valueRanges: [
       {
-        "min": 109,
-        "max": 140
-      }
+        min: 109,
+        max: 140,
+      },
     ],
-    "rawAffix": "`+(109-140)`% Damage Over Time"
+    rawAffix: "`+(109-140)`% Damage Over Time",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Affliction inflicted per second",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Affliction inflicted per second",
+    valueRanges: [
       {
-        "min": 150,
-        "max": 188
-      }
+        min: 150,
+        max: 188,
+      },
     ],
-    "rawAffix": "`+(150-188)`Affliction inflicted per second"
+    rawAffix: "`+(150-188)`Affliction inflicted per second",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Max Mana",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Max Mana",
+    valueRanges: [
       {
-        "min": 181,
-        "max": 234
-      }
+        min: 181,
+        max: 234,
+      },
     ],
-    "rawAffix": "`+(181-234)`Max Mana"
+    rawAffix: "`+(181-234)`Max Mana",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 331,
-        "max": 429
-      }
+        min: 331,
+        max: 429,
+      },
     ],
-    "rawAffix": "`+(331-429)`Max Life"
+    rawAffix: "`+(331-429)`Max Life",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Max Energy Shield",
+    valueRanges: [
       {
-        "min": 526,
-        "max": 683
-      }
+        min: 526,
+        max: 683,
+      },
     ],
-    "rawAffix": "`+(526-683)`Max Energy Shield"
+    rawAffix: "`+(526-683)`Max Energy Shield",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "Reaps (0.13-0.18)s of Damage Over Time when dealing Damage Over Time. The effect has a 1s cooldown against the same target",
-    "valueRanges": [],
-    "rawAffix": "Reaps `(0.13-0.18)`s of Damage Over Time when dealing Damage Over Time. The effect has a `1`s cooldown against the same target"
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template:
+      "Reaps (0.13-0.18)s of Damage Over Time when dealing Damage Over Time. The effect has a 1s cooldown against the same target",
+    valueRanges: [],
+    rawAffix:
+      "Reaps `(0.13-0.18)`s of Damage Over Time when dealing Damage Over Time. The effect has a `1`s cooldown against the same target",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Affliction inflicted per second",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Affliction inflicted per second",
+    valueRanges: [
       {
-        "min": 120,
-        "max": 144
-      }
+        min: 120,
+        max: 144,
+      },
     ],
-    "rawAffix": "`+(120-144)`Affliction inflicted per second"
+    rawAffix: "`+(120-144)`Affliction inflicted per second",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Max Mana",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Max Mana",
+    valueRanges: [
       {
-        "min": 127,
-        "max": 180
-      }
+        min: 127,
+        max: 180,
+      },
     ],
-    "rawAffix": "`+(127-180)`Max Mana"
+    rawAffix: "`+(127-180)`Max Mana",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 232,
-        "max": 330
-      }
+        min: 232,
+        max: 330,
+      },
     ],
-    "rawAffix": "`+(232-330)`Max Life"
+    rawAffix: "`+(232-330)`Max Life",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Max Energy Shield",
+    valueRanges: [
       {
-        "min": 369,
-        "max": 525
-      }
+        min: 369,
+        max: 525,
+      },
     ],
-    "rawAffix": "`+(369-525)`Max Energy Shield"
+    rawAffix: "`+(369-525)`Max Energy Shield",
   },
   {
-    "equipmentTypeKey": "scepter",
-    "equipmentSlot": "One-Handed",
-    "equipmentType": "Scepter",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}% Damage Over Time",
-    "valueRanges": [
+    equipmentTypeKey: "scepter",
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}% Damage Over Time",
+    valueRanges: [
       {
-        "min": 77,
-        "max": 108
-      }
+        min: 77,
+        max: 108,
+      },
     ],
-    "rawAffix": "`+(77-108)`% Damage Over Time"
-  }
+    rawAffix: "`+(77-108)`% Damage Over Time",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
 export type ScepterPrefixAffix = (typeof SCEPTER_PREFIX_AFFIXES)[number];

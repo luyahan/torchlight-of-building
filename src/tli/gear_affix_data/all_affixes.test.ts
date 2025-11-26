@@ -20,14 +20,14 @@ describe("GearAffix type system", () => {
 
   test("ALL_GEAR_AFFIXES has affixes from different equipment types", () => {
     const equipmentTypes = new Set(
-      ALL_GEAR_AFFIXES.map((affix) => affix.equipmentType)
+      ALL_GEAR_AFFIXES.map((affix) => affix.equipmentType),
     );
     expect(equipmentTypes.size).toBeGreaterThan(30); // Should have 38 unique equipment types
   });
 
   test("ALL_GEAR_AFFIXES has affixes from different affix types", () => {
     const affixTypes = new Set(
-      ALL_GEAR_AFFIXES.map((affix) => affix.affixType)
+      ALL_GEAR_AFFIXES.map((affix) => affix.affixType),
     );
     expect(affixTypes.size).toBe(7); // Base Affix, Prefix, Suffix, Base Stats, Sweet Dream Affix, Tower Sequence, Corrosion Base
   });
@@ -43,14 +43,14 @@ describe("GearAffix type system", () => {
 
   test("can filter affixes by equipment type", () => {
     const bootsAffixes = ALL_GEAR_AFFIXES.filter(
-      (affix) => affix.equipmentSlot === "Boots"
+      (affix) => affix.equipmentSlot === "Boots",
     );
     expect(bootsAffixes.length).toBeGreaterThan(0);
   });
 
   test("can filter affixes by affix type", () => {
     const prefixAffixes = ALL_GEAR_AFFIXES.filter(
-      (affix) => affix.affixType === "Prefix"
+      (affix) => affix.affixType === "Prefix",
     );
     expect(prefixAffixes.length).toBeGreaterThan(0);
   });

@@ -2,671 +2,681 @@ import { BaseGearAffix } from "./types";
 
 export const BOOTS_DEX_PREFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "-45% additional Damage Over Time taken when having at least 50000Evasion",
-    "valueRanges": [],
-    "rawAffix": "`-45`% additional Damage Over Time taken when having at least `50000`Evasion"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template:
+      "-45% additional Damage Over Time taken when having at least 50000Evasion",
+    valueRanges: [],
+    rawAffix:
+      "`-45`% additional Damage Over Time taken when having at least `50000`Evasion",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "{0}% of damage is taken from Mana before life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "{0}% of damage is taken from Mana before life",
+    valueRanges: [
       {
-        "min": 21,
-        "max": 26
-      }
+        min: 21,
+        max: 26,
+      },
     ],
-    "rawAffix": "`(21-26)`% of damage is taken from Mana before life"
+    rawAffix: "`(21-26)`% of damage is taken from Mana before life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "+{0}% additional Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "+{0}% additional Max Life",
+    valueRanges: [
       {
-        "min": 16,
-        "max": 20
-      }
+        min: 16,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(16-20)`% additional Max Life"
+    rawAffix: "`+(16-20)`% additional Max Life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "+{0}% Spell Burst Charge Speed\n+10% chance to immediately gain 1stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template:
+      "+{0}% Spell Burst Charge Speed\n+10% chance to immediately gain 1stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
+    valueRanges: [
       {
-        "min": 31,
-        "max": 40
-      }
+        min: 31,
+        max: 40,
+      },
     ],
-    "rawAffix": "`+(31-40)`% Spell Burst Charge Speed<> `+10`% chance to immediately gain `1`stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s"
+    rawAffix:
+      "`+(31-40)`% Spell Burst Charge Speed<> `+10`% chance to immediately gain `1`stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "+{0}% chance to avoid Spell Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "+{0}% chance to avoid Spell Damage",
+    valueRanges: [
       {
-        "min": 31,
-        "max": 40
-      }
+        min: 31,
+        max: 40,
+      },
     ],
-    "rawAffix": "`+(31-40)`% chance to avoid Spell Damage"
+    rawAffix: "`+(31-40)`% chance to avoid Spell Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "70% chance to gain Blur per {0}m you move",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "70% chance to gain Blur per {0}m you move",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`70`% chance to gain Blur per `(5-10)`m you move"
+    rawAffix: "`70`% chance to gain Blur per `(5-10)`m you move",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "Converts {0}% of Physical Damage taken to Lightning Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "Converts {0}% of Physical Damage taken to Lightning Damage",
+    valueRanges: [
       {
-        "min": 16,
-        "max": 20
-      }
+        min: 16,
+        max: 20,
+      },
     ],
-    "rawAffix": "Converts `(16-20)`% of Physical Damage taken to Lightning Damage"
+    rawAffix:
+      "Converts `(16-20)`% of Physical Damage taken to Lightning Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "Converts {0}% of Erosion Damage taken to Lightning Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "Converts {0}% of Erosion Damage taken to Lightning Damage",
+    valueRanges: [
       {
-        "min": 36,
-        "max": 45
-      }
+        min: 36,
+        max: 45,
+      },
     ],
-    "rawAffix": "Converts `(36-45)`% of Erosion Damage taken to Lightning Damage"
+    rawAffix: "Converts `(36-45)`% of Erosion Damage taken to Lightning Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "0",
-    "template": "Triggers Lv. {0}Aim while standing still. Interval: 1s",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "0",
+    template: "Triggers Lv. {0}Aim while standing still. Interval: 1s",
+    valueRanges: [
       {
-        "min": 11,
-        "max": 20
-      }
+        min: 11,
+        max: 20,
+      },
     ],
-    "rawAffix": "Triggers Lv. `(11-20)`Aim while standing still. Interval: `1`s"
+    rawAffix: "Triggers Lv. `(11-20)`Aim while standing still. Interval: `1`s",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "-40% additional Damage Over Time taken when having at least 50000Evasion",
-    "valueRanges": [],
-    "rawAffix": "`-40`% additional Damage Over Time taken when having at least `50000`Evasion"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template:
+      "-40% additional Damage Over Time taken when having at least 50000Evasion",
+    valueRanges: [],
+    rawAffix:
+      "`-40`% additional Damage Over Time taken when having at least `50000`Evasion",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "{0}% of damage is taken from Mana before life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "{0}% of damage is taken from Mana before life",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`(15-20)`% of damage is taken from Mana before life"
+    rawAffix: "`(15-20)`% of damage is taken from Mana before life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "+{0}% additional Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "+{0}% additional Max Life",
+    valueRanges: [
       {
-        "min": 12,
-        "max": 15
-      }
+        min: 12,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(12-15)`% additional Max Life"
+    rawAffix: "`+(12-15)`% additional Max Life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "+{0}% Spell Burst Charge Speed\n+10% chance to immediately gain 1stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template:
+      "+{0}% Spell Burst Charge Speed\n+10% chance to immediately gain 1stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
+    valueRanges: [
       {
-        "min": 21,
-        "max": 30
-      }
+        min: 21,
+        max: 30,
+      },
     ],
-    "rawAffix": "`+(21-30)`% Spell Burst Charge Speed<> `+10`% chance to immediately gain `1`stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s"
+    rawAffix:
+      "`+(21-30)`% Spell Burst Charge Speed<> `+10`% chance to immediately gain `1`stack(s) of Spell Burst Charge when using a skill. Interval: 0.03s",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "+{0}% chance to avoid Spell Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "+{0}% chance to avoid Spell Damage",
+    valueRanges: [
       {
-        "min": 26,
-        "max": 30
-      }
+        min: 26,
+        max: 30,
+      },
     ],
-    "rawAffix": "`+(26-30)`% chance to avoid Spell Damage"
+    rawAffix: "`+(26-30)`% chance to avoid Spell Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "50% chance to gain Blur per {0}m you move",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "50% chance to gain Blur per {0}m you move",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`50`% chance to gain Blur per `(5-10)`m you move"
+    rawAffix: "`50`% chance to gain Blur per `(5-10)`m you move",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "Converts {0}% of Physical Damage taken to Lightning Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "Converts {0}% of Physical Damage taken to Lightning Damage",
+    valueRanges: [
       {
-        "min": 12,
-        "max": 15
-      }
+        min: 12,
+        max: 15,
+      },
     ],
-    "rawAffix": "Converts `(12-15)`% of Physical Damage taken to Lightning Damage"
+    rawAffix:
+      "Converts `(12-15)`% of Physical Damage taken to Lightning Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "Converts {0}% of Erosion Damage taken to Lightning Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "Converts {0}% of Erosion Damage taken to Lightning Damage",
+    valueRanges: [
       {
-        "min": 27,
-        "max": 35
-      }
+        min: 27,
+        max: 35,
+      },
     ],
-    "rawAffix": "Converts `(27-35)`% of Erosion Damage taken to Lightning Damage"
+    rawAffix: "Converts `(27-35)`% of Erosion Damage taken to Lightning Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Ultimate",
-    "tier": "1",
-    "template": "Triggers Lv. {0}Aim while standing still. Interval: 1s",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Ultimate",
+    tier: "1",
+    template: "Triggers Lv. {0}Aim while standing still. Interval: 1s",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 10
-      }
+        min: 6,
+        max: 10,
+      },
     ],
-    "rawAffix": "Triggers Lv. `(6-10)`Aim while standing still. Interval: `1`s"
+    rawAffix: "Triggers Lv. `(6-10)`Aim while standing still. Interval: `1`s",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}% Attack and Spell Block Chance",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}% Attack and Spell Block Chance",
+    valueRanges: [
       {
-        "min": 16,
-        "max": 20
-      }
+        min: 16,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(16-20)`% Attack and Spell Block Chance"
+    rawAffix: "`+(16-20)`% Attack and Spell Block Chance",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+{0}% Projectile Speed",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+{0}% Projectile Speed",
+    valueRanges: [
       {
-        "min": 46,
-        "max": 59
-      }
+        min: 46,
+        max: 59,
+      },
     ],
-    "rawAffix": "`+(46-59)`% Projectile Speed"
+    rawAffix: "`+(46-59)`% Projectile Speed",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Cold Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Cold Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Cold Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Cold Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Erosion Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Erosion Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Erosion Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Erosion Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Fire Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Fire Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Fire Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Fire Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Lightning Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Lightning Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Lightning Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Lightning Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Minion Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Minion Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Minion Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Minion Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "0",
-    "template": "+2Physical Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+2`Physical Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "0",
+    template: "+2Physical Skill Level",
+    valueRanges: [],
+    rawAffix: "`+2`Physical Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+{0}% Attack and Spell Block Chance",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+{0}% Attack and Spell Block Chance",
+    valueRanges: [
       {
-        "min": 12,
-        "max": 15
-      }
+        min: 12,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(12-15)`% Attack and Spell Block Chance"
+    rawAffix: "`+(12-15)`% Attack and Spell Block Chance",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+{0}% Projectile Speed",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+{0}% Projectile Speed",
+    valueRanges: [
       {
-        "min": 33,
-        "max": 45
-      }
+        min: 33,
+        max: 45,
+      },
     ],
-    "rawAffix": "`+(33-45)`% Projectile Speed"
+    rawAffix: "`+(33-45)`% Projectile Speed",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Cold Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Cold Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Cold Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Cold Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Erosion Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Erosion Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Erosion Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Erosion Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Fire Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Fire Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Fire Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Fire Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Lightning Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Lightning Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Lightning Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Lightning Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Minion Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Minion Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Minion Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Minion Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Advanced",
-    "tier": "1",
-    "template": "+1Physical Skill Level",
-    "valueRanges": [],
-    "rawAffix": "`+1`Physical Skill Level"
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Advanced",
+    tier: "1",
+    template: "+1Physical Skill Level",
+    valueRanges: [],
+    rawAffix: "`+1`Physical Skill Level",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Max Mana",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Max Mana",
+    valueRanges: [
       {
-        "min": 121,
-        "max": 156
-      }
+        min: 121,
+        max: 156,
+      },
     ],
-    "rawAffix": "`+(121-156)`Max Mana"
+    rawAffix: "`+(121-156)`Max Mana",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 221,
-        "max": 286
-      }
+        min: 221,
+        max: 286,
+      },
     ],
-    "rawAffix": "`+(221-286)`Max Life"
+    rawAffix: "`+(221-286)`Max Life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}gear Evasion",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}gear Evasion",
+    valueRanges: [
       {
-        "min": 2881,
-        "max": 3744
-      }
+        min: 2881,
+        max: 3744,
+      },
     ],
-    "rawAffix": "`+(2881-3744)`gear Evasion"
+    rawAffix: "`+(2881-3744)`gear Evasion",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}% Critical Strike Damage Mitigation",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}% Critical Strike Damage Mitigation",
+    valueRanges: [
       {
-        "min": 61,
-        "max": 78
-      }
+        min: 61,
+        max: 78,
+      },
     ],
-    "rawAffix": "`+(61-78)`% Critical Strike Damage Mitigation"
+    rawAffix: "`+(61-78)`% Critical Strike Damage Mitigation",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}% damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}% damage",
+    valueRanges: [
       {
-        "min": 73,
-        "max": 94
-      }
+        min: 73,
+        max: 94,
+      },
     ],
-    "rawAffix": "`+(73-94)`% damage"
+    rawAffix: "`+(73-94)`% damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "0",
-    "template": "+{0}% Minion Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "0",
+    template: "+{0}% Minion Damage",
+    valueRanges: [
       {
-        "min": 73,
-        "max": 94
-      }
+        min: 73,
+        max: 94,
+      },
     ],
-    "rawAffix": "`+(73-94)`% Minion Damage"
+    rawAffix: "`+(73-94)`% Minion Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 154,
-        "max": 220
-      }
+        min: 154,
+        max: 220,
+      },
     ],
-    "rawAffix": "`+(154-220)`Max Life"
+    rawAffix: "`+(154-220)`Max Life",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}gear Evasion",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}gear Evasion",
+    valueRanges: [
       {
-        "min": 2017,
-        "max": 2880
-      }
+        min: 2017,
+        max: 2880,
+      },
     ],
-    "rawAffix": "`+(2017-2880)`gear Evasion"
+    rawAffix: "`+(2017-2880)`gear Evasion",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}% Critical Strike Damage Mitigation",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}% Critical Strike Damage Mitigation",
+    valueRanges: [
       {
-        "min": 43,
-        "max": 60
-      }
+        min: 43,
+        max: 60,
+      },
     ],
-    "rawAffix": "`+(43-60)`% Critical Strike Damage Mitigation"
+    rawAffix: "`+(43-60)`% Critical Strike Damage Mitigation",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}% damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}% damage",
+    valueRanges: [
       {
-        "min": 51,
-        "max": 72
-      }
+        min: 51,
+        max: 72,
+      },
     ],
-    "rawAffix": "`+(51-72)`% damage"
+    rawAffix: "`+(51-72)`% damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}% Minion Damage",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}% Minion Damage",
+    valueRanges: [
       {
-        "min": 51,
-        "max": 72
-      }
+        min: 51,
+        max: 72,
+      },
     ],
-    "rawAffix": "`+(51-72)`% Minion Damage"
+    rawAffix: "`+(51-72)`% Minion Damage",
   },
   {
-    "equipmentTypeKey": "boots_dex",
-    "equipmentSlot": "Boots",
-    "equipmentType": "Boots (DEX)",
-    "affixType": "Prefix",
-    "craftingPool": "Basic",
-    "tier": "1",
-    "template": "+{0}Max Mana",
-    "valueRanges": [
+    equipmentTypeKey: "boots_dex",
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
+    affixType: "Prefix",
+    craftingPool: "Basic",
+    tier: "1",
+    template: "+{0}Max Mana",
+    valueRanges: [
       {
-        "min": 85,
-        "max": 120
-      }
+        min: 85,
+        max: 120,
+      },
     ],
-    "rawAffix": "`+(85-120)`Max Mana"
-  }
+    rawAffix: "`+(85-120)`Max Mana",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
 export type BootsDexPrefixAffix = (typeof BOOTS_DEX_PREFIX_AFFIXES)[number];

@@ -16,44 +16,49 @@ parseMod(input) {
 ```
 
 **Parser pattern:**
+
 ```typescript
 const parseXxx = (input: string): Extract<Mod, { type: "Xxx" }> | undefined => {
   const match = input.match(/^regex-pattern$/);
   if (!match) return undefined;
 
-  return { type: "Xxx", value: parseFloat(match[1]), /* ... */ };
+  return { type: "Xxx", value: parseFloat(match[1]) /* ... */ };
 };
 ```
 
 ## Common Regex Patterns
 
 **Percentage:**
+
 ```typescript
-/^([+-])?(\d+(?:\.\d+)?)%/
+/^([+-])?(\d+(?:\.\d+)?)%/;
 ```
 
 **With optional type:**
+
 ```typescript
-/^([+-])?(\d+(?:\.\d+)?)% (?:(\w+) )?damage$/
+/^([+-])?(\d+(?:\.\d+)?)% (?:(\w+) )?damage$/;
 // Matches: "10% damage", "10% fire damage", "+10% global damage"
 ```
 
 **With "additional" flag:**
+
 ```typescript
-/^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?attack speed$/
+/^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?attack speed$/;
 // "additional" → addn: true, otherwise addn: false
 ```
 
 **Flat value:**
+
 ```typescript
-/^([+-])?(\d+(?:\.\d+)?) strength$/
+/^([+-])?(\d+(?:\.\d+)?) strength$/;
 ```
 
 ## Sign/Value Handling
 
 ```typescript
 const sign = match[1] === "-" ? -1 : 1;
-const value = sign * (parseFloat(match[2]) / 100);  // For percentages
+const value = sign * (parseFloat(match[2]) / 100); // For percentages
 const addn = match[3] === "additional";
 const modType = (match[4] || "global") as DmgModType;
 ```
@@ -63,7 +68,9 @@ const modType = (match[4] || "global") as DmgModType;
 1. **Define mod type** in [mod.ts](../src/tli/mod.ts)
 2. **Create parser function:**
    ```typescript
-   const parseNewMod = (input: string): Extract<Mod, { type: "NewMod" }> | undefined => {
+   const parseNewMod = (
+     input: string,
+   ): Extract<Mod, { type: "NewMod" }> | undefined => {
      const match = input.match(/^your-regex$/);
      if (!match) return undefined;
      return { type: "NewMod", value: parseFloat(match[1]) };
@@ -80,14 +87,14 @@ const modType = (match[4] || "global") as DmgModType;
 ```typescript
 // ✓ Good
 const parsers = [
-  parseDmgPct,          // "10% fire damage"
-  parseAspdPct,         // "10% attack speed"
-  parseGenericPercent,  // "10% anything"
+  parseDmgPct, // "10% fire damage"
+  parseAspdPct, // "10% attack speed"
+  parseGenericPercent, // "10% anything"
 ];
 
 // ✗ Bad - generic matches first
 const parsers = [
-  parseGenericPercent,  // Matches everything, others never reached
+  parseGenericPercent, // Matches everything, others never reached
   parseDmgPct,
   parseAspdPct,
 ];

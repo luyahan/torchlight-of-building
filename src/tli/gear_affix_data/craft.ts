@@ -20,9 +20,11 @@ const interpolateValue = (range: ValueRange, percentage: number): number => {
  * craft({ template: "+{0}% Speed", valueRanges: [{ min: 17, max: 24 }] }, 50)  // "+21% Speed"
  * craft({ template: "+{0}% Speed", valueRanges: [{ min: 17, max: 24 }] }, 100) // "+24% Speed"
  */
-export const craft = <T extends { template: string; valueRanges: ValueRange[] }>(
+export const craft = <
+  T extends { template: string; valueRanges: ValueRange[] },
+>(
   affix: T,
-  percentage: number
+  percentage: number,
 ): string => {
   let result = affix.template;
 
@@ -46,9 +48,11 @@ export const craft = <T extends { template: string; valueRanges: ValueRange[] }>
  * craftLines({ template: "+{0}% Armor Pen\n+{1}% Armor Pen for Minions", valueRanges: [{ min: 5, max: 7 }, { min: 5, max: 7 }] }, 100)
  * // ["+7% Armor Pen", "+7% Armor Pen for Minions"]
  */
-export const craftLines = <T extends { template: string; valueRanges: ValueRange[] }>(
+export const craftLines = <
+  T extends { template: string; valueRanges: ValueRange[] },
+>(
   affix: T,
-  percentage: number
+  percentage: number,
 ): string[] => {
   const crafted = craft(affix, percentage);
   return crafted.split("\n");

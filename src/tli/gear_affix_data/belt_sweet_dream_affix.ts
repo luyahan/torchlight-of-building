@@ -2,261 +2,264 @@ import { BaseGearAffix } from "./types";
 
 export const BELT_SWEET_DREAM_AFFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Cooldown Recovery Speed",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Cooldown Recovery Speed",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 26
-      }
+        min: 20,
+        max: 26,
+      },
     ],
-    "rawAffix": "`+(20-26)`% Cooldown Recovery Speed"
+    rawAffix: "`+(20-26)`% Cooldown Recovery Speed",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Skill Effect Duration",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Skill Effect Duration",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 26
-      }
+        min: 20,
+        max: 26,
+      },
     ],
-    "rawAffix": "`+(20-26)`% Skill Effect Duration"
+    rawAffix: "`+(20-26)`% Skill Effect Duration",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Movement Speed",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Movement Speed",
+    valueRanges: [
       {
-        "min": 11,
-        "max": 15
-      }
+        min: 11,
+        max: 15,
+      },
     ],
-    "rawAffix": "`+(11-15)`% Movement Speed"
+    rawAffix: "`+(11-15)`% Movement Speed",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% chance to launch one more wave when casting a Barrage Skill",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "1",
+    template:
+      "+{0}% chance to launch one more wave when casting a Barrage Skill",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 25
-      }
+        min: 20,
+        max: 25,
+      },
     ],
-    "rawAffix": "`+(20-25)`% chance to launch one more wave when casting a Barrage Skill"
+    rawAffix:
+      "`+(20-25)`% chance to launch one more wave when casting a Barrage Skill",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Sealed Mana Compensation",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Sealed Mana Compensation",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Sealed Mana Compensation"
+    rawAffix: "`+(6-8)`% Sealed Mana Compensation",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Aura Effect",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Aura Effect",
+    valueRanges: [
       {
-        "min": 7,
-        "max": 8
-      }
+        min: 7,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(7-8)`% Aura Effect"
+    rawAffix: "`+(7-8)`% Aura Effect",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Dexterity",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Dexterity",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Dexterity"
+    rawAffix: "`+(15-20)`Dexterity",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Intelligence",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Intelligence",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Intelligence"
+    rawAffix: "`+(15-20)`Intelligence",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Strength",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Strength",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Strength"
+    rawAffix: "`+(15-20)`Strength",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Mana",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Mana",
+    valueRanges: [
       {
-        "min": 40,
-        "max": 60
-      }
+        min: 40,
+        max: 60,
+      },
     ],
-    "rawAffix": "`+(40-60)`Max Mana"
+    rawAffix: "`+(40-60)`Max Mana",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Cold Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Cold Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Cold Resistance"
+    rawAffix: "`+(5-10)`% Cold Resistance",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Erosion Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Erosion Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Erosion Resistance"
+    rawAffix: "`+(5-10)`% Erosion Resistance",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Fire Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Fire Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Fire Resistance"
+    rawAffix: "`+(5-10)`% Fire Resistance",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Lightning Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Lightning Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Lightning Resistance"
+    rawAffix: "`+(5-10)`% Lightning Resistance",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Life",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Life",
+    valueRanges: [
       {
-        "min": 54,
-        "max": 74
-      }
+        min: 54,
+        max: 74,
+      },
     ],
-    "rawAffix": "`+(54-74)`Max Life"
+    rawAffix: "`+(54-74)`Max Life",
   },
   {
-    "equipmentTypeKey": "belt",
-    "equipmentSlot": "Trinket",
-    "equipmentType": "Belt",
-    "affixType": "Sweet Dream Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "belt",
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
+    affixType: "Sweet Dream Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Energy Shield",
+    valueRanges: [
       {
-        "min": 87,
-        "max": 117
-      }
+        min: 87,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(87-117)`Max Energy Shield"
-  }
+    rawAffix: "`+(87-117)`Max Energy Shield",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type BeltSweetDreamAffixAffix = (typeof BELT_SWEET_DREAM_AFFIX_AFFIXES)[number];
+export type BeltSweetDreamAffixAffix =
+  (typeof BELT_SWEET_DREAM_AFFIX_AFFIXES)[number];

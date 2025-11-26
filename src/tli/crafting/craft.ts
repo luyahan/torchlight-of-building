@@ -24,7 +24,7 @@ export const craft = <
   T extends { template: string; valueRanges: ValueRange[] },
 >(
   affix: T,
-  percentage: number
+  percentage: number,
 ): string => {
   let result = affix.template;
 

@@ -2,280 +2,285 @@ import { BaseGearAffix } from "./types";
 
 export const GLOVES_INT_BASE_AFFIX_AFFIXES = [
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "0",
-    "template": "+{0}% Max Elemental Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "0",
+    template: "+{0}% Max Elemental Resistance",
+    valueRanges: [
       {
-        "min": 3,
-        "max": 5
-      }
+        min: 3,
+        max: 5,
+      },
     ],
-    "rawAffix": "`+(3-5)`% Max Elemental Resistance"
+    rawAffix: "`+(3-5)`% Max Elemental Resistance",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Armor DMG Mitigation Penetration\n+{1}% Armor DMG Mitigation Penetration for Minions",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template:
+      "+{0}% Armor DMG Mitigation Penetration\n+{1}% Armor DMG Mitigation Penetration for Minions",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 7
+        min: 5,
+        max: 7,
       },
       {
-        "min": 5,
-        "max": 7
-      }
+        min: 5,
+        max: 7,
+      },
     ],
-    "rawAffix": "`+(5-7)`% Armor DMG Mitigation Penetration<> `+(5-7)`% Armor DMG Mitigation Penetration for Minions"
+    rawAffix:
+      "`+(5-7)`% Armor DMG Mitigation Penetration<> `+(5-7)`% Armor DMG Mitigation Penetration for Minions",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Sealed Mana Compensation",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Sealed Mana Compensation",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Sealed Mana Compensation"
+    rawAffix: "`+(6-8)`% Sealed Mana Compensation",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Elemental and Erosion Resistance Penetration\n+{1}% Elemental and Erosion Resistance Penetration for Minions",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template:
+      "+{0}% Elemental and Erosion Resistance Penetration\n+{1}% Elemental and Erosion Resistance Penetration for Minions",
+    valueRanges: [
       {
-        "min": 6,
-        "max": 8
+        min: 6,
+        max: 8,
       },
       {
-        "min": 6,
-        "max": 8
-      }
+        min: 6,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(6-8)`% Elemental and Erosion Resistance Penetration<> `+(6-8)`% Elemental and Erosion Resistance Penetration for Minions"
+    rawAffix:
+      "`+(6-8)`% Elemental and Erosion Resistance Penetration<> `+(6-8)`% Elemental and Erosion Resistance Penetration for Minions",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+{0}% Aura Effect",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+{0}% Aura Effect",
+    valueRanges: [
       {
-        "min": 7,
-        "max": 8
-      }
+        min: 7,
+        max: 8,
+      },
     ],
-    "rawAffix": "`+(7-8)`% Aura Effect"
+    rawAffix: "`+(7-8)`% Aura Effect",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "1",
-    "template": "+100% chance to Paralyze the target on hit",
-    "valueRanges": [],
-    "rawAffix": "`+100`% chance to Paralyze the target on hit"
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "1",
+    template: "+100% chance to Paralyze the target on hit",
+    valueRanges: [],
+    rawAffix: "`+100`% chance to Paralyze the target on hit",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Critical Strike Damage Mitigation",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Critical Strike Damage Mitigation",
+    valueRanges: [
       {
-        "min": 12,
-        "max": 20
-      }
+        min: 12,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(12-20)`% Critical Strike Damage Mitigation"
+    rawAffix: "`+(12-20)`% Critical Strike Damage Mitigation",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Dexterity",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Dexterity",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Dexterity"
+    rawAffix: "`+(15-20)`Dexterity",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Intelligence",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Intelligence",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Intelligence"
+    rawAffix: "`+(15-20)`Intelligence",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Strength",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Strength",
+    valueRanges: [
       {
-        "min": 15,
-        "max": 20
-      }
+        min: 15,
+        max: 20,
+      },
     ],
-    "rawAffix": "`+(15-20)`Strength"
+    rawAffix: "`+(15-20)`Strength",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Skill Area",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Skill Area",
+    valueRanges: [
       {
-        "min": 20,
-        "max": 24
-      }
+        min: 20,
+        max: 24,
+      },
     ],
-    "rawAffix": "`+(20-24)`% Skill Area"
+    rawAffix: "`+(20-24)`% Skill Area",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Energy Shield Charge Speed",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Energy Shield Charge Speed",
+    valueRanges: [
       {
-        "min": 4,
-        "max": 6
-      }
+        min: 4,
+        max: 6,
+      },
     ],
-    "rawAffix": "`+(4-6)`% Energy Shield Charge Speed"
+    rawAffix: "`+(4-6)`% Energy Shield Charge Speed",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Cold Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Cold Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Cold Resistance"
+    rawAffix: "`+(5-10)`% Cold Resistance",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Erosion Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Erosion Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Erosion Resistance"
+    rawAffix: "`+(5-10)`% Erosion Resistance",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Fire Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Fire Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Fire Resistance"
+    rawAffix: "`+(5-10)`% Fire Resistance",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}% Lightning Resistance",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}% Lightning Resistance",
+    valueRanges: [
       {
-        "min": 5,
-        "max": 10
-      }
+        min: 5,
+        max: 10,
+      },
     ],
-    "rawAffix": "`+(5-10)`% Lightning Resistance"
+    rawAffix: "`+(5-10)`% Lightning Resistance",
   },
   {
-    "equipmentTypeKey": "gloves_int",
-    "equipmentSlot": "Gloves",
-    "equipmentType": "Gloves (INT)",
-    "affixType": "Base Affix",
-    "craftingPool": "",
-    "tier": "2",
-    "template": "+{0}Max Energy Shield",
-    "valueRanges": [
+    equipmentTypeKey: "gloves_int",
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
+    affixType: "Base Affix",
+    craftingPool: "",
+    tier: "2",
+    template: "+{0}Max Energy Shield",
+    valueRanges: [
       {
-        "min": 87,
-        "max": 117
-      }
+        min: 87,
+        max: 117,
+      },
     ],
-    "rawAffix": "`+(87-117)`Max Energy Shield"
-  }
+    rawAffix: "`+(87-117)`Max Energy Shield",
+  },
 ] as const satisfies readonly BaseGearAffix[];
 
-export type GlovesIntBaseAffixAffix = (typeof GLOVES_INT_BASE_AFFIX_AFFIXES)[number];
+export type GlovesIntBaseAffixAffix =
+  (typeof GLOVES_INT_BASE_AFFIX_AFFIXES)[number];
