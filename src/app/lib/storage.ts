@@ -1,6 +1,5 @@
 import { RawLoadout } from "@/src/tli/core";
-import { STORAGE_KEY, DEBUG_MODE_STORAGE_KEY } from "./constants";
-import { GearSlot } from "./types";
+import { DEBUG_MODE_STORAGE_KEY } from "./constants";
 
 export const generateItemId = (): string => crypto.randomUUID();
 
@@ -32,51 +31,3 @@ export const createEmptyLoadout = (): RawLoadout => ({
   },
   itemsList: [],
 });
-
-export const loadFromStorage = (): RawLoadout => {
-  if (typeof window === "undefined") return createEmptyLoadout();
-
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return createEmptyLoadout();
-    const parsed = JSON.parse(stored) as RawLoadout;
-
-    // Migration: ensure itemsList exists
-    if (!parsed.itemsList) {
-      parsed.itemsList = [];
-    }
-
-    // Migration: ensure all items have IDs
-    parsed.itemsList = parsed.itemsList.map((item) => ({
-      ...item,
-      id: item.id || generateItemId(),
-    }));
-
-    // Migration: ensure equipped items have IDs
-    const slots: GearSlot[] = [
-      "helmet", "chest", "neck", "gloves", "belt",
-      "boots", "leftRing", "rightRing", "mainHand", "offHand"
-    ];
-    slots.forEach((slot) => {
-      const gear = parsed.equipmentPage[slot];
-      if (gear && !gear.id) {
-        gear.id = generateItemId();
-      }
-    });
-
-    return parsed;
-  } catch (error) {
-    console.error("Failed to load from localStorage:", error);
-    return createEmptyLoadout();
-  }
-};
-
-export const saveToStorage = (loadout: RawLoadout): void => {
-  if (typeof window === "undefined") return;
-
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(loadout));
-  } catch (error) {
-    console.error("Failed to save to localStorage:", error);
-  }
-};

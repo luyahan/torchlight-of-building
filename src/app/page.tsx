@@ -18,13 +18,12 @@ import { craft } from "@/src/tli/crafting/craft";
 import { GearSlot, AffixSlotState, TreeSlot, ActivePage } from "./lib/types";
 import { GEAR_SLOTS } from "./lib/constants";
 import {
-  loadFromStorage,
-  saveToStorage,
   loadDebugModeFromStorage,
   saveDebugModeToStorage,
   createEmptyLoadout,
   generateItemId,
 } from "./lib/storage";
+import { decodeBuildCode, encodeBuildCode } from "./lib/build-code";
 import {
   getValidEquipmentTypes,
   getCompatibleItems,
@@ -40,6 +39,8 @@ import { EquipmentSlotDropdown } from "./components/equipment/EquipmentSlotDropd
 import { InventoryItem } from "./components/equipment/InventoryItem";
 import { TalentGrid } from "./components/talents/TalentGrid";
 import { SkillEntry } from "./components/skills/SkillEntry";
+import { ExportModal } from "./components/ExportModal";
+import { ImportModal } from "./components/ImportModal";
 
 export default function Home() {
   const [loadout, setLoadout] = useState<RawLoadout>(createEmptyLoadout);
@@ -63,10 +64,12 @@ export default function Home() {
   );
   const [debugMode, setDebugMode] = useState<boolean>(false);
   const [debugPanelExpanded, setDebugPanelExpanded] = useState<boolean>(true);
+  const [exportModalOpen, setExportModalOpen] = useState(false);
+  const [importModalOpen, setImportModalOpen] = useState(false);
+  const [buildCode, setBuildCode] = useState("");
 
   useEffect(() => {
     setMounted(true);
-    setLoadout(loadFromStorage());
     setDebugMode(loadDebugModeFromStorage());
   }, []);
 
@@ -262,9 +265,25 @@ export default function Home() {
     });
   };
 
-  const handleSave = () => {
-    saveToStorage(loadout);
-    alert("Loadout saved!");
+  const handleExport = () => {
+    const code = encodeBuildCode(loadout);
+    setBuildCode(code);
+    setExportModalOpen(true);
+  };
+
+  const handleImport = (code: string): boolean => {
+    const decoded = decodeBuildCode(code);
+    if (decoded) {
+      setLoadout(decoded);
+      return true;
+    }
+    return false;
+  };
+
+  const handleReset = () => {
+    if (confirm("Reset loadout? This will clear all equipment, talents, skills, and inventory items.")) {
+      setLoadout(createEmptyLoadout());
+    }
   };
 
   // Talent page handlers
@@ -785,15 +804,41 @@ export default function Home() {
           </div>
         )}
 
-        {/* Save Button */}
-        <div className="mt-8">
+        {/* Action Buttons */}
+        <div className="mt-8 flex gap-4">
           <button
-            onClick={handleSave}
-            className="w-full px-6 py-3 bg-green-600 text-white rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors"
+            onClick={handleExport}
+            className="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors"
           >
-            Save to LocalStorage
+            Export
+          </button>
+          <button
+            onClick={() => setImportModalOpen(true)}
+            className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
+          >
+            Import
+          </button>
+          <button
+            onClick={handleReset}
+            className="px-6 py-3 bg-red-600 text-white rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors"
+          >
+            Reset
           </button>
         </div>
+
+        {/* Export Modal */}
+        <ExportModal
+          isOpen={exportModalOpen}
+          onClose={() => setExportModalOpen(false)}
+          buildCode={buildCode}
+        />
+
+        {/* Import Modal */}
+        <ImportModal
+          isOpen={importModalOpen}
+          onClose={() => setImportModalOpen(false)}
+          onImport={handleImport}
+        />
 
         {/* Debug Panel */}
         {debugMode && (
