@@ -52,7 +52,7 @@ const extractHeroMemoryData = (html: string): HeroMemory[] => {
     const item: HeroMemory = {
       type: $(tds[0]).text().trim(),
       item: $(tds[1]).text().trim(),
-      effect: cleanEffectText($(tds[2]).html() || ""),
+      affix: cleanEffectText($(tds[2]).html() || ""),
     };
 
     items.push(item);

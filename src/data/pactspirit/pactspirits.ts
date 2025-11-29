@@ -41,17 +41,17 @@ export const Pactspirits = [
       name: "Damage Affliction II",
       affix: "+20% Affliction Effect",
     },
-    effect1:
+    affix1:
       "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed",
-    effect2:
+    affix2:
       "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+2% additional damage",
-    effect3:
+    affix3:
       "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+2% additional damage",
-    effect4:
+    affix4:
       "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+10% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect5:
+    affix5:
       "35% chance for Damage Over Time to spread to targets in Proximity\n+25% additional Reaping Cooldown Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect6:
+    affix6:
       "50% chance for Damage Over Time to spread to targets in Proximity\n+35% additional Reaping Cooldown Recovery Speed\n+20% Movement Speed if you have caused Reaping recently\n+4% additional damage",
   },
   {
@@ -94,16 +94,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.8% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n1.8% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n3.6% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n3.6% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
   },
   {
@@ -146,16 +146,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.4% additional damage to them\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.4% additional damage to them\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.8% additional damage to them\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.8% additional damage to them\n+4% additional damage",
   },
   {
@@ -198,16 +198,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n17.5 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n17.5 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+35 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+35 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
   },
   {
@@ -250,16 +250,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Attack Damage dealt to Nearby enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
   },
   {
@@ -302,16 +302,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Cold Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Cold Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Cold Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Cold Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% additional Cold Damage\n+4% additional damage",
   },
   {
@@ -354,16 +354,16 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1: "Gains 1 stack of Pure Heart when using an Attack Mobility Skill",
-    effect2:
+    affix1: "Gains 1 stack of Pure Heart when using an Attack Mobility Skill",
+    affix2:
       "Gains 1 stack of Pure Heart when using an Attack Mobility Skill\nWhen gaining Pure Heart, there is a 50% chance to gain 1 additional stack of Pure Heart",
-    effect3:
+    affix3:
       "Gains 1 stack of Pure Heart when using an Attack Mobility Skill\nWhen gaining Pure Heart, there is a 50% chance to gain 1 additional stack of Pure Heart\n-4% additional damage taken when Pure Heart is active",
-    effect4:
+    affix4:
       "Gains 1 stack of Pure Heart when using an Attack Mobility Skill\nWhen gaining Pure Heart, there is a 100% chance to gain 1 additional stack of Pure Heart\n-4% additional damage taken when Pure Heart is active",
-    effect5:
+    affix5:
       "Gains 1 stack of Pure Heart when using an Attack Mobility Skill\nWhen gaining Pure Heart, there is a 100% chance to gain 1 additional stack of Pure Heart\n-8% additional damage taken when Pure Heart is active",
-    effect6:
+    affix6:
       "Gains 1 stack of Pure Heart when using an Attack Mobility Skill\nWhen gaining Pure Heart, there is a 100% chance to gain 1 additional stack of Pure Heart\n-8% additional damage taken when Pure Heart is active\n+1 Max Pure Heart Stacks\n+100% Pure Heart Duration",
   },
   {
@@ -406,16 +406,16 @@ export const Pactspirits = [
       name: "Movement Speed II",
       affix: "+6% Movement Speed",
     },
-    effect1: "+35% Numbed Effect",
-    effect2:
+    affix1: "+35% Numbed Effect",
+    affix2:
       "+35% Numbed Effect\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.2 s",
-    effect3:
+    affix3:
       "+35% Numbed Effect\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.2 s\n+15% Movement Speed if you have inflicted Numbed recently",
-    effect4:
+    affix4:
       "+35% Numbed Effect\nWhen inflicting Numbed, restores 3% Missing Life and Energy Shield. Interval: 0.2 s\n+15% Movement Speed if you have inflicted Numbed recently",
-    effect5:
+    affix5:
       "+35% Numbed Effect\nWhen inflicting Numbed, restores 3% Missing Life and Energy Shield. Interval: 0.2 s\n+30% Movement Speed if you have inflicted Numbed recently",
-    effect6:
+    affix6:
       "+45% Numbed Effect\nWhen inflicting Numbed, restores 3% Missing Life and Energy Shield. Interval: 0.2 s\n+30% Movement Speed if you have inflicted Numbed recently",
   },
   {
@@ -458,16 +458,16 @@ export const Pactspirits = [
       name: "Erosion Penetration II",
       affix: "+5% Erosion Resistance Penetration",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+14% Erosion Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+14% Erosion Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+28% Erosion Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+28% Erosion Damage\n+4% additional damage",
   },
   {
@@ -510,16 +510,16 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+14% Attack Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+14% Attack Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+28% Attack Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+28% Attack Damage\n+4% additional damage",
   },
   {
@@ -562,17 +562,17 @@ export const Pactspirits = [
       name: "Attack and Cast Speed II",
       affix: "+8% Attack and Cast Speed",
     },
-    effect1:
+    affix1:
       "Bestows the surging power of lightning to the pact holder, granting + 14% additional Lightning Damage and + 15% additional Max Damage for 5s.\nCooldown: 10s.",
-    effect2:
+    affix2:
       "Bestows the surging power of lightning to the pact holder, granting + 14% additional Lightning Damage and + 15% additional Max Damage for 5s.\nCooldown: 10s.\n+6% additional Lightning Damage",
-    effect3:
+    affix3:
       "Bestows the surging power of lightning to the pact holder, granting + 14% additional Lightning Damage and + 15% additional Max Damage for 5s.\nCooldown: 10s.\n+6% additional Lightning Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "Bestows the surging power of lightning to the pact holder, granting + 14% additional Lightning Damage and + 15% additional Max Damage for 5s.\nCooldown: 10s.\n+12% additional Lightning Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "Bestows the surging power of lightning to the pact holder, granting + 14% additional Lightning Damage and + 15% additional Max Damage for 5s.\nCooldown: 10s.\n+12% additional Lightning Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "Bestows the surging power of lightning to the pact holder, granting + 19% additional Lightning Damage and + 20% additional Max Damage for 5s.\nCooldown: 10s.\n+12% additional Lightning Damage\n+4% additional damage",
   },
   {
@@ -615,16 +615,16 @@ export const Pactspirits = [
       name: "Warcry Effect II",
       affix: "+6% Warcry Effect",
     },
-    effect1: "Immediately casts Warcry. +20% additional Warcry Skill Effect",
-    effect2:
+    affix1: "Immediately casts Warcry. +20% additional Warcry Skill Effect",
+    affix2:
       "Immediately casts Warcry. +20% additional Warcry Skill Effect\n+11% Warcry Cooldown Recovery Speed",
-    effect3:
+    affix3:
       "Immediately casts Warcry. +20% additional Warcry Skill Effect\n+11% Warcry Cooldown Recovery Speed\n+1 Max Warcry Skill Charges",
-    effect4:
+    affix4:
       "Immediately casts Warcry. +20% additional Warcry Skill Effect\n+22% Warcry Cooldown Recovery Speed\n+1 Max Warcry Skill Charges",
-    effect5:
+    affix5:
       "Immediately casts Warcry. +20% additional Warcry Skill Effect\n+22% Warcry Cooldown Recovery Speed\n+2 Max Warcry Skill Charges",
-    effect6:
+    affix6:
       "Immediately casts Warcry. +25% additional Warcry Skill Effect\n+22% Warcry Cooldown Recovery Speed\n+2 Max Warcry Skill Charges",
   },
   {
@@ -667,16 +667,16 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+40 Critical Strike Rating for recently summoned Minions\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+40 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+80 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+80 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
   },
   {
@@ -719,16 +719,16 @@ export const Pactspirits = [
       name: "Cast Speed II",
       affix: "+8% Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n0.8% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n0.8% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n1.6% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n1.6% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
   },
   {
@@ -771,17 +771,17 @@ export const Pactspirits = [
       name: "Ailment Duration II",
       affix: "+12% Ailment Duration",
     },
-    effect1:
+    affix1:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect",
-    effect2:
+    affix2:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+2% additional damage",
-    effect3:
+    affix3:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% curse effect\n+2% additional damage",
-    effect4:
+    affix4:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+10% curse effect\n+4% additional damage",
-    effect5:
+    affix5:
       "+13% additional Ailment Damage against Cursed enemies\n11.5% Curse effect\n+20% curse effect\n+4% additional damage",
-    effect6:
+    affix6:
       "+18% additional Ailment Damage against Cursed enemies\n+15% Curse effect\n+20% curse effect\n+4% additional damage",
   },
   {
@@ -824,16 +824,16 @@ export const Pactspirits = [
       name: "Attack and Cast Speed II",
       affix: "+8% Attack and Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +2% additional damage for Channeled Skills for 4 s\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +2% additional damage for Channeled Skills for 4 s\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s\n+4% additional damage",
   },
   {
@@ -876,16 +876,16 @@ export const Pactspirits = [
       name: "Servant Speed II",
       affix: "+8% Minion Attack and Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+3% Movement Speed when a Spirit Magus is nearby\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+3% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+6% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+6% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
   },
   {
@@ -928,16 +928,16 @@ export const Pactspirits = [
       name: "Projectile Damage II",
       affix: "+20% Projectile Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Attack and Cast Speed when no enemies are in proximity\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+4% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+4% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
   },
   {
@@ -980,17 +980,17 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1:
+    affix1:
       "+40% Origin of Spirit Magus effect\n+5% additional Spirit Magus Skill Damage",
-    effect2:
+    affix2:
       "+40% Origin of Spirit Magus effect\n+5% additional Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+40% Origin of Spirit Magus effect\n+5% additional Spirit Magus Skill Damage\n+4% additional Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+40% Origin of Spirit Magus effect\n+5% additional Spirit Magus Skill Damage\n+4% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+40% Origin of Spirit Magus effect\n+5% additional Spirit Magus Skill Damage\n+8% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+55% Origin of Spirit Magus effect\n+7% additional Spirit Magus Skill Damage\n+8% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
   },
   {
@@ -1035,15 +1035,15 @@ export const Pactspirits = [
       name: "",
       affix: "",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\nRegenerates 0.3% Life per second\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\nRegenerates 0.3% Life per second\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\nRegenerates 0.6% Life per second\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\nRegenerates 0.6% Life per second\n-4% additional damage taken",
   },
   {
@@ -1086,16 +1086,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+1% additional Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+1% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+2% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
   },
   {
@@ -1138,15 +1138,15 @@ export const Pactspirits = [
       name: "",
       affix: "",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n2.5% Movement Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n2.5% Movement Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n+5% Movement Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n+5% Movement Speed\n-4% additional damage taken",
   },
   {
@@ -1189,15 +1189,15 @@ export const Pactspirits = [
       name: "",
       affix: "",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n+2% Energy Shield Charge Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n+2% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n+4% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n+4% Energy Shield Charge Speed\n-4% additional damage taken",
   },
   {
@@ -1240,16 +1240,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Movement Speed when a Spirit Magus is nearby\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% Movement Speed when a Spirit Magus is nearby\n+4% additional Minion Damage",
   },
   {
@@ -1292,16 +1292,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+1% additional Attack and Cast Speed when no enemies are in proximity\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+1% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+2% additional Attack and Cast Speed when no enemies are in proximity\n+4% additional damage",
   },
   {
@@ -1344,16 +1344,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +1% additional damage for Channeled Skills for 4 s\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +1% additional damage for Channeled Skills for 4 s\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nAt max channeled stacks, +2% additional damage for Channeled Skills for 4 s\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nAt max channeled stacks, +2% additional damage for Channeled Skills for 4 s\n+4% additional damage",
   },
   {
@@ -1396,17 +1396,17 @@ export const Pactspirits = [
       name: "Damage Affliction II",
       affix: "+20% Affliction Effect",
     },
-    effect1:
+    affix1:
       "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times",
-    effect2:
+    affix2:
       "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+2% additional damage",
-    effect3:
+    affix3:
       "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+2% additional damage",
-    effect4:
+    affix4:
       "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect5:
+    affix5:
       "Reaps 0.8 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+4% Reaping Duration for each recent Reaping, stacks up to 4 times\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect6:
+    affix6:
       "Reaps 1 s of Damage Over Time when inflicting an Ailment. The effect has a 6 s cooldown against the same target\n+6% Reaping Duration for each recent Reaping, stacks up to 4 times\n+14% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
   },
   {
@@ -1449,16 +1449,16 @@ export const Pactspirits = [
       name: "Movement Speed II",
       affix: "+6% Movement Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.4 s\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.4 s\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.4 s\n7.5% Movement Speed if you have inflicted Numbed recently\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.4 s\n7.5% Movement Speed if you have inflicted Numbed recently\n+4% additional damage",
   },
   {
@@ -1501,16 +1501,16 @@ export const Pactspirits = [
       name: "Warcry Effect II",
       affix: "+6% Warcry Effect",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n5.5% Warcry Cooldown Recovery Speed\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n5.5% Warcry Cooldown Recovery Speed\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+11% Warcry Cooldown Recovery Speed\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+11% Warcry Cooldown Recovery Speed\n+4% additional damage",
   },
   {
@@ -1553,17 +1553,17 @@ export const Pactspirits = [
       name: "Multistrike II",
       affix: "+45% Attack Critical Strike Rating",
     },
-    effect1:
+    affix1:
       "+16% additional Projectile Skill Critical Strike Damage against Distant enemies\n+40 Attack Projectile Skill Critical Strike Rating against Distant enemies",
-    effect2:
+    affix2:
       "+16% additional Projectile Skill Critical Strike Damage against Distant enemies\n+40 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+2% additional damage",
-    effect3:
+    affix3:
       "+16% additional Projectile Skill Critical Strike Damage against Distant enemies\n+40 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+70 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+16% additional Projectile Skill Critical Strike Damage against Distant enemies\n+40 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+70 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+16% additional Projectile Skill Critical Strike Damage against Distant enemies\n+40 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+140 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+21% additional Projectile Skill Critical Strike Damage against Distant enemies\n+55 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+140 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
   },
   {
@@ -1606,17 +1606,17 @@ export const Pactspirits = [
       name: "Multistrike II",
       affix: "+16% chance to Multistrike",
     },
-    effect1:
+    affix1:
       "+20% additional Attack Speed when only 1 enemies are Nearby\n+9% Movement Speed when at least 2 enemies are Nearby",
-    effect2:
+    affix2:
       "+20% additional Attack Speed when only 1 enemies are Nearby\n+9% Movement Speed when at least 2 enemies are Nearby\n+2% additional damage",
-    effect3:
+    affix3:
       "+20% additional Attack Speed when only 1 enemies are Nearby\n+9% Movement Speed when at least 2 enemies are Nearby\n+15% Movement Speed when at least 2 enemies are Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "+20% additional Attack Speed when only 1 enemies are Nearby\n+9% Movement Speed when at least 2 enemies are Nearby\n+15% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "+20% additional Attack Speed when only 1 enemies are Nearby\n+9% Movement Speed when at least 2 enemies are Nearby\n+30% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "+27% additional Attack Speed when only 1 enemies are Nearby\n+12% Movement Speed when at least 2 enemies are Nearby\n+30% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
   },
   {
@@ -1659,16 +1659,16 @@ export const Pactspirits = [
       name: "Ailment Duration II",
       affix: "+12% Ailment Duration",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+10% curse effect\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+10% curse effect\n+4% additional damage",
   },
   {
@@ -1711,16 +1711,16 @@ export const Pactspirits = [
       name: "Damage Affliction II",
       affix: "+20% Affliction Effect",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n3.5% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n3.5% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+7% Reaping Duration for each Reap dealt, stacking up to 4 times.\n+4% additional damage",
   },
   {
@@ -1763,16 +1763,16 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+4% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+4% additional Spirit Magus Skill Damage\n+4% additional Minion Damage",
   },
   {
@@ -1815,16 +1815,16 @@ export const Pactspirits = [
       name: "Damage Affliction II",
       affix: "+20% Affliction Effect",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+8 Affliction inflicted per second at Full Life.\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+8 Affliction inflicted per second at Full Life.\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+16 Affliction inflicted per second at Full Life.\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+16 Affliction inflicted per second at Full Life.\n+4% additional damage",
   },
   {
@@ -1867,16 +1867,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Lightning Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Lightning Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Lightning Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Lightning Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% additional Lightning Damage\n+4% additional damage",
   },
   {
@@ -1919,16 +1919,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Fire Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% additional Fire Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Fire Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Fire Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% additional Fire Damage\n+4% additional damage",
   },
   {
@@ -1971,15 +1971,15 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n-2% additional damage taken\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n-2% additional damage taken\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n-4% additional damage taken\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n-4% additional damage taken\n-4% additional damage taken",
   },
   {
@@ -2022,16 +2022,16 @@ export const Pactspirits = [
       name: "Frozen Time II",
       affix: "+14% Frostbite Duration",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Cold Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Cold Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Cold Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Cold Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+6% additional Cold Damage\n+4% additional damage",
   },
   {
@@ -2074,16 +2074,16 @@ export const Pactspirits = [
       name: "Critical Strike Damage II",
       affix: "+20% Critical Strike Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n4.5% Critical Strike Damage per Ailment on enemies, up to +9%\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n4.5% Critical Strike Damage per Ailment on enemies, up to +9%\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+9% Critical Strike Damage per Ailment on enemies, up to +18%\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+9% Critical Strike Damage per Ailment on enemies, up to +18%\n+4% additional damage",
   },
   {
@@ -2126,16 +2126,16 @@ export const Pactspirits = [
       name: "Attack and Cast Speed II",
       affix: "+8% Attack and Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Lightning Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Lightning Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Lightning Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Lightning Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+6% additional Lightning Damage\n+4% additional damage",
   },
   {
@@ -2178,16 +2178,16 @@ export const Pactspirits = [
       name: "Crowd Control Effects II",
       affix: "+10% crowd control effects",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.8% additional damage to them\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 0.8% additional damage to them\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 1.6% additional damage to them\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nFor every type of crowd control effect the enemy has, you and your Minions deal 1.6% additional damage to them\n+4% additional damage",
   },
   {
@@ -2230,17 +2230,17 @@ export const Pactspirits = [
       name: "Frozen Time II",
       affix: "+14% Frostbite Duration",
     },
-    effect1:
+    affix1:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s",
-    effect2:
+    affix2:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+6% additional Cold Damage",
-    effect3:
+    affix3:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+6% additional Cold Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+12% additional Cold Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +10% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+12% additional Cold Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "Focus energy to create an ice prison Near yourself and the Pact Holder, which debuffs Frostbitten enemies inside every second and makes them take +13% additional Cold Damage, up to 4 stacks, for 6s.\nCooldown: 10s\n+12% additional Cold Damage\n+4% additional damage",
   },
   {
@@ -2283,16 +2283,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n2.5% curse effect\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n2.5% curse effect\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+5% curse effect\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+5% curse effect\n+4% additional damage",
   },
   {
@@ -2335,16 +2335,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.8 s\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.8 s\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.8 s\n3.75% Movement Speed if you have inflicted Numbed recently\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\nWhen inflicting Numbed, restores 1.5% Missing Life and Energy Shield. Interval: 0.8 s\n3.75% Movement Speed if you have inflicted Numbed recently\n+4% additional damage",
   },
   {
@@ -2387,16 +2387,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+4% Movement Speed when at least 2 enemies are Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+4% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+8% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+8% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
   },
   {
@@ -2439,16 +2439,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n0.4% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n0.4% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n0.8% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n0.8% Elemental Resistance Penetration every time you hit an enemy with Elemental Damage recently. Stacks up to 4 times\n+4% additional damage",
   },
   {
@@ -2491,16 +2491,16 @@ export const Pactspirits = [
       name: "Projectile Damage II",
       affix: "+20% Projectile Damage",
     },
-    effect1: "Projectile Quantity +2",
-    effect2:
+    affix1: "Projectile Quantity +2",
+    affix2:
       "Projectile Quantity +2\n+4% additional Attack and Cast Speed when no enemies are in proximity",
-    effect3:
+    affix3:
       "Projectile Quantity +2\n+4% additional Attack and Cast Speed when no enemies are in proximity\n+24% Knockback distance",
-    effect4:
+    affix4:
       "Projectile Quantity +2\n+8% additional Attack and Cast Speed when no enemies are in proximity\n+24% Knockback distance",
-    effect5:
+    affix5:
       "Projectile Quantity +2\n+8% additional Attack and Cast Speed when no enemies are in proximity\n+48% Knockback distance",
-    effect6:
+    affix6:
       "Projectile Quantity +2\n+8% additional Attack and Cast Speed when no enemies are in proximity\n+48% Knockback distance\n+14% Projectile Speed",
   },
   {
@@ -2543,17 +2543,17 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1:
+    affix1:
       "-40% additional Physical Damage taken when there are only 1 enemies Nearby\n-3% additional damage taken",
-    effect2:
+    affix2:
       "-40% additional Physical Damage taken when there are only 1 enemies Nearby\n-3% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix3:
       "-40% additional Physical Damage taken when there are only 1 enemies Nearby\n-3% additional damage taken\n-4% additional damage taken\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-40% additional Physical Damage taken when there are only 1 enemies Nearby\n-3% additional damage taken\n-4% additional damage taken\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-40% additional Physical Damage taken when there are only 1 enemies Nearby\n-3% additional damage taken\n-8% additional damage taken\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-55% additional Physical Damage taken when there are only 1 enemies Nearby\n-4% additional damage taken\n-8% additional damage taken\n-4% additional damage taken",
   },
   {
@@ -2596,16 +2596,16 @@ export const Pactspirits = [
       name: "Skill Duration II",
       affix: "+10% Skill Effect Duration",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+28% Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+28% Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+56% Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+56% Spirit Magus Skill Damage\n+4% additional Minion Damage",
   },
   {
@@ -2648,16 +2648,16 @@ export const Pactspirits = [
       name: "Damage Affliction II",
       affix: "+20% Affliction Effect",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+5% Movement Speed if you have caused Reaping recently\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+5% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+10% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+10% Movement Speed if you have caused Reaping recently\n+4% additional damage",
   },
   {
@@ -2700,16 +2700,16 @@ export const Pactspirits = [
       name: "Spell Block II",
       affix: "+12% Spell Block Chance",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Block Ratio when there is a Boss Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% Block Ratio when there is a Boss Nearby\n+4% additional damage",
   },
   {
@@ -2752,16 +2752,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+2% Critical Strike Damage per Ailment on enemies, up to +4%\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+2% Critical Strike Damage per Ailment on enemies, up to +4%\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+4% Critical Strike Damage per Ailment on enemies, up to +8%\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+4% Critical Strike Damage per Ailment on enemies, up to +8%\n+4% additional damage",
   },
   {
@@ -2804,16 +2804,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+4 Affliction inflicted per second at Full Life.\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+4 Affliction inflicted per second at Full Life.\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+8 Affliction inflicted per second at Full Life.\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+8 Affliction inflicted per second at Full Life.\n+4% additional damage",
   },
   {
@@ -2856,16 +2856,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n1.5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+3% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+3% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
   },
   {
@@ -2908,16 +2908,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n2.75% Warcry Cooldown Recovery Speed\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n2.75% Warcry Cooldown Recovery Speed\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n5.5% Warcry Cooldown Recovery Speed\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n5.5% Warcry Cooldown Recovery Speed\n+4% additional damage",
   },
   {
@@ -2960,16 +2960,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+7% Spell Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+7% Spell Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+14% Spell Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+14% Spell Damage\n+4% additional damage",
   },
   {
@@ -3012,16 +3012,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+7% Attack Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+7% Attack Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+14% Attack Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+14% Attack Damage\n+4% additional damage",
   },
   {
@@ -3064,17 +3064,17 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1:
+    affix1:
       "+14% chance for Synthetic Troop Minions to deal Double Damage\n+6% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage",
-    effect2:
+    affix2:
       "+14% chance for Synthetic Troop Minions to deal Double Damage\n+6% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+14% chance for Synthetic Troop Minions to deal Double Damage\n+6% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage\n+10% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+14% chance for Synthetic Troop Minions to deal Double Damage\n+6% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage\n+10% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+14% chance for Synthetic Troop Minions to deal Double Damage\n+6% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage\n+20% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+19% chance for Synthetic Troop Minions to deal Double Damage\n+8% Minion Attack and Cast Speed for 4 s when your Synthetic Troop Minions deal Double Damage\n+20% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
   },
   {
@@ -3117,17 +3117,17 @@ export const Pactspirits = [
       name: "Fire Area II",
       affix: "+28% Fire Skill Area",
     },
-    effect1:
+    affix1:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.",
-    effect2:
+    affix2:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+6% additional Fire Damage",
-    effect3:
+    affix3:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+6% additional Fire Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+12% additional Fire Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 26% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+12% additional Fire Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "Covers targets within a 5m radius with flames and debuffs enemies within the area.\nDebuff: + 35% additional Fire Damage taken by the enemy for 3s.\nCooldown: 5 s.\n+12% additional Fire Damage\n+4% additional damage",
   },
   {
@@ -3173,15 +3173,15 @@ export const Pactspirits = [
       affix:
         "-20% XP falloff caused by the level difference between the player and the map",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\nRegenerates 0.6% Life per second\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\nRegenerates 0.6% Life per second\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\nRegenerates 1.2% Life per second\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\nRegenerates 1.2% Life per second\n-4% additional damage taken",
   },
   {
@@ -3224,16 +3224,16 @@ export const Pactspirits = [
       name: "Multistrike II",
       affix: "+16% chance to Multistrike",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n7.5% Movement Speed when at least 2 enemies are Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n7.5% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+15% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+15% Movement Speed when at least 2 enemies are Nearby\n+4% additional damage",
   },
   {
@@ -3276,17 +3276,17 @@ export const Pactspirits = [
       name: "Curse Effect II",
       affix: "+3% curse effect",
     },
-    effect1:
+    affix1:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently",
-    effect2:
+    affix2:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently\n+2% additional damage",
-    effect3:
+    affix3:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently\n+8% additional damage against Cursed enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently\n+8% additional damage against Cursed enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "You can cast 1 additional Curses\n+4% Movement Speed if you have cast a Curse Skill recently\n+16% additional damage against Cursed enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "You can cast 1 additional Curses\n6.5% Movement Speed if you have cast a Curse Skill recently\n+16% additional damage against Cursed enemies\n+4% additional damage",
   },
   {
@@ -3329,16 +3329,16 @@ export const Pactspirits = [
       name: "Erosion Penetration II",
       affix: "+5% Erosion Resistance Penetration",
     },
-    effect1: "Gains 1 stack of Repentance when gaining any Blessing",
-    effect2:
+    affix1: "Gains 1 stack of Repentance when gaining any Blessing",
+    affix2:
       "Gains 1 stack of Repentance when gaining any Blessing\n+1 Max Repentance Stacks",
-    effect3:
+    affix3:
       "Gains 1 stack of Repentance when gaining any Blessing\n+1 Max Repentance Stacks\n+1% Erosion Resistance per stack of Repentance",
-    effect4:
+    affix4:
       "Gains 1 stack of Repentance when gaining any Blessing\n+2 Max Repentance Stacks\n+1% Erosion Resistance per stack of Repentance",
-    effect5:
+    affix5:
       "Gains 1 stack of Repentance when gaining any Blessing\n+2 Max Repentance Stacks\n+3% Erosion Resistance per stack of Repentance",
-    effect6:
+    affix6:
       "Gains 1 stack of Repentance when gaining any Blessing\n+3 Max Repentance Stacks\n+3% Erosion Resistance per stack of Repentance",
   },
   {
@@ -3381,17 +3381,17 @@ export const Pactspirits = [
       name: "XP Protection II",
       affix: "-20% XP lost upon death",
     },
-    effect1:
+    affix1:
       "+30% Movement Speed if you haven't been hit recently\n+6% Movement Speed",
-    effect2:
+    affix2:
       "+30% Movement Speed if you haven't been hit recently\n+6% Movement Speed\n-2% additional damage taken",
-    effect3:
+    affix3:
       "+30% Movement Speed if you haven't been hit recently\n+6% Movement Speed\n+10% Movement Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "+30% Movement Speed if you haven't been hit recently\n+6% Movement Speed\n+10% Movement Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "+30% Movement Speed if you haven't been hit recently\n+6% Movement Speed\n+20% Movement Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "+40% Movement Speed if you haven't been hit recently\n+8% Movement Speed\n+20% Movement Speed\n-4% additional damage taken",
   },
   {
@@ -3434,17 +3434,17 @@ export const Pactspirits = [
       name: "Spell Block II",
       affix: "+12% Spell Block Chance",
     },
-    effect1:
+    affix1:
       "Attacks eliminate enemies under 15% Life on hit if you have Blocked recently",
-    effect2:
+    affix2:
       "Attacks eliminate enemies under 15% Life on hit if you have Blocked recently\n+2% additional damage",
-    effect3:
+    affix3:
       "Attacks eliminate enemies under 15% Life on hit if you have Blocked recently\n+3% Block Ratio when there is a Boss Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "Attacks eliminate enemies under 15% Life on hit if you have Blocked recently\n+3% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "Attacks eliminate enemies under 15% Life on hit if you have Blocked recently\n+6% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "Attacks eliminate enemies under 20% Life on hit if you have Blocked recently\n+6% Block Ratio when there is a Boss Nearby\n+4% additional damage",
   },
   {
@@ -3487,17 +3487,17 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1:
+    affix1:
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies",
-    effect2:
+    affix2:
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies\n+2% additional damage",
-    effect3:
+    affix3:
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies\n+6% additional Attack Damage dealt to Nearby enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies\n+6% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+19% chance for Attacks to inflict Paralysis on hit\n+10% additional Attack Damage dealt to Nearby enemies\n+12% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+26% chance for Attacks to inflict Paralysis on hit\n+14% additional Attack Damage dealt to Nearby enemies\n+12% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
   },
   {
@@ -3540,17 +3540,17 @@ export const Pactspirits = [
       name: "Skill Duration II",
       affix: "+10% Skill Effect Duration",
     },
-    effect1:
+    affix1:
       "+40% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal",
-    effect2:
+    affix2:
       "+40% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+40% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal\n+1 Spirit Magus Skill Level\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+40% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal\n+1 Spirit Magus Skill Level\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+40% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal\n+2 Spirit Magus Skill Level\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+53% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate when any two of Strength, Dexterity, and Intelligence are equal\n+2 Spirit Magus Skill Level\n+4% additional Minion Damage",
   },
   {
@@ -3593,16 +3593,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n0.8% Block Ratio when there is a Boss Nearby\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n0.8% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n1.6% Block Ratio when there is a Boss Nearby\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n1.6% Block Ratio when there is a Boss Nearby\n+4% additional damage",
   },
   {
@@ -3645,16 +3645,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+14% Spirit Magus Skill Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+14% Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+28% Spirit Magus Skill Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+28% Spirit Magus Skill Damage\n+4% additional Minion Damage",
   },
   {
@@ -3697,16 +3697,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Movement Speed if you have caused Reaping recently\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+5% Movement Speed if you have caused Reaping recently\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+5% Movement Speed if you have caused Reaping recently\n+4% additional damage",
   },
   {
@@ -3749,16 +3749,16 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+14% Elemental Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+14% Elemental Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+28% Elemental Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+28% Elemental Damage\n+4% additional damage",
   },
   {
@@ -3801,16 +3801,16 @@ export const Pactspirits = [
       name: "Cast Speed II",
       affix: "+8% Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+14% Spell Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+14% Spell Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+28% Spell Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+28% Spell Damage\n+4% additional damage",
   },
   {
@@ -3853,15 +3853,15 @@ export const Pactspirits = [
       name: "",
       affix: "",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n-1% additional damage taken\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n-1% additional damage taken\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n-2% additional damage taken\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n-2% additional damage taken\n-4% additional damage taken",
   },
   {
@@ -3904,16 +3904,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage against Cursed enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage against Cursed enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+4% additional damage against Cursed enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+4% additional damage against Cursed enemies\n+4% additional damage",
   },
   {
@@ -3956,16 +3956,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
   },
   {
@@ -4008,15 +4008,15 @@ export const Pactspirits = [
       name: "",
       affix: "",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\nConverts 1% of Physical Damage taken to random Elemental Damage\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\nConverts 1% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\nConverts 2% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\nConverts 2% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
   },
   {
@@ -4059,16 +4059,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+20 Critical Strike Rating for recently summoned Minions\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+20 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+40 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+40 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
   },
   {
@@ -4111,17 +4111,17 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1:
+    affix1:
       "+10% additional Max Energy Shield\n+6% Energy Shield Charge Speed",
-    effect2:
+    affix2:
       "+10% additional Max Energy Shield\n+6% Energy Shield Charge Speed\n-2% additional damage taken",
-    effect3:
+    affix3:
       "+10% additional Max Energy Shield\n+6% Energy Shield Charge Speed\n+8% Energy Shield Charge Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "+10% additional Max Energy Shield\n+6% Energy Shield Charge Speed\n+8% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "+10% additional Max Energy Shield\n+6% Energy Shield Charge Speed\n+16% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "+14% additional Max Energy Shield\n+8% Energy Shield Charge Speed\n+16% Energy Shield Charge Speed\n-4% additional damage taken",
   },
   {
@@ -4164,16 +4164,16 @@ export const Pactspirits = [
       name: "Servant Speed II",
       affix: "+8% Minion Attack and Cast Speed",
     },
-    effect1: "+60 initial Growth for Spirit Magi",
-    effect2:
+    affix1: "+60 initial Growth for Spirit Magi",
+    affix2:
       "+60 initial Growth for Spirit Magi\n+6% Movement Speed when a Spirit Magus is nearby",
-    effect3:
+    affix3:
       "+60 initial Growth for Spirit Magi\n+6% Movement Speed when a Spirit Magus is nearby\nFor every 20 Growth a Spirit Magus has, it deals +1% additional damage, up to +5% additional damage",
-    effect4:
+    affix4:
       "+60 initial Growth for Spirit Magi\n+12% Movement Speed when a Spirit Magus is nearby\nFor every 20 Growth a Spirit Magus has, it deals +1% additional damage, up to +5% additional damage",
-    effect5:
+    affix5:
       "+60 initial Growth for Spirit Magi\n+12% Movement Speed when a Spirit Magus is nearby\nFor every 20 Growth a Spirit Magus has, it deals +1% additional damage, up to +10% additional damage",
-    effect6:
+    affix6:
       "+75 initial Growth for Spirit Magi\n+12% Movement Speed when a Spirit Magus is nearby\nFor every 20 Growth a Spirit Magus has, it deals +1% additional damage, up to +10% additional damage",
   },
   {
@@ -4216,16 +4216,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+7% Elemental Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+7% Elemental Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+14% Elemental Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+14% Elemental Damage\n+4% additional damage",
   },
   {
@@ -4268,16 +4268,16 @@ export const Pactspirits = [
       name: "Damage II",
       affix: "+24% damage +24% Minion Damage",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+7% Erosion Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+7% Erosion Damage\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+14% Erosion Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+14% Erosion Damage\n+4% additional damage",
   },
   {
@@ -4320,16 +4320,16 @@ export const Pactspirits = [
       name: "Attack and Cast Speed II",
       affix: "+8% Attack and Cast Speed",
     },
-    effect1: "Max Channeled Stacks +2",
-    effect2:
+    affix1: "Max Channeled Stacks +2",
+    affix2:
       "Max Channeled Stacks +2\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s",
-    effect3:
+    affix3:
       "Max Channeled Stacks +2\nAt max channeled stacks, +4% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
-    effect4:
+    affix4:
       "Max Channeled Stacks +2\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 10 m",
-    effect5:
+    affix5:
       "Max Channeled Stacks +2\nAt max channeled stacks, +8% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
-    effect6:
+    affix6:
       "Max Channeled Stacks +2\nAt max channeled stacks, +12% additional damage for Channeled Skills for 4 s\nFor every 4 channeled stacks, inflicts Weaken on enemies within 20 m",
   },
   {
@@ -4372,17 +4372,17 @@ export const Pactspirits = [
       name: "Critical Strike Damage II",
       affix: "+20% Critical Strike Damage",
     },
-    effect1:
+    affix1:
       "+50 Spell Critical Strike Rating per Ailment on enemies, up to +100\n+6% Critical Strike Damage per Ailment on enemies, up to +12%",
-    effect2:
+    affix2:
       "+50 Spell Critical Strike Rating per Ailment on enemies, up to +100\n+6% Critical Strike Damage per Ailment on enemies, up to +12%\n+2% additional damage",
-    effect3:
+    affix3:
       "+50 Spell Critical Strike Rating per Ailment on enemies, up to +100\n+6% Critical Strike Damage per Ailment on enemies, up to +12%\n+9% Critical Strike Damage per Ailment on enemies, up to +18%\n+2% additional damage",
-    effect4:
+    affix4:
       "+50 Spell Critical Strike Rating per Ailment on enemies, up to +100\n+6% Critical Strike Damage per Ailment on enemies, up to +12%\n+9% Critical Strike Damage per Ailment on enemies, up to +18%\n+4% additional damage",
-    effect5:
+    affix5:
       "+50 Spell Critical Strike Rating per Ailment on enemies, up to +100\n+6% Critical Strike Damage per Ailment on enemies, up to +12%\n+18% Critical Strike Damage per Ailment on enemies, up to +36%\n+4% additional damage",
-    effect6:
+    affix6:
       "+70 Spell Critical Strike Rating per Ailment on enemies, up to +140\n+7% Critical Strike Damage per Ailment on enemies, up to +14%\n+18% Critical Strike Damage per Ailment on enemies, up to +36%\n+4% additional damage",
   },
   {
@@ -4425,15 +4425,15 @@ export const Pactspirits = [
       name: "XP Protection II",
       affix: "-20% XP lost upon death",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n+5% Movement Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n+5% Movement Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n+10% Movement Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n+10% Movement Speed\n-4% additional damage taken",
   },
   {
@@ -4476,16 +4476,16 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Attack Damage dealt to Nearby enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+6% additional Attack Damage dealt to Nearby enemies\n+4% additional damage",
   },
   {
@@ -4528,15 +4528,15 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\n+4% Energy Shield Charge Speed\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\n+4% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\n+8% Energy Shield Charge Speed\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\n+8% Energy Shield Charge Speed\n-4% additional damage taken",
   },
   {
@@ -4579,16 +4579,16 @@ export const Pactspirits = [
       name: "Multistrike II",
       affix: "+45% Attack Critical Strike Rating",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+35 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+35 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+70 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+70 Attack Projectile Skill Critical Strike Rating against Distant enemies\n+4% additional damage",
   },
   {
@@ -4631,16 +4631,16 @@ export const Pactspirits = [
       name: "Attack Speed II",
       affix: "+8% Attack Speed",
     },
-    effect1: "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed",
-    effect2:
+    affix1: "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed",
+    affix2:
       "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed\n+1 Max Valkyrie's Hymn Stacks",
-    effect3:
+    affix3:
       "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed\n+1 Max Valkyrie's Hymn Stacks\n+4% Elemental Damage for every stack of Valkyrie's Hymn",
-    effect4:
+    affix4:
       "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed\n+2 Max Valkyrie's Hymn Stacks\n+4% Elemental Damage for every stack of Valkyrie's Hymn",
-    effect5:
+    affix5:
       "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed\n+2 Max Valkyrie's Hymn Stacks\n+8% Elemental Damage for every stack of Valkyrie's Hymn",
-    effect6:
+    affix6:
       "Gains 1 stack of Valkyrie's Hymn for every 2% Max Mana consumed\n+2 Max Valkyrie's Hymn Stacks\n+8% Elemental Damage for every stack of Valkyrie's Hymn\nUpon reaching Max Valkyrie's Hymn Stacks, +10% Elemental Resistance Penetration",
   },
   {
@@ -4683,17 +4683,17 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1:
+    affix1:
       "+10% Elemental Resistance\nConverts 2% of Physical Damage taken to random Elemental Damage",
-    effect2:
+    affix2:
       "+10% Elemental Resistance\nConverts 2% of Physical Damage taken to random Elemental Damage\n-2% additional damage taken",
-    effect3:
+    affix3:
       "+10% Elemental Resistance\nConverts 2% of Physical Damage taken to random Elemental Damage\nConverts 4% of Physical Damage taken to random Elemental Damage\n-2% additional damage taken",
-    effect4:
+    affix4:
       "+10% Elemental Resistance\nConverts 2% of Physical Damage taken to random Elemental Damage\nConverts 4% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect5:
+    affix5:
       "+10% Elemental Resistance\nConverts 2% of Physical Damage taken to random Elemental Damage\nConverts 8% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect6:
+    affix6:
       "+14% Elemental Resistance\nConverts 3% of Physical Damage taken to random Elemental Damage\nConverts 8% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
   },
   {
@@ -4736,17 +4736,17 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1:
+    affix1:
       "+22% additional damage for recently summoned Minions\n+50 Critical Strike Rating for recently summoned Minions",
-    effect2:
+    affix2:
       "+22% additional damage for recently summoned Minions\n+50 Critical Strike Rating for recently summoned Minions\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+22% additional damage for recently summoned Minions\n+50 Critical Strike Rating for recently summoned Minions\n+80 Critical Strike Rating for recently summoned Minions\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+22% additional damage for recently summoned Minions\n+50 Critical Strike Rating for recently summoned Minions\n+80 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+22% additional damage for recently summoned Minions\n+50 Critical Strike Rating for recently summoned Minions\n+160 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+30% additional damage for recently summoned Minions\n+60 Critical Strike Rating for recently summoned Minions\n+160 Critical Strike Rating for recently summoned Minions\n+4% additional Minion Damage",
   },
   {
@@ -4789,16 +4789,16 @@ export const Pactspirits = [
       name: "Servant Life II",
       affix: "+8% Minion Max Life",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional Minion Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+2% additional Minion Damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+5% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+10% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+10% Minion Attack and Cast Speed for 4 s when your Synthetic Troops deal Double Damage\n+4% additional Minion Damage",
   },
   {
@@ -4841,16 +4841,16 @@ export const Pactspirits = [
       name: "Fire Area II",
       affix: "+28% Fire Skill Area",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Fire Damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+3% additional Fire Damage\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Fire Damage\n+2% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+6% additional Fire Damage\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+6% additional Fire Damage\n+4% additional damage",
   },
   {
@@ -4893,15 +4893,15 @@ export const Pactspirits = [
       name: "XP Bonus II",
       affix: "+6% XP earned",
     },
-    effect1: "-5% additional damage taken",
-    effect2: "-5% additional damage taken\n-2% additional damage taken",
-    effect3:
+    affix1: "-5% additional damage taken",
+    affix2: "-5% additional damage taken\n-2% additional damage taken",
+    affix3:
       "-5% additional damage taken\nConverts 2% of Physical Damage taken to random Elemental Damage\n-2% additional damage taken",
-    effect4:
+    affix4:
       "-5% additional damage taken\nConverts 2% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect5:
+    affix5:
       "-5% additional damage taken\nConverts 4% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
-    effect6:
+    affix6:
       "-6% additional damage taken\nConverts 4% of Physical Damage taken to random Elemental Damage\n-4% additional damage taken",
   },
   {
@@ -4944,16 +4944,16 @@ export const Pactspirits = [
       name: "Cast Speed II",
       affix: "+8% Cast Speed",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n2.5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+5% Movement Speed per second when an Elite is nearby, up to +3 stack(s)\n+4% additional damage",
   },
   {
@@ -4996,16 +4996,16 @@ export const Pactspirits = [
       name: "Curse Effect II",
       affix: "+3% curse effect",
     },
-    effect1: "+5% additional damage; +5% additional Minion Damage",
-    effect2:
+    affix1: "+5% additional damage; +5% additional Minion Damage",
+    affix2:
       "+5% additional damage; +5% additional Minion Damage\n+2% additional damage",
-    effect3:
+    affix3:
       "+5% additional damage; +5% additional Minion Damage\n+4% additional damage against Cursed enemies\n+2% additional damage",
-    effect4:
+    affix4:
       "+5% additional damage; +5% additional Minion Damage\n+4% additional damage against Cursed enemies\n+4% additional damage",
-    effect5:
+    affix5:
       "+5% additional damage; +5% additional Minion Damage\n+8% additional damage against Cursed enemies\n+4% additional damage",
-    effect6:
+    affix6:
       "+7% additional damage; +7% additional Minion Damage\n+8% additional damage against Cursed enemies\n+4% additional damage",
   },
   {
@@ -5048,17 +5048,17 @@ export const Pactspirits = [
       name: "Crowd Control Effects II",
       affix: "+10% crowd control effects",
     },
-    effect1:
+    affix1:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s",
-    effect2:
+    affix2:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s\n+2% additional damage",
-    effect3:
+    affix3:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s\nFor every type of crowd control effect the enemy has, you and your Minions deal 1.5% additional damage to them\n+2% additional damage",
-    effect4:
+    affix4:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s\nFor every type of crowd control effect the enemy has, you and your Minions deal 1.5% additional damage to them\n+4% additional damage",
-    effect5:
+    affix5:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 5 s\nFor every type of crowd control effect the enemy has, you and your Minions deal +3% additional damage to them\n+4% additional damage",
-    effect6:
+    affix6:
       "Inflicts Paralysis or Weaken on enemies within 10m in turn. Cooldown: 4 s\nFor every type of crowd control effect the enemy has, you and your Minions deal +3% additional damage to them\n+4% additional damage",
   },
 ] as const satisfies readonly Pactspirit[];

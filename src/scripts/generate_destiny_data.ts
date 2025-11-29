@@ -51,7 +51,7 @@ const extractDestinyData = (html: string): Destiny[] => {
     const item: Destiny = {
       type: $(tds[0]).text().trim(),
       name: $(tds[1]).text().trim(),
-      effect: cleanEffectText($(tds[2]).html() || ""),
+      affix: cleanEffectText($(tds[2]).html() || ""),
     };
 
     items.push(item);

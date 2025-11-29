@@ -16,10 +16,10 @@ export interface Pactspirit {
   midRing1: PactspiritRingDetails;
   midRing2: PactspiritRingDetails;
   midRing3: PactspiritRingDetails;
-  effect1: string;
-  effect2: string;
-  effect3: string;
-  effect4: string;
-  effect5: string;
-  effect6: string;
+  affix1: string;
+  affix2: string;
+  affix3: string;
+  affix4: string;
+  affix5: string;
+  affix6: string;
 }

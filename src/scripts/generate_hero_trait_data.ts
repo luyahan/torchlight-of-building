@@ -55,7 +55,7 @@ const extractHeroTraitData = (html: string): HeroTrait[] => {
       hero,
       name,
       level,
-      effect: cleanEffectText(effectHtml),
+      affix: cleanEffectText(effectHtml),
     };
 
     traits.push(trait);

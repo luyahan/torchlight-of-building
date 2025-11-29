@@ -50,7 +50,7 @@ const extractBlendData = (html: string): Blend[] => {
 
     const item: Blend = {
       type: $(tds[0]).text().trim(),
-      effect: cleanEffectText($(tds[1]).html() || ""),
+      affix: cleanEffectText($(tds[1]).html() || ""),
     };
 
     items.push(item);

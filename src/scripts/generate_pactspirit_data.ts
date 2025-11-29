@@ -139,12 +139,12 @@ const extractPactspirit = (
     midRing1: midRings[0] || emptyRingDetails(),
     midRing2: midRings[1] || emptyRingDetails(),
     midRing3: midRings[2] || emptyRingDetails(),
-    effect1: effects["effect1"] || "",
-    effect2: effects["effect2"] || "",
-    effect3: effects["effect3"] || "",
-    effect4: effects["effect4"] || "",
-    effect5: effects["effect5"] || "",
-    effect6: effects["effect6"] || "",
+    affix1: effects["effect1"] || "",
+    affix2: effects["effect2"] || "",
+    affix3: effects["effect3"] || "",
+    affix4: effects["effect4"] || "",
+    affix5: effects["effect5"] || "",
+    affix6: effects["effect6"] || "",
   };
 };
 

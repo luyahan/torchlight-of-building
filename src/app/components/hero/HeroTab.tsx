@@ -73,7 +73,7 @@ const TraitItem: React.FC<{
             {trait.name}
           </div>
           <div className="text-xs text-zinc-400 whitespace-pre-wrap max-h-64 overflow-y-auto">
-            {trait.effect}
+            {trait.affix}
           </div>
         </div>
       </div>,
