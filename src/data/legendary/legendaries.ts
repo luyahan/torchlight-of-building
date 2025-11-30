@@ -19,6 +19,8 @@ export const Legendaries = [
       "+(105-120)% Reaping Cooldown Recovery Speed",
       "+(30-32)% additional Trauma Damage for each Critical Strike dealt recently. Stacks up to 3 time(s) (multiplies)",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Imperishable Black Robe",
@@ -34,6 +36,8 @@ export const Legendaries = [
       "+(3-4) Main Skill Level",
       "Takes 15 True Damage every 0.1s if you haven't used a Main Skill recently",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "All Magic Secret Robe",
@@ -53,6 +57,8 @@ export const Legendaries = [
       "Converts (26-30)% of Physical Damage and Elemental Damage taken to Erosion Damage",
       "+(21-28)% Erosion Resistance Penetration and +(16-20)% Life Regain and Energy Shield Regain if you have used a Erosion Skill recently",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Scribe's Boots",
@@ -70,6 +76,8 @@ export const Legendaries = [
       "-10% player Movement Speed",
       "+(60-70) Max Life",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Old King's Rerebraces",
@@ -87,6 +95,8 @@ export const Legendaries = [
       "+(26-30)% Life Regain and Energy Shield Regain for Minions",
       "(19-21)% of the Life and Energy Shield Regain Effect of Synthetic Troop Minions is also applied to you",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Twilight Square Shield",
@@ -106,6 +116,8 @@ export const Legendaries = [
       "+39% Attack and Spell Block Chance",
       "You take 500 Secondary Physical Damage when Blocking",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (INT)",
   },
   {
     baseItem: "Imperishable Touch",
@@ -125,6 +137,8 @@ export const Legendaries = [
       "+(42-50)% additional Max ManaThe skill cost is fixed at (1-100)",
       "1.5% additional Spell Damage for every (75-100) Max Mana owned, up to 150%",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Dragon Guardian Handguards",
@@ -142,6 +156,8 @@ export const Legendaries = [
       "+(2-8)% Life Regain-10% additional Regain Interval",
       "Double Life Regain-20% additional Life Regain Interval",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Black Pass Board Axe",
@@ -162,6 +178,8 @@ export const Legendaries = [
       "+(80-100)% attack Critical Strike Damage",
       "[Sacrifice] Changes the base effect of Tenacity Blessing to: +8% additional damageOwn 2 additional stacks of Tenacity Blessing",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Axe",
   },
   {
     baseItem: "Old King's Armor",
@@ -181,6 +199,8 @@ export const Legendaries = [
       "+(35-40)% additional Life Regeneration Speed when at Low Life",
       "Restores 3% Max Life every second for 4s upon hitting an enemy under at least 3 control effects.",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Old King's Armor",
@@ -198,6 +218,8 @@ export const Legendaries = [
       "+5 Aura Skill Level",
       "+(15-20)% Armor Effective Rate for Non-Physical Damage",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Scribe's Boots",
@@ -215,6 +237,8 @@ export const Legendaries = [
       "+(24-28)% Movement Speed",
       "+20% Attack, Cast, and Movement Speed when Energy Shield is not full",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Old King's Crown",
@@ -234,6 +258,8 @@ export const Legendaries = [
       "+(10-50) Skill Cost",
       "+(51-60)% Armor DMG Mitigation Penetration for Attack Skills if you have consumed more than +150% of Max Life recently",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Hunter's Gloves",
@@ -249,6 +275,8 @@ export const Legendaries = [
       "+(20-30)% Attack and Cast Speed",
       "+(70-80)% Critical Strike Rating",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Ranger's Rusted Gauntlets",
@@ -268,6 +296,8 @@ export const Legendaries = [
       "+(6-8)% additional Sentry Damage for every nearby Sentry within 10m",
       "+(6-8)% Armor Effective Rate for non-Physical DMG for every nearby Sentry within 10m",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Ranger's Rusted Gauntlets",
@@ -285,6 +315,8 @@ export const Legendaries = [
       "Consumes (15-20)% of current Life on skill use",
       "-10% Life Regeneration Speed",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Secret Shadow's Shoes",
@@ -302,6 +334,8 @@ export const Legendaries = [
       "+(35-45)% additional damage for Mobility Skills",
       "When using a Mobility Skill, you can use 1 stacks of Agility Blessing to reset the Mobility Skill's cooldown. Interval: 0.3s.",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Cinnabar Pendant",
@@ -319,6 +353,8 @@ export const Legendaries = [
       "+156% Attack and Spell Critical Strike Rating when the Energy Shield is not low.",
       "-30% additional Energy Shield Charge Interval",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "All Magic Secret Robe",
@@ -336,6 +372,8 @@ export const Legendaries = [
       "+25% additional Deterioration Damage taken per stack of Deterioration the enemy has. Stacks up to 10 time(s)",
       "-50% additional Deterioration Duration+(15-30)% Deterioration Damage",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Secret Shadow's Mask",
@@ -353,6 +391,8 @@ export const Legendaries = [
       "(70-90)% of the Projectile Speed bonus is also applied to Projectile Damage",
       "+20% chance to cause Blinding on hit",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Wild Dominator Handguards",
@@ -370,6 +410,8 @@ export const Legendaries = [
       "-15% additional damage inflicted by Blind enemies",
       "+26% additional damage to Blinded enemies",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Wind Blade Waistguard",
@@ -385,6 +427,8 @@ export const Legendaries = [
       "<A random Combo Starter or Finisher Affix>",
       "+(5.0-5.5)% additional damage for every 1 Combo Point consumed on Critical Strike from Combo Finishers",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Packleader Handguards",
@@ -402,6 +446,8 @@ export const Legendaries = [
       "Triggers Lv. (26-30) Groundshaker when inflicting Paralysis. Interval: 1.5s.",
       "Knockback direction is reversed+30% Knockback distance",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Packleader Helmet",
@@ -417,6 +463,8 @@ export const Legendaries = [
       "+(60-80)% chance to gain a Barrier when taking damage. Interval: 3s.",
       "Adds (37-43) - (45-52) Physical Damage to Main-Hand Weapon while Barrier is active",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Old King's Sabatons",
@@ -434,6 +482,8 @@ export const Legendaries = [
       "+(25-30)% Warcry Effect",
       "+(60-70)% additional damage when a Skill consumes Demolisher Charge",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Paladin's Iron Greaves",
@@ -451,6 +501,8 @@ export const Legendaries = [
       "+(80-100)% damage against Ignited enemies",
       "(-30--50)% additional Ignite Damage taken",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Burning Flame Ring",
@@ -466,6 +518,8 @@ export const Legendaries = [
       "+13% Fire Damage for every 10 level(s)",
       "Regenerates (41-50) Life per second",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Black Feather Long Bow",
@@ -486,6 +540,8 @@ export const Legendaries = [
       "Adds (45-50)% of Physical Damage as Fire, Cold, and Lightning Damage",
       "-50% additional Spell Damage-50% additional Minion Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Bow",
   },
   {
     baseItem: "Witchdoctor's Mask",
@@ -501,6 +557,8 @@ export const Legendaries = [
       "+1 Max Spell Burst+(10-15)% additional Spell Damage",
       "(-15--10)% additional Spell Burst Charge Speed",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Ripple Pendant",
@@ -518,6 +576,8 @@ export const Legendaries = [
       "-15% additional Sweep Slash Damage; +(140-160)% additional Steep Strike Damage",
       "+(38-44)% Fire Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Sealed Ice Ring",
@@ -537,6 +597,8 @@ export const Legendaries = [
       "+(49-56)% Cold and Erosion Resistance",
       "You cannot inflict Freeze",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Rottenbone Zapper",
@@ -557,6 +619,8 @@ export const Legendaries = [
       "+100% chance to gain 1 stack of Agility Blessing on defeat",
       "When using a Mobility Skill, you can use (1-2) stacks of Agility Blessing to reset the Mobility Skill's cooldown. Interval: 0.3s.",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
   },
   {
     baseItem: "Wind Blade Waistguard",
@@ -572,6 +636,8 @@ export const Legendaries = [
       "+60% Minion Damage",
       "Gains 5 Growth for 25s when Minions land a Critical Strike, up to (55-70).",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Tortoiseshell Amulet",
@@ -591,6 +657,8 @@ export const Legendaries = [
       "Blur gains an additional effect: +1 Affliction inflicted per second for every 5 points of Blur Rating+25% Blur Effect",
       "Gains (5-10) points of Blur Rating for every 2 m of movement",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Tortoiseshell Amulet",
@@ -608,6 +676,8 @@ export const Legendaries = [
       "+50% Skill Area if you have defeated an enemy recently",
       "+(72-86)% Area Damage if no enemies are defeated recently",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Secret Shadow's Wrists",
@@ -627,6 +697,8 @@ export const Legendaries = [
       "+1% Elemental and Erosion Resistance Penetration for every stack of Wilt inflicted recently, up to (64-70) stack(s)",
       "16% chance to inflict 1 additional stacks of Wilt",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Abyss Darkness Ring",
@@ -648,6 +720,8 @@ export const Legendaries = [
       "<Random Six Gods' blessings affix>",
       "<Random Six Gods' blessings affix>",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Scribe's Coat",
@@ -667,6 +741,8 @@ export const Legendaries = [
       "+(20-25)% Max Life, Max Mana, and Max Energy Shield",
       "(-40-40)% Energy Shield Charge SpeedAdds Elemental Damage equal to (1.3-1.6)% of Max Energy Shield to Attacks and Spells",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Griffin Greatsword",
@@ -687,6 +763,8 @@ export const Legendaries = [
       "Gains 2 stacks of Meditate per second while standing still",
       "Upon reaching the cap of Meditate, Critical Strikes can lose no more than 8 Fervor Rating, with an interval of 3 s",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -704,6 +782,8 @@ export const Legendaries = [
       "+(240-288) Critical Strike Rating when Unarmed",
       "+(48-58)% chance to Multistrike",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Abyss Darkness Ring",
@@ -721,6 +801,8 @@ export const Legendaries = [
       "Enemies taking Damage Over Time from Terra are immune to Ailments+(10-15)% Elemental Resistance",
       "+50 Max Life",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Ranger's Rusted Gauntlets",
@@ -736,6 +818,8 @@ export const Legendaries = [
       "Adds (1-2) - (3-4) Physical Damage to Attacks per (800-900) Armor",
       "+(21-26)% additional Armor",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -753,6 +837,8 @@ export const Legendaries = [
       "Adds (15-20)% of Max Mana as Energy Shield, up to 1500",
       "+(40-50)% Skill Cost",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Scribe's Boots",
@@ -772,6 +858,8 @@ export const Legendaries = [
       "+30% Spell Burst Charge Speed",
       "-10% Movement Speed",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Ripple Pendant",
@@ -789,6 +877,8 @@ export const Legendaries = [
       "+(31-40)% Ailment Effective Speed",
       "Immune to FrostbiteImmune to SlowImmune to curse",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Rock Waistguard",
@@ -808,6 +898,8 @@ export const Legendaries = [
       "+(5-6)% Mana Regeneration Speed for every 100 Mana consumed recently, up to 540%",
       "You have a Lv. (35-40) Spell Amplification when at Low Life",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Rock Waistguard",
@@ -827,6 +919,8 @@ export const Legendaries = [
       "When Intelligence is greater than Strength, adds 13% of the skill's damage to Base Wilt Damage.",
       "When Dexterity is greater than Intelligence, adds 16% of the skill's damage to Base Ignite Damage.",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "God's Grace Girdle",
@@ -844,6 +938,8 @@ export const Legendaries = [
       "+50% Erosion Resistance when having at least (6-7) stack(s) of Tenacity Blessing",
       "Restores 25% of Max Life and Mana per 3 s when Tenacity Blessing is active",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Scribe's Coat",
@@ -863,6 +959,8 @@ export const Legendaries = [
       "+(25-35) all stats",
       "+(20-24)% Energy Shield Charge Speed while moving",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Wild Dominator Headdress",
@@ -882,6 +980,8 @@ export const Legendaries = [
       "Max Terra Charge Stacks +2",
       "+40% Movement Speed for 3 s when a Terra Skill is cast",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Red Pegasus Kite Shield",
@@ -903,6 +1003,8 @@ export const Legendaries = [
       "+25% curse effect",
       "+25% curse effect",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (STR)",
   },
   {
     baseItem: "Ranger's Rag",
@@ -920,6 +1022,8 @@ export const Legendaries = [
       "If you have consumed more than 100% Life, (-68--58)% additional damage taken",
       "+60% Critical Strike Rating and Critical Strike Damage if you have consumed more than 100% Life recently",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Rock Claymore",
@@ -940,6 +1044,8 @@ export const Legendaries = [
       "100% chance to gain 1 stack of Tenacity Blessing when Blocking",
       "[Last Stand] Block Ratio is set to 0%For every +3% Attack or Spell Block Chance, +2% additional damage, up to +90%",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Boots of Calamity",
@@ -961,6 +1067,8 @@ export const Legendaries = [
       "+50% chance to inflict Paralysis on hit",
       "+50% chance to cause Blinding on hit",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Rock Waistguard",
@@ -976,6 +1084,8 @@ export const Legendaries = [
       "+60% Minion Damage",
       "Gains 12 Command every second for 4 s when Minions land a Critical Strike",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Conflict Greatsword",
@@ -996,6 +1106,8 @@ export const Legendaries = [
       "Adds (50-60)% of Main-Hand Weapon Damage to Base Ignite Damage",
       "When Ignite is inflicted, Ignite spreads and +(15-60)% additional Ignite Damage taken by Nearby enemies",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -1015,6 +1127,8 @@ export const Legendaries = [
       "Has (70-77) point(s) of fixed Fervor Rating",
       "+2% additional damage per 3 Fervor Rating",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Ranger's Rusted Gauntlets",
@@ -1034,6 +1148,8 @@ export const Legendaries = [
       "+(18-23)% Main-Hand Weapon Attack Speed",
       "<Random Critical Strike or Weapon Damage affix>",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Command Spirit Ring",
@@ -1055,6 +1171,8 @@ export const Legendaries = [
       "Adds (8-20)% of Max Life to Minion Energy Shield",
       "Converts 100% of Minion Physical Damage to Erosion Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -1072,6 +1190,8 @@ export const Legendaries = [
       "+(70-100)% Erosion Amplification Aura Effect",
       "(-5-5)% Sealed Mana Compensation",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ranger's Rusted Gauntlets",
@@ -1091,6 +1211,8 @@ export const Legendaries = [
       "+(36-50)% Critical Strike Rating for the Main-Hand Weapon",
       "Conspire+(15-20)% additional Base Damage for Off-Hand Weapons",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -1110,6 +1232,8 @@ export const Legendaries = [
       "Regenerates 1% of Life per second while moving",
       "Restores 65% of Max Life and knocks back Nearby enemies when at Low Life. Interval: 16 s",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Sunlight Amulet",
@@ -1127,6 +1251,8 @@ export const Legendaries = [
       "33% chance to gain +4 Shadows when using the Shadow Strike skill",
       "+(20-24)% additional Shadow Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Old King's Armor",
@@ -1146,6 +1272,8 @@ export const Legendaries = [
       "Adds (20-30)% of Physical Damage as Fire Damage during Multistrike",
       "Multistrikes deal (56-70)% increasing damage",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Old King's Crown",
@@ -1163,6 +1291,8 @@ export const Legendaries = [
       "When at max Tenacity Blessing stacks, adds Fire Damage equal to 6% of Max Life to Attacks, up to (330-350)",
       "-90% additional Blessing Duration",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Scout's Tight Vest",
@@ -1182,6 +1312,8 @@ export const Legendaries = [
       "+(12-16)% Elemental Resistance",
       "+(9-10)% additional damage and (-6--5)% additional damage taken when two Resistance are identical (multiplies)",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Fallen Knight's Armor",
@@ -1203,6 +1335,8 @@ export const Legendaries = [
       "Damage ignores enemy Fire Resistance when you are Ignited+(30-40)% additional Ignite Damage taken",
       "You always receive +1 Ignite Damage when there are enemies nearby",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Footman's Boots",
@@ -1220,6 +1354,8 @@ export const Legendaries = [
       "+30% Movement Speed",
       "Immune to Trauma+(20-30)% Erosion Resistance",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Blue Sea War Crossbow",
@@ -1240,6 +1376,8 @@ export const Legendaries = [
       "Adds 46% of Physical Damage as Lightning Damage when having at least 100000 Evasion",
       "+ 700 Critical Strike Rating when having at least 100000 Evasion",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Crossbow",
   },
   {
     baseItem: "Thunder Light Shield",
@@ -1257,6 +1395,8 @@ export const Legendaries = [
       "+(2-4) Lightning Skill Level",
       "+1% additional Max Damage for every time you inflict Numbed recently. Stacks up to 35 time(s) (multiplies)",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
   },
   {
     baseItem: "Sage's Necklace",
@@ -1276,6 +1416,8 @@ export const Legendaries = [
       "+(40-50)% additional Beam Skill Cast Speed while standing still",
       "+(45-55)% Beam Length",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Primeval War Claw",
@@ -1300,6 +1442,8 @@ export const Legendaries = [
       "Adds (33-40)% of Physical Damage of the Main-Hand Weapon to Base Ailment Damage",
       "Upon inflicting damage, +(7-8)% additional damage for every type of Ailment the enemy has (multiplies)",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Claw",
   },
   {
     baseItem: "Radiant Lunar Girdle",
@@ -1317,6 +1461,8 @@ export const Legendaries = [
       "Adds (2-4) - (50-60) Lightning Damage to Spells",
       "Regenerates (8-10) Mana per second",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Wind Blade Waistguard",
@@ -1336,6 +1482,8 @@ export const Legendaries = [
       "Converts 1% of Physical Damage taken to Fire Damage for every time you inflict Ignite recently, up to (8-25)%",
       "Converts 1% of Physical Damage taken to Lightning Damage for every time you inflict Numbed recently, up to (8-25)%",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "God's Grace Girdle",
@@ -1355,6 +1503,8 @@ export const Legendaries = [
       "<Random skill slot-related affix>",
       "<Random skill slot-related affix>",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Frenzy Battle Axe",
@@ -1373,6 +1523,8 @@ export const Legendaries = [
       "+135% Critical Strike Damage when having at least 8 stack(s) of Agility Blessing",
       "Loses (1-2) stack(s) of Agility Blessing and gains Banquet when Agility Blessing reaches max stacks",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
   },
   {
     baseItem: "Long Night Sorcerer's Robe",
@@ -1394,6 +1546,8 @@ export const Legendaries = [
       "+2 to Max Summonable Synthetic Troops",
       "[Ward] Adds 13% of Sealed Mana as Energy ShieldAdds 13% of Sealed Life as Energy Shield",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -1413,6 +1567,8 @@ export const Legendaries = [
       "+(12-15)% Elemental Resistance",
       "+(380-460) Max Life",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Pickaxe Claw",
@@ -1432,6 +1588,8 @@ export const Legendaries = [
       "+3 Horizontal Projectile Penetration(s) while Blur is not active",
       "+3 Jump(s) when Blur is active",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Claw",
   },
   {
     baseItem: "Wind Blade Waistguard",
@@ -1453,6 +1611,8 @@ export const Legendaries = [
       "+20% Movement Speed for 1 s when Blur is lost",
       "+100% chance to gain Blur when evading",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -1470,6 +1630,8 @@ export const Legendaries = [
       "Regenerates 0.2% Life per second and 0.4% Life Regeneration Speed for every 0.8% of Life lost",
       "+10% additional damage taken while Energy Shield is active",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Wayfarer Waistguard",
@@ -1493,6 +1655,8 @@ export const Legendaries = [
       "+(10-20)% chance to gain 2 stacks of Eternal Simulacra upon defeating Magic monsters",
       "+50% chance to gain 2 stacks of Eternal Reign upon defeating an Elite",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "God's Grace Girdle",
@@ -1512,6 +1676,8 @@ export const Legendaries = [
       "+(30-50)% Numbed Effect",
       "+(20-30)% Ignite Duration",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Eternal Night Stalker's Chestguard",
@@ -1531,6 +1697,8 @@ export const Legendaries = [
       "+(50-75)% additional Ailment Damage",
       "[Vile] Duration of Ailments caused by Critical Strikes is doubledFor every +3% Critical Strike Damage, +1% additional Ailment Damage+(20-24)% Ailment Duration",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "High Heavens Lightning Ring",
@@ -1550,6 +1718,8 @@ export const Legendaries = [
       "+(36-50)% Sealed Mana Compensation for Thunder Focus",
       "+(16-20)% additional Thunder Focus Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Flare Amulet",
@@ -1569,6 +1739,8 @@ export const Legendaries = [
       "<Random stat buff affix>",
       "<Random stat buff affix>",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Bone Stinger Sword",
@@ -1591,6 +1763,8 @@ export const Legendaries = [
       "Multistrikes deal (60-80)% increasing damage",
       "Spends 0.5% Life and Mana on defeat",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Sword",
   },
   {
     baseItem: "Skirmisher's Gloves",
@@ -1610,6 +1784,8 @@ export const Legendaries = [
       "+(60-75)% Agility Blessing Duration",
       "+100% chance to gain 1 stack of Agility Blessing on defeat",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Eternal Night Stalker's Long Boots",
@@ -1631,6 +1807,8 @@ export const Legendaries = [
       "Gains 2 stack(s) of Deflection when Reaping. Interval 0.8 s",
       "Max Agility Blessing Stacks: (14-16)",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -1648,6 +1826,8 @@ export const Legendaries = [
       "+(70-90)% Minion Critical Strike Damage",
       "Minions gain Lucky upon a Critical Strike+100 Minion Critical Strike Rating",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Wiseman's Wand",
@@ -1669,6 +1849,8 @@ export const Legendaries = [
       "Gaining Tenacity Blessing triggers Lv. (25-30) Scorch. Interval: 0.2 s",
       "You are cursed with a Lv. (10-15) Scorch",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Witchdoctor's Slippers",
@@ -1684,6 +1866,8 @@ export const Legendaries = [
       "+(30-40)% Movement Speed if you have used a Channeled Skill recently",
       "+(11-15)% additional damage Channeled Skills",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Ranger's Dirty Boots",
@@ -1705,6 +1889,8 @@ export const Legendaries = [
       "Regenerates (4-5)% Life per secondRegenerates (4-5)% Life per second when taking Damage Over Time",
       "Immune to crowd control effects",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "White Crystal Wand",
@@ -1726,6 +1912,8 @@ export const Legendaries = [
       "+120% Critical Strike Rating if you have cast a Restoration Skill recently.",
       "+60% Critical Strike Damage while the Restoration Skill lasts",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Old King's Sabatons",
@@ -1745,6 +1933,8 @@ export const Legendaries = [
       "+(90-100)% Movement Speed when standing on a Terra Skill. The effect lasts 2s.",
       "+3% Terra Charge Restoration Speed and +3% Terra Skill Area for every 2% overflown Fire Resistance",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Footman's Boots",
@@ -1764,6 +1954,8 @@ export const Legendaries = [
       "+30% Spell Burst Charge Speed",
       "-10% Movement Speed",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Scribe's Coat",
@@ -1783,6 +1975,8 @@ export const Legendaries = [
       "+(35-42)% Max Life, Max Mana, and Max Energy Shield",
       "For every 1% Fire Resistance, +(3.1-3.5)% Critical Strike Damage, up to +800%",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Gilt Longsword",
@@ -1803,6 +1997,8 @@ export const Legendaries = [
       "+(400-450)% Critical Strike Rating if you have Blocked recently",
       "+(50-72)% Attack Speed if you have Blocked recently",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Sword",
   },
   {
     baseItem: "Scribe's Coat",
@@ -1822,6 +2018,8 @@ export const Legendaries = [
       "+(35-42)% Max Life, Max Mana, and Max Energy Shield",
       "For every 1% Lightning Resistance, +(1.3-1.4)% Attack and Cast Speed, up to +280%",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Primeval War Claw",
@@ -1842,6 +2040,8 @@ export const Legendaries = [
       "If you have recently moved more than (10-40) m, gains Barrier when using a Mobility skill",
       "If you have recently moved more than 60 m, +(50-60)% additional damage dealt by Mobility Skills",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Claw",
   },
   {
     baseItem: "Mask of Calamity",
@@ -1863,6 +2063,8 @@ export const Legendaries = [
       "Triggers Lv. 30 Recovery Potion upon defeating an enemy under at least 3 control effects. Interval: 4 s",
       "50% chance to inflict a stack of Slow on hit",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Rotten Darkness Ring",
@@ -1880,6 +2082,8 @@ export const Legendaries = [
       "Grants Blur 0.5s after losing Blur when equipped in the left Ring slot",
       "When a Magic Ring is equipped, Blur gains an additional effect: +2% Damage Over Time for every 1 Blur Rating",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Ranger's Broken Mask",
@@ -1899,6 +2103,8 @@ export const Legendaries = [
       "+(120-150) Strength",
       "+(4-6)% Fire Resistance",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Cataclysm Amulet",
@@ -1916,6 +2122,8 @@ export const Legendaries = [
       "+(16-20)% Elemental and Erosion Resistance when Armor is no lower than 80000",
       "+25% Armor Effective Rate for Non-Physical Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Radiant Lunar Girdle",
@@ -1933,6 +2141,8 @@ export const Legendaries = [
       "+45% additional damage taken by enemies in proximity to Sentries",
       "Gains Demolisher Charge when using Sentry Skills+1 Melee Skill Level",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Godslaughter Short Dagger",
@@ -1957,6 +2167,8 @@ export const Legendaries = [
       "15% chance to gain +30% Attack Speed for 2 s when Shadows hit enemies",
       "100% chance to gain +10% Attack Speed for 3 s when Shadows hit enemies",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Dagger",
   },
   {
     baseItem: "Ranger's Rag",
@@ -1976,6 +2188,8 @@ export const Legendaries = [
       "While Reconjuring, Spirit Magi regenerate (40-60)% Life per second",
       "When taking damage, removes (10-20)% Max Life from Spirit Magi. Interval: 0.2 s",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -1993,6 +2207,8 @@ export const Legendaries = [
       "Penetrates Frostbitten enemies' Lightning Resistance by 30%",
       "Penetrates Numbed enemies' Cold Resistance by 30%",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Torched Flame Ring",
@@ -2012,6 +2228,8 @@ export const Legendaries = [
       "+(49-56)% Fire and Lightning Resistance",
       "-99% additional Ignite Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Blight Ice Ring",
@@ -2031,6 +2249,8 @@ export const Legendaries = [
       "Converts 100% of Lightning Damage to Cold Damage",
       "Adds a stack of Slow for 3 s on hit",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Scribe's Coat",
@@ -2050,6 +2270,8 @@ export const Legendaries = [
       "+(35-42)% Max Life, Max Mana, and Max Energy Shield",
       "For every 2% Cold Resistance, +(14-15) Attack and Spell Critical Strike Rating, up to +1500",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Long Night Sorcerer's Boots",
@@ -2067,6 +2289,8 @@ export const Legendaries = [
       "+(5-6)% Movement Speed per stack of Max Spell Burst, up to +(36-42)%",
       "+1 Max Spell Burst when Movement Speed is not higher than (220-280)% of base",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Pocket Boomstick",
@@ -2086,6 +2310,8 @@ export const Legendaries = [
       "Triggers Lv. 30 Ice Shot if you have inflicted Frostbite recently. Interval: 0.3s.",
       "+(43-50)% Cold Damage",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
   },
   {
     baseItem: "Thorny Hammer",
@@ -2108,6 +2334,8 @@ export const Legendaries = [
       "Converts 100% of Physical Damage to Cold Damage+(40-50)% Cold Damage",
       "Hitting an enemy with Max Frostbite Rating will trigger Shattering",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
   },
   {
     baseItem: "Old King's Armor",
@@ -2125,6 +2353,8 @@ export const Legendaries = [
       "Demolisher Skills are supported by Lv. (30-35) Quick Return.",
       "Gains (90-120)% Movement Speed when consuming Demolisher Charge. The effect gradually falls off to 0 within 2 s.",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -2142,6 +2372,8 @@ export const Legendaries = [
       "+(185-210)% additional damage when a Skill consumes Demolisher Charge",
       "+(38-44)% Cold Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Raging Boil Flame Ring",
@@ -2161,6 +2393,8 @@ export const Legendaries = [
       "+(140-160) Attack and Spell Critical Strike Rating when Agility Blessing reaches max stacks",
       "Max Agility Blessing Stacks +1+(5-8)% additional damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Shaman's Short Robe",
@@ -2178,6 +2412,8 @@ export const Legendaries = [
       "Max Tenacity Blessing Stacks +1+10% additional damage",
       "-1% additional damage per stack of Blessing (multiplies)",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Disciple's Coat",
@@ -2193,6 +2429,8 @@ export const Legendaries = [
       "+100% Critical Strike Damage",
       "+50% Spell Critical Strike Rating for every 1 Spell Burst Charge consumed for 10s. Stacks up to 10 times",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Old King's Rerebraces",
@@ -2212,6 +2450,8 @@ export const Legendaries = [
       "Consumes (6-8)% of current Life and Energy Shield per second while Fervor is active",
       "Consumes all Fervor Rating when at Low Life. Restores 0.5% Life for every Fervor Rating consumed. Interval: 4s.",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Black Feather Long Bow",
@@ -2232,6 +2472,8 @@ export const Legendaries = [
       "+(50-75)% additional Lightning Damage against Numbed enemies",
       "[Winter] Deals +1% additional damage to an enemy for every 2 points of Frostbite Rating the enemy hasAdds (33-37) - (43-47) Physical Damage to Spells",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Bow",
   },
   {
     baseItem: "Twilight Square Shield",
@@ -2249,6 +2491,8 @@ export const Legendaries = [
       "+(56-60)% Sealed Mana Compensation",
       "Adds (20-23) - (26-28) Physical Damage to Attacks and Spells for every (1000-1050) Mana consumed recently. Stacks up to 200 time(s)",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (INT)",
   },
   {
     baseItem: "Brute's Chestguard",
@@ -2266,6 +2510,8 @@ export const Legendaries = [
       "+(300-350) Lightning Damage Reflection",
       "+(300-350) Cold Damage Reflection",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Disciple's Cloth Boots",
@@ -2287,6 +2533,8 @@ export const Legendaries = [
       "+(20-30)% Movement Speed when Focus Blessing reaches max stacks",
       "+30% for Non-Critical Strikes to grant 1 stack of any Blessing",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Dragon Guardian Handguards",
@@ -2304,6 +2552,8 @@ export const Legendaries = [
       "Gains (6-7) Focus Pts for each enemy defeated",
       "+5% additional damage for the next Focus Skill triggered for each enemy defeated. Stacks up to 10 time(s)",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "All Magic Grip",
@@ -2321,6 +2571,8 @@ export const Legendaries = [
       "+ (100-120)% Spell Elemental Damage",
       "[Translucent] +25% additional Lightning Damage if you have dealt Fire Damage recently+25% additional Cold Damage if you have dealt Lightning Damage recently+25% additional Fire Damage if you have dealt Cold Damage recently",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Swarm Pistol",
@@ -2343,6 +2595,8 @@ export const Legendaries = [
       "+3 Projectile Skill Level",
       "+(10-20)% additional Attack and Cast Speed",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
   },
   {
     baseItem: "Imperishable Feet",
@@ -2366,6 +2620,8 @@ export const Legendaries = [
       "+30% chance to gain Hardened Barrier when suffering Severe Injury. Lasts for 4 s",
       "+30% chance to gain a 4 s Thrill Barrier upon inflicting Elemental Ailments",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Shaman's Hands",
@@ -2383,6 +2639,8 @@ export const Legendaries = [
       "+(30-40)% Critical Strike Damage",
       "+(45-60)% additional Deterioration Damage if you have dealt a Critical Strike recently",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Secret Shadow's Mask",
@@ -2396,6 +2654,8 @@ export const Legendaries = [
       "+(35-40)% additional Ranged Damage taken by nearby enemies+(35-40)% additional Melee Damage against distant enemies",
       "+25% chance to avoid damage when there are no enemies nearby+50% Injury Buffer when there are only 1 enemies nearby",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Wolfsoul Claymore",
@@ -2414,6 +2674,8 @@ export const Legendaries = [
       "+(35-45)% gear Attack Speed",
       "+100% chance to deal Double Damage after inflicting (5-8) stack(s) of Deterioration. Lasts for 10s",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Scribe's Headscarf",
@@ -2431,6 +2693,8 @@ export const Legendaries = [
       "The first 2 Passive Skill slots are supported by Lv. (31-40) Precise: Restrain",
       "The last 2 Passive Skill slots are supported by Lv. (31-40) Precise: Concentrated",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Ripple Pendant",
@@ -2450,6 +2714,8 @@ export const Legendaries = [
       "+(25-30)% Combo Finisher Amplification",
       "Gains (2-3) Combo Point(s) on Critical Strike from Combo Finishers. Each skill cast can only trigger this effect once. During Spell Burst, this effect only takes effect on the first skill cast when Spell Burst is activated",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Chilling Lightning Ring",
@@ -2467,6 +2733,8 @@ export const Legendaries = [
       "+(15-20)% additional Spell Damage at Max Focus Blessings",
       "Max Focus Blessing Stacks +1+(5-8)% additional damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Snow Ice Ring",
@@ -2484,6 +2752,8 @@ export const Legendaries = [
       "+(25-30)% Fire Damage per stack of Tenacity Blessing owned. Stacks up to 6 time(s)",
       "Max Tenacity Blessing Stacks +1+(5-8)% additional damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Ripple Pendant",
@@ -2499,6 +2769,8 @@ export const Legendaries = [
       "Automatically generates a windfield centered on yourself for 8 s. Cooldown: 10 sYou gain Storm while inside the windfield+(15-20)% additional Attack Projectile Damage",
       "For each Attack Horizontal Projectile Skill used recently, +(9-10)% Storm Effect. Stacks up to 10 time(s)",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Falling Star Tower Shield",
@@ -2520,6 +2792,8 @@ export const Legendaries = [
       "-15% additional damage taken when an Elite is Nearby",
       "+15% chance to avoid damage, when there are common enemies Nearby",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (STR)",
   },
   {
     baseItem: "Old King's Armor",
@@ -2541,6 +2815,8 @@ export const Legendaries = [
       "+(24-28)% additional damage taken by Nearby enemies",
       "-20% additional Damage dealt by Nearby enemies",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Secret Shadow's Shoes",
@@ -2556,6 +2832,8 @@ export const Legendaries = [
       "Triggers Lv. (21-30) Blurry Steps upon starting to move. Interval: 1 s",
       "Triggers Lv. (21-30) Stoneskin when moving. Interval: 1 s",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Imperishable Miter",
@@ -2575,6 +2853,8 @@ export const Legendaries = [
       "+150% Curse Duration",
       "+110% Curse Skill Area",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Blue Sea Greataxe",
@@ -2593,6 +2873,8 @@ export const Legendaries = [
       "+(50-60)% Attack Critical Strike Rating for this gear",
       "(-100--80)% additional Sweep Slash Damage; +(140-180)% additional Steep Strike Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Axe",
   },
   {
     baseItem: "Harvest Spirit Ring",
@@ -2610,6 +2892,8 @@ export const Legendaries = [
       "+(250-270)% Critical Strike Rating and 135% Critical Strike Damage for Minions when casting an Empower Skill. Lasts for 6 s",
       "(-5-5)% additional damage taken",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Spirit Ring",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -2627,6 +2911,8 @@ export const Legendaries = [
       "+2 Fire Skill Level",
       "Every (5-8) time(s) a Fire Skill is cast, gains Ash for 1 s",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Ripple Pendant",
@@ -2642,6 +2928,8 @@ export const Legendaries = [
       "[Gale] 60% of the Projectile Speed bonus is also applied to the additional bonus for Projectile Damage+(30-45)% Projectile Speed",
       "+(170-230)% Ranged Attack Critical Strike Rating",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Secret Shadow's Mask",
@@ -2661,6 +2949,8 @@ export const Legendaries = [
       "Attack Projectiles have a 40% chance to explode when defeating non-Elite enemies, dealing Secondary Erosion Damage equal to 10% of the defeated enemies' Max Life to enemies within a 5m radius",
       "75% chance to eliminate Non-Elite enemies within 10m when defeating Elite enemies",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Long Night Sorcerer's Wristband",
@@ -2676,6 +2966,8 @@ export const Legendaries = [
       "+(150-175)% Elemental Damage if you have used a Fire Skill recently",
       "+(150-175)% Elemental Damage if you have used a Cold Skill recently",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Scribe Handguards",
@@ -2695,6 +2987,8 @@ export const Legendaries = [
       "+2 Max Charges",
       "Converts Spell Skills' Mana Cost to Life Cost",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Long Night Sorcerer's Robe",
@@ -2714,6 +3008,8 @@ export const Legendaries = [
       "Gains (8-10) stack(s) of Cage when inflicting Freeze. Interval: 1 s",
       "Effects of Control Effects received (-50--1)%",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -2735,6 +3031,8 @@ export const Legendaries = [
       "Triggers Lv. (20-30) Scorch Curse on hit. Cooldown: 1 s.",
       "Converts 75% of Erosion Damage taken to Fire Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -2756,6 +3054,8 @@ export const Legendaries = [
       "Triggers Lv. (20-30) Biting Cold Curse on hit. Cooldown: 1 s.",
       "Converts 75% of Erosion Damage taken to Cold Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ripple Pendant",
@@ -2777,6 +3077,8 @@ export const Legendaries = [
       "Triggers Lv. (21-30) Vulnerability Curse on hit. Cooldown: 1 s.",
       "Converts 75% of Erosion Damage taken to Physical Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -2798,6 +3100,8 @@ export const Legendaries = [
       "Trigger Lv. (20-30) Electrocute Curse on hit. Cooldown: 1 s.",
       "Converts 75% of Erosion Damage taken to Lightning Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Tortoiseshell Amulet",
@@ -2819,6 +3123,8 @@ export const Legendaries = [
       "Trigger Lv. (20-30) Corruption Curse on hit. Cooldown: 1 s.",
       "+(6-7)% Max Erosion Resistance, +20% Erosion Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -2838,6 +3144,8 @@ export const Legendaries = [
       "Restores (1-4)% Life and Energy Shield when a Sentry lands a Critical Strike. Interval: 0.3 s",
       "Enemies nearby to Sentries receive Lv. 40 Timid Curse+(30-50)% Sentry Duration",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Respected Tutor's Robe",
@@ -2853,6 +3161,8 @@ export const Legendaries = [
       "+(180-250) Max Life",
       "When Focus Skills are equipped in the Active Skill Slot: +(30-40)% additional Focus Skill Damage, (-10--5)% Focus Buff Effect",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Poisoned Dagger",
@@ -2873,6 +3183,8 @@ export const Legendaries = [
       "+(10-15)% Wilt Duration",
       "Adds (30-40)% of Physical Damage of the Main-Hand Weapon to Base Wilt Damage",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Dagger",
   },
   {
     baseItem: "A Corner of Divinity",
@@ -2887,6 +3199,8 @@ export const Legendaries = [
       "+(5000-10000) Critical Strike Rating for this gear",
       "Inflicts Trauma that deals 100 Damage on yourself on Critical Strike",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Hammer",
   },
   {
     baseItem: "Spring Source Girdle",
@@ -2904,6 +3218,8 @@ export const Legendaries = [
       "+(1500-4000) Evasion while a Defensive Skill Effect is active",
       "Spell Damage will not further reduce Evasion by default while a Defensive Skill Effect is active.+(10-20)% additional Evasion on Spell Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Prayer Hammer",
@@ -2926,6 +3242,8 @@ export const Legendaries = [
       "Restores 3% of Max Life when Summon Skills are used.",
       "Consumes 5% of Max Life when Minions attack",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -2947,6 +3265,8 @@ export const Legendaries = [
       "When Command is lower than -60 , +30% to the physique of Nearby Synthetic Troop Minions+150% Multistrike chance and +40% Multistrike Damage Increment for Nearby Synthetic Troops",
       "+30% Movement Speed+30% Cooldown Recovery Speed for Mobility Skills",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "All Magic Grip",
@@ -2964,6 +3284,8 @@ export const Legendaries = [
       "+(18-19)% additional Cold Damage for every stack of Focus Blessing",
       "+4% Critical Strike Damage per stack of Focus Blessing owned",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "All Magic Secret Robe",
@@ -2981,6 +3303,8 @@ export const Legendaries = [
       "+48% Intelligence",
       "Adds (449-469) - (721-741) Cold Damage when having at least 600 Intelligence",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Sage Wand",
@@ -2998,6 +3322,8 @@ export const Legendaries = [
       "+35% additional Spell Damage when having at least 8 stack(s) of Focus Blessing",
       "-36% Spell Damage",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Agony Darkness Ring",
@@ -3013,6 +3339,8 @@ export const Legendaries = [
       "+(17-22)% Attack and Cast Speed",
       "Gains the following buffs by turns. Each buff lasts for 8 s: +(55-65)% additional Erosion Damage +(55-65)% additional Elemental Damage +(55-65)% additional Physical Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "War Rifle",
@@ -3031,6 +3359,8 @@ export const Legendaries = [
       "+20% additional Ailment Damage when having at least 8 stack(s) of Agility Blessing",
       "When having at least 10 stack(s) of Agility Blessing, adds 83% of Physical Damage of the Main-Hand Weapon to Ailment Base Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
   },
   {
     baseItem: "Elder Sage's Treads",
@@ -3052,6 +3382,8 @@ export const Legendaries = [
       "+(20-40)% Movement Speed",
       "[More With Less] +30% additional Damage Over Time-10% additional Damage Over Time Duration+10% Skill Effect Duration",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Long Night Sorcerer's Robe",
@@ -3073,6 +3405,8 @@ export const Legendaries = [
       "Terra Charge's Restoration Speed is set to (300-400)% of the default value",
       "+(1-2)% Movement Speed for every Terra Charge consumed recently. Stacks up to (5-15) time(s)",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Ranger's Broken Mask",
@@ -3090,6 +3424,8 @@ export const Legendaries = [
       "For each different Warcry cast, +9% additional Warcry Effect and +(21-24)% additional Warcry Cooldown Recovery Speed for 8 s",
       "+(3380-3680) Armor and Evasion",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3107,6 +3443,8 @@ export const Legendaries = [
       "While Reconjuring, Spirit Magi regenerate (31-40)% Life per second",
       "Spirit Magi are immune to Elemental Damage+(3-4)% additional Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate.",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Warlord's Kite Shield",
@@ -3126,6 +3464,8 @@ export const Legendaries = [
       "+19% Attack Block Chance",
       "+15% Block Ratio when Life is lower than 75%",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (STR)",
   },
   {
     baseItem: "Ranger's Broken Mask",
@@ -3147,6 +3487,8 @@ export const Legendaries = [
       "+1% Skill Area per 40 Strength",
       "+1% chance to deal Double Damage per 100 Strength",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -3164,6 +3506,8 @@ export const Legendaries = [
       "+(41-50)% damage per stack of Max Spell Burst, up to +400%",
       "Seals (1-5)% Max Mana. Gains Insatiable Greed",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Mask of Calamity",
@@ -3183,6 +3527,8 @@ export const Legendaries = [
       "+(40-50)% Armor DMG Mitigation Penetration when having at least 4 stack(s) of Renown",
       "+(300-330) Max Life",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Secret Shadow's Mask",
@@ -3200,6 +3546,8 @@ export const Legendaries = [
       "-1% Erosion Resistance for every +2% Lightning Resistance.",
       "+5% additional damage and Minion Damage when equipped with Boots",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Radiant Lunar Girdle",
@@ -3219,6 +3567,8 @@ export const Legendaries = [
       "-4% additional Energy Shield Charge Speed for every 5% Energy Shield currently owned",
       "(-40--35)% additional damage taken while Energy Shield is active",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Secret Shadow's Protection",
@@ -3236,6 +3586,8 @@ export const Legendaries = [
       "Adds 1 - (260-300) Lightning Damage to Attacks",
       "[Master Escapist] +1 Max Deflection stacksGains 1 stacks of Deflection on Evasion",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Burning Flame Ring",
@@ -3255,6 +3607,8 @@ export const Legendaries = [
       "If only 1 Ring is equipped, +20% Life Regain",
       "If only 1 Ring is equipped, (-49-10)% Life Regeneration Speed",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Boots of Calamity",
@@ -3272,6 +3626,8 @@ export const Legendaries = [
       "+(38-45)% Aura effect when affected by (3-4) or more Auras",
       "+1% Aura Effect per +1% Sealed Mana Compensation",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Biting Wind Ice Ring",
@@ -3291,6 +3647,8 @@ export const Legendaries = [
       "If only 1 Ring is equipped, the Main Skill is supported by a Lv. (8-10) Added Lightning Damage",
       "If only 1 Ring is equipped, the Main Skill is supported by a Lv. (8-10) Added Erosion Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Secret Shadow's Mask",
@@ -3310,6 +3668,8 @@ export const Legendaries = [
       "Adds (160-200)% of Physical Damage as Fire, Cold, and Lightning Damage to Synthetic Troop Minions",
       "Eliminates enemies under (18-22)% Life when a Synthetic Troop Minion deals damage",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Demon Slayer's Skin",
@@ -3327,6 +3687,8 @@ export const Legendaries = [
       "When casting a Defensive Skill, +(40-50)% Empower Skill Effect and Restoration Skill Effect. The effect gradually falls off to 0 within 3s.",
       "+(40-60)% Physique and + (21-30)% Movement Speed if you have cast a Restoration Skill, an Empower Skill, and a Defensive Skill recently",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Old King's Armor",
@@ -3344,6 +3706,8 @@ export const Legendaries = [
       "Adds (2-3) - (4-5) Fire Damage per (7-8) Strength",
       "The main stat base no longer additionally increases damage+20 all stats",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Old King's Rerebraces",
@@ -3361,6 +3725,8 @@ export const Legendaries = [
       "+(19-20)% additional Fire Damage for every stack of Tenacity Blessing",
       "Adds (10-11) - (12-13) Fire Damage to Attacks and Spells per stack of Tenacity Blessing",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3380,6 +3746,8 @@ export const Legendaries = [
       "+(18-19)% Fire Penetration",
       "[True Flame] When an enemy is Ignited, 60% of the additional bonus to Damage Over Time taken from Affliction is also applied to your Fire Hit Damage+100% Skill Area",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ranger's Broken Mask",
@@ -3397,6 +3765,8 @@ export const Legendaries = [
       "+(9-10)% additional Fire Damage for every 10 Strength",
       "The main stat base no longer additionally increases damage+20 all stats",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Prospector Handguards",
@@ -3416,6 +3786,8 @@ export const Legendaries = [
       "+3 Jumps",
       "+(4-6)% additional damage dealt by Horizontal Projectiles after each Jump (multiplies)",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Footman's Chestguard",
@@ -3435,6 +3807,8 @@ export const Legendaries = [
       "+(40-60) all stats",
       "+(8-25)% injury buffer",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Ranger's Broken Mask",
@@ -3454,6 +3828,8 @@ export const Legendaries = [
       "+(90-100)% additional Fire Damage",
       "Inflicts Fire Infiltration on hitInflicts Scorch on hit",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Sunlight Pendant",
@@ -3473,6 +3849,8 @@ export const Legendaries = [
       "+(8-10)% Elemental Resistance",
       "+(20-24)% Spell Block Chance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Hatred Dirk",
@@ -3495,6 +3873,8 @@ export const Legendaries = [
       "Wilted enemies defeated by you have a (16-20)% chance to explode, dealing Secondary Erosion Damage equal to (6-7)% of their Max Life to enemies within a 5m radius",
       "+(15-20)% Wilt Duration against Legendary enemy units",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Dagger",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -3508,6 +3888,8 @@ export const Legendaries = [
       "+(160-180) Max Mana",
       "+(27-35)% additional Elemental Damage to enemies with Elemental Ailments",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ranger's Rag",
@@ -3531,6 +3913,8 @@ export const Legendaries = [
       "When Armor is no lower than 65000 , +(90-100)% Life Regeneration Speed",
       "+(10-15)% additional Attack Speed",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Ranger's Dirty Boots",
@@ -3548,6 +3932,8 @@ export const Legendaries = [
       "+(45-50)% Movement Speed for Nearby allies and you",
       "When casting an Empower Skill, triggers Lv. (15-30) Dark Gate. Cooldown: 6s.",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Elder Sage's Long Gloves",
@@ -3569,6 +3955,8 @@ export const Legendaries = [
       "Trigger the Main Skill for every 3 m of movement. Interval: 3 s",
       "Restoration Skills: +80% Restoration Duration",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Oblivion Maul",
@@ -3589,6 +3977,8 @@ export const Legendaries = [
       "Sweep Slash can cause Reversed Knockback.+30% Knockback distance",
       "Causes a Knockback when you launch a Steep Strike+30% Knockback distance",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -3606,6 +3996,8 @@ export const Legendaries = [
       "+(30-40)% additional Focus Speed and +(40-48)% Focus Skill Area while Transcendence is active+(25-30)% additional damage for Focus Skills while Transcendence is active",
       "In transcendence, when a Focus skill is triggered, there is a (30-40)% chance to trigger it an additional time. 50% of the Focus Speed bonus is also applied to the additional trigger chance+(15-20)% additional damage for Focus Skills",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3625,6 +4017,8 @@ export const Legendaries = [
       "(50-100)% chance to gain 2 stacks of Terra Charge when Terra Charge is consumed",
       "Reaps 1.5 s of Damage Over Time from Nearby enemies 0.1 s after consuming max Terra Charges. Cooldown: 1 s",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Unholy Hunting Bow",
@@ -3649,6 +4043,8 @@ export const Legendaries = [
       "+(130-144)% additional Attack Damage when no enemies are Nearby",
       "+10% Movement Speed",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Bow",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3666,6 +4062,8 @@ export const Legendaries = [
       "+(140-160)% additional Shadow Damage",
       "+(38-44)% Lightning Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ripple Pendant",
@@ -3683,6 +4081,8 @@ export const Legendaries = [
       "When you have a Barrier, triggers the Main Skill upon taking damage, then removes Barrier",
       "+(30-40)% additional Barrier Shield-100% additional Armor",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3698,6 +4098,8 @@ export const Legendaries = [
       "+2 Passive Skill Level for each empty Active Skill Slot",
       "+2 Main Skill Level for each empty Passive Skill Slot",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Hero's Longsword",
@@ -3718,6 +4120,8 @@ export const Legendaries = [
       "+32% additional Elemental Damage for Attack Skills",
       "+100% Attack Skill Mana Cost+10% additional damage for Attack Skills",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Sword",
   },
   {
     baseItem: "Cataclysm Amulet",
@@ -3735,6 +4139,8 @@ export const Legendaries = [
       "[Shrink Back] Gains Barrier every 1s+50% Barrier Shield(-20--10)% additional Regain Interval",
       "Adds (16-20)% of Max Life to Energy Shield",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Scarlet Axe",
@@ -3751,23 +4157,8 @@ export const Legendaries = [
       "+(140-160)% gear Physical Damage",
       "Adds (50-60)% of the damage of the Off-Hand Weapon to the final damage of the Main-Hand Weapon",
     ],
-  },
-  {
-    baseItem: "Divine Body",
-    baseStat: "+10 gear Energy Shield",
-    name: "Omniscient Prototype",
-    normalAffixes: [
-      "+(1-10) Gear Armor",
-      "+1 Max Life",
-      "+1 Max Mana",
-      "Almighty",
-    ],
-    corruptionAffixes: [
-      "+(1-100) Gear Armor",
-      "+10 Max Life",
-      "+10 Max Mana",
-      "Almighty",
-    ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Axe",
   },
   {
     baseItem: "Mask of Calamity",
@@ -3787,6 +4178,8 @@ export const Legendaries = [
       "[Endless Fervor] Have Fervor+12% Fervor effect",
       "+(10-20)% additional Damage dealt by enemies in Proximity",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Wraith Wand",
@@ -3800,6 +4193,8 @@ export const Legendaries = [
       "+(4-5) Spell Skill Level",
       "Every 4 s, gain following effects in turn: +60% Skill Area, +30% Movement Speed",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -3819,6 +4214,8 @@ export const Legendaries = [
       "+30% Movement Speed",
       "+(33-35) all stats",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Wind Blade Waistguard",
@@ -3836,6 +4233,8 @@ export const Legendaries = [
       "+(30-40)% Skill Area",
       "25% of the increase/decrease on Skill Area is also applied to Area Damage, up to + 125%",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Sealed Ice Ring",
@@ -3851,6 +4250,8 @@ export const Legendaries = [
       "+15% Cooldown Recovery Speed-30% Skill Effect Duration",
       "+4% additional damage for every type of Ailment or Crowd Control Effect inflicted recently (multiplies)",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Demon Slayer's Feet",
@@ -3868,6 +4269,8 @@ export const Legendaries = [
       "+(20-30)% Attack and Cast Speed",
       "30% of the bonuses for Focus Speed is also applied to Movement Speed, up to 50%",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Sunlight Pendant",
@@ -3887,6 +4290,8 @@ export const Legendaries = [
       "<Random Lightning Attack or Spell Damage>",
       "<Random Attack or Spell Erosion Damage>",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Grand Explorer Outerwear",
@@ -3906,6 +4311,8 @@ export const Legendaries = [
       "+30% Projectile Speed",
       "Enlarges Physique by (20-25)%",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Obsidian Necklace",
@@ -3923,6 +4330,8 @@ export const Legendaries = [
       "<Random Aura affix>",
       "+(60-96)% Max Mana",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Cinnabar Pendant",
@@ -3936,6 +4345,8 @@ export const Legendaries = [
       "[Beacon] +2 Max Spell Burst+(10-20)% Spell Burst Charge Speed",
       "When activating Spell Burst,there's (5-10)% additional Skill Area for each time Spell Burst is activated.",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Soldier's Light Crossbow",
@@ -3956,6 +4367,8 @@ export const Legendaries = [
       "Loses (1-2) Life on hit",
       "+(90-110)% Projectile Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Crossbow",
   },
   {
     baseItem: "Spring Source Girdle",
@@ -3973,6 +4386,8 @@ export const Legendaries = [
       "+(1-2) Beams",
       "(-10-30)% additional Beam Length",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "All Magic Shoes",
@@ -3994,6 +4409,8 @@ export const Legendaries = [
       "+15% chance to avoid damage while Energy Shield Charge is active",
       "Energy Shield Charge cannot be interrupted when Energy Shield is below 50%",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Old King's Rerebraces",
@@ -4013,6 +4430,8 @@ export const Legendaries = [
       "+100% Trauma Damage",
       "Traumatized enemies defeated by you have a (15-20)% chance to explode, dealing Secondary Physical Damage equal to (6-10)% of their Max Life to enemies within a 5m radius",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Moonstone Necklace",
@@ -4028,6 +4447,8 @@ export const Legendaries = [
       "+(50-70)% Skill Area",
       "+20% additional Erosion Area Damage against Elites",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "All Magic Grip",
@@ -4047,6 +4468,8 @@ export const Legendaries = [
       "+(11-15)% additional Attack and Cast Speed if the max stacks of Agility Blessing is not lower than the stacks of other Blessings",
       "+(11-15)% additional damage if the max stacks of Focus Blessing is not lower than the stacks of other Blessings",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Old King's Rerebraces",
@@ -4066,6 +4489,8 @@ export const Legendaries = [
       "+(11-15)% Elemental Resistance",
       "+(65-78)% Minion Critical Strike Damage",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Beastfang Light Crossbow",
@@ -4084,6 +4509,8 @@ export const Legendaries = [
       "Have Fervor+(45-50)% Fervor effect",
       "+(5-6)% Projectile Damage for every point of Fervor Rating",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Crossbow",
   },
   {
     baseItem: "Demon Slayer's Skin",
@@ -4101,6 +4528,8 @@ export const Legendaries = [
       "Adds (1-2) - (5-6) Lightning Damage for every (7-8) Dexterity",
       "The main stat base no longer additionally increases damage+20 all stats",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Boots of Calamity",
@@ -4118,6 +4547,8 @@ export const Legendaries = [
       "+70% additional Fervor Duration",
       "+(24-26)% Lightning Resistance",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Secret Shadow's Shoes",
@@ -4135,6 +4566,8 @@ export const Legendaries = [
       "+(9-10)% additional Lightning Damage per 10 Dexterity",
       "The main stat base no longer additionally increases damage+20 all stats",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Secret Shadow's Wrists",
@@ -4152,6 +4585,8 @@ export const Legendaries = [
       "+(20-21)% additional Lightning Damage for every stack of Agility Blessing",
       "Damage Penetrates (1-2)% Elemental Resistance for every stack of Agility Blessing",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -4169,6 +4604,8 @@ export const Legendaries = [
       "Minions' Spell Burst Upper Limit +(2-3) every time a Summon Skill is cast recently, up to +6",
       "-10% Minion Attack and Cast Speed",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Eternal Night Stalker's Long Boots",
@@ -4188,6 +4625,8 @@ export const Legendaries = [
       "+15% Elemental Resistance",
       "[Master Escapist] +1 Max Deflection stacksGains 1 stacks of Deflection on Evasion+(30-50)% additional Evasion on Spell Damage",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Ripple Pendant",
@@ -4205,6 +4644,8 @@ export const Legendaries = [
       "(-20--1)% additional min damage",
       "Randomly triggers one of the following effects every 3 s for 3 sLucky Critical StrikeUnlucky DamageLucky DamageUnlucky Critical Strike",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Ranger's Dirty Boots",
@@ -4224,6 +4665,8 @@ export const Legendaries = [
       "[Poisoned Relief] +25% injury buffer-15% additional damage taken at Low Life",
       "+12% Elemental Resistance while Tenacity Blessing is active",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (STR)",
   },
   {
     baseItem: "Frozen Ring",
@@ -4241,6 +4684,8 @@ export const Legendaries = [
       "+(31-40)% Frostbite inflicted",
       "Frozen enemies will explode when defeated, dealing Secondary Cold Damage equal to (1-4)% of their Max Life to enemies within a 5m radius",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Dazzling Lightning Ring",
@@ -4248,6 +4693,8 @@ export const Legendaries = [
     name: "Revered Light",
     normalAffixes: ["+1 to Beam Skill Level", "+1 Beams"],
     corruptionAffixes: ["+2 to Beam Skill Level", "+2 Beams"],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Hunter's Buckler",
@@ -4265,6 +4712,8 @@ export const Legendaries = [
       "(-20--10)% additional damage taken. Nearby enemies have 8 additional stack(s) of Agility Blessing",
       "50% chance to gain Agility Blessing per 3 m you move",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
   },
   {
     baseItem: "Footman Helmet",
@@ -4282,6 +4731,8 @@ export const Legendaries = [
       "(-15--12)% additional Physical Damage taken",
       "+100% chance to gain 1 stack of Tenacity Blessing on taking Damage",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Secret Shadow's Protection",
@@ -4303,6 +4754,8 @@ export const Legendaries = [
       "+1% Fire Damage per (10-12) Strength",
       "+1% additional Elemental Damage for every (18-20) of the highest stat among Strength, Dexterity, and Intelligence",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Prospector's Short Boots",
@@ -4320,6 +4773,8 @@ export const Legendaries = [
       "+(20-25)% Erosion Resistance",
       "-15% additional damage taken at Low Life",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Long Night Sorcerer's Robe",
@@ -4337,6 +4792,8 @@ export const Legendaries = [
       "Every 0.4 s, your next non-Channeled Main Skill is enhanced by ObliterateSkills not enhanced by Obliterate cannot inflict Deterioration",
       "Deterioration no longer deals True Damage when it expires. Instead, it deals True Damage once every 0.33s while it lasts. The damage gains a 60% additional damage increment each time, up to 6 times",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Ivory Staff",
@@ -4354,6 +4811,8 @@ export const Legendaries = [
       "Adds (87-98) - (148-154) Cold Damage to Attacks and Spells",
       "+(15-30)% Skill Area",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
   },
   {
     baseItem: "Long Night Sorcerer's Wristband",
@@ -4375,6 +4834,8 @@ export const Legendaries = [
       "When a Spell hit inflicts Lightning Damage, -20% Fire, Cold, and Erosion Resistance for the target for 3 s",
       "When a Spell hit inflicts Erosion Damage, -20% Fire, Cold, and Lightning Resistance for the target for 3 s",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -4394,6 +4855,8 @@ export const Legendaries = [
       "+(90-120)% Mana Regeneration Speed",
       "+(24-29)% Energy Shield Charge Speed",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Demon Slayer's Skin",
@@ -4411,6 +4874,8 @@ export const Legendaries = [
       "+5 Aura Skill Level",
       "+(1-2) Max Deflection stacks",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Paladin's Heavy Helm",
@@ -4428,6 +4893,8 @@ export const Legendaries = [
       "Adds (12-15)% of Physical Damage as Lightning Damage",
       "Adds (12-15)% of Physical Damage to Cold Damage",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Voodoo Wand",
@@ -4443,6 +4910,8 @@ export const Legendaries = [
       "+(51-65)% Erosion Damage",
       "+(13-16)% Erosion Resistance Penetration",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Voodoo Staff",
@@ -4460,6 +4929,8 @@ export const Legendaries = [
       "Adds (100-149) - (150-200) Fire Damage to Spells",
       "Only Fire Damage can be dealt+10% additional Fire Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Tin Staff",
   },
   {
     baseItem: "Recruit's Musket",
@@ -4478,6 +4949,8 @@ export const Legendaries = [
       "Adds (50-55)% of Fire Damage of the Main-Hand Weapon to Base Ignite Damage",
       "100% chance to spread Ignite to Nearby enemies upon inflicting Ignite",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Musket",
   },
   {
     baseItem: "Rusted Wooden Hammer",
@@ -4497,6 +4970,8 @@ export const Legendaries = [
       "+(100-120)% Fire Damage",
       "+(60-80)% Fire Skill Area",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
   },
   {
     baseItem: "Wild Dominator Handguards",
@@ -4512,6 +4987,8 @@ export const Legendaries = [
       "+(100-120) Max Life",
       "+(12-20)% Attack Speed",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Firestorm Flame Ring",
@@ -4527,6 +5004,8 @@ export const Legendaries = [
       "+50% chance to Ignite targets",
       "(-40--20)% Reaping Cooldown Recovery Speed",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Shadow Boomstick",
@@ -4547,6 +5026,8 @@ export const Legendaries = [
       "[Joined Force] Off-Hand Weapons do not participate in Attacks while Dual WieldingAdds 60% of the damage of the Off-Hand Weapon to the final damage of the Main-Hand Weapon",
       "+(25-30)% Main-Hand Weapon Attack Speed",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Pistol",
   },
   {
     baseItem: "Scribe's Boots",
@@ -4560,6 +5041,8 @@ export const Legendaries = [
       "+(80-90)% Movement Speed",
       "You suffer 1 stack of Wilt with 20 Base Damage every 0.1s when an Elite is in Proximity",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Poisoned Dagger",
@@ -4578,6 +5061,8 @@ export const Legendaries = [
       "+(35-45)% Skill Area",
       "+25% Lightning Penetration if you have dealt Cold Damage recently",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Dagger",
   },
   {
     baseItem: "Wiseman's Wand",
@@ -4595,6 +5080,8 @@ export const Legendaries = [
       "Adds 1 - 60 Lightning Damage to Spells",
       "Damage becomes Lucky and at least 2 stack(s) of Spell Burst Charge is consumed when Spell Burst is activated",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Bonewood Hunting Bow",
@@ -4615,6 +5102,8 @@ export const Legendaries = [
       "+(200-300)% gear Physical Damage",
       "(80-100)% for Attacks chance to trigger Combo Lightning",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Bow",
   },
   {
     baseItem: "Iron Greatsword",
@@ -4633,6 +5122,8 @@ export const Legendaries = [
       "+1% Attack Critical Strike Rating for this gear",
       "[Momentum] +30% additional Attack Damage for the next Main Skill every 0.5 s. Refreshes the interval on defeat.+10% additional Critical Strike Rating",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Long Night Sorcerer's Robe",
@@ -4650,6 +5141,8 @@ export const Legendaries = [
       "Beacon+(30-40)% Spell Burst Charge Speed",
       "Restoration Skills: +50% Restoration Duration",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Callous Kite Shield",
@@ -4669,6 +5162,8 @@ export const Legendaries = [
       "+(350-450) Physical Damage Reflection if you have blocked a Spell recently",
       "+(350-450) Physical Damage Reflection if you have blocked an Attack recently",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (STR)",
   },
   {
     baseItem: "Wayfarer Waistguard",
@@ -4686,6 +5181,8 @@ export const Legendaries = [
       "Triggers the Main Active Skill every 1.5 s+(1-2) Main Skill Level",
       "-99% additional Damage Over Time",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Hunter's Buckler",
@@ -4703,6 +5200,8 @@ export const Legendaries = [
       "+(21-30)% Attack Speed when Spell Block Chance is greater than 60%",
       "+(110-150)% Attack Damage when Attack Block Chance is greater than 60%",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (DEX)",
   },
   {
     baseItem: "Blight Ice Ring",
@@ -4718,6 +5217,8 @@ export const Legendaries = [
       "+(10-13)% additional Cold Damage",
       "+15% Cold Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Acolyte's Crown",
@@ -4733,6 +5234,8 @@ export const Legendaries = [
       "Nearby enemies within 10m are cursed by Lv. (16-20) Biting Cold",
       "Immune to Freeze",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -4750,6 +5253,8 @@ export const Legendaries = [
       "When Burst Charge Recovery Speed is at least (240-260)% of the base value, reaching the Max Spell Burst Charge triggers the Main Skill on the nearest enemy within 25m and attempts to activate the Main Spell Skill's Spell Burst-30% Movement Speed",
       "Restores 15% of Lost Life and Energy Shield when activating Spell Burst",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Rambone Wand",
@@ -4767,6 +5272,8 @@ export const Legendaries = [
       "Restores (1-2)% Life when casting a Spell Skill. Interval: 0.2 s",
       "Restores (2-3)% Mana when casting a Spell Skill. Interval: 0.2 s",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Wand",
   },
   {
     baseItem: "Redgold Hammer",
@@ -4787,6 +5294,8 @@ export const Legendaries = [
       "+75% Skill Area",
       "+25% Demolisher Charge Restoration Speed",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Hammer",
   },
   {
     baseItem: "Rock Waistguard",
@@ -4806,6 +5315,8 @@ export const Legendaries = [
       "+(24-29)% Warcry Cooldown Recovery Speed",
       "+(120-180)% Warcry Area",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Imperishable Black Robe",
@@ -4827,6 +5338,8 @@ export const Legendaries = [
       "Barrage Skills +(20-30)% damage increase per wave+(15-20)% additional damage for Barrage Skills",
       "+(85-100)% chance to launch one more wave when casting a Barrage Skill+(15-20)% additional damage for Barrage Skills",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Flare Amulet",
@@ -4844,6 +5357,8 @@ export const Legendaries = [
       "Consumes 20% of Max Life and inflicts 70 Affliction to nearby enemies when at Full Life. Interval: 1s",
       "Restores 15% Life when not at Full Life. Interval: 1s",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Secret Shadow's Wrists",
@@ -4861,6 +5376,8 @@ export const Legendaries = [
       "Attack Horizontal Projectiles will return after reaching their max range and will hit enemies on their path again+(20-30)% additional Returning Projectile Damage",
       "Stray Bird+(20-30)% additional Returning Projectile Damage",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "God's Grace Girdle",
@@ -4882,6 +5399,8 @@ export const Legendaries = [
       "+(15-40)% chance to inflict an additional stack of Wilt if you haven't used any Restoration Skills recently",
       "+20% Cooldown Recovery Speed for Restoration Skills",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Firestorm Flame Ring",
@@ -4897,6 +5416,8 @@ export const Legendaries = [
       "+(90-100)% Sealed Mana Compensation for Steadfast",
       "+(13-15)% Armor Effective Rate for Non-Physical Damage",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Beastbone Bow",
@@ -4917,6 +5438,8 @@ export const Legendaries = [
       "The Main Skill is supported by Lv. 20 Projectile Penetration.",
       "+(10-15)% additional Projectile Damage",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Bow",
   },
   {
     baseItem: "Fallen Knight Helmet",
@@ -4934,6 +5457,8 @@ export const Legendaries = [
       "+ (100-125)% Ignite Effective Speed",
       "+(39-55)% Sealed Mana Compensation for Charged Flames",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Deception Scepter",
@@ -4949,6 +5474,8 @@ export const Legendaries = [
       "<Random Max/Min Channeled Stacks affix>",
       "Gains 2 stacks of Throne every 0.5 s when channeling, up to 10 stacks",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Scepter",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -4966,6 +5493,8 @@ export const Legendaries = [
       "Loses (30-40)% current Mana when Spell Burst is activated",
       "+(45-55)% additional Hit Damage for skills cast by Spell Burst",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Ninth Apostle's Magic Shield",
@@ -4985,6 +5514,8 @@ export const Legendaries = [
       "+30% Block Ratio",
       "Nearby enemies are Paralyzed",
     ],
+    equipmentSlot: "Shield",
+    equipmentType: "Shield (INT)",
   },
   {
     baseItem: "Battlefield Longsword",
@@ -5003,6 +5534,8 @@ export const Legendaries = [
       "100% for Attacks chance to trigger Combo Lightning",
       "+(120-150)% Lightning Damage when your off-hand weapon slot is empty",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "One-Handed Sword",
   },
   {
     baseItem: "Scout's Short Boots",
@@ -5022,6 +5555,8 @@ export const Legendaries = [
       "+30% Spell Burst Charge Speed",
       "-10% Movement Speed",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Mask of Calamity",
@@ -5039,6 +5574,8 @@ export const Legendaries = [
       "+70% Numbed chance+70% Numbed Duration",
       "+(41-55)% Numbed Effect",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Secret Shadow's Wrists",
@@ -5058,6 +5595,8 @@ export const Legendaries = [
       "Inflicts 1 additional stack(s) of Numbed per +(20-25)% Numbed chance",
       "+(30-40)% additional Numbed Effect on Critical Strike with Lightning Damage for 2 s",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Old King's Crown",
@@ -5079,6 +5618,8 @@ export const Legendaries = [
       "Non-Full Life state will be considered as Low Life+40% Movement Speed at Full Life",
       "Cannot regenerate Mana",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (STR)",
   },
   {
     baseItem: "Punished Lightning Ring",
@@ -5094,6 +5635,8 @@ export const Legendaries = [
       "+15% Skill Effect Duration-30% Attack and Cast Speed",
       "-4% additional damage for every type of Ailment or Crowd Control Effect the enemy has (multiplies)",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Demon Slayer's Hands",
@@ -5113,6 +5656,8 @@ export const Legendaries = [
       "Reaps (1.6-1.8) s of Damage Over Time from Nearby enemies with full Affliction. The effect has a 1 s cooldown against the same target",
       "Reaping removes (70-80)% Affliction from enemies",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Rotten Darkness Ring",
@@ -5130,6 +5675,8 @@ export const Legendaries = [
       "Reaps 0.5 s of Damage Over Time from Nearby enemies with full Affliction. The effect has a (2-4) s cooldown against the same target",
       "+(6-10)% Fire and Cold Resistance",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -5147,6 +5694,8 @@ export const Legendaries = [
       "Regenerates (7-8)% of Life per second when Spell Burst is charging",
       "Gains (2-3) stack(s) of a random Blessing when activating Spell Burst",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Demon Slayer's Eyes",
@@ -5164,6 +5713,8 @@ export const Legendaries = [
       "Gains Hasten when inflicting Trauma for 2 s",
       "-30% additional Trauma Damage-30% additional Trauma Duration",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (DEX)",
   },
   {
     baseItem: "Demon Slayer's Skin",
@@ -5181,6 +5732,8 @@ export const Legendaries = [
       "Gains Elemental Resistance Penetration equal to your minimum effective Elemental Resistance+(18-20)% additional Elemental Damage",
       "Edict of Trinity",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (DEX)",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -5202,6 +5755,8 @@ export const Legendaries = [
       "For every 100 Growth a Spirit Magus has, it deals +(16-18)% additional damage and +1% additional Attack and Cast Speed",
       "+(70-100)% Sealed Mana Compensation for Spirit Magus Skills",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Shaman's Necklace",
@@ -5209,6 +5764,8 @@ export const Legendaries = [
     name: "Truth",
     normalAffixes: ["+(4-5) all skills' level", "<Random stat affix>"],
     corruptionAffixes: ["+(7-8) all skills' level", "<Random stat affix>"],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "All Magic Secret Robe",
@@ -5230,6 +5787,8 @@ export const Legendaries = [
       "+(13-18)% Reaping Duration",
       "+(5-7)% Elemental Resistance",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Fallen Pactspirital Short Staff",
@@ -5250,6 +5809,8 @@ export const Legendaries = [
       "+2 Projectile Skill Level",
       "+(60-75)% gear Attack Speed",
     ],
+    equipmentSlot: "One-Handed",
+    equipmentType: "Cane",
   },
   {
     baseItem: "Imperishable Touch",
@@ -5267,6 +5828,8 @@ export const Legendaries = [
       "Regenerates (6-7)% Mana per second",
       "+5% Critical Strike Rating and Critical Strike Damage for every (700-725) Mana consumed recently",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Demon Slayer's Hands",
@@ -5284,6 +5847,8 @@ export const Legendaries = [
       "Lucky Critical Strike+(20-30)% Critical Strike Damage",
       "Unable to use Empower Skills",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Fallen Knight's Armor",
@@ -5301,6 +5866,8 @@ export const Legendaries = [
       "Triggers Lv. (15-30) Reform every 5 s",
       "+(18-23)% additional Hit Damage when having at least 15000 Armor",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "All Magic Secret Robe",
@@ -5320,6 +5887,8 @@ export const Legendaries = [
       "+(30-36)% additional damage at Low Life",
       "+(12-15)% Aura Effect when at Low Life",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (INT)",
   },
   {
     baseItem: "Dazzling Lightning Ring",
@@ -5333,6 +5902,8 @@ export const Legendaries = [
       "Max Agility Blessing Stacks +1+10% additional damage",
       "Gains 1 stack of Agility Blessing upon inflicting damage. Interval: 0.5 s",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Secret Shadow's Wrists",
@@ -5350,6 +5921,8 @@ export const Legendaries = [
       "+30% Life Regain and Shield Regain for Combo Finishers(-15--10)% additional Regain Interval",
       "+(32-38)% additional Combo Finisher Damage to an enemy for every Infiltration Effect the enemy has",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "Secret Shadow's Shoes",
@@ -5371,6 +5944,8 @@ export const Legendaries = [
       "[Stealth Stab] -25% additional damage taken while Blur is active+25% additional damage for 3 s after Blur endsWeaken Nearby enemies when Blur is removed",
       "+(40-50)% Movement Speed",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Fallen Knight Handguards",
@@ -5390,6 +5965,8 @@ export const Legendaries = [
       "+35% Multistrike chance when at max Tenacity Blessing stacks",
       "When Tenacity Blessing is at least at (5-10) stack(s), +10% additional Attack Critical Strike Rating and +10% additional Attack Speed",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (STR)",
   },
   {
     baseItem: "Doomsday Board Axe",
@@ -5408,6 +5985,8 @@ export const Legendaries = [
       "(10-20)% chance for this skill to have +(120-150)% Skill Area when being used",
       "Triggers Lv. (16-25) Fearless Warcry when hitting an enemy. Interval: 8s",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Axe",
   },
   {
     baseItem: "Divine Arbiter's Defense",
@@ -5425,6 +6004,8 @@ export const Legendaries = [
       "+(50-70)% Frostbite inflicted",
       "Inflicts Cold Infiltration when dealing damage to Frozen enemies+(10-15)% additional damage against Frozen enemies",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Long Night Sorcerer's Boots",
@@ -5442,6 +6023,8 @@ export const Legendaries = [
       "<A Random Origin of Spirit Magus Affix>",
       "For every Origin of Spirit Magus that affects you, +(12-15)% Movement Speed",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (INT)",
   },
   {
     baseItem: "Packleader Chest Armor",
@@ -5461,6 +6044,8 @@ export const Legendaries = [
       "+25 all stats",
       "Triggers Lv. 20 Safeguard Field every 10s",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Footman's Chestguard",
@@ -5480,6 +6065,8 @@ export const Legendaries = [
       "+(130-150) all stats",
       "+1% Elemental Resistance per 35 stats",
     ],
+    equipmentSlot: "Chest Armor",
+    equipmentType: "Chest Armor (STR)",
   },
   {
     baseItem: "Flare Amulet",
@@ -5499,6 +6086,8 @@ export const Legendaries = [
       "(-30-10)% Skill Area",
       "[Sweep] +25% additional Attack Damage when holding a Two-Handed Weapon+25% Attack Skill Area when holding a Two-Handed Weapon",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "All Magic Grip",
@@ -5516,6 +6105,8 @@ export const Legendaries = [
       "+(75-90) Strength",
       "+(25-30)% additional Melee Physical Damage when the character is only affected by 1 Aura",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (INT)",
   },
   {
     baseItem: "Lunar Corona Necklace",
@@ -5535,6 +6126,8 @@ export const Legendaries = [
       "Your Minions cannot deal Physical Damage",
       "(75-100)% of Critical Strike Rating and Critical Strike Damage are also applied to Minions",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Necklace",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -5554,6 +6147,8 @@ export const Legendaries = [
       "When the Energy Shield is lower than (2000-4000) , Barrier breaks after blocking Hit Damage (2-6) times",
       "When Max Life is higher than (3000-5000) , creates a Barrier that aborbs (66-75)% damage",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Long Night Sorcerer's Mask",
@@ -5573,6 +6168,8 @@ export const Legendaries = [
       "+(40-50)% chance to launch one more wave when casting a Barrage Skill-20% Barrage Skill Wave Interval",
       "Randomly -1% enemy Elemental Resistance or -2.5% enemy Armor per Barrage wave. Stacks up to (8-25) times. Lasts 1 s",
     ],
+    equipmentSlot: "Helmet",
+    equipmentType: "Helmet (INT)",
   },
   {
     baseItem: "Ripping Claymore",
@@ -5589,6 +6186,8 @@ export const Legendaries = [
       "+(22-30)% chance to deal Double Damage",
       "+(5-7)% Attack and Cast Speed when dealing Double Damage recently, up to +10 stack(s)",
     ],
+    equipmentSlot: "Two-Handed",
+    equipmentType: "Two-Handed Sword",
   },
   {
     baseItem: "Wild Dominator Long Boots",
@@ -5604,6 +6203,8 @@ export const Legendaries = [
       "Movement Speed is fixed to 150% of the base value",
       "+75% Aiming Skill Duration.",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
   {
     baseItem: "Agony Darkness Ring",
@@ -5623,6 +6224,8 @@ export const Legendaries = [
       "Max Channeled Stacks +(3-5)",
       "+(12-16)% chance to avoid damage when channeling",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Agony Darkness Ring",
@@ -5642,6 +6245,8 @@ export const Legendaries = [
       "Min Channeled Stacks +(2-4)",
       "+(45-60)% chance to deal Double Damage while channeling",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Ring",
   },
   {
     baseItem: "Hands of Calamity",
@@ -5659,6 +6264,8 @@ export const Legendaries = [
       "<Random Control Immunity Affix>",
       "Intimidated gains an additional base effect: +(30-40)% additional Spell and Ailment Damage taken for each type of crowd control effect the target is under. Stacks up to 6 times",
     ],
+    equipmentSlot: "Gloves",
+    equipmentType: "Gloves (DEX)",
   },
   {
     baseItem: "God's Grace Girdle",
@@ -5678,6 +6285,8 @@ export const Legendaries = [
       "+(16-20)% additional Cooldown Recovery Speed when you have no less than (3-5) stacks of Focus Blessing",
       "+(130-150)% additional Minion Damage when having at least (6-7) stack(s) of Focus Blessing",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Dragon Scale Waistguard",
@@ -5695,6 +6304,8 @@ export const Legendaries = [
       "Restoration Skills: +(90-120)% restoration effect",
       "Restoration Skills: +(90-120)% Restoration Duration",
     ],
+    equipmentSlot: "Trinket",
+    equipmentType: "Belt",
   },
   {
     baseItem: "Secret Shadow's Shoes",
@@ -5710,6 +6321,8 @@ export const Legendaries = [
       "Every 10 s, gains the following effects in turn: The Main Skill is supported by Lv. (20-35) Blinding and Wind Projectiles. Main Skill is supported by Lv. (20-35) Increased Area and Slow Projectile.",
       "When Movement Speed is not lower than 200% of the base value, -1% Movement Speed and +1% Projectile Speed for every 1m of movement made recently, up to 120%.",
     ],
+    equipmentSlot: "Boots",
+    equipmentType: "Boots (DEX)",
   },
 ] as const satisfies readonly Legendary[];
 

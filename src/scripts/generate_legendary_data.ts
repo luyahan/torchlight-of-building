@@ -3,6 +3,7 @@ import { readFile, writeFile, readdir, mkdir } from "fs/promises";
 import { join } from "path";
 import { execSync } from "child_process";
 import type { Legendary } from "../data/legendary/types";
+import type { EquipmentSlot, EquipmentType } from "../tli/gear_data_types";
 
 const cleanText = (text: string): string => {
   // Replace en-dash (U+2013) with regular hyphen
@@ -14,10 +15,59 @@ const cleanText = (text: string): string => {
   return cleaned.trim();
 };
 
+interface CodexLegendaryInfo {
+  equipmentSlot: EquipmentSlot;
+  equipmentType: EquipmentType;
+}
+
+/** Legendary data extracted from tlidb (without equipment slot/type) */
+interface TlidbLegendary {
+  name: string;
+  baseItem: string;
+  baseStat: string;
+  normalAffixes: string[];
+  corruptionAffixes: string[];
+}
+
+/**
+ * Extracts legendary equipment info (slot and type) from codex.html's legendary table.
+ * Returns a map keyed by legendary name.
+ */
+const extractCodexLegendaryData = (
+  html: string,
+): Map<string, CodexLegendaryInfo> => {
+  const $ = cheerio.load(html);
+  const legendaryMap = new Map<string, CodexLegendaryInfo>();
+
+  const rows = $('#legendary tbody tr[class*="thing"]');
+  console.log(`Found ${rows.length} legendary rows in codex.html`);
+
+  rows.each((_, row) => {
+    const tds = $(row).find("td");
+
+    if (tds.length < 3) {
+      console.warn(
+        `Skipping codex row with ${tds.length} columns (expected at least 3)`,
+      );
+      return;
+    }
+
+    const equipmentSlot = $(tds[0]).text().trim() as EquipmentSlot;
+    const equipmentType = $(tds[1]).text().trim() as EquipmentType;
+    const name = $(tds[2]).text().trim();
+
+    if (name) {
+      legendaryMap.set(name, { equipmentSlot, equipmentType });
+    }
+  });
+
+  return legendaryMap;
+};
+
 const extractLegendary = (
   $: cheerio.CheerioAPI,
   filename: string,
-): Legendary | undefined => {
+): TlidbLegendary | undefined => {
   // Find the SS10Season card (not the previousItem one)
   let mainCard: cheerio.Cheerio<any> | undefined;
 
@@ -124,28 +174,52 @@ const main = async (): Promise<void> => {
   const inputDir = join(process.cwd(), ".garbage", "tlidb", "legendary_gear");
   const outDir = join(process.cwd(), "src", "data", "legendary");
 
+  // Step 1: Read codex.html and extract equipment slot/type mapping
+  const codexPath = join(process.cwd(), ".garbage", "codex.html");
+  console.log("Reading codex.html for equipment info...");
+  const codexHtml = await readFile(codexPath, "utf-8");
+  const codexLegendaryMap = extractCodexLegendaryData(codexHtml);
+
+  // Step 2: Read tlidb legendary files
   console.log("Reading HTML files from:", inputDir);
   const files = await readdir(inputDir);
   const htmlFiles = files.filter((f) => f.endsWith(".html"));
   console.log(`Found ${htmlFiles.length} HTML files`);
 
   const legendaries: Legendary[] = [];
+  let skippedCount = 0;
 
   for (const filename of htmlFiles) {
     const filepath = join(inputDir, filename);
     const html = await readFile(filepath, "utf-8");
     const $ = cheerio.load(html);
 
-    const legendary = extractLegendary($, filename);
-    if (legendary) {
-      legendaries.push(legendary);
+    const tlidbData = extractLegendary($, filename);
+    if (!tlidbData) {
+      continue;
     }
+
+    // Step 3: Merge with codex data
+    const codexInfo = codexLegendaryMap.get(tlidbData.name);
+    if (!codexInfo) {
+      console.warn(`No codex data found for: ${tlidbData.name} - skipping`);
+      skippedCount++;
+      continue;
+    }
+
+    legendaries.push({
+      ...tlidbData,
+      equipmentSlot: codexInfo.equipmentSlot,
+      equipmentType: codexInfo.equipmentType,
+    });
   }
 
   // Sort by name for consistent output
   legendaries.sort((a, b) => a.name.localeCompare(b.name));
 
-  console.log(`Extracted ${legendaries.length} legendaries`);
+  console.log(
+    `Extracted ${legendaries.length} legendaries (skipped ${skippedCount} without codex data)`,
+  );
 
   await mkdir(outDir, { recursive: true });
 
