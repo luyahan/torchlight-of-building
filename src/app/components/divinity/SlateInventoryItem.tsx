@@ -1,14 +1,13 @@
 "use client";
 
 import { RawDivinitySlate } from "@/src/tli/core";
-import { getSlateDisplayName, GOD_COLORS, GOD_BORDER_COLORS } from "@/src/app/lib/divinity-utils";
+import { getSlateDisplayName } from "@/src/app/lib/divinity-utils";
 import { SlatePreview } from "./SlatePreview";
 
 interface SlateInventoryItemProps {
   slate: RawDivinitySlate;
   isPlaced: boolean;
-  isSelected: boolean;
-  onSelect: () => void;
+  onPlace: () => void;
   onEdit: () => void;
   onCopy: () => void;
   onDelete: () => void;
@@ -17,23 +16,22 @@ interface SlateInventoryItemProps {
 export const SlateInventoryItem: React.FC<SlateInventoryItemProps> = ({
   slate,
   isPlaced,
-  isSelected,
-  onSelect,
+  onPlace,
   onEdit,
   onCopy,
   onDelete,
 }) => {
-  const legendaryCount = slate.affixTypes.filter((t) => t === "Legendary Medium").length;
+  const legendaryCount = slate.affixTypes.filter(
+    (t) => t === "Legendary Medium",
+  ).length;
   const mediumCount = slate.affixTypes.filter((t) => t === "Medium").length;
 
   return (
     <div
       className={`flex items-center gap-3 rounded border p-2 transition-colors ${
-        isSelected
-          ? `${GOD_BORDER_COLORS[slate.god]} border-2 bg-zinc-700`
-          : isPlaced
-            ? "border-zinc-600 bg-zinc-700/50"
-            : "border-zinc-700 bg-zinc-900 hover:border-zinc-600"
+        isPlaced
+          ? "border-zinc-600 bg-zinc-700/50"
+          : "border-zinc-700 bg-zinc-900 hover:border-zinc-600"
       }`}
     >
       <div className="flex-shrink-0">
@@ -77,14 +75,10 @@ export const SlateInventoryItem: React.FC<SlateInventoryItemProps> = ({
       <div className="flex items-center gap-1">
         {!isPlaced && (
           <button
-            onClick={onSelect}
-            className={`rounded px-2 py-1 text-xs transition-colors ${
-              isSelected
-                ? "bg-amber-600 text-white"
-                : "bg-zinc-700 text-zinc-300 hover:bg-zinc-600"
-            }`}
+            onClick={onPlace}
+            className="rounded bg-amber-600 px-2 py-1 text-xs text-white hover:bg-amber-500"
           >
-            {isSelected ? "Selected" : "Place"}
+            Place
           </button>
         )}
         <button

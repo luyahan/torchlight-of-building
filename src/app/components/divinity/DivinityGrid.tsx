@@ -1,74 +1,64 @@
 "use client";
 
 import { useState } from "react";
-import {
-  RawDivinityPage,
-  RawDivinitySlate,
-} from "@/src/tli/core";
+import { RawDivinityPage, RawDivinitySlate } from "@/src/tli/core";
 import {
   GRID_MASK,
   GRID_ROWS,
   GRID_COLS,
-  buildOccupiedCellsSet,
-  canPlaceSlate,
   findSlateAtCell,
+  findOverlappingCells,
+  findOutOfBoundsCells,
 } from "@/src/app/lib/divinity-grid";
-import { getTransformedCells } from "@/src/app/lib/divinity-shapes";
 import { DivinityGridCell } from "./DivinityGridCell";
 
 interface DivinityGridProps {
   divinityPage: RawDivinityPage;
   divinitySlateList: RawDivinitySlate[];
-  selectedSlate: RawDivinitySlate | undefined;
-  onPlaceAtPosition: (position: { row: number; col: number }) => void;
   onClickPlacedSlate: (slateId: string) => void;
+  onMoveSlate: (
+    slateId: string,
+    position: { row: number; col: number },
+  ) => void;
 }
 
 export const DivinityGrid: React.FC<DivinityGridProps> = ({
   divinityPage,
   divinitySlateList,
-  selectedSlate,
-  onPlaceAtPosition,
   onClickPlacedSlate,
+  onMoveSlate,
 }) => {
-  const [hoverPosition, setHoverPosition] = useState<{ row: number; col: number } | undefined>();
+  const [draggedSlateId, setDraggedSlateId] = useState<string | undefined>();
+  const [dropTarget, setDropTarget] = useState<
+    { row: number; col: number } | undefined
+  >();
 
-  const occupiedCells = buildOccupiedCellsSet(divinitySlateList, divinityPage.placedSlates);
-
-  const getPreviewCells = (): Set<string> => {
-    if (!selectedSlate || !hoverPosition) return new Set();
-
-    const cells = getTransformedCells(
-      selectedSlate.shape,
-      selectedSlate.rotation,
-      selectedSlate.flippedH,
-      selectedSlate.flippedV,
-    );
-
-    return new Set(
-      cells.map(([r, c]) => `${r + hoverPosition.row},${c + hoverPosition.col}`),
-    );
-  };
-
-  const isValidPlacement = (): boolean => {
-    if (!selectedSlate || !hoverPosition) return false;
-
-    return canPlaceSlate(
-      selectedSlate.shape,
-      hoverPosition,
-      selectedSlate.rotation,
-      selectedSlate.flippedH,
-      selectedSlate.flippedV,
-      occupiedCells,
-    );
-  };
+  const overlappingCells = findOverlappingCells(
+    divinitySlateList,
+    divinityPage.placedSlates,
+  );
+  const outOfBoundsCells = findOutOfBoundsCells(
+    divinitySlateList,
+    divinityPage.placedSlates,
+  );
+  const invalidCells = new Set([...overlappingCells, ...outOfBoundsCells]);
+  const hasInvalidState = invalidCells.size > 0;
 
   const getCellSlateId = (row: number, col: number): string | undefined => {
-    const placed = findSlateAtCell(row, col, divinitySlateList, divinityPage.placedSlates);
+    const placed = findSlateAtCell(
+      row,
+      col,
+      divinitySlateList,
+      divinityPage.placedSlates,
+    );
     return placed?.slateId;
   };
 
-  const getSlateEdges = (row: number, col: number, slateId: string | undefined) => {
+  const getSlateEdges = (
+    row: number,
+    col: number,
+    slateId: string | undefined,
+  ) => {
     if (!slateId) return undefined;
     return {
       top: getCellSlateId(row - 1, col) !== slateId,
@@ -78,28 +68,40 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
     };
   };
 
-  const previewCells = getPreviewCells();
-  const validPlacement = isValidPlacement();
-
   const handleCellClick = (row: number, col: number) => {
-    if (selectedSlate && validPlacement && hoverPosition?.row === row && hoverPosition?.col === col) {
-      onPlaceAtPosition({ row, col });
-    } else {
-      const placed = findSlateAtCell(row, col, divinitySlateList, divinityPage.placedSlates);
-      if (placed) {
-        onClickPlacedSlate(placed.slateId);
-      }
+    const placed = findSlateAtCell(
+      row,
+      col,
+      divinitySlateList,
+      divinityPage.placedSlates,
+    );
+    if (placed) {
+      onClickPlacedSlate(placed.slateId);
     }
   };
 
-  const handleCellHover = (row: number, col: number) => {
-    if (selectedSlate) {
-      setHoverPosition({ row, col });
+  const handleDragStart = (slateId: string) => {
+    setDraggedSlateId(slateId);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedSlateId(undefined);
+    setDropTarget(undefined);
+  };
+
+  const handleDragOver = (row: number, col: number, e: React.DragEvent) => {
+    e.preventDefault();
+    if (draggedSlateId) {
+      setDropTarget({ row, col });
     }
   };
 
-  const handleMouseLeave = () => {
-    setHoverPosition(undefined);
+  const handleDrop = (row: number, col: number) => {
+    if (draggedSlateId) {
+      onMoveSlate(draggedSlateId, { row, col });
+    }
+    setDraggedSlateId(undefined);
+    setDropTarget(undefined);
   };
 
   const rows = [];
@@ -107,11 +109,13 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
     const cells = [];
     for (let col = 0; col < GRID_COLS; col++) {
       const isValid = GRID_MASK[row][col] === 1;
-      const isOccupied = occupiedCells.has(`${row},${col}`);
-      const isPreview = previewCells.has(`${row},${col}`);
       const cellSlateId = getCellSlateId(row, col);
-      const cellSlate = cellSlateId ? divinitySlateList.find((s) => s.id === cellSlateId) : undefined;
+      const cellSlate = cellSlateId
+        ? divinitySlateList.find((s) => s.id === cellSlateId)
+        : undefined;
       const slateEdges = getSlateEdges(row, col, cellSlateId);
+      const isInvalid = invalidCells.has(`${row},${col}`);
+      const isDropTarget = dropTarget?.row === row && dropTarget?.col === col;
 
       cells.push(
         <DivinityGridCell
@@ -119,14 +123,18 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
           row={row}
           col={col}
           isValid={isValid}
-          isOccupied={isOccupied}
-          isPreview={isPreview}
-          isValidPlacement={validPlacement}
           slate={cellSlate}
-          selectedSlate={selectedSlate}
           slateEdges={slateEdges}
+          isInvalid={isInvalid}
+          isDropTarget={isDropTarget}
+          isDragging={draggedSlateId === cellSlateId}
           onClick={() => handleCellClick(row, col)}
-          onMouseEnter={() => handleCellHover(row, col)}
+          onDragStart={
+            cellSlateId ? () => handleDragStart(cellSlateId) : undefined
+          }
+          onDragEnd={handleDragEnd}
+          onDragOver={(e) => handleDragOver(row, col, e)}
+          onDrop={() => handleDrop(row, col)}
         />,
       );
     }
@@ -138,11 +146,20 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
   }
 
   return (
-    <div
-      className="inline-block rounded-lg bg-zinc-900 p-2"
-      onMouseLeave={handleMouseLeave}
-    >
-      {rows}
+    <div className="flex flex-col gap-2">
+      <div className="inline-block rounded-lg bg-zinc-900 p-2">{rows}</div>
+      {hasInvalidState && (
+        <div className="flex items-center gap-2 rounded bg-red-900/50 px-3 py-2 text-sm text-red-200">
+          <span className="text-red-400">⚠</span>
+          <span>
+            {overlappingCells.size > 0 && outOfBoundsCells.size > 0
+              ? "Slates are overlapping and out of bounds"
+              : overlappingCells.size > 0
+                ? "Slates are overlapping"
+                : "Slate is out of bounds"}
+          </span>
+        </div>
+      )}
     </div>
   );
 };

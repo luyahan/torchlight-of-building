@@ -43,7 +43,9 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({
 }) => {
   const [god, setGod] = useState<DivinityGod>(editingSlate?.god ?? "Hunting");
   const [shape, setShape] = useState<SlateShape>(editingSlate?.shape ?? "O");
-  const [rotation, setRotation] = useState<Rotation>(editingSlate?.rotation ?? 0);
+  const [rotation, setRotation] = useState<Rotation>(
+    editingSlate?.rotation ?? 0,
+  );
   const [flippedH, setFlippedH] = useState(editingSlate?.flippedH ?? false);
   const [flippedV, setFlippedV] = useState(editingSlate?.flippedV ?? false);
   const [selectedAffixes, setSelectedAffixes] = useState<DivinityAffix[]>([]);
@@ -55,10 +57,12 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({
       setRotation(editingSlate.rotation);
       setFlippedH(editingSlate.flippedH);
       setFlippedV(editingSlate.flippedV);
-      const affixes: DivinityAffix[] = editingSlate.affixes.map((effect, i) => ({
-        effect,
-        type: editingSlate.affixTypes[i],
-      }));
+      const affixes: DivinityAffix[] = editingSlate.affixes.map(
+        (effect, i) => ({
+          effect,
+          type: editingSlate.affixTypes[i],
+        }),
+      );
       setSelectedAffixes(affixes);
     } else {
       setSelectedAffixes([]);
@@ -72,7 +76,9 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({
 
   const affixOptions = useMemo((): SearchableSelectOption<string>[] => {
     return availableAffixes
-      .filter((affix) => !selectedAffixes.some((a) => a.effect === affix.effect))
+      .filter(
+        (affix) => !selectedAffixes.some((a) => a.effect === affix.effect),
+      )
       .map((affix) => ({
         value: affix.effect,
         label: affix.effect.split("\n")[0],
@@ -151,7 +157,9 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 block text-sm text-zinc-400">Shape & Orientation</label>
+        <label className="mb-2 block text-sm text-zinc-400">
+          Shape & Orientation
+        </label>
         <div className="flex gap-4 items-start">
           <div className="flex flex-col gap-2">
             {SLATE_SHAPES.map((s) => (

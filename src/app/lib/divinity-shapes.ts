@@ -45,9 +45,10 @@ const rotateCells90 = (
   cells: [number, number][],
   bounds: { rows: number; cols: number },
 ): { cells: [number, number][]; bounds: { rows: number; cols: number } } => {
-  const rotated = cells.map(
-    ([r, c]): [number, number] => [c, bounds.rows - 1 - r],
-  );
+  const rotated = cells.map(([r, c]): [number, number] => [
+    c,
+    bounds.rows - 1 - r,
+  ]);
   return {
     cells: normalizeCoordinates(rotated),
     bounds: { rows: bounds.cols, cols: bounds.rows },
@@ -75,9 +76,10 @@ const flipHorizontal = (
   cells: [number, number][],
   bounds: { rows: number; cols: number },
 ): [number, number][] => {
-  const flipped = cells.map(
-    ([r, c]): [number, number] => [r, bounds.cols - 1 - c],
-  );
+  const flipped = cells.map(([r, c]): [number, number] => [
+    r,
+    bounds.cols - 1 - c,
+  ]);
   return normalizeCoordinates(flipped);
 };
 
@@ -85,9 +87,10 @@ const flipVertical = (
   cells: [number, number][],
   bounds: { rows: number; cols: number },
 ): [number, number][] => {
-  const flipped = cells.map(
-    ([r, c]): [number, number] => [bounds.rows - 1 - r, c],
-  );
+  const flipped = cells.map(([r, c]): [number, number] => [
+    bounds.rows - 1 - r,
+    c,
+  ]);
   return normalizeCoordinates(flipped);
 };
 
@@ -120,7 +123,10 @@ export const getOccupiedCells = (
     slate.flippedV,
   );
 
-  return cells.map(([r, c]) => [r + placed.position.row, c + placed.position.col]);
+  return cells.map(([r, c]) => [
+    r + placed.position.row,
+    c + placed.position.col,
+  ]);
 };
 
 export const getTransformedBounds = (

@@ -1,7 +1,11 @@
 "use client";
 
 import { SlateShape, DivinityGod, Rotation } from "@/src/tli/core";
-import { getTransformedCells, SHAPE_BOUNDS, applyRotation } from "@/src/app/lib/divinity-shapes";
+import {
+  getTransformedCells,
+  SHAPE_BOUNDS,
+  applyRotation,
+} from "@/src/app/lib/divinity-shapes";
 import { GOD_COLORS } from "@/src/app/lib/divinity-utils";
 
 interface SlatePreviewProps {

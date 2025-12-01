@@ -6,8 +6,7 @@ import { SlateInventoryItem } from "./SlateInventoryItem";
 interface SlateInventoryProps {
   slates: RawDivinitySlate[];
   placedSlateIds: string[];
-  selectedSlateId: string | undefined;
-  onSelect: (slateId: string) => void;
+  onPlace: (slateId: string) => void;
   onEdit: (slate: RawDivinitySlate) => void;
   onCopy: (slate: RawDivinitySlate) => void;
   onDelete: (slateId: string) => void;
@@ -16,8 +15,7 @@ interface SlateInventoryProps {
 export const SlateInventory: React.FC<SlateInventoryProps> = ({
   slates,
   placedSlateIds,
-  selectedSlateId,
-  onSelect,
+  onPlace,
   onEdit,
   onCopy,
   onDelete,
@@ -39,8 +37,7 @@ export const SlateInventory: React.FC<SlateInventoryProps> = ({
               key={slate.id}
               slate={slate}
               isPlaced={placedSlateIds.includes(slate.id)}
-              isSelected={selectedSlateId === slate.id}
-              onSelect={() => onSelect(slate.id)}
+              onPlace={() => onPlace(slate.id)}
               onEdit={() => onEdit(slate)}
               onCopy={() => onCopy(slate)}
               onDelete={() => onDelete(slate.id)}

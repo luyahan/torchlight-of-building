@@ -757,6 +757,21 @@ export default function Home() {
     }));
   };
 
+  const handleMoveDivinitySlate = (
+    slateId: string,
+    position: { row: number; col: number },
+  ) => {
+    setLoadout((prev) => ({
+      ...prev,
+      divinityPage: {
+        ...prev.divinityPage,
+        placedSlates: prev.divinityPage.placedSlates.map((p) =>
+          p.slateId === slateId ? { ...p, position } : p,
+        ),
+      },
+    }));
+  };
+
   const handleDebugToggle = () => {
     setDebugMode((prev) => {
       const newValue = !prev;
@@ -1158,6 +1173,7 @@ export default function Home() {
             onDeleteSlate={handleDeleteDivinitySlate}
             onPlaceSlate={handlePlaceDivinitySlate}
             onRemovePlacedSlate={handleRemovePlacedDivinitySlate}
+            onMoveSlate={handleMoveDivinitySlate}
           />
         )}
 

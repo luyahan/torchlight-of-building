@@ -1,4 +1,9 @@
-import { RawDivinitySlate, PlacedSlate, SlateShape, Rotation } from "@/src/tli/core";
+import {
+  RawDivinitySlate,
+  PlacedSlate,
+  SlateShape,
+  Rotation,
+} from "@/src/tli/core";
 import { getOccupiedCells, getTransformedCells } from "./divinity-shapes";
 
 export const GRID_MASK: number[][] = [
@@ -46,9 +51,10 @@ export const canPlaceSlate = (
   occupiedCells: Set<string>,
 ): boolean => {
   const cells = getTransformedCells(shape, rotation, flippedH, flippedV);
-  const absoluteCells = cells.map(
-    ([r, c]): [number, number] => [r + position.row, c + position.col],
-  );
+  const absoluteCells = cells.map(([r, c]): [number, number] => [
+    r + position.row,
+    c + position.col,
+  ]);
 
   return absoluteCells.every(([r, c]) => {
     const key = `${r},${c}`;
@@ -72,4 +78,56 @@ export const findSlateAtCell = (
     }
   }
   return undefined;
+};
+
+export const findGridCenter = (): { row: number; col: number } => {
+  return { row: 2, col: 2 };
+};
+
+export const findOverlappingCells = (
+  slates: RawDivinitySlate[],
+  placements: PlacedSlate[],
+): Set<string> => {
+  const cellCounts = new Map<string, number>();
+
+  placements.forEach((placement) => {
+    const slate = slates.find((s) => s.id === placement.slateId);
+    if (!slate) return;
+
+    const cells = getOccupiedCells(slate, placement);
+    cells.forEach(([r, c]) => {
+      const key = `${r},${c}`;
+      cellCounts.set(key, (cellCounts.get(key) ?? 0) + 1);
+    });
+  });
+
+  const overlapping = new Set<string>();
+  cellCounts.forEach((count, key) => {
+    if (count > 1) {
+      overlapping.add(key);
+    }
+  });
+
+  return overlapping;
+};
+
+export const findOutOfBoundsCells = (
+  slates: RawDivinitySlate[],
+  placements: PlacedSlate[],
+): Set<string> => {
+  const outOfBounds = new Set<string>();
+
+  placements.forEach((placement) => {
+    const slate = slates.find((s) => s.id === placement.slateId);
+    if (!slate) return;
+
+    const cells = getOccupiedCells(slate, placement);
+    cells.forEach(([r, c]) => {
+      if (!isValidGridCell(r, c)) {
+        outOfBounds.add(`${r},${c}`);
+      }
+    });
+  });
+
+  return outOfBounds;
 };
