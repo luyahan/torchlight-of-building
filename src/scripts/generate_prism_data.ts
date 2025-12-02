@@ -51,7 +51,7 @@ const extractPrismData = (html: string): Prism[] => {
     const item: Prism = {
       type: $(tds[0]).text().trim(),
       rarity: $(tds[1]).text().trim(),
-      effect: cleanEffectText($(tds[2]).html() || ""),
+      affix: cleanEffectText($(tds[2]).html() || ""),
     };
 
     items.push(item);
