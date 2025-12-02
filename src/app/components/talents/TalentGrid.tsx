@@ -1,6 +1,5 @@
 import {
   TalentTreeData,
-  TalentNodeData,
   canAllocateNode,
   canDeallocateNode,
   isPrerequisiteSatisfied,
@@ -17,8 +16,8 @@ interface TalentGridProps {
 
 // Helper to calculate node center positions for SVG lines
 const getNodeCenter = (x: number, y: number) => ({
-  cx: x * (80 + 8) + 40, // 80px node + 8px gap, center at 40px
-  cy: y * (80 + 8) + 40,
+  cx: x * (80 + 80) + 40, // 80px node + 80px gap, center at 40px
+  cy: y * (80 + 80) + 40,
 });
 
 export const TalentGrid: React.FC<TalentGridProps> = ({
@@ -27,13 +26,18 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
   onAllocate,
   onDeallocate,
 }) => {
+  // Grid dimensions: 7 cols × 5 rows, 80px nodes, 80px gaps
+  const gridWidth = 7 * 80 + 6 * 80; // 1040px
+  const gridHeight = 5 * 80 + 4 * 80; // 720px
+
   return (
-    <div className="relative">
-      {/* SVG for prerequisite lines */}
-      <svg
-        className="absolute inset-0 pointer-events-none"
-        style={{ width: "100%", height: "100%", zIndex: 0 }}
-      >
+    <div className="overflow-x-auto">
+      <div className="relative" style={{ width: gridWidth, height: gridHeight }}>
+        {/* SVG for prerequisite lines */}
+        <svg
+          className="absolute inset-0 pointer-events-none"
+          style={{ width: gridWidth, height: gridHeight, zIndex: 0 }}
+        >
         {treeData.nodes
           .filter((node) => node.prerequisite)
           .map((node, idx) => {
@@ -64,17 +68,24 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
           })}
       </svg>
 
-      {/* Node Grid */}
-      <div className="relative" style={{ zIndex: 1 }}>
-        {[0, 1, 2, 3, 4].map((y) => (
-          <div key={y} className="grid grid-cols-7 gap-2 mb-2">
-            {[0, 1, 2, 3, 4, 5, 6].map((x) => {
+        {/* Node Grid */}
+        <div
+          className="relative grid"
+          style={{
+            zIndex: 1,
+            gridTemplateColumns: "repeat(7, 80px)",
+            gridTemplateRows: "repeat(5, 80px)",
+            gap: "80px",
+          }}
+        >
+          {[0, 1, 2, 3, 4].map((y) =>
+            [0, 1, 2, 3, 4, 5, 6].map((x) => {
               const node = treeData.nodes.find(
                 (n) => n.position.x === x && n.position.y === y,
               );
 
               if (!node) {
-                return <div key={x} className="w-20 h-20" />;
+                return <div key={`${x}-${y}`} className="w-20 h-20" />;
               }
 
               const allocation = allocatedNodes.find(
@@ -97,9 +108,9 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                   onDeallocate={() => onDeallocate(x, y)}
                 />
               );
-            })}
-          </div>
-        ))}
+            }),
+          )}
+        </div>
       </div>
     </div>
   );
