@@ -39,6 +39,12 @@ export interface CraftedPrism {
   gaugeAffixes: string[];
 }
 
+export interface PlacedPrism {
+  prism: CraftedPrism;
+  treeSlot: "tree1" | "tree2" | "tree3" | "tree4";
+  position: { x: number; y: number };
+}
+
 export interface PlacedSlate {
   slateId: string;
   position: { row: number; col: number };
@@ -65,6 +71,7 @@ export interface TalentPage {
   tree2?: TalentTree;
   tree3?: TalentTree;
   tree4?: TalentTree;
+  placedPrism?: PlacedPrism;
 }
 
 export interface Gear {

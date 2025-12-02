@@ -1,4 +1,4 @@
-import { AllocatedTalentNode } from "@/src/app/lib/save-data";
+import { AllocatedTalentNode, PlacedPrism } from "@/src/app/lib/save-data";
 import { TalentNodeData, TalentTreeData } from "./core";
 import { TALENT_TREES } from "./talent_data";
 import type { TreeName } from "./talent_tree_types";
@@ -13,6 +13,21 @@ export type { TreeName } from "./talent_tree_types";
 
 // Re-export data types
 export type { TalentNodeData, TalentTreeData };
+
+// Check if a position has a placed prism
+export const hasPrismAtPosition = (
+  placedPrism: PlacedPrism | undefined,
+  treeSlot: string,
+  x: number,
+  y: number,
+): boolean => {
+  if (!placedPrism) return false;
+  return (
+    placedPrism.treeSlot === treeSlot &&
+    placedPrism.position.x === x &&
+    placedPrism.position.y === y
+  );
+};
 
 // Calculate total points in a specific column
 export const calculateColumnPoints = (
@@ -50,12 +65,24 @@ export const isColumnUnlocked = (
 };
 
 // Check if a prerequisite node is fully satisfied
+// If the prerequisite node has a prism, the check is bypassed (considered satisfied)
 export const isPrerequisiteSatisfied = (
   prerequisite: { x: number; y: number } | undefined,
   allocatedNodes: AllocatedTalentNode[],
   treeData: TalentTreeData,
+  placedPrism?: PlacedPrism,
+  treeSlot?: string,
 ): boolean => {
   if (!prerequisite) return true;
+
+  // If prerequisite node has a prism, bypass the check
+  if (
+    placedPrism &&
+    treeSlot &&
+    hasPrismAtPosition(placedPrism, treeSlot, prerequisite.x, prerequisite.y)
+  ) {
+    return true;
+  }
 
   const prereqNode = treeData.nodes.find(
     (n) => n.position.x === prerequisite.x && n.position.y === prerequisite.y,
@@ -74,14 +101,33 @@ export const canAllocateNode = (
   node: TalentNodeData,
   allocatedNodes: AllocatedTalentNode[],
   treeData: TalentTreeData,
+  placedPrism?: PlacedPrism,
+  treeSlot?: string,
 ): boolean => {
+  // Cannot allocate to a node with a prism
+  if (
+    placedPrism &&
+    treeSlot &&
+    hasPrismAtPosition(placedPrism, treeSlot, node.position.x, node.position.y)
+  ) {
+    return false;
+  }
+
   // Check column gating
   if (!isColumnUnlocked(allocatedNodes, node.position.x)) {
     return false;
   }
 
   // Check prerequisite
-  if (!isPrerequisiteSatisfied(node.prerequisite, allocatedNodes, treeData)) {
+  if (
+    !isPrerequisiteSatisfied(
+      node.prerequisite,
+      allocatedNodes,
+      treeData,
+      placedPrism,
+      treeSlot,
+    )
+  ) {
     return false;
   }
 
@@ -101,6 +147,8 @@ export const canDeallocateNode = (
   node: TalentNodeData,
   allocatedNodes: AllocatedTalentNode[],
   treeData: TalentTreeData,
+  placedPrism?: PlacedPrism,
+  treeSlot?: string,
 ): boolean => {
   // Must have points allocated
   const current = allocatedNodes.find(
@@ -111,10 +159,25 @@ export const canDeallocateNode = (
   }
 
   // Check if any other node depends on this one being fully allocated
+  // Skip nodes that have a prism on them (prism nodes don't count as allocated dependents)
   const hasDependents = treeData.nodes.some((otherNode) => {
     if (!otherNode.prerequisite) return false;
     if (otherNode.prerequisite.x !== node.position.x) return false;
     if (otherNode.prerequisite.y !== node.position.y) return false;
+
+    // If the dependent node has a prism, it doesn't count as a dependent
+    if (
+      placedPrism &&
+      treeSlot &&
+      hasPrismAtPosition(
+        placedPrism,
+        treeSlot,
+        otherNode.position.x,
+        otherNode.position.y,
+      )
+    ) {
+      return false;
+    }
 
     // Check if the dependent node is allocated
     const dependentAllocation = allocatedNodes.find(

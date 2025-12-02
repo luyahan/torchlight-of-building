@@ -11,6 +11,9 @@ interface PrismSectionProps {
   onUpdate: (prism: CraftedPrism) => void;
   onCopy: (prism: CraftedPrism) => void;
   onDelete: (prismId: string) => void;
+  selectedPrismId?: string;
+  onSelectPrism?: (prismId: string | undefined) => void;
+  hasPrismPlaced?: boolean;
 }
 
 export const PrismSection: React.FC<PrismSectionProps> = ({
@@ -19,6 +22,9 @@ export const PrismSection: React.FC<PrismSectionProps> = ({
   onUpdate,
   onCopy,
   onDelete,
+  selectedPrismId,
+  onSelectPrism,
+  hasPrismPlaced = false,
 }) => {
   const [editingPrism, setEditingPrism] = useState<CraftedPrism | undefined>(
     undefined,
@@ -58,6 +64,9 @@ export const PrismSection: React.FC<PrismSectionProps> = ({
             onEdit={handleEdit}
             onCopy={onCopy}
             onDelete={onDelete}
+            selectedPrismId={selectedPrismId}
+            onSelectPrism={onSelectPrism}
+            hasPrismPlaced={hasPrismPlaced}
           />
         </div>
       </div>

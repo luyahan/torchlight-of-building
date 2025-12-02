@@ -3,16 +3,16 @@
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 import { CraftedPrism } from "@/src/app/lib/save-data";
-import {
-  getRareGaugeAffixes,
-  getLegendaryGaugeAffixes,
-} from "@/src/app/lib/prism-utils";
+import { getLegendaryGaugeAffixes } from "@/src/app/lib/prism-utils";
 
 interface PrismInventoryItemProps {
   prism: CraftedPrism;
   onEdit: () => void;
   onCopy: () => void;
   onDelete: () => void;
+  isSelected?: boolean;
+  onSelect?: () => void;
+  selectionMode?: boolean;
 }
 
 export const PrismInventoryItem: React.FC<PrismInventoryItemProps> = ({
@@ -20,6 +20,9 @@ export const PrismInventoryItem: React.FC<PrismInventoryItemProps> = ({
   onEdit,
   onCopy,
   onDelete,
+  isSelected = false,
+  onSelect,
+  selectionMode = false,
 }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
@@ -52,11 +55,22 @@ export const PrismInventoryItem: React.FC<PrismInventoryItemProps> = ({
       ? baseAffixFirstLine.slice(0, 60) + "..."
       : baseAffixFirstLine;
 
+  const handleClick = () => {
+    if (selectionMode && onSelect) {
+      onSelect();
+    }
+  };
+
   return (
     <>
       <div
         ref={itemRef}
-        className="flex items-center gap-3 rounded border border-zinc-700 bg-zinc-900 p-2 transition-colors hover:border-zinc-600"
+        className={`flex items-center gap-3 rounded border p-2 transition-colors ${
+          isSelected
+            ? "border-purple-500 bg-purple-500/20 ring-1 ring-purple-500"
+            : "border-zinc-700 bg-zinc-900 hover:border-zinc-600"
+        } ${selectionMode ? "cursor-pointer" : ""}`}
+        onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

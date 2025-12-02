@@ -8,6 +8,9 @@ interface PrismInventoryProps {
   onEdit: (prism: CraftedPrism) => void;
   onCopy: (prism: CraftedPrism) => void;
   onDelete: (prismId: string) => void;
+  selectedPrismId?: string;
+  onSelectPrism?: (prismId: string | undefined) => void;
+  hasPrismPlaced?: boolean;
 }
 
 export const PrismInventory: React.FC<PrismInventoryProps> = ({
@@ -15,12 +18,39 @@ export const PrismInventory: React.FC<PrismInventoryProps> = ({
   onEdit,
   onCopy,
   onDelete,
+  selectedPrismId,
+  onSelectPrism,
+  hasPrismPlaced = false,
 }) => {
+  const selectionMode = !!onSelectPrism;
+
+  const handleSelect = (prismId: string) => {
+    if (!onSelectPrism) return;
+    // Toggle selection: if already selected, deselect
+    if (selectedPrismId === prismId) {
+      onSelectPrism(undefined);
+    } else {
+      onSelectPrism(prismId);
+    }
+  };
+
   return (
     <div className="rounded-lg border border-zinc-700 bg-zinc-800 p-4">
       <h3 className="mb-4 text-lg font-medium text-zinc-200">
         Prism Inventory ({prisms.length})
       </h3>
+
+      {selectionMode && (
+        <div className="mb-3 p-2 rounded bg-purple-500/10 border border-purple-500/30">
+          <p className="text-sm text-purple-300">
+            {hasPrismPlaced
+              ? "A prism is already placed. Remove it first to place a different one."
+              : selectedPrismId
+                ? "Click on an empty talent node to place the prism, or click the prism again to deselect."
+                : "Click a rare prism to select it for placement."}
+          </p>
+        </div>
+      )}
 
       {prisms.length === 0 ? (
         <p className="text-sm text-zinc-500">
@@ -28,15 +58,22 @@ export const PrismInventory: React.FC<PrismInventoryProps> = ({
         </p>
       ) : (
         <div className="flex flex-col gap-2 max-h-96 overflow-y-auto">
-          {prisms.map((prism) => (
-            <PrismInventoryItem
-              key={prism.id}
-              prism={prism}
-              onEdit={() => onEdit(prism)}
-              onCopy={() => onCopy(prism)}
-              onDelete={() => onDelete(prism.id)}
-            />
-          ))}
+          {prisms.map((prism) => {
+            const canSelect =
+              prism.rarity === "rare" && !hasPrismPlaced && selectionMode;
+            return (
+              <PrismInventoryItem
+                key={prism.id}
+                prism={prism}
+                onEdit={() => onEdit(prism)}
+                onCopy={() => onCopy(prism)}
+                onDelete={() => onDelete(prism.id)}
+                isSelected={selectedPrismId === prism.id}
+                onSelect={canSelect ? () => handleSelect(prism.id) : undefined}
+                selectionMode={canSelect}
+              />
+            );
+          })}
         </div>
       )}
     </div>

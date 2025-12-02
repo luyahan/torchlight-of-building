@@ -117,6 +117,9 @@ export default function BuilderPage() {
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const [saveSuccessToastVisible, setSaveSuccessToastVisible] = useState(false);
+  const [selectedPrismId, setSelectedPrismId] = useState<string | undefined>(
+    undefined,
+  );
 
   // beforeunload handler to warn about unsaved changes
   useEffect(() => {
@@ -915,9 +918,82 @@ export default function BuilderPage() {
   };
 
   const handleDeletePrism = (prismId: string) => {
+    // If this prism is currently placed, remove it from the talent page first
+    updateLoadout((prev) => {
+      const isPlacedPrism = prev.talentPage.placedPrism?.prism.id === prismId;
+      return {
+        ...prev,
+        prismList: prev.prismList.filter((p) => p.id !== prismId),
+        ...(isPlacedPrism && {
+          talentPage: {
+            ...prev.talentPage,
+            placedPrism: undefined,
+          },
+        }),
+      };
+    });
+    // Clear selection if this prism was selected
+    if (selectedPrismId === prismId) {
+      setSelectedPrismId(undefined);
+    }
+  };
+
+  const handleSelectPrismForPlacement = (prismId: string | undefined) => {
+    setSelectedPrismId(prismId);
+  };
+
+  const handlePlacePrism = (treeSlot: TreeSlot, x: number, y: number) => {
+    if (!selectedPrismId) return;
+
+    const prism = loadout.prismList.find((p) => p.id === selectedPrismId);
+    if (!prism) return;
+
+    // Only allow rare prisms
+    if (prism.rarity !== "rare") return;
+
+    // Only allow one prism at a time
+    if (loadout.talentPage.placedPrism) return;
+
+    // Verify node has 0 points allocated
+    const tree = loadout.talentPage[treeSlot];
+    if (!tree) return;
+    const existingAllocation = tree.allocatedNodes.find(
+      (n) => n.x === x && n.y === y,
+    );
+    if (existingAllocation && existingAllocation.points > 0) return;
+
     updateLoadout((prev) => ({
       ...prev,
-      prismList: prev.prismList.filter((p) => p.id !== prismId),
+      // Remove prism from inventory
+      prismList: prev.prismList.filter((p) => p.id !== selectedPrismId),
+      // Place prism in talent page
+      talentPage: {
+        ...prev.talentPage,
+        placedPrism: {
+          prism,
+          treeSlot,
+          position: { x, y },
+        },
+      },
+    }));
+
+    // Clear selection after placing
+    setSelectedPrismId(undefined);
+  };
+
+  const handleRemovePrism = () => {
+    const placedPrism = loadout.talentPage.placedPrism;
+    if (!placedPrism) return;
+
+    updateLoadout((prev) => ({
+      ...prev,
+      // Return prism to inventory
+      prismList: [...prev.prismList, placedPrism.prism],
+      // Clear placement
+      talentPage: {
+        ...prev.talentPage,
+        placedPrism: undefined,
+      },
     }));
   };
 
@@ -1287,6 +1363,15 @@ export default function BuilderPage() {
                     onDeallocate={(x, y) =>
                       handleDeallocate(activeTreeSlot, x, y)
                     }
+                    treeSlot={activeTreeSlot}
+                    placedPrism={loadout.talentPage.placedPrism}
+                    selectedPrism={loadout.prismList.find(
+                      (p) => p.id === selectedPrismId,
+                    )}
+                    onPlacePrism={(x, y) =>
+                      handlePlacePrism(activeTreeSlot, x, y)
+                    }
+                    onRemovePrism={handleRemovePrism}
                   />
                 </div>
               ) : (
@@ -1302,6 +1387,9 @@ export default function BuilderPage() {
               onUpdate={handleUpdatePrism}
               onCopy={handleCopyPrism}
               onDelete={handleDeletePrism}
+              selectedPrismId={selectedPrismId}
+              onSelectPrism={handleSelectPrismForPlacement}
+              hasPrismPlaced={!!loadout.talentPage.placedPrism}
             />
           </>
         )}

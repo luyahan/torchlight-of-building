@@ -3,8 +3,13 @@ import {
   canAllocateNode,
   canDeallocateNode,
   isPrerequisiteSatisfied,
+  hasPrismAtPosition,
 } from "@/src/tli/talent_tree";
-import { AllocatedTalentNode } from "@/src/app/lib/save-data";
+import {
+  AllocatedTalentNode,
+  PlacedPrism,
+  CraftedPrism,
+} from "@/src/app/lib/save-data";
 import { TalentNodeDisplay } from "./TalentNodeDisplay";
 
 interface TalentGridProps {
@@ -12,6 +17,11 @@ interface TalentGridProps {
   allocatedNodes: AllocatedTalentNode[];
   onAllocate: (x: number, y: number) => void;
   onDeallocate: (x: number, y: number) => void;
+  treeSlot: string;
+  placedPrism?: PlacedPrism;
+  selectedPrism?: CraftedPrism;
+  onPlacePrism?: (x: number, y: number) => void;
+  onRemovePrism?: () => void;
 }
 
 // Helper to calculate node center positions for SVG lines
@@ -25,6 +35,11 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
   allocatedNodes,
   onAllocate,
   onDeallocate,
+  treeSlot,
+  placedPrism,
+  selectedPrism,
+  onPlacePrism,
+  onRemovePrism,
 }) => {
   // Grid dimensions: 7 cols × 5 rows, 80px nodes, 80px gaps
   const gridWidth = 7 * 80 + 6 * 80; // 1040px
@@ -44,6 +59,18 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
           {treeData.nodes
             .filter((node) => node.prerequisite)
             .map((node, idx) => {
+              // Don't draw lines from prism nodes (prerequisite is bypassed)
+              if (
+                hasPrismAtPosition(
+                  placedPrism,
+                  treeSlot,
+                  node.prerequisite!.x,
+                  node.prerequisite!.y,
+                )
+              ) {
+                return null;
+              }
+
               const from = getNodeCenter(
                 node.prerequisite!.x,
                 node.prerequisite!.y,
@@ -54,6 +81,8 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                 node.prerequisite,
                 allocatedNodes,
                 treeData,
+                placedPrism,
+                treeSlot,
               );
 
               return (
@@ -95,20 +124,41 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                 (n) => n.x === x && n.y === y,
               );
               const allocated = allocation?.points ?? 0;
+              const nodeHasPrism = hasPrismAtPosition(
+                placedPrism,
+                treeSlot,
+                x,
+                y,
+              );
 
               return (
                 <TalentNodeDisplay
                   key={`${x}-${y}`}
                   node={node}
                   allocated={allocated}
-                  canAllocate={canAllocateNode(node, allocatedNodes, treeData)}
+                  canAllocate={canAllocateNode(
+                    node,
+                    allocatedNodes,
+                    treeData,
+                    placedPrism,
+                    treeSlot,
+                  )}
                   canDeallocate={canDeallocateNode(
                     node,
                     allocatedNodes,
                     treeData,
+                    placedPrism,
+                    treeSlot,
                   )}
                   onAllocate={() => onAllocate(x, y)}
                   onDeallocate={() => onDeallocate(x, y)}
+                  hasPrism={nodeHasPrism}
+                  prism={nodeHasPrism ? placedPrism?.prism : undefined}
+                  isSelectingPrism={!!selectedPrism}
+                  onPlacePrism={
+                    onPlacePrism ? () => onPlacePrism(x, y) : undefined
+                  }
+                  onRemovePrism={nodeHasPrism ? onRemovePrism : undefined}
                 />
               );
             }),
