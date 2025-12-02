@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   SaveData,
@@ -78,7 +78,7 @@ import {
   findSaveById,
 } from "../lib/saves";
 
-export default function BuilderPage() {
+const BuilderPageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const saveId = searchParams.get("id");
@@ -1549,4 +1549,20 @@ export default function BuilderPage() {
       </div>
     </div>
   );
-}
+};
+
+const BuilderPage = () => {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-zinc-950 p-6 flex items-center justify-center">
+          <div className="text-zinc-400">Loading...</div>
+        </div>
+      }
+    >
+      <BuilderPageContent />
+    </Suspense>
+  );
+};
+
+export default BuilderPage;
