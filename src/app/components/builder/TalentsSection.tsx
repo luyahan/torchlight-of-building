@@ -286,7 +286,13 @@ export const TalentsSection = () => {
       // Clear selection after placing
       setSelectedPrismId(undefined);
     },
-    [selectedPrismId, loadout.prismList, loadout.talentPage, updateLoadout, setSelectedPrismId],
+    [
+      selectedPrismId,
+      loadout.prismList,
+      loadout.talentPage,
+      updateLoadout,
+      setSelectedPrismId,
+    ],
   );
 
   const handleRemovePrism = useCallback(() => {
@@ -321,12 +327,17 @@ export const TalentsSection = () => {
     <>
       <div>
         <div className="mb-6">
-          <h2 className="mb-4 text-xl font-semibold text-zinc-50">Tree Slots</h2>
+          <h2 className="mb-4 text-xl font-semibold text-zinc-50">
+            Tree Slots
+          </h2>
           <div className="grid grid-cols-4 gap-2">
             {(["tree1", "tree2", "tree3", "tree4"] as const).map((slot) => {
               const tree = loadout.talentPage[slot];
               const totalPoints = tree
-                ? tree.allocatedNodes.reduce((sum, node) => sum + node.points, 0)
+                ? tree.allocatedNodes.reduce(
+                    (sum, node) => sum + node.points,
+                    0,
+                  )
                 : 0;
 
               return (
@@ -364,9 +375,7 @@ export const TalentsSection = () => {
           <div className="flex gap-2">
             <select
               value={loadout.talentPage[activeTreeSlot]?.name ?? ""}
-              onChange={(e) =>
-                handleTreeChange(activeTreeSlot, e.target.value)
-              }
+              onChange={(e) => handleTreeChange(activeTreeSlot, e.target.value)}
               disabled={
                 (loadout.talentPage[activeTreeSlot]?.allocatedNodes.length ??
                   0) > 0

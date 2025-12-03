@@ -389,13 +389,21 @@ const getTotalDmgModsPerType = (
 ): TotalDmgModsPerType => {
   const dmgModTypes = dmgModTypesForSkill(skillConf);
   const dmgModTypesForPhys: DmgModType[] = [...dmgModTypes, "physical"];
-  const dmgModTypesForCold: DmgModType[] = [...dmgModTypes, "cold", "elemental"];
+  const dmgModTypesForCold: DmgModType[] = [
+    ...dmgModTypes,
+    "cold",
+    "elemental",
+  ];
   const dmgModTypesForLightning: DmgModType[] = [
     ...dmgModTypes,
     "lightning",
     "elemental",
   ];
-  const dmgModTypesForFire: DmgModType[] = [...dmgModTypes, "fire", "elemental"];
+  const dmgModTypesForFire: DmgModType[] = [
+    ...dmgModTypes,
+    "fire",
+    "elemental",
+  ];
   const dmgModTypesForErosion: DmgModType[] = [...dmgModTypes, "erosion"];
 
   const dmgPctModsForPhys = filterDmgPctMods(allDmgPctMods, dmgModTypesForPhys);
@@ -461,13 +469,22 @@ const calculateSkillHit = (
   skillConf: SkillConfiguration,
 ): SkillHitOverview => {
   const totalDmgModsPerType = getTotalDmgModsPerType(allDmgPcts, skillConf);
-  const phys = calculateDmgRange(gearDmg.mainHand.phys, totalDmgModsPerType.phys);
-  const cold = calculateDmgRange(gearDmg.mainHand.cold, totalDmgModsPerType.cold);
+  const phys = calculateDmgRange(
+    gearDmg.mainHand.phys,
+    totalDmgModsPerType.phys,
+  );
+  const cold = calculateDmgRange(
+    gearDmg.mainHand.cold,
+    totalDmgModsPerType.cold,
+  );
   const lightning = calculateDmgRange(
     gearDmg.mainHand.lightning,
     totalDmgModsPerType.lightning,
   );
-  const fire = calculateDmgRange(gearDmg.mainHand.fire, totalDmgModsPerType.fire);
+  const fire = calculateDmgRange(
+    gearDmg.mainHand.fire,
+    totalDmgModsPerType.fire,
+  );
   const erosion = calculateDmgRange(
     gearDmg.mainHand.erosion,
     totalDmgModsPerType.erosion,

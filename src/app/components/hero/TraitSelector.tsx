@@ -1,7 +1,11 @@
 "use client";
 
 import type { HeroTrait } from "@/src/data/hero_trait/types";
-import type { HeroPage, HeroMemory, HeroMemorySlot } from "@/src/app/lib/save-data";
+import type {
+  HeroPage,
+  HeroMemory,
+  HeroMemorySlot,
+} from "@/src/app/lib/save-data";
 import {
   getTraitsForHeroAtLevel,
   MEMORY_SLOT_TYPE_MAP,
@@ -9,7 +13,11 @@ import {
 } from "../../lib/hero-utils";
 import { SearchableSelect } from "@/src/app/components/ui/SearchableSelect";
 import { useTooltip } from "@/src/app/hooks/useTooltip";
-import { Tooltip, TooltipTitle, TooltipContent } from "@/src/app/components/ui/Tooltip";
+import {
+  Tooltip,
+  TooltipTitle,
+  TooltipContent,
+} from "@/src/app/components/ui/Tooltip";
 
 interface TraitSelectorProps {
   heroPage: HeroPage;

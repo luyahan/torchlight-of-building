@@ -19,8 +19,14 @@ interface HeroUIState {
   // Actions
   setCraftingMemoryType: (type: HeroMemoryType | undefined) => void;
   setCraftingBaseStat: (stat: string | undefined) => void;
-  setFixedAffixSlot: (index: number, update: Partial<MemoryAffixSlotState>) => void;
-  setRandomAffixSlot: (index: number, update: Partial<MemoryAffixSlotState>) => void;
+  setFixedAffixSlot: (
+    index: number,
+    update: Partial<MemoryAffixSlotState>,
+  ) => void;
+  setRandomAffixSlot: (
+    index: number,
+    update: Partial<MemoryAffixSlotState>,
+  ) => void;
   resetMemoryCrafting: () => void;
 }
 
@@ -50,14 +56,14 @@ export const useHeroUIStore = create<HeroUIState>((set) => ({
   setFixedAffixSlot: (index, update) =>
     set((state) => ({
       fixedAffixSlots: state.fixedAffixSlots.map((slot, i) =>
-        i === index ? { ...slot, ...update } : slot
+        i === index ? { ...slot, ...update } : slot,
       ),
     })),
 
   setRandomAffixSlot: (index, update) =>
     set((state) => ({
       randomAffixSlots: state.randomAffixSlots.map((slot, i) =>
-        i === index ? { ...slot, ...update } : slot
+        i === index ? { ...slot, ...update } : slot,
       ),
     })),
 

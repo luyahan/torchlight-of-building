@@ -86,26 +86,22 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
 
   const rareGaugeOptions = useMemo((): SearchableSelectOption<string>[] => {
     if (rareGaugeCount >= maxRare) return [];
-    return getRareGaugeAffixes()
-      .filter((a) => !selectedGaugeAffixes.some((s) => s.affix === a.affix))
-      .map((affix) => ({
-        value: affix.affix,
-        label: affix.affix.split("\n")[0],
-        sublabel: "Rare",
-      }));
-  }, [rareGaugeCount, maxRare, selectedGaugeAffixes]);
+    return getRareGaugeAffixes().map((affix) => ({
+      value: affix.affix,
+      label: affix.affix.split("\n")[0],
+      sublabel: "Rare",
+    }));
+  }, [rareGaugeCount, maxRare]);
 
   const legendaryGaugeOptions =
     useMemo((): SearchableSelectOption<string>[] => {
       if (legendaryGaugeCount >= maxLegendary) return [];
-      return getLegendaryGaugeAffixes()
-        .filter((a) => !selectedGaugeAffixes.some((s) => s.affix === a.affix))
-        .map((affix) => ({
-          value: affix.affix,
-          label: affix.affix.split("\n")[0],
-          sublabel: "Legendary",
-        }));
-    }, [legendaryGaugeCount, maxLegendary, selectedGaugeAffixes]);
+      return getLegendaryGaugeAffixes().map((affix) => ({
+        value: affix.affix,
+        label: affix.affix.split("\n")[0],
+        sublabel: "Legendary",
+      }));
+    }, [legendaryGaugeCount, maxLegendary]);
 
   const handleRarityChange = (newRarity: PrismRarity) => {
     if (newRarity === rarity) return;
@@ -121,7 +117,6 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
     isLegendary: boolean,
   ) => {
     if (!affixValue) return;
-    if (selectedGaugeAffixes.some((a) => a.affix === affixValue)) return;
     setSelectedGaugeAffixes([
       ...selectedGaugeAffixes,
       { affix: affixValue, isLegendary },

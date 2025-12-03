@@ -27,7 +27,9 @@ interface DivinityUIState {
   resetSlateCrafting: () => void;
 
   setDraggingSlateId: (id: string | undefined) => void;
-  setPreviewPosition: (position: { row: number; col: number } | undefined) => void;
+  setPreviewPosition: (
+    position: { row: number; col: number } | undefined,
+  ) => void;
 }
 
 export const useDivinityUIStore = create<DivinityUIState>((set) => ({

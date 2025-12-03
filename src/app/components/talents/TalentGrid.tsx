@@ -11,6 +11,7 @@ import {
   PlacedPrism,
   CraftedPrism,
 } from "@/src/app/lib/save-data";
+import { getNodeBonusAffixes } from "@/src/app/lib/prism-utils";
 import { TalentNodeDisplay } from "./TalentNodeDisplay";
 
 interface TalentGridProps {
@@ -99,6 +100,40 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                 />
               );
             })}
+
+          {/* Blue box outline for prism affected area */}
+          {placedPrism &&
+            placedPrism.treeSlot === treeSlot &&
+            (() => {
+              const { x: prismX, y: prismY } = placedPrism.position;
+              // Calculate bounds of affected area (clamped to grid)
+              const minX = Math.max(0, prismX - 1);
+              const maxX = Math.min(6, prismX + 1);
+              const minY = Math.max(0, prismY - 1);
+              const maxY = Math.min(4, prismY + 1);
+
+              // Calculate pixel positions (160px stride = 80px node + 80px gap)
+              const padding = 4;
+              const left = minX * 160 - padding;
+              const top = minY * 160 - padding;
+              const width = (maxX - minX) * 160 + 80 + padding * 2;
+              const height = (maxY - minY) * 160 + 80 + padding * 2;
+
+              return (
+                <rect
+                  x={left}
+                  y={top}
+                  width={width}
+                  height={height}
+                  fill="none"
+                  stroke="#3b82f6"
+                  strokeWidth="2"
+                  strokeDasharray="8 4"
+                  opacity="0.7"
+                  rx="8"
+                />
+              );
+            })()}
         </svg>
 
         {/* Node Grid */}
@@ -167,6 +202,13 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                   }
                   onRemovePrism={nodeHasPrism ? onRemovePrism : undefined}
                   canRemovePrism={prismCanBeRemoved}
+                  bonusAffixes={getNodeBonusAffixes(
+                    node.position,
+                    node.nodeType,
+                    placedPrism,
+                    treeSlot,
+                    allocated,
+                  )}
                 />
               );
             }),

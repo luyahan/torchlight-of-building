@@ -118,7 +118,9 @@ export const SkillsSection = () => {
               skill={loadout.skillPage[slotKey]}
               availableSkills={ActiveSkills}
               excludedSkillNames={getSelectedActiveSkillNames}
-              onSkillChange={(skillName) => handleSkillChange(slotKey, skillName)}
+              onSkillChange={(skillName) =>
+                handleSkillChange(slotKey, skillName)
+              }
               onToggle={() => handleToggleSkill(slotKey)}
               onUpdateSupport={(supportKey, supportName) =>
                 handleUpdateSkillSupport(slotKey, supportKey, supportName)
@@ -139,7 +141,9 @@ export const SkillsSection = () => {
               skill={loadout.skillPage[slotKey]}
               availableSkills={PassiveSkills}
               excludedSkillNames={getSelectedPassiveSkillNames}
-              onSkillChange={(skillName) => handleSkillChange(slotKey, skillName)}
+              onSkillChange={(skillName) =>
+                handleSkillChange(slotKey, skillName)
+              }
               onToggle={() => handleToggleSkill(slotKey)}
               onUpdateSupport={(supportKey, supportName) =>
                 handleUpdateSkillSupport(slotKey, supportKey, supportName)

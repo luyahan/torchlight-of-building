@@ -206,12 +206,13 @@ export const MemoryCrafter = ({ onMemorySave }: MemoryCrafterProps) => {
                   onSelect={(effectIndex) =>
                     setFixedAffixSlot(idx, {
                       effectIndex,
-                      quality: effectIndex === undefined ? DEFAULT_QUALITY : slot.quality,
+                      quality:
+                        effectIndex === undefined
+                          ? DEFAULT_QUALITY
+                          : slot.quality,
                     })
                   }
-                  onQuality={(quality) =>
-                    setFixedAffixSlot(idx, { quality })
-                  }
+                  onQuality={(quality) => setFixedAffixSlot(idx, { quality })}
                 />
               ))}
             </div>
@@ -233,12 +234,13 @@ export const MemoryCrafter = ({ onMemorySave }: MemoryCrafterProps) => {
                   onSelect={(effectIndex) =>
                     setRandomAffixSlot(idx, {
                       effectIndex,
-                      quality: effectIndex === undefined ? DEFAULT_QUALITY : slot.quality,
+                      quality:
+                        effectIndex === undefined
+                          ? DEFAULT_QUALITY
+                          : slot.quality,
                     })
                   }
-                  onQuality={(quality) =>
-                    setRandomAffixSlot(idx, { quality })
-                  }
+                  onQuality={(quality) => setRandomAffixSlot(idx, { quality })}
                 />
               ))}
             </div>

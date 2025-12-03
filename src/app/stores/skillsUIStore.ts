@@ -11,7 +11,11 @@ interface SkillsUIState {
 
   // Actions
   toggleSlotExpanded: (type: SkillSlotType, slot: SkillSlotNumber) => void;
-  setSlotExpanded: (type: SkillSlotType, slot: SkillSlotNumber, expanded: boolean) => void;
+  setSlotExpanded: (
+    type: SkillSlotType,
+    slot: SkillSlotNumber,
+    expanded: boolean,
+  ) => void;
   isSlotExpanded: (type: SkillSlotType, slot: SkillSlotNumber) => boolean;
   collapseAllSlots: () => void;
 }

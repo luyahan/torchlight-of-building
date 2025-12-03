@@ -13,7 +13,7 @@ interface UseAffixSelectionReturn<T> {
 
 export const useAffixSelection = <T>(
   maxAffixes: number,
-  isDuplicate?: (existing: T[], newAffix: T) => boolean
+  isDuplicate?: (existing: T[], newAffix: T) => boolean,
 ): UseAffixSelectionReturn<T> => {
   const [selectedAffixes, setSelectedAffixes] = useState<T[]>([]);
 
@@ -31,7 +31,7 @@ export const useAffixSelection = <T>(
       setSelectedAffixes((prev) => [...prev, affix]);
       return true;
     },
-    [selectedAffixes, maxAffixes, isDuplicate]
+    [selectedAffixes, maxAffixes, isDuplicate],
   );
 
   const removeAffix = useCallback((index: number) => {

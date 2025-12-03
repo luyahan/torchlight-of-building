@@ -10,7 +10,10 @@ interface PactspiritUIState {
   destinyModalRingSlot: RingSlotKey | undefined;
 
   // Actions
-  openDestinyModal: (slotIndex: PactspiritSlotIndex, ringSlot: RingSlotKey) => void;
+  openDestinyModal: (
+    slotIndex: PactspiritSlotIndex,
+    ringSlot: RingSlotKey,
+  ) => void;
   closeDestinyModal: () => void;
 }
 

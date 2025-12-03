@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { TalentNodeData } from "@/src/tli/talent_tree";
 import { CraftedPrism } from "@/src/app/lib/save-data";
+import type { NodeBonusAffix } from "@/src/app/lib/prism-utils";
 
 interface TalentNodeDisplayProps {
   node: TalentNodeData;
@@ -16,6 +17,7 @@ interface TalentNodeDisplayProps {
   onPlacePrism?: () => void;
   onRemovePrism?: () => void;
   canRemovePrism?: boolean;
+  bonusAffixes?: NodeBonusAffix[];
 }
 
 export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
@@ -31,6 +33,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
   onPlacePrism,
   onRemovePrism,
   canRemovePrism = false,
+  bonusAffixes = [],
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -251,6 +254,18 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
               <div className="text-xs text-zinc-400 whitespace-pre-line">
                 {node.rawAffix}
               </div>
+              {bonusAffixes.length > 0 && (
+                <div className="mt-2 pt-2 border-t border-blue-500/30">
+                  {bonusAffixes.map((bonus, idx) => (
+                    <div
+                      key={idx}
+                      className="text-xs text-blue-400 whitespace-pre-line"
+                    >
+                      {bonus.bonusText}
+                    </div>
+                  ))}
+                </div>
+              )}
               {canPlacePrism && (
                 <div className="mt-2 pt-2 border-t border-zinc-700 text-xs text-purple-400">
                   Click to place prism here

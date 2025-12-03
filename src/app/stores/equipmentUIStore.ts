@@ -34,7 +34,10 @@ interface EquipmentUIState {
   resetCrafting: () => void;
 
   setSelectedLegendaryIndex: (index: number | undefined) => void;
-  setLegendaryAffixSlot: (index: number, update: Partial<LegendaryAffixSlotState>) => void;
+  setLegendaryAffixSlot: (
+    index: number,
+    update: Partial<LegendaryAffixSlotState>,
+  ) => void;
   resetLegendaryCrafting: () => void;
 
   setSelectedGearSlot: (slot: GearSlot) => void;
@@ -58,14 +61,14 @@ export const useEquipmentUIStore = create<EquipmentUIState>((set) => ({
   setAffixSlot: (index, update) =>
     set((state) => ({
       affixSlots: state.affixSlots.map((slot, i) =>
-        i === index ? { ...slot, ...update } : slot
+        i === index ? { ...slot, ...update } : slot,
       ),
     })),
 
   clearAffixSlot: (index) =>
     set((state) => ({
       affixSlots: state.affixSlots.map((slot, i) =>
-        i === index ? { affixIndex: null, percentage: DEFAULT_QUALITY } : slot
+        i === index ? { affixIndex: null, percentage: DEFAULT_QUALITY } : slot,
       ),
     })),
 
@@ -84,7 +87,7 @@ export const useEquipmentUIStore = create<EquipmentUIState>((set) => ({
   setLegendaryAffixSlot: (index, update) =>
     set((state) => ({
       legendaryAffixSlots: state.legendaryAffixSlots.map((slot, i) =>
-        i === index ? { ...slot, ...update } : slot
+        i === index ? { ...slot, ...update } : slot,
       ),
     })),
 

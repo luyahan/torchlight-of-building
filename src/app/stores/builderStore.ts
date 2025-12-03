@@ -25,7 +25,12 @@ import {
   SaveMetadata,
   SavesIndex,
 } from "../lib/saves";
-import { GearSlot, TreeSlot, RingSlotKey, PactspiritSlotIndex } from "../lib/types";
+import {
+  GearSlot,
+  TreeSlot,
+  RingSlotKey,
+  PactspiritSlotIndex,
+} from "../lib/types";
 
 interface BuilderState {
   // Core data
@@ -58,21 +63,41 @@ interface BuilderState {
   setCoreTalents: (slot: TreeSlot, talents: string[]) => void;
   addPrismToInventory: (prism: CraftedPrism) => void;
   deletePrism: (prismId: string) => void;
-  placePrism: (prism: CraftedPrism, treeSlot: TreeSlot, position: { x: number; y: number }) => void;
+  placePrism: (
+    prism: CraftedPrism,
+    treeSlot: TreeSlot,
+    position: { x: number; y: number },
+  ) => void;
   removePlacedPrism: () => void;
 
   // Actions - Hero
   setHero: (hero: string | undefined) => void;
-  setTrait: (level: "level1" | "level45" | "level60" | "level75", trait: string | undefined) => void;
+  setTrait: (
+    level: "level1" | "level45" | "level60" | "level75",
+    trait: string | undefined,
+  ) => void;
   addHeroMemory: (memory: HeroMemory) => void;
   deleteHeroMemory: (memoryId: string) => void;
-  equipHeroMemory: (slot: HeroMemorySlot, memory: HeroMemory | undefined) => void;
+  equipHeroMemory: (
+    slot: HeroMemorySlot,
+    memory: HeroMemory | undefined,
+  ) => void;
 
   // Actions - Pactspirit
-  setPactspirit: (slotIndex: PactspiritSlotIndex, name: string | undefined) => void;
+  setPactspirit: (
+    slotIndex: PactspiritSlotIndex,
+    name: string | undefined,
+  ) => void;
   setPactspiritLevel: (slotIndex: PactspiritSlotIndex, level: number) => void;
-  setRingDestiny: (slotIndex: PactspiritSlotIndex, ringSlot: RingSlotKey, destiny: RingSlotState["installedDestiny"]) => void;
-  updatePactspiritSlot: (slotIndex: PactspiritSlotIndex, slot: PactspiritSlot) => void;
+  setRingDestiny: (
+    slotIndex: PactspiritSlotIndex,
+    ringSlot: RingSlotKey,
+    destiny: RingSlotState["installedDestiny"],
+  ) => void;
+  updatePactspiritSlot: (
+    slotIndex: PactspiritSlotIndex,
+    slot: PactspiritSlot,
+  ) => void;
 
   // Actions - Divinity
   addSlateToInventory: (slate: DivinitySlate) => void;
@@ -88,9 +113,12 @@ interface BuilderState {
     skillType: "active" | "passive",
     skillSlot: 1 | 2 | 3 | 4,
     supportSlot: 1 | 2 | 3 | 4 | 5,
-    supportName: string | undefined
+    supportName: string | undefined,
   ) => void;
-  toggleSkillEnabled: (skillType: "active" | "passive", slot: 1 | 2 | 3 | 4) => void;
+  toggleSkillEnabled: (
+    skillType: "active" | "passive",
+    slot: 1 | 2 | 3 | 4,
+  ) => void;
 }
 
 export const useBuilderStore = create<BuilderState>()(
@@ -141,7 +169,7 @@ export const useBuilderStore = create<BuilderState>()(
         if (success) {
           const now = Date.now();
           const updatedSaves = savesIndex.saves.map((s) =>
-            s.id === currentSaveId ? { ...s, updatedAt: now } : s
+            s.id === currentSaveId ? { ...s, updatedAt: now } : s,
           );
           const newIndex = { ...savesIndex, saves: updatedSaves };
           saveSavesIndex(newIndex);
@@ -176,7 +204,7 @@ export const useBuilderStore = create<BuilderState>()(
       deleteItem: (itemId) =>
         set((state) => {
           const newItemsList = state.loadout.itemsList.filter(
-            (item) => item.id !== itemId
+            (item) => item.id !== itemId,
           );
           const newEquipmentPage = { ...state.loadout.equipmentPage };
           const slots: GearSlot[] = [
@@ -315,7 +343,7 @@ export const useBuilderStore = create<BuilderState>()(
       deletePrism: (prismId) =>
         set((state) => {
           const newPrismList = state.loadout.prismList.filter(
-            (p) => p.id !== prismId
+            (p) => p.id !== prismId,
           );
           const placedPrism = state.loadout.talentPage.placedPrism;
           const newTalentPage = { ...state.loadout.talentPage };
@@ -388,7 +416,7 @@ export const useBuilderStore = create<BuilderState>()(
       deleteHeroMemory: (memoryId) =>
         set((state) => {
           const newMemoryList = state.loadout.heroMemoryList.filter(
-            (m) => m.id !== memoryId
+            (m) => m.id !== memoryId,
           );
           const newMemorySlots = { ...state.loadout.heroPage.memorySlots };
           (["slot45", "slot60", "slot75"] as HeroMemorySlot[]).forEach(
@@ -396,7 +424,7 @@ export const useBuilderStore = create<BuilderState>()(
               if (newMemorySlots[slot]?.id === memoryId) {
                 newMemorySlots[slot] = undefined;
               }
-            }
+            },
           );
           return {
             loadout: {
@@ -429,7 +457,8 @@ export const useBuilderStore = create<BuilderState>()(
       // Pactspirit actions
       setPactspirit: (slotIndex, name) =>
         set((state) => {
-          const slotKey = `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
+          const slotKey =
+            `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
           return {
             loadout: {
               ...state.loadout,
@@ -447,7 +476,8 @@ export const useBuilderStore = create<BuilderState>()(
 
       setPactspiritLevel: (slotIndex, level) =>
         set((state) => {
-          const slotKey = `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
+          const slotKey =
+            `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
           return {
             loadout: {
               ...state.loadout,
@@ -465,7 +495,8 @@ export const useBuilderStore = create<BuilderState>()(
 
       setRingDestiny: (slotIndex, ringSlot, destiny) =>
         set((state) => {
-          const slotKey = `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
+          const slotKey =
+            `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
           const slot = state.loadout.pactspiritPage[slotKey];
           return {
             loadout: {
@@ -487,7 +518,8 @@ export const useBuilderStore = create<BuilderState>()(
 
       updatePactspiritSlot: (slotIndex, slot) =>
         set((state) => {
-          const slotKey = `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
+          const slotKey =
+            `slot${slotIndex}` as keyof typeof state.loadout.pactspiritPage;
           return {
             loadout: {
               ...state.loadout,
@@ -513,11 +545,12 @@ export const useBuilderStore = create<BuilderState>()(
       deleteSlate: (slateId) =>
         set((state) => {
           const newSlateList = state.loadout.divinitySlateList.filter(
-            (s) => s.id !== slateId
+            (s) => s.id !== slateId,
           );
-          const newPlacedSlates = state.loadout.divinityPage.placedSlates.filter(
-            (p) => p.slateId !== slateId
-          );
+          const newPlacedSlates =
+            state.loadout.divinityPage.placedSlates.filter(
+              (p) => p.slateId !== slateId,
+            );
           return {
             loadout: {
               ...state.loadout,
@@ -533,13 +566,14 @@ export const useBuilderStore = create<BuilderState>()(
 
       placeSlate: (slateId, position) =>
         set((state) => {
-          const existingIndex = state.loadout.divinityPage.placedSlates.findIndex(
-            (p) => p.slateId === slateId
-          );
+          const existingIndex =
+            state.loadout.divinityPage.placedSlates.findIndex(
+              (p) => p.slateId === slateId,
+            );
           let newPlacedSlates: PlacedSlate[];
           if (existingIndex >= 0) {
             newPlacedSlates = state.loadout.divinityPage.placedSlates.map(
-              (p, i) => (i === existingIndex ? { slateId, position } : p)
+              (p, i) => (i === existingIndex ? { slateId, position } : p),
             );
           } else {
             newPlacedSlates = [
@@ -566,7 +600,7 @@ export const useBuilderStore = create<BuilderState>()(
             divinityPage: {
               ...state.loadout.divinityPage,
               placedSlates: state.loadout.divinityPage.placedSlates.filter(
-                (p) => p.slateId !== slateId
+                (p) => p.slateId !== slateId,
               ),
             },
           },
@@ -578,7 +612,7 @@ export const useBuilderStore = create<BuilderState>()(
           loadout: {
             ...state.loadout,
             divinitySlateList: state.loadout.divinitySlateList.map((s) =>
-              s.id === slateId ? { ...s, ...updates } : s
+              s.id === slateId ? { ...s, ...updates } : s,
             ),
           },
           hasUnsavedChanges: true,
@@ -587,7 +621,8 @@ export const useBuilderStore = create<BuilderState>()(
       // Skills actions
       setActiveSkill: (slot, skillName) =>
         set((state) => {
-          const skillKey = `activeSkill${slot}` as keyof typeof state.loadout.skillPage;
+          const skillKey =
+            `activeSkill${slot}` as keyof typeof state.loadout.skillPage;
           return {
             loadout: {
               ...state.loadout,
@@ -605,7 +640,8 @@ export const useBuilderStore = create<BuilderState>()(
 
       setPassiveSkill: (slot, skillName) =>
         set((state) => {
-          const skillKey = `passiveSkill${slot}` as keyof typeof state.loadout.skillPage;
+          const skillKey =
+            `passiveSkill${slot}` as keyof typeof state.loadout.skillPage;
           return {
             loadout: {
               ...state.loadout,
@@ -623,8 +659,10 @@ export const useBuilderStore = create<BuilderState>()(
 
       setSupportSkill: (skillType, skillSlot, supportSlot, supportName) =>
         set((state) => {
-          const skillKey = `${skillType}Skill${skillSlot}` as keyof typeof state.loadout.skillPage;
-          const supportKey = `supportSkill${supportSlot}` as keyof typeof state.loadout.skillPage[typeof skillKey]["supportSkills"];
+          const skillKey =
+            `${skillType}Skill${skillSlot}` as keyof typeof state.loadout.skillPage;
+          const supportKey =
+            `supportSkill${supportSlot}` as keyof (typeof state.loadout.skillPage)[typeof skillKey]["supportSkills"];
           const skill = state.loadout.skillPage[skillKey];
           return {
             loadout: {
@@ -646,7 +684,8 @@ export const useBuilderStore = create<BuilderState>()(
 
       toggleSkillEnabled: (skillType, slot) =>
         set((state) => {
-          const skillKey = `${skillType}Skill${slot}` as keyof typeof state.loadout.skillPage;
+          const skillKey =
+            `${skillType}Skill${slot}` as keyof typeof state.loadout.skillPage;
           const skill = state.loadout.skillPage[skillKey];
           return {
             loadout: {
@@ -666,6 +705,6 @@ export const useBuilderStore = create<BuilderState>()(
         loadout: state.loadout,
         currentSaveId: state.currentSaveId,
       }),
-    }
-  )
+    },
+  ),
 );

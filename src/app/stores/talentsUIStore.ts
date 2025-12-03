@@ -78,7 +78,7 @@ export const useTalentsUIStore = create<TalentsUIState>((set) => ({
   removeCraftingGaugeAffix: (index) =>
     set((state) => ({
       craftingGaugeAffixes: state.craftingGaugeAffixes.filter(
-        (_, i) => i !== index
+        (_, i) => i !== index,
       ),
     })),
 
