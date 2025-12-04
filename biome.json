@@ -12,10 +12,7 @@
     "formatter": {}
   },
   "html": {
-    "formatter": {
-      "indentScriptAndStyle": false,
-      "selfCloseVoidElements": "always"
-    }
+    "formatter": {}
   },
   "assist": {
     "enabled": true,
