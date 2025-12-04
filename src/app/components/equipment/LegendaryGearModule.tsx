@@ -140,7 +140,7 @@ export const LegendaryGearModule: React.FC<LegendaryGearModuleProps> = ({
             <div className="space-y-3">
               {selectedLegendary.normalAffixes.map((normalAffix, index) => (
                 <LegendaryAffixRow
-                  key={index}
+                  key={normalAffix}
                   index={index}
                   normalAffix={normalAffix}
                   corruptionAffix={selectedLegendary.corruptionAffixes[index]}

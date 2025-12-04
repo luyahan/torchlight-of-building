@@ -147,8 +147,8 @@ const InverseImageCrafterInner: React.FC<InverseImageCrafterInnerProps> = ({
 
       {validation.errors.length > 0 && (
         <div className="mt-4 rounded bg-red-500/10 border border-red-500/30 p-2">
-          {validation.errors.map((error, idx) => (
-            <p key={idx} className="text-xs text-red-400">
+          {validation.errors.map((error) => (
+            <p key={error} className="text-xs text-red-400">
               {error}
             </p>
           ))}
@@ -157,6 +157,7 @@ const InverseImageCrafterInner: React.FC<InverseImageCrafterInnerProps> = ({
 
       <div className="flex gap-2 mt-4">
         <button
+          type="button"
           onClick={handleSave}
           disabled={!validation.valid}
           className="flex-1 rounded bg-cyan-600 px-4 py-2 text-white transition-colors hover:bg-cyan-500 disabled:cursor-not-allowed disabled:bg-zinc-600"
@@ -165,6 +166,7 @@ const InverseImageCrafterInner: React.FC<InverseImageCrafterInnerProps> = ({
         </button>
         {onCancel && (
           <button
+            type="button"
             onClick={onCancel}
             className="rounded bg-zinc-700 px-4 py-2 text-zinc-200 transition-colors hover:bg-zinc-600"
           >

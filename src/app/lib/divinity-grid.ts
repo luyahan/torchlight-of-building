@@ -42,7 +42,9 @@ export const buildOccupiedCellsSet = (
     if (!slate) return;
 
     const cells = getOccupiedCells(slate, placement);
-    cells.forEach(([r, c]) => occupied.add(`${r},${c}`));
+    for (const [r, c] of cells) {
+      occupied.add(`${r},${c}`);
+    }
   });
 
   return occupied;

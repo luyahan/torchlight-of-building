@@ -49,8 +49,8 @@ const extractLegendaryGearLinks = (
     /<a[^>]*data-hover="[^"]*ItemGold[^"]*"[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/gi;
   const links: { href: string; name: string }[] = [];
 
-  let match;
-  while ((match = linkRegex.exec(html)) !== null) {
+  let match: RegExpExecArray | null = linkRegex.exec(html);
+  while (match !== null) {
     const href = match[1];
     const name = match[2];
 
@@ -63,6 +63,7 @@ const extractLegendaryGearLinks = (
     ) {
       links.push({ href, name });
     }
+    match = linkRegex.exec(html);
   }
 
   // Deduplicate by href

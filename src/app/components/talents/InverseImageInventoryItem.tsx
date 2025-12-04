@@ -65,6 +65,7 @@ export const InverseImageInventoryItem: React.FC<
 
         <div className="flex items-center gap-1">
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               onEdit();
@@ -74,6 +75,7 @@ export const InverseImageInventoryItem: React.FC<
             Edit
           </button>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               onCopy();
@@ -83,6 +85,7 @@ export const InverseImageInventoryItem: React.FC<
             Copy
           </button>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               onDelete();

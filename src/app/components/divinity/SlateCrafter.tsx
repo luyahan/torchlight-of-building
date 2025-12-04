@@ -235,7 +235,7 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({
         <div className="mb-2 flex flex-col gap-1">
           {selectedAffixes.map((affix, index) => (
             <div
-              key={index}
+              key={affix.effect}
               className="flex items-center gap-2 rounded bg-zinc-700 px-2 py-1"
             >
               <span

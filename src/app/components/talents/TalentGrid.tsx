@@ -147,7 +147,7 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
 
               return (
                 <line
-                  key={idx}
+                  key={`${node.prerequisite!.x},${node.prerequisite!.y}-${node.position.x},${node.position.y}`}
                   x1={from.cx}
                   y1={from.cy}
                   x2={to.cx}

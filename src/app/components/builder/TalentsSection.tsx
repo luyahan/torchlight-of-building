@@ -71,6 +71,7 @@ export const TalentsSection = () => {
   );
 
   // Load tree data when trees change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentionally watching only tree names, not full loadout
   useEffect(() => {
     const loadTree = async (slot: TreeSlot) => {
       const tree = loadout.talentPage[slot];
@@ -91,7 +92,6 @@ export const TalentsSection = () => {
     loadTree("tree2");
     loadTree("tree3");
     loadTree("tree4");
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentionally watching only tree names
   }, [
     loadout.talentPage.tree1?.name,
     loadout.talentPage.tree2?.name,
@@ -487,6 +487,7 @@ export const TalentsSection = () => {
 
               return (
                 <button
+                  type="button"
                   key={slot}
                   onClick={() => setActiveTreeSlot(slot)}
                   className={`rounded-lg border px-4 py-3 font-medium transition-colors ${
@@ -511,7 +512,10 @@ export const TalentsSection = () => {
         </div>
 
         <div className="mb-6 rounded-lg border border-zinc-700 bg-zinc-900 p-4">
-          <label className="mb-2 block text-sm font-medium text-zinc-400">
+          <label
+            htmlFor="tree-select"
+            className="mb-2 block text-sm font-medium text-zinc-400"
+          >
             Select Tree for{" "}
             {activeTreeSlot === "tree1"
               ? "Slot 1"
@@ -519,6 +523,7 @@ export const TalentsSection = () => {
           </label>
           <div className="flex gap-2">
             <select
+              id="tree-select"
               value={loadout.talentPage[activeTreeSlot]?.name ?? ""}
               onChange={(e) => handleTreeChange(activeTreeSlot, e.target.value)}
               disabled={
@@ -548,6 +553,7 @@ export const TalentsSection = () => {
             </select>
 
             <button
+              type="button"
               onClick={() => handleResetTree(activeTreeSlot)}
               disabled={
                 (loadout.talentPage[activeTreeSlot]?.allocatedNodes.length ??
@@ -598,9 +604,9 @@ export const TalentsSection = () => {
             </h2>
 
             <div className="mb-2 grid grid-cols-7 gap-2">
-              {[0, 3, 6, 9, 12, 15, 18].map((points, idx) => (
+              {[0, 3, 6, 9, 12, 15, 18].map((points) => (
                 <div
-                  key={idx}
+                  key={points}
                   className="text-center text-sm font-medium text-zinc-500"
                 >
                   {points} pts

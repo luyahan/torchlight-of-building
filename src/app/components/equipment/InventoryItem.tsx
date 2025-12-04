@@ -44,6 +44,7 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
       </div>
       <div className="flex gap-2">
         <button
+          type="button"
           onClick={() => onCopy(item)}
           className="px-2 py-1 bg-amber-500 hover:bg-amber-600 text-zinc-950 rounded text-xs"
           title="Copy item"
@@ -51,6 +52,7 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
           Copy
         </button>
         <button
+          type="button"
           onClick={() => onDelete(item.id)}
           className="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs"
           title="Delete item"
@@ -74,7 +76,11 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
         {item.affixes.length > 0 ? (
           <ul className="space-y-1">
             {item.affixes.map((affix, idx) => (
-              <li key={idx} className="text-xs text-zinc-400">
+              <li
+                // biome-ignore lint/suspicious/noArrayIndexKey: affixes can have duplicate text, index is stable
+                key={idx}
+                className="text-xs text-zinc-400"
+              >
                 {affix}
               </li>
             ))}

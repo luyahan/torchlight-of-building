@@ -88,18 +88,21 @@ export const PrismInventoryItem: React.FC<PrismInventoryItemProps> = ({
 
         <div className="flex items-center gap-1">
           <button
+            type="button"
             onClick={onEdit}
             className="rounded bg-zinc-700 px-2 py-1 text-xs text-zinc-300 hover:bg-zinc-600"
           >
             Edit
           </button>
           <button
+            type="button"
             onClick={onCopy}
             className="rounded bg-zinc-700 px-2 py-1 text-xs text-zinc-300 hover:bg-zinc-600"
           >
             Copy
           </button>
           <button
+            type="button"
             onClick={onDelete}
             className="rounded bg-zinc-700 px-2 py-1 text-xs text-red-400 hover:bg-red-900"
           >
@@ -124,12 +127,12 @@ export const PrismInventoryItem: React.FC<PrismInventoryItemProps> = ({
         {prism.gaugeAffixes.length > 0 && (
           <div className="space-y-1">
             <span className="text-xs text-zinc-500">Gauge Affixes:</span>
-            {prism.gaugeAffixes.map((affix, i) => {
+            {prism.gaugeAffixes.map((affix) => {
               const isLegendary = legendaryGauges.some(
                 (lg) => lg.affix === affix,
               );
               return (
-                <div key={i} className="flex items-start gap-1">
+                <div key={affix} className="flex items-start gap-1">
                   <span
                     className={`mt-1 h-2 w-2 flex-shrink-0 rounded-sm ${
                       isLegendary ? "bg-orange-500" : "bg-purple-500"

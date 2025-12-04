@@ -157,6 +157,7 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
         <div className="flex gap-2">
           {PRISM_RARITIES.map((r) => (
             <button
+              type="button"
               key={r}
               onClick={() => handleRarityChange(r)}
               className={`rounded px-3 py-1 text-sm capitalize transition-colors ${
@@ -195,7 +196,7 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
         <div className="mb-2 flex flex-col gap-1">
           {selectedGaugeAffixes.map((gauge, index) => (
             <div
-              key={index}
+              key={gauge.affix}
               className="flex items-center gap-2 rounded bg-zinc-700 px-2 py-1"
             >
               <span
@@ -207,6 +208,7 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
                 {gauge.affix.split("\n")[0]}
               </span>
               <button
+                type="button"
                 onClick={() => handleRemoveGaugeAffix(index)}
                 className="text-zinc-400 hover:text-red-400"
               >
@@ -250,6 +252,7 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
 
       <div className="flex gap-2">
         <button
+          type="button"
           onClick={handleSave}
           disabled={!canSave}
           className="flex-1 rounded bg-amber-600 px-4 py-2 text-white transition-colors hover:bg-amber-500 disabled:cursor-not-allowed disabled:bg-zinc-600"
@@ -258,6 +261,7 @@ export const PrismCrafter: React.FC<PrismCrafterProps> = ({
         </button>
         {onCancel && (
           <button
+            type="button"
             onClick={onCancel}
             className="rounded bg-zinc-700 px-4 py-2 text-zinc-200 transition-colors hover:bg-zinc-600"
           >

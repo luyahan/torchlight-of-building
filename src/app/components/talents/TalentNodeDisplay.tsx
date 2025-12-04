@@ -60,7 +60,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
   onPlaceInverseImage,
   onRemoveInverseImage,
   canRemoveInverseImage = false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- reserved for future visual styling
+  // biome-ignore lint/correctness/noUnusedFunctionParameters: reserved for future visual styling
   isInSourceArea = false,
   isInTargetArea = false,
   reflectedNodeData,
@@ -136,6 +136,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
         {isHovered && onRemovePrism && (
           <div className="absolute -top-2 -right-2 flex gap-1">
             <button
+              type="button"
               onClick={canRemovePrism ? onRemovePrism : undefined}
               disabled={!canRemovePrism}
               className={`w-5 h-5 rounded-full text-white text-xs font-bold ${
@@ -164,8 +165,8 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
           {prism.gaugeAffixes.length > 0 && (
             <div className="mt-2 pt-2 border-t border-zinc-700">
               <div className="text-xs text-zinc-500 mb-1">Gauge Affixes:</div>
-              {prism.gaugeAffixes.map((affix, idx) => (
-                <div key={idx} className="text-xs text-zinc-400">
+              {prism.gaugeAffixes.map((affix) => (
+                <div key={affix} className="text-xs text-zinc-400">
                   {affix}
                 </div>
               ))}
@@ -237,6 +238,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
         {isHovered && onRemoveInverseImage && (
           <div className="absolute -top-2 -right-2 flex gap-1">
             <button
+              type="button"
               onClick={canRemoveInverseImage ? onRemoveInverseImage : undefined}
               disabled={!canRemoveInverseImage}
               className={`w-5 h-5 rounded-full text-white text-xs font-bold ${
@@ -326,6 +328,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
         {/* Allocation Buttons */}
         <div className="absolute -top-2 -right-2 flex gap-1">
           <button
+            type="button"
             onClick={onAllocate}
             disabled={!canAllocate}
             className={`
@@ -340,6 +343,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
             +
           </button>
           <button
+            type="button"
             onClick={onDeallocate}
             disabled={!canDeallocate}
             className={`
@@ -364,9 +368,9 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
           <TooltipContent>{reflectedNodeData.rawAffix}</TooltipContent>
           {bonusAffixes.length > 0 && (
             <div className="mt-2 pt-2 border-t border-blue-500/30">
-              {bonusAffixes.map((bonus, idx) => (
+              {bonusAffixes.map((bonus) => (
                 <div
-                  key={idx}
+                  key={bonus.bonusText}
                   className="text-xs text-blue-400 whitespace-pre-line"
                 >
                   {bonus.bonusText}
@@ -423,6 +427,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
       {!canPlacePrism && !canPlaceInverseImage && (
         <div className="absolute -top-2 -right-2 flex gap-1">
           <button
+            type="button"
             onClick={onAllocate}
             disabled={!canAllocate}
             className={`
@@ -437,6 +442,7 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
             +
           </button>
           <button
+            type="button"
             onClick={onDeallocate}
             disabled={!canDeallocate}
             className={`
@@ -480,9 +486,9 @@ export const TalentNodeDisplay: React.FC<TalentNodeDisplayProps> = ({
         <TooltipContent>{node.rawAffix}</TooltipContent>
         {bonusAffixes.length > 0 && (
           <div className="mt-2 pt-2 border-t border-blue-500/30">
-            {bonusAffixes.map((bonus, idx) => (
+            {bonusAffixes.map((bonus) => (
               <div
-                key={idx}
+                key={bonus.bonusText}
                 className="text-xs text-blue-400 whitespace-pre-line"
               >
                 {bonus.bonusText}
