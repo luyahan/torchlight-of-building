@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "biome lint --write",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "format": "biome format --write"
