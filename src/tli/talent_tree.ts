@@ -76,6 +76,43 @@ export const isColumnUnlocked = (
   return pointsAllocated >= requiredPoints;
 };
 
+// Calculate total points in a column, combining regular and reflected allocations
+export const calculateCombinedColumnPoints = (
+  allocatedNodes: AllocatedTalentNode[],
+  reflectedAllocatedNodes: { x: number; y: number; points: number }[],
+  columnIndex: number,
+): number => {
+  const regularPoints = allocatedNodes
+    .filter((node) => node.x === columnIndex)
+    .reduce((sum, node) => sum + node.points, 0);
+
+  const reflectedPoints = reflectedAllocatedNodes
+    .filter((node) => node.x === columnIndex)
+    .reduce((sum, node) => sum + node.points, 0);
+
+  return regularPoints + reflectedPoints;
+};
+
+// Check if a column is unlocked based on combined points (regular + reflected)
+export const isColumnUnlockedWithReflected = (
+  allocatedNodes: AllocatedTalentNode[],
+  reflectedAllocatedNodes: { x: number; y: number; points: number }[],
+  columnIndex: number,
+): boolean => {
+  const requiredPoints = columnIndex * 3;
+  let totalPointsBefore = 0;
+
+  for (let x = 0; x < columnIndex; x++) {
+    totalPointsBefore += calculateCombinedColumnPoints(
+      allocatedNodes,
+      reflectedAllocatedNodes,
+      x,
+    );
+  }
+
+  return totalPointsBefore >= requiredPoints;
+};
+
 // Check if a prerequisite node is fully satisfied
 // If the prerequisite node has a prism, the check is bypassed (considered satisfied)
 export const isPrerequisiteSatisfied = (
@@ -358,8 +395,11 @@ export const canAllocateNodeWithInverseImage = (
     return false;
   }
 
-  // Check column gating
-  if (!isColumnUnlocked(allocatedNodes, node.position.x)) {
+  // Check column gating (include reflected nodes if inverse image is placed)
+  const reflectedNodes = placedInverseImage?.reflectedAllocatedNodes ?? [];
+  if (
+    !isColumnUnlockedWithReflected(allocatedNodes, reflectedNodes, node.position.x)
+  ) {
     return false;
   }
 
@@ -407,8 +447,33 @@ export const canDeallocateNodeWithInverseImage = (
   }
 
   // Check if removing a point would break column gating for any later column
-  if (wouldBreakColumnGating(allocatedNodes, node.position.x)) {
-    return false;
+  // Simulate removing one point
+  const simulatedAllocated = allocatedNodes.map((n) =>
+    n.x === node.position.x && n.y === node.position.y
+      ? { ...n, points: n.points - 1 }
+      : n,
+  );
+  const reflectedNodes = placedInverseImage?.reflectedAllocatedNodes ?? [];
+
+  // Check all allocations (regular and reflected) in later columns
+  const allAllocations = [
+    ...allocatedNodes.map((n) => ({ x: n.x, points: n.points })),
+    ...reflectedNodes.map((n) => ({ x: n.x, points: n.points })),
+  ];
+
+  for (const allocation of allAllocations) {
+    if (allocation.x <= node.position.x) continue;
+    if (allocation.points === 0) continue;
+
+    if (
+      !isColumnUnlockedWithReflected(
+        simulatedAllocated,
+        reflectedNodes,
+        allocation.x,
+      )
+    ) {
+      return false;
+    }
   }
 
   // Check if any other node depends on this one being fully allocated
@@ -468,6 +533,81 @@ export const canRemoveInverseImage = (
 ): boolean => {
   const totalPoints = allocatedNodes.reduce((sum, n) => sum + n.points, 0);
   return totalPoints === 0;
+};
+
+// Check if a reflected node can be allocated
+export const canAllocateReflectedNode = (
+  targetX: number,
+  targetY: number,
+  maxPoints: number,
+  allocatedNodes: AllocatedTalentNode[],
+  reflectedAllocatedNodes: { x: number; y: number; points: number }[],
+): boolean => {
+  // Check column gating
+  if (
+    !isColumnUnlockedWithReflected(
+      allocatedNodes,
+      reflectedAllocatedNodes,
+      targetX,
+    )
+  ) {
+    return false;
+  }
+
+  // Check if already at max
+  const current = reflectedAllocatedNodes.find(
+    (n) => n.x === targetX && n.y === targetY,
+  );
+  if (current && current.points >= maxPoints) {
+    return false;
+  }
+
+  return true;
+};
+
+// Check if a reflected node can be deallocated
+export const canDeallocateReflectedNode = (
+  targetX: number,
+  targetY: number,
+  allocatedNodes: AllocatedTalentNode[],
+  reflectedAllocatedNodes: { x: number; y: number; points: number }[],
+): boolean => {
+  // Must have points allocated
+  const current = reflectedAllocatedNodes.find(
+    (n) => n.x === targetX && n.y === targetY,
+  );
+  if (!current || current.points === 0) {
+    return false;
+  }
+
+  // Check if removing a point would break column gating for any later column
+  // Simulate removing one point from this column
+  const simulatedReflected = reflectedAllocatedNodes.map((n) =>
+    n.x === targetX && n.y === targetY ? { ...n, points: n.points - 1 } : n,
+  );
+
+  // Check all later columns that have allocations
+  const allAllocations = [
+    ...allocatedNodes.map((n) => ({ x: n.x, points: n.points })),
+    ...reflectedAllocatedNodes.map((n) => ({ x: n.x, points: n.points })),
+  ];
+
+  for (const allocation of allAllocations) {
+    if (allocation.x <= targetX) continue;
+    if (allocation.points === 0) continue;
+
+    if (
+      !isColumnUnlockedWithReflected(
+        allocatedNodes,
+        simulatedReflected,
+        allocation.x,
+      )
+    ) {
+      return false; // Would break gating
+    }
+  }
+
+  return true; // Safe to deallocate
 };
 
 // Check if an inverse image can be placed at a position

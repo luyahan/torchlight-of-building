@@ -7,6 +7,8 @@ import {
   isPrerequisiteSatisfiedWithInverseImage,
   hasInverseImageAtPosition,
   canRemoveInverseImage,
+  canAllocateReflectedNode,
+  canDeallocateReflectedNode,
 } from "@/src/tli/talent_tree";
 import {
   AllocatedTalentNode,
@@ -304,10 +306,20 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
                   );
                 const reflectedAllocated = reflectedAllocation?.points ?? 0;
 
-                // Check if can allocate/deallocate reflected node
-                const canAllocateReflected =
-                  reflectedAllocated < reflectedNodeData.maxPoints;
-                const canDeallocateReflected = reflectedAllocated > 0;
+                // Check if can allocate/deallocate reflected node (with column gating)
+                const canAllocateReflected = canAllocateReflectedNode(
+                  x,
+                  y,
+                  reflectedNodeData.maxPoints,
+                  allocatedNodes,
+                  placedInverseImage.reflectedAllocatedNodes,
+                );
+                const canDeallocateReflected = canDeallocateReflectedNode(
+                  x,
+                  y,
+                  allocatedNodes,
+                  placedInverseImage.reflectedAllocatedNodes,
+                );
 
                 // Get bonus affixes for reflected node
                 const inverseImageBonusAffixes = getReflectedNodeBonusAffixes(
