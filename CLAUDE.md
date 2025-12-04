@@ -45,7 +45,7 @@ RawLoadout (UI, strings) → parseMod() → Loadout (typed Mods) → calculateOf
 
 **Add skill:** Add to `offensiveSkillConfs` in [offense.ts](src/tli/offense.ts), type auto-updates
 
-**Update talent trees:** `pnpm exec tsx src/scripts/save_all_profession_trees.ts`
+**Update talent trees:** `pnpm exec tsx src/scripts/generate_talent_tree_data.ts`
 
 **Regenerate gear affixes:** `pnpm exec tsx src/scripts/generate_gear_affix_data.ts`
 

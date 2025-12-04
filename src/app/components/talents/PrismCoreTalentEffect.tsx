@@ -13,11 +13,7 @@ interface PrismCoreTalentEffectProps {
 
 const PrismIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <path
-      d="M12 2L2 12L12 22L22 12L12 2Z"
-      fill="currentColor"
-      opacity="0.3"
-    />
+    <path d="M12 2L2 12L12 22L22 12L12 2Z" fill="currentColor" opacity="0.3" />
     <path
       d="M12 2L2 12L12 22L22 12L12 2Z"
       stroke="currentColor"

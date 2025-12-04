@@ -60,7 +60,10 @@ export const HeroMemoryItem: React.FC<HeroMemoryItemProps> = ({
         {craftedAffixes.length > 0 ? (
           <ul className="space-y-1">
             {craftedAffixes.map((affix, idx) => (
-              <li key={idx} className="text-xs text-zinc-400 whitespace-pre-wrap">
+              <li
+                key={idx}
+                className="text-xs text-zinc-400 whitespace-pre-wrap"
+              >
                 {affix}
               </li>
             ))}

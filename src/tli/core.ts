@@ -1,5 +1,4 @@
 import { Mod } from "./mod";
-import { TreeName } from "./talent_tree_types";
 
 export interface Affix {
   mods: Mod[];
@@ -65,18 +64,4 @@ export interface Loadout {
   talentPage: ParsedTalentPage;
   divinityPage: ParsedDivinityPage;
   customConfiguration: Affix[];
-}
-
-export interface TalentNodeData {
-  nodeType: "micro" | "medium" | "legendary";
-  rawAffix: string;
-  position: { x: number; y: number };
-  prerequisite?: { x: number; y: number };
-  maxPoints: number;
-  iconName: string;
-}
-
-export interface TalentTreeData {
-  name: TreeName;
-  nodes: TalentNodeData[];
 }

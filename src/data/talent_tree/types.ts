@@ -1,5 +1,3 @@
-import * as R from "remeda";
-
 // Tree name constants
 export const GOD_GODDESS_TREES = [
   "God_of_War",
@@ -37,15 +35,28 @@ export const PROFESSION_TREES = [
   "Ronin",
 ] as const;
 
-export const ALL_TREES = R.concat(GOD_GODDESS_TREES, PROFESSION_TREES);
+export const ALL_TREES = [...GOD_GODDESS_TREES, ...PROFESSION_TREES] as const;
 
 export type TreeName = (typeof ALL_TREES)[number];
 
-export const isProfessionName = (name: string): name is TreeName => {
+export const isTreeName = (name: string): name is TreeName => {
   return ALL_TREES.includes(name as TreeName);
 };
 
-// Check if a tree name is a god/goddess tree
 export const isGodGoddessTree = (name: string): boolean => {
   return GOD_GODDESS_TREES.includes(name as (typeof GOD_GODDESS_TREES)[number]);
 };
+
+export interface TalentNodeData {
+  nodeType: "micro" | "medium" | "legendary";
+  rawAffix: string;
+  position: { x: number; y: number };
+  prerequisite?: { x: number; y: number };
+  maxPoints: number;
+  iconName: string;
+}
+
+export interface TalentTreeData {
+  name: TreeName;
+  nodes: TalentNodeData[];
+}

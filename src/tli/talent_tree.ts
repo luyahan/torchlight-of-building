@@ -1,18 +1,22 @@
 import { AllocatedTalentNode, PlacedPrism } from "@/src/app/lib/save-data";
-import { TalentNodeData, TalentTreeData } from "./core";
-import { TALENT_TREES } from "./talent_data";
-import type { TreeName } from "./talent_tree_types";
-
-// Re-export tree name constants and types
-export {
+import {
+  TalentTrees,
+  type TalentNodeData,
+  type TalentTreeData,
+  type TreeName,
   GOD_GODDESS_TREES,
   PROFESSION_TREES,
   isGodGoddessTree,
-} from "./talent_tree_types";
-export type { TreeName } from "./talent_tree_types";
+} from "@/src/data/talent_tree";
 
-// Re-export data types
-export type { TalentNodeData, TalentTreeData };
+// Re-export tree name constants and types
+export { GOD_GODDESS_TREES, PROFESSION_TREES, isGodGoddessTree };
+export type { TreeName, TalentNodeData, TalentTreeData };
+
+// Convert array to record for lookup
+const TALENT_TREES: Record<TreeName, TalentTreeData> = Object.fromEntries(
+  TalentTrees.map((tree) => [tree.name, tree]),
+) as Record<TreeName, TalentTreeData>;
 
 // Check if a position has a placed prism
 export const hasPrismAtPosition = (

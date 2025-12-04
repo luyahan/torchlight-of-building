@@ -1,0 +1,11010 @@
+import type { TalentTreeData } from "./types";
+
+export const TalentTrees: readonly TalentTreeData[] = [
+  {
+    name: "Alchemist",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage\n+9% damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Minion Damage\n+18% damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Minion Critical Strike Rating\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spirit Magus Skill Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+1 Spirit Magus Skill Level\nSpirit Magi -80% additional damage taken",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Minion Attack and Cast Speed\n+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Minion Attack and Cast Speed\n+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Spirit Magi +2% chance to use an Enhanced Skill",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "Spirit Magi +4% chance to use an Enhanced Skill",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Origin of Spirit Magus effect",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+1 to Max Spirit Magi In Map\n-40% additional Spirit Magus Skill Damage",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "4.5% Spirit Magus Ultimate Cooldown Recovery Speed",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Spirit Magus Ultimate Cooldown Recovery Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        prerequisite: {
+          x: 3,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage\n+9% damage",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Passive Skill Level",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+8% Minion Damage\n+12% chance for Minions to inflict Ailment",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+16% Minion Damage\n+24% chance for Minions to inflict Ailment",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+12% Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate.",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+24% Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate.",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "12.5% Sealed Mana Compensation for Spirit Magus Skills",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "8% of damage taken is transferred to a random Minion\nSpirit Magi -80% additional damage taken",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Regenerates 0.4% Life per second",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "Regenerates 0.8% Life per second",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Energy Shield Charge Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Energy Shield Charge Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+15% Life Regeneration Speed\n-15% additional Energy Shield Charge Interval",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Flask01",
+      },
+    ],
+  },
+  {
+    name: "Arcanist",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Spell Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% Attack and Cast Speed when at Full Mana\n+15% Max Mana",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "8% of damage is taken from Mana before life",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% Spell Damage at Low Mana\n+15% Max Mana",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Focus Blessing Duration\nRegenerates 0.4% Mana per second when Focus Blessing is active",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Max Focus Blessing Stacks +1\nRegenerates 0.4% Mana per second when Focus Blessing is active",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Energy Shield Regain",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Sealed Mana Compensation",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15 Max Mana",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Bow03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+30 Max Mana\nRestores 6 Mana on hit. Interval: 0.1s",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "Adds 2% of Max Mana as Energy Shield",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Intelligence",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Mana per 6 Intelligence",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Max Mana",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Freeze",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Regenerates 0.6% Mana per second",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Mana Regeneration Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage\n+8% Skill Cost",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Consumes 4% of current Mana when casting Main Skills\n+8% additional Spell Damage",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "CastSpeed",
+      },
+    ],
+  },
+  {
+    name: "Artisan",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Sentry Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+24% Sentry Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Sentry Skill Critical Strike Damage",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+15% Sentry Skill Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Sentry Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Sentry quantity that can be deployed at a time",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Sentry Skill cast frequency",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Sentry Skill cast frequency",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Sentry Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Sentry Damage\n+18% Sentry Skill Area\n+9% Sentry Projectile Speed",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Sentry Skill cast frequency",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+30% Sentry Skill cast frequency\n-5% additional Sentry Damage",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Sentry Damage\n-8% additional Sentry Start Time",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% additional Sentry Damage\n-25% additional Sentry Start Time",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Barrier Shield",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Barrier Shield",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Gains 1 stack(s) of Tenacity Blessing every 1 s when having Barrier",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        prerequisite: {
+          x: 2,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Barrier Shield",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Barrier Shield",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% Barrier Absorption Rate",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Sentry Skill Critical Strike Rating",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+30% Sentry Skill Critical Strike Rating",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Movement Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Movement Speed\n+20% Sentry Damage when moving",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Armor",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% Armor\nAdds 0.5% of Armor to Barrier Shield",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Armor",
+      },
+    ],
+  },
+  {
+    name: "Assassin",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Lightning Damage\n+9% Minion Lightning Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Lightning Damage\n+18% Minion Lightning Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Critical Strike Rating\n+20% Minion Critical Strike Rating\n+5% Critical Strike Damage\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Lightning Damage\n+6% Numbed chance",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16% Lightning Damage\n+12% Numbed chance",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% Numbed Effect",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Electrocute",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Lightning Damage\n+9% Minion Lightning Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Converts 100% of Physical Damage to Lightning Damage\nConverts 100% of Minion Physical Damage to Lightning Damage",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "-4% to the Max Life and Energy Shield thresholds for inflicting Numbed\nInflicts 1 additional stack(s) of Numbed",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Electrocute",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Lightning Resistance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Immune to Numbed\nMinions are immune to Lightning Damage",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "1.5% Lightning Penetration\n1.5% Lightning Penetration for Minions",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Inflicts Lightning Infiltration on Critical Strike",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Evasion",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Lightning Damage\n+9% Minion Lightning Damage",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Adds 10% of Physical Damage as Lightning Damage\nAdds 10% of Physical Damage as Lightning Damage to Minions",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "4.5% Projectile Speed",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Projectile Speed",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Dexterity",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Dexterity",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 2,
+        iconName: "Electrocute",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% Dexterity",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        prerequisite: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+2% additional max damage\n+2% additional Max Damage for Minions",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+12% additional max damage\n+12% additional Max Damage for Minions",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+    ],
+  },
+  {
+    name: "Bladerunner",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage when Dual Wielding",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed while Dual Wielding",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 2,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+6% additional Attack Speed while Dual Wielding",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "25% chance to gain Attack Aggression on defeat",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage when Dual Wielding",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+5% additional Attack Damage for each unique type of weapon equipped while Dual Wielding",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "2.5% Movement Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "35% of the bonuses for Movement Speed is also applied to the Cooldown Recovery Speed of Mobility skills\n70% of the bonuses for Movement Speed is also applied to the Attack and Cast Speed of Mobility Skills",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Gains a stack Agility Blessing when using Mobility Skills",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "4.5% Projectile Speed",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Projectile Speed",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% chance to Multistrike\n+6% Minion Multistrike chance",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% additional Attack Speed when performing Multistrikes",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Multistrikes deal 16% increasing damage",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack Speed",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed\n-4 Skill Cost",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Evasion",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Dexterity",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Attack Speed per 40 Dexterity",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+    ],
+  },
+  {
+    name: "Druid",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Cast Speed",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Cast Speed",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Damage\n+2% Cast Speed",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Spell Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "For each Spell Skill used recently, +4% Critical Strike Damage, stacking up to 12 time(s)",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "4.5% Projectile Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Projectile Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Burst Charge Speed",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% Spell Burst Charge Speed",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Cast Speed",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "25% chance to gain Spell Aggression on defeat",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Regains additional Life based on Missing Energy Shield\nRegains additional Energy Shield regain based on Missing Life",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Evasion",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Dexterity",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Cast Speed per 40 Dexterity",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "-16% additional Regain Interval",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Dual03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Spell Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Mana\nRegenerates 0.6% Mana per second",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Agility Blessing Duration\n+3% Cast Speed when Agility Blessing is active",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+3% Cast Speed per stack of Agility Blessing owned",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Dual02",
+      },
+    ],
+  },
+  {
+    name: "Elementalist",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage for Channeled Skills",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage for Channeled Skills",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Channel03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed for Channeled Skills",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% damage for every +1 additional Max Channeled Stack(s)",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Channel02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Max Channeled Stacks +1",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Channel03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage for Channeled Skills",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+60% damage while standing still",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+12% Attack and Cast Speed when channeled stacks have not reached cap",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Blind",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+40% additional Beam Length",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% chance to avoid Elemental Ailments",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+7% chance to avoid Elemental Ailments",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Intelligence",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Blind",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Intelligence",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Fire Skill Level",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+24% chance to inflict Elemental Ailments\nAdds 5 Base Elemental Ailment Damage",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "Adds 2 - 2 Fire Damage to Attacks and Spells\nAdds 1 - 3 Lightning Damage to Attacks and Spells\nAdds 2 - 2 Cold Damage to Attacks and Spells",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Lightning Skill Level",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Elemental Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Elemental Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+12% chance to inflict Elemental Ailments\nDamage Penetrates 1.5% Elemental Resistance",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Upon inflicting damage, penetrates 3% of Elemental Resistance for each type of Elemental Ailment the enemy has",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Elemental Resistance",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "-5% additional Elemental Damage taken for every type of Elemental Damage recently received",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Cold Skill Level",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgCold",
+      },
+    ],
+  },
+  {
+    name: "God_of_Machines",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Minion Critical Strike Rating\n+7% Minion Skill Area",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+15% Minion Critical Strike Damage\n+10% Minion Skill Area",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+27% Spirit Magus Ultimate Damage and Ailment Damage dealt by Ultimate.",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Minion Skill Level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+3% Minion Attack and Cast Speed\nRegenerates 4 Mana per second",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+6% Minion Attack and Cast Speed\nRegenerates 8 Mana per second",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Minion Damage",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+ 1 Command per second\nSpirit Magi +2% chance to use an Enhanced Skill",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+ 2 Command per second\nSpirit Magi +6% chance to use an Enhanced Skill",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage\n+18% Minion Damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Spirit Magus Ultimate Cooldown Recovery Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "Regenerates 0.4% Life per second\n+2% Energy Shield Charge Speed\n+2% Movement Speed",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% Life Regeneration Speed\n-10% additional Energy Shield Charge Interval\n+8% Movement Speed",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+7% Sentry Skill Area\n+10% Sentry Duration\n4.5% Sentry Projectile Speed",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+7% Sentry Skill Area\n+20% Sentry Duration\n+9% Sentry Projectile Speed",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Barrier Shield",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16% Barrier Shield",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Sentry Skill cast frequency",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Sentry Skill cast frequency",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Sentry Skill Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Channel02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Sentry Skill Critical Strike Rating\n+5% Sentry Skill Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Sentry Damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+24% Sentry Damage",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% additional Sentry Damage if Sentry Skill is not used in the last 1 s",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Dual01",
+      },
+    ],
+  },
+  {
+    name: "God_of_Might",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Attack Critical Strike Rating\n+3% Critical Strike Damage",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Attack Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage\n+2% Movement Speed",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage\n+4% Movement Speed",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 to Attack Skill Level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed\n-4 Attack Skill Cost",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Max Life\n1.5% Life Regain",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Max Life\n+3% Life Regain",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Armor\n+2% Max Life",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10% Armor\n+4% Max Life",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Tenacity Blessing Duration\n+10% Attack Damage when Tenacity Blessing is active",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Max Tenacity Blessing Stacks +1",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Strength",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16 Strength",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Regenerates 0.4% Life per second",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+2% Life Regeneration Speed per stack of Tenacity Blessing owned\n25 Life Regeneration per second per stack of Tenacity Blessing owned",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Skill Area\n+5% Projectile Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Skill Area\n+10% Projectile Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10% Warcry Cooldown Recovery Speed",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% additional Attack Damage if you have used a Warcry Skill in the last 8s",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgFire",
+      },
+    ],
+  },
+  {
+    name: "God_of_War",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Physical Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Physical Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Physical Skill Level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+25% Critical Strike Rating\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16% Critical Strike Damage",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+2% Spell Block Chance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Attack Block Chance\n+4% Spell Block Chance",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Block",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "10% chance to restore 15% of Life, Energy Shield, and Mana when Blocking",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        prerequisite: {
+          x: 3,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Skill Area\n+5% Projectile Speed\n+2% Movement Speed",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Skill Area\n+10% Projectile Speed\n+3% Movement Speed",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% chance to inflict Trauma\n+8% Trauma Damage",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+33% Trauma Reaping Duration",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Physical Damage",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% additional Physical Damage while having Fervor",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Crit01",
+      },
+    ],
+  },
+  {
+    name: "Goddess_of_Deception",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+100% chance to gain Blur on defeat",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6 Affliction inflicted per second\n+9% Damage Over Time",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "Reaps 0.09 s of Damage Over Time when dealing Damage Over Time. The effect has a 6 s cooldown against the same target",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Persistent Skill Level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Cannon01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Movement Speed\n+7% Skill Area",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Movement Speed\n+14% Skill Area",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Damage Over Time",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Damage Over Time\n+2% Skill Effect Duration",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5 Dexterity\n+5 Intelligence",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10 Dexterity\n+10 Intelligence",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Bow03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Claw01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Max Life\nRegenerates 0.5% Life per second",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Max Energy Shield\n+4% Energy Shield Charge Speed",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Deterioration Chance",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Deterioration Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "10% chance to inflict 1 additional stack(s) of Deterioration\n-15% additional Deterioration Duration",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Claw02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+10% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "8% additional damage applied to Life",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+    ],
+  },
+  {
+    name: "Goddess_of_Hunting",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Movement Speed",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+3% Movement Speed\n+15% Cooldown Recovery Speed for Mobility Skills",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+40% Attack Critical Strike Rating",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+6% additional Attack Speed if you have dealt a Critical Strike recently",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Crossbow01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Dexterity",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16 Dexterity",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Electrocute",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+40% Spell Critical Strike Rating",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+6% additional Cast Speed if you have dealt a Critical Strike recently",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crossbow01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Skill Area\n+5% Projectile Speed",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Skill Area\n+10% Projectile Speed",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% damage if you have defeated an enemy recently",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Axe01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+5% damage and +2% Movement Speed for 4 s on defeat. Stacks up to 8 time(s)",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Agility Blessing Duration\n+3% Attack Speed and Cast Speed when having Agility Blessing",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Claw03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Max Agility Blessing Stacks +1",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Evasion",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+10% additional damage for 4s after using Mobility Skills",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "CastSpeed",
+      },
+    ],
+  },
+  {
+    name: "Goddess_of_Knowledge",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Spell Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Spell Critical Strike Rating\n+5% Spell Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Intelligence",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16 Intelligence",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "EsReg",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Cast Speed\n2.5% Movement Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Cast Speed\n-4 Skill Cost\n+5% Movement Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Burst Charge Speed",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Spell Burst Charge Speed",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Spell Skill Level",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dual02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Spell Damage",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Focus Blessing Duration\n+10% damage when Focus Blessing is active",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Max Focus Blessing Stacks +1",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Skill Area\n4.5% Projectile Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Skill Area\n+9% Projectile Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Energy Shield Charge cannot be interrupted by damage for 1 s after it starts",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+    ],
+  },
+  {
+    name: "Lich",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage\n+18% Minion Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+15% Critical Strike Rating\n+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Critical Strike Rating\n+20% Minion Critical Strike Rating\n+5% Critical Strike Damage\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 all skills' level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Dual01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Affliction Effect",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "-4 Skill Cost\n+12% Affliction Effect",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5 all stats",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10 all stats",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Cooldown Recovery Speed",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% Cooldown Recovery Speed\n+1 Max Charges",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield\n+3% Energy Shield Charge Speed",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% Max Energy Shield\nGains Blur when Energy Shield starts to Charge",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Skill Effect Duration",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Skill Effect Duration",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Blur Effect",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "0.2% Blur effect for every 1% of Life lost",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% additional damage when having both Sealed Mana and Life",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Sealed Mana Compensation",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Sealed Mana Compensation",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% Sealed Mana Compensation",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Bow01",
+      },
+    ],
+  },
+  {
+    name: "Machinist",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Minion Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Minion Critical Strike Rating\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Minion Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+4% chance for Synthetic Troop Minions to deal Double Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Synthetic Troop Skill Level",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Defence01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Minion Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+ 1 Command per second",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+ 2 Command per second",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Minion Attack and Cast Speed for every 2 Command owned",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Minion Max Life",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Minion Max Life",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "EsReg",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Minion Life Regeneration Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Minion Life Regeneration Speed",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Barrier Shield",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Barrier Shield",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+8% Minion Damage\n+12% chance for Minions to inflict Ailment",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+16% Minion Damage\n+24% chance for Minions to inflict Ailment",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Adds 10 Base Ailment Damage to Minions",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Max Life\nRegenerates 0.4% Life per second",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Max Life\nRegenerates 0.6% Life per second",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Max Energy Shield\n+2% Energy Shield Charge Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Max Energy Shield\n+4% Energy Shield Charge Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+12% Minion Damage if a Synthetic Troop Skill has been cast recently",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% additional Minion Damage if a Synthetic Troop Skill has been cast recently",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Agi",
+      },
+    ],
+  },
+  {
+    name: "Magister",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Spell Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Spell Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Spell Critical Strike Rating\n+5% Spell Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Burst Charge Speed",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Spell Burst Charge Speed",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Max Spell Burst",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Focus Blessing Duration\n+10% Spell Damage when having Focus Blessing",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Gains 1 stack(s) of Focus Blessing when activating Spell Burst",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Focus Blessing Duration\n+4% Cast Speed when Focus Blessing is active",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+5% Spell Critical Strike Damage per stack of Focus Blessing owned",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Mana\n+18% Mana Regeneration Speed",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Restores 3% of Energy Shield on defeat",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Intelligence",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% Intelligence",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Spell Damage when holding a shield",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+24% Spell Damage when holding a shield",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "-8% additional Energy Shield Regain Interval\n+8% Energy Shield Regain",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Spell Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Inflicts Frail on Spell hit",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Block Chance",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+12% Spell Block Chance\n+15% Energy Shield gained from Shield",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+75 Max Energy Shield",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+2 Max Energy Shield per 5 Intelligence",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Immediately starts Energy Shield Charge upon entering the Low Energy Shield status",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Cannon02",
+      },
+    ],
+  },
+  {
+    name: "Marksman",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Projectile Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Projectile Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Projectile Damage\n+3% Projectile Speed",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Projectile Speed",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% Projectile Speed\nProjectile Damage increases with the distance traveled, dealing up to +48% damage to distant enemies",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        prerequisite: {
+          x: 3,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Parabolic Projectile Splits quantity +1",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+30% Projectile Critical Strike Rating",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+60% Projectile Damage against enemies in proximity",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Projectile Damage",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Jumps",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Projectile Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+15% Projectile Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Dexterity",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Evasion per 24 Dexterity",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+2 Horizontal Projectile Penetration(s)",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+450 Evasion",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+900 Evasion",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% Evasion\n+12% chance to avoid Elemental Ailments",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Agility Blessing Duration\n+7% Evasion while Agility Blessing is active",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+6% Evasion per stack of Agility Blessing owned",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgLightning",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Evasion",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% chance to avoid damage",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Defence01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% chance to avoid damage",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Defence01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Evasion",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% additional Evasion on Spell Damage",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgLightning",
+      },
+    ],
+  },
+  {
+    name: "Onslaughter",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Attack Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Attack Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% Attack Damage when holding a Two-Handed Weapon",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% additional Base Damage for Two-Handed Weapons",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+10% additional Base Damage for Two-Handed Weapons",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+18% Attack Damage\n-4% Attack Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+30% Attack Damage\n-5% Attack Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+40% Attack Critical Strike Rating when holding a Two-Handed Weapon",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+80% inflicted Paralysis Effect when holding a Two-Handed Weapon",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Defense",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Defense",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "-4% additional Physical Damage taken",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "-6% additional damage taken",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Axe01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Axe01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Tenacity Blessing Duration\n+10% Attack Damage when Tenacity Blessing is active",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Gains 1 stack(s) of Tenacity Blessing per second when at Full Life",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Dagger01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Strength",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% Strength",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Area Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Area Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Skill Area",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Skill Area",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Area Damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+40% Skill Area if Main Skill is not used in the last 2 s",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Duration",
+      },
+    ],
+  },
+  {
+    name: "Prophet",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+6% chance to inflict Frostbite\n+9% Cold Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Claw02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% chance to inflict Frostbite\n+18% Cold Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Claw02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+15% Critical Strike Rating\n+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Critical Strike Rating\n+20% Minion Critical Strike Rating\n+5% Critical Strike Damage\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Freeze Duration",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Freeze Duration",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% additional damage taken by enemies Frozen by you recently",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Frostbite inflicted",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10% Frostbite inflicted",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Inflicts 5 Frostbite Rating to Frostbitten enemies every second",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgCold",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Cold Resistance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Dual03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+18% Cold Resistance\nMinions are immune to Cold Damage\nMinions are immune to Frostbite and Freeze",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "DmgCold",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Intelligence",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Blind",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Intelligence",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Freeze",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+10% Focus Blessing Duration\n+10% damage when Focus Blessing is active",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+100% chance to gain a stack of Focus Blessing upon inflicting damage to a Frostbitten enemy. Interval: 0.1s",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Ailment",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Cold Damage\n+9% Minion Cold Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgCold",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Cold Damage\n+18% Minion Cold Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Cold Penetration\n1.5% Cold Penetration for Minions",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Inflicts Cold Infiltration when dealing damage to Frozen enemies",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        prerequisite: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Cold Damage\n+9% Minion Cold Damage",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgCold",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Converts 100% of Physical Damage to Cold Damage\nConverts 100% of Minion Physical Damage to Cold Damage",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+    ],
+  },
+  {
+    name: "Psychic",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Damage Over Time",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Damage Over Time",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Terra Skill Damage",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Terra Skill Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Reaping Cooldown Recovery Speed",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Reaping Cooldown Recovery Speed",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Gains 1 stack(s) of Focus Blessing when Reaping",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Skill Effect Duration",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Skill Effect Duration",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Terra Charge Recovery Speed",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Claw02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6 Affliction inflicted per second\n+6% Affliction Effect",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+18 Affliction inflicted per second\n-8% All Resistance when the enemy has max Affliction",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Blur Effect",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% Movement Speed while Blur is active\nMovement Speed cannot be reduced to below the base value when Blur is active",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Defense",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% injury buffer",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Reaping Duration",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Reaping Duration",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+5% chance to gain Blur when Reaping",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Affliction Effect",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Affliction Effect",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Damage Over Time",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Gains a stack of Torment when dealing damage to enemies with max Affliction",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Cannon03",
+      },
+    ],
+  },
+  {
+    name: "Ranger",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+30% Critical Strike Rating",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Fervor effect",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Axe01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "0.5% Critical Strike Damage per Fervor Rating",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "7.5% Critical Strike Damage",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+15% Critical Strike Damage",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "100% chance to gain Agility Blessing on Critical Strike",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Critical Strikes can eliminate enemies under 8% Life",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Cannon02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+2% Spell Block Chance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Attack Block Chance\n+4% Spell Block Chance",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+25% chance to Mark the enemy on Critical Strike\n+20% Mark effect",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+25% damage dealt to Nearby enemies",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Area Damage",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Area Damage",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        prerequisite: {
+          x: 2,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Melee Damage",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Melee Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+10% additional damage taken by enemies in Proximity",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+25% damage to Distant enemies",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Projectile Damage\n4.5% Projectile Speed",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Projectile Damage\n+9% Projectile Speed",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+10% chance to cause Knockbacks",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+15% Knockback distance",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dual02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "120% of the increase/decrease on Knockback distance is also applied to damage bonus",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Crit04",
+      },
+    ],
+  },
+  {
+    name: "Ronin",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Melee Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Melee Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+10% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Attack Speed\n-6% Melee Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+32% chance to Multistrike",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% Steep Strike chance.",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Claw03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6 Strength\n+6 Dexterity",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Strength\n+4% Dexterity",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Melee Damage",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+33% Demolisher Charge Restoration Speed",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Bow03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+2% Spell Block Chance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Attack Block Chance\n+4% Spell Block Chance",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+18% Melee Damage\n-4% Attack Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Every 1 s, +10% additional Melee Damage for the next Main Skill used",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Shadow Quantity +1",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Armor\n+5% Evasion",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+10% Armor\n+10% Evasion",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        prerequisite: {
+          x: 4,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Melee Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Melee Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Fervor effect",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Fervor effect",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% Fervor effect",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Duration",
+      },
+    ],
+  },
+  {
+    name: "Sentinel",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+10% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+2% Spell Block Chance",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Gains 1 stack(s) of Tenacity Blessing every 1 s if you have Blocked recently",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% damage dealt when holding a shield",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+12% damage dealt when holding a shield\n+4% Attack and Cast Speed while holding a Shield",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+5% Block Ratio\nRestores 1% Missing Life and Energy Shield when blocking",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Block",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+6% Life Regain\nRestores 15% of Missing Life when suffer a Severe Injury",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Armor",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+35% Armor if you have Blocked recently",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Spell Block Chance",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Spell Block Chance",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "BlockSpell",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+6% Energy Shield Regain\nRestores 15% Missing Energy Shield when suffer Severe Injury",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+2% Spell Block Chance",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+4% Attack Block Chance\n+4% Spell Block Chance\n+40% damage if you have Blocked recently",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Attack Block Chance\n+6% damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Attack Block Chance\n+12% damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Defense",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+3 Defensive Skill Level",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Bow02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Defense when holding a Shield",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Evasion",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+40% Defense from Shield",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+    ],
+  },
+  {
+    name: "Shadowdancer",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Physical Damage\n+9% Physical Damage for Minions",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Physical Damage\n+18% Physical Damage for Minions",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+8% Critical Strike Damage\n+8% Minion Critical Strike Damage",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+16% Critical Strike Damage\n+16% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Physical Damage\n+9% Physical Damage for Minions",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+22% Physical Damage\n-12% Elemental Damage\n+22% Physical Damage for Minions",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+1 Physical Skill Level\nPhysical Damage can't be converted to other types of damage",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+6% chance to inflict Trauma\n+8% Trauma Damage\n+10% chance for Minions to inflict Trauma",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+12% chance to inflict Trauma\n+16% Trauma Damage\n+20% chance for Minions to inflict Trauma",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Bleed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Armor\n+5% Evasion",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+9% Armor\n+9% Evasion\n-4% additional Physical Damage taken",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Physical Damage\n+9% Physical Damage for Minions",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% Armor DMG Mitigation Penetration\n+8% Armor DMG Mitigation Penetration for Minions",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Aura",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Bow01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Max Life\nRegenerates 0.6% Life per second",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Trauma Damage\nAdds 8 Base Trauma Damage",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+12% additional Trauma Damage dealt by Critical Strikes",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Armor",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Immune to Trauma\nMinions are immune to Physical Damage",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Fervor effect",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Movement Speed per 10 Fervor Rating",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Defence01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed\n-4 Skill Cost",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+15% Critical Strike Rating\n+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crit02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+30% Critical Strike Rating\n+30% Minion Critical Strike Rating",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage for Triggered Skills",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+50% chance to Weaken nearby enemies when triggering any skill",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Area",
+      },
+    ],
+  },
+  {
+    name: "Shadowmaster",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage\n+9% Minion Erosion Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Erosion Damage\n+18% Minion Erosion Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+10% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "4% chance to inflict 1 additional stacks of Wilt",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "1.2% Erosion Damage per stack of Wilt inflicted, stacking up to 60 times",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage\n+9% Minion Erosion Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Erosion Damage\n2% additional damage applied to Life",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Deterioration Chance",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% additional Deterioration Damage\n+5% additional Deterioration Duration",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Energy Shield\n+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Energy Shield\n+6% Max Life",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Erosion Resistance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Immune to Wilt\nMinions are immune to Erosion Damage",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage\n+9% Minion Erosion Damage",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Erosion Skill Level",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Deterioration Chance",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Deterioration Damage",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Erosion Damage\n+9% Minion Erosion Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Converts 100% of Physical Damage to Erosion Damage\nConverts 100% of Minion Physical Damage to Erosion Damage",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Wilt Damage\n+6% Wilt chance",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Channel02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Wilt chance\n+4%  Wilt  Duration",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% Wilt Damage\n+6% Wilt chance\nAdds 1 Base Wilt Damage",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Channel02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Gains Blur per 5 stacks of Wilt inflicted",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        prerequisite: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Claw02",
+      },
+    ],
+  },
+  {
+    name: "Steel_Vanguard",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage\n+18% Minion Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Max Mana",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Max Mana",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Aura Effect",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Bow03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Aura Effect",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "CastSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Dagger02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+1 Empower Skill Level",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "8% additional damage applied to Life\nMinions deal 8% additional damage to Life",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Channel02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "4.5% Focus Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+9% Focus Speed",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Focus Skill Level",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Erosion Resistance",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Erosion Resistance",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Barrier Shield",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Freeze",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+40% Barrier Shield",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Freeze",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Elemental Resistance",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% Elemental Resistance",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Restoration Skills gain 0.5 Charging Progress every second",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Restoration Skill Effect for every 2% of Life lost",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "-4% additional Elemental Damage taken",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Converts 6% of Physical Damage taken to random Elemental Damage",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgEle",
+      },
+    ],
+  },
+  {
+    name: "The_Brave",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Accuracy",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Attack Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Attack Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Attack Damage when holding a One-Handed Weapon",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Attack Damage when holding a One-Handed Weapon",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+8% additional Attack Damage when holding a One-Handed Weapon",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack Speed\n-4 Skill Cost",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Axe01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "AtkSpeed",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+12% damage dealt when holding a shield\n+4% Attack Block Chance when holding a shield",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+5% Block Ratio when holding a Shield",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+5% Max Life\nRegenerates 0.5% Life per second",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Attack Block Chance",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+8% Attack Block Chance",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+5% Warcry Cooldown Recovery Speed",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Crossbow02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Warcry Effect",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "The minimum number of enemies affected by Warcry +4",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+450 Armor",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+900 Armor",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+25% chance to gain 1 stacks of Tenacity Blessing when taking damage. Interval: 1 s",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+6% Armor per stack of Tenacity Blessing owned",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Strength",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1% Armor for every 24 Strength",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Channel01",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Armor",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+14% Armor",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Defence03",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+7% Armor",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+40% Defense gained from Chest Armor",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% Elemental Resistance\n+2% Erosion Resistance",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "0.5% Elemental Resistance per 3000 Armor. Stacks up to 6% .\n0.5% Erosion Resistance per 3000 Armor. Stacks up to 6% .",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Armor",
+      },
+    ],
+  },
+  {
+    name: "Warlock",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage\n+18% Minion Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8% damage against Cursed enemies\n+8% Curse Skill Area",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Cannon03",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+16% damage against Cursed enemies\n+16% Curse Skill Area",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Cannon03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Upon dealing damage to a Cursed target, there is a +25% chance to Paralyze it",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        prerequisite: {
+          x: 3,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Cannon03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+5% chance to inflict Slow on hit",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Affliction Effect",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "-4 Skill Cost\n+12% Affliction Effect",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+4% curse effect",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Dagger03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% additional damage against Cursed enemies",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgChaos",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+2% crowd control effects",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Crit03",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+20% chance to cause Blinding on hit\n+25% Critical Strike Damage Mitigation against Blinded enemies",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Claw02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% chance to avoid Elemental Ailments",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+20% chance to avoid Elemental Ailments",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Blur Effect",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "DmgEle",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% chance to gain Blur when inflicting crowd control effects",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+6% chance to cause Ailments\n+12% chance for Minions to inflict Ailment\n+2% Ailment Duration",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Ailment",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+12% chance to cause Ailments\n+24% chance for Minions to inflict Ailment\n+4% Ailment Duration",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+6% Affliction Effect",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Curse",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+12% Affliction Effect",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Duration",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage\n+9% Minion Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Upon inflicting damage, +15% damage for every type of Ailment the enemy has\nWhen Minions deal damage, +15% damage for every type of Ailment the enemy has",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Ailment Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Ailment Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Ailment",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+15% Critical Strike Rating\n+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Critical Strike Rating\n+20% Minion Critical Strike Rating\n+14% Critical Strike Damage against enemies affected by Ailment\n+14% Minion Critical Strike Damage against enemies affected by Ailments",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Ailment Damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Ailment Damage ignores Resistance",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Claw01",
+      },
+    ],
+  },
+  {
+    name: "Warlord",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Fire Damage\n+9% Minion Fire Damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Fire Damage\n+18% Minion Fire Damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+15% Critical Strike Rating\n+15% Minion Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+20% Critical Strike Rating\n+20% Minion Critical Strike Rating\n+5% Critical Strike Damage\n+5% Minion Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Fire Damage\n+9% Minion Fire Damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Converts 100% Physical Damage to Fire Damage\nConverts 100% of Minion's Physical Damage to Fire Damage",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "DmgPhys",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Fire Damage\n+9% Minion Fire Damage",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Fire Damage\n+18% Minion Fire Damage",
+        position: {
+          x: 4,
+          y: 1,
+        },
+        prerequisite: {
+          x: 3,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Strength",
+        position: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+1% Fire Damage per 12 Strength\n+1% Minion Fire Damage per 12 Strength",
+        position: {
+          x: 6,
+          y: 1,
+        },
+        prerequisite: {
+          x: 5,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "DmgFire",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life\n+6% Max Energy Shield",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain\n1.5% Energy Shield Regain",
+        position: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% Life Regain\n+3% Energy Shield Regain",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        prerequisite: {
+          x: 2,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+2% Fire Penetration against Ignited enemies\n+2% Minion Fire Penetration against Ignited enemies",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "Inflicts Fire Infiltration when dealing Fire Damage to Ignited enemies",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        prerequisite: {
+          x: 4,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+4% Fire Resistance",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+4% Max Fire Resistance",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Area",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life\n+3% Max Energy Shield",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Immune to Ignite\nMinions are immune to Fire Damage",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Flask02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Fire Damage",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "+10% additional Fire Damage dealt by the next Main Skill every 1 s",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% Fire Damage Over Time\n+9% Minion Fire Damage",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% Fire Damage Over Time\n+18% Minion Fire Damage",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+8% Ignite damage\n+6% chance to Ignite targets\n+10% Ignite chance for Minions",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+16% Ignite damage\n+12% chance to Ignite targets\n+20% Ignite chance for Minions",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix:
+          "+9% Fire Damage Over Time\n+9% Minion Fire Damage\nAdds 10 Base Ignite Damage",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "medium",
+        rawAffix:
+          "+15% Affliction Effect\n+15% Minion Affliction Effect\n+8 Affliction inflicted per second\n+8 Affliction inflicted per second by Minions",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        prerequisite: {
+          x: 4,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "DmgExtra",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Inflicts 1 additional stack(s) of Ignite",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "DmgFire",
+      },
+    ],
+  },
+  {
+    name: "Warrior",
+    nodes: [
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+18% damage",
+        position: {
+          x: 1,
+          y: 0,
+        },
+        prerequisite: {
+          x: 0,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+15% Critical Strike Rating",
+        position: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+20% Critical Strike Rating\n+5% Critical Strike Damage",
+        position: {
+          x: 3,
+          y: 0,
+        },
+        prerequisite: {
+          x: 2,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Crit04",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+9% damage",
+        position: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+50% damage against Low Life enemies",
+        position: {
+          x: 5,
+          y: 0,
+        },
+        prerequisite: {
+          x: 4,
+          y: 0,
+        },
+        maxPoints: 3,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+25% additional damage against Low Life enemies",
+        position: {
+          x: 6,
+          y: 0,
+        },
+        prerequisite: {
+          x: 5,
+          y: 0,
+        },
+        maxPoints: 1,
+        iconName: "Axe02",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Attack and Cast Speed\n+3% Minion Attack and Cast Speed",
+        position: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Attack and Cast Speed\n+6% Minion Attack and Cast Speed",
+        position: {
+          x: 2,
+          y: 1,
+        },
+        prerequisite: {
+          x: 1,
+          y: 1,
+        },
+        maxPoints: 3,
+        iconName: "Agi",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "0.3% Attack Speed for every 1% of Life lost",
+        position: {
+          x: 3,
+          y: 1,
+        },
+        prerequisite: {
+          x: 2,
+          y: 1,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Defense",
+        position: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Defense",
+        position: {
+          x: 1,
+          y: 2,
+        },
+        prerequisite: {
+          x: 0,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "1.5% Life Regain",
+        position: {
+          x: 3,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Defence02",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix:
+          "-15% additional Life Regain Interval\nConsumes 2% of current Life when you use Attack Skills",
+        position: {
+          x: 4,
+          y: 2,
+        },
+        prerequisite: {
+          x: 3,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+12% damage if you have taken damage recently",
+        position: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 3,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Gains a stack of Fortitude when using a Melee Skill",
+        position: {
+          x: 6,
+          y: 2,
+        },
+        prerequisite: {
+          x: 5,
+          y: 2,
+        },
+        maxPoints: 1,
+        iconName: "Armor",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+40 Max Life",
+        position: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+80 Max Life",
+        position: {
+          x: 2,
+          y: 3,
+        },
+        prerequisite: {
+          x: 1,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "DmgAll",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "Restores 3% of Life on defeat",
+        position: {
+          x: 4,
+          y: 3,
+        },
+        prerequisite: {
+          x: 3,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+8 Strength",
+        position: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 3,
+        iconName: "Atk",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+1 Max Life per 5 Strength",
+        position: {
+          x: 6,
+          y: 3,
+        },
+        prerequisite: {
+          x: 5,
+          y: 3,
+        },
+        maxPoints: 1,
+        iconName: "Dot",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+6% Max Life",
+        position: {
+          x: 1,
+          y: 4,
+        },
+        prerequisite: {
+          x: 0,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "Regenerates 0.4% Life per second",
+        position: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "Regenerates 0.8% Life per second",
+        position: {
+          x: 3,
+          y: 4,
+        },
+        prerequisite: {
+          x: 2,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Flask01",
+      },
+      {
+        nodeType: "legendary",
+        rawAffix: "+8% additional damage if you have lost Life recently",
+        position: {
+          x: 4,
+          y: 4,
+        },
+        prerequisite: {
+          x: 3,
+          y: 4,
+        },
+        maxPoints: 1,
+        iconName: "Es",
+      },
+      {
+        nodeType: "micro",
+        rawAffix: "+3% Max Life",
+        position: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Es",
+      },
+      {
+        nodeType: "medium",
+        rawAffix: "+3% injury buffer",
+        position: {
+          x: 6,
+          y: 4,
+        },
+        prerequisite: {
+          x: 5,
+          y: 4,
+        },
+        maxPoints: 3,
+        iconName: "Area",
+      },
+    ],
+  },
+];
