@@ -2,6 +2,7 @@
 
 import { Tooltip, TooltipTitle } from "@/src/app/components/ui/Tooltip";
 import { useTooltip } from "@/src/app/hooks/useTooltip";
+import { getAllAffixes } from "@/src/app/lib/gear-utils";
 import type { Gear } from "@/src/app/lib/save-data";
 
 interface InventoryItemProps {
@@ -36,7 +37,7 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
           <span className="text-xs text-amber-400 font-medium">Legendary</span>
         )}
         <span className="text-xs text-zinc-500">
-          ({item.affixes.length} affixes)
+          ({getAllAffixes(item).length} affixes)
         </span>
         {isEquipped && (
           <span className="text-xs text-green-500 font-medium">Equipped</span>
@@ -73,9 +74,9 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
         {item.baseStats && (
           <div className="text-xs text-amber-300 mb-2">{item.baseStats}</div>
         )}
-        {item.affixes.length > 0 ? (
+        {getAllAffixes(item).length > 0 ? (
           <ul className="space-y-1">
-            {item.affixes.map((affix, idx) => (
+            {getAllAffixes(item).map((affix, idx) => (
               <li
                 // biome-ignore lint/suspicious/noArrayIndexKey: affixes can have duplicate text, index is stable
                 key={idx}

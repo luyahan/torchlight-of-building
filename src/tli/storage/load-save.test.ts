@@ -69,7 +69,7 @@ test("loadSave converts gear with parseable affix", () => {
       mainHand: {
         id: "test-weapon",
         equipmentType: "One-Handed Sword",
-        affixes: ["+10% fire damage"],
+        prefixes: ["+10% fire damage"],
       },
     },
   });
@@ -96,7 +96,7 @@ test("loadSave handles affix that fails to parse", () => {
       helmet: {
         id: "test-helmet",
         equipmentType: "Helmet (STR)",
-        affixes: ["some unparseable affix text"],
+        suffixes: ["some unparseable affix text"],
       },
     },
   });
@@ -119,17 +119,17 @@ test("loadSave sets correct src for different gear slots", () => {
       helmet: {
         id: "h",
         equipmentType: "Helmet (STR)",
-        affixes: ["+5% armor"],
+        suffixes: ["+5% armor"],
       },
       leftRing: {
         id: "lr",
         equipmentType: "Ring",
-        affixes: ["+5% max life"],
+        prefixes: ["+5% max life"],
       },
       offHand: {
         id: "oh",
         equipmentType: "Shield (STR)",
-        affixes: ["+4% attack block chance"],
+        suffixes: ["+4% attack block chance"],
       },
     },
   });
@@ -159,12 +159,13 @@ test("loadSave converts gear in inventory", () => {
       {
         id: "inv-sword",
         equipmentType: "One-Handed Sword",
-        affixes: ["+20% cold damage"],
+        prefixes: ["+20% cold damage"],
       },
       {
         id: "inv-helmet",
         equipmentType: "Helmet (STR)",
-        affixes: ["unparseable text", "+15% lightning damage"],
+        prefixes: ["unparseable text"],
+        suffixes: ["+15% lightning damage"],
       },
     ],
   });

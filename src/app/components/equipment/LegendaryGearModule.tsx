@@ -77,7 +77,7 @@ export const LegendaryGearModule: React.FC<LegendaryGearModuleProps> = ({
   const handleSaveToInventory = () => {
     if (!selectedLegendary) return;
 
-    const affixes = affixStates.map((state, i) => {
+    const legendary_affixes = affixStates.map((state, i) => {
       const affix = state.isCorrupted
         ? selectedLegendary.corruptionAffixes[i]
         : selectedLegendary.normalAffixes[i];
@@ -87,7 +87,7 @@ export const LegendaryGearModule: React.FC<LegendaryGearModuleProps> = ({
     const newItem: Gear = {
       id: generateItemId(),
       equipmentType: selectedLegendary.equipmentType,
-      affixes,
+      legendary_affixes,
       rarity: "legendary",
       baseStats: selectedLegendary.baseStat,
       legendaryName: selectedLegendary.name,

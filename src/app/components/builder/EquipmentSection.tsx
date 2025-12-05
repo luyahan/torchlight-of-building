@@ -200,41 +200,50 @@ export const EquipmentSection = () => {
   const handleSaveToInventory = useCallback(() => {
     if (!selectedEquipmentType) return;
 
-    const affixes: string[] = [];
+    // Build base stats
+    const baseStats =
+      baseStatsAffixIndex !== undefined
+        ? baseStatsAffixes[baseStatsAffixIndex].craftableAffix
+        : undefined;
 
-    // Add base stats affix first if selected
-    if (baseStatsAffixIndex !== undefined) {
-      const selectedBaseStats = baseStatsAffixes[baseStatsAffixIndex];
-      affixes.push(selectedBaseStats.craftableAffix);
-    }
-
-    // Add base affixes (2 max)
+    // Build base affixes (2 max)
+    const base_affixes: string[] = [];
     baseAffixSlots.forEach((selection) => {
       if (selection.affixIndex === undefined) return;
       const selectedAffix = baseAffixes[selection.affixIndex];
-      affixes.push(craft(selectedAffix, selection.percentage));
+      base_affixes.push(craft(selectedAffix, selection.percentage));
     });
 
-    // Add blend affix if selected (belt only)
-    if (isBelt && blendAffixIndex !== undefined) {
-      const selectedBlend = blendAffixes[blendAffixIndex];
-      affixes.push(formatBlendAffix(selectedBlend));
-    }
+    // Build blend affix (belt only)
+    const blend_affix =
+      isBelt && blendAffixIndex !== undefined
+        ? formatBlendAffix(blendAffixes[blendAffixIndex])
+        : undefined;
 
-    // Add prefix/suffix affixes
-    affixSlots.forEach((selection, idx) => {
+    // Build prefixes (slots 0-2)
+    const prefixes: string[] = [];
+    affixSlots.slice(0, 3).forEach((selection) => {
       if (selection.affixIndex === undefined) return;
-      const affixType = idx < 3 ? "Prefix" : "Suffix";
-      const filteredAffixes =
-        affixType === "Prefix" ? prefixAffixes : suffixAffixes;
-      const selectedAffix = filteredAffixes[selection.affixIndex];
-      affixes.push(craft(selectedAffix, selection.percentage));
+      const selectedAffix = prefixAffixes[selection.affixIndex];
+      prefixes.push(craft(selectedAffix, selection.percentage));
+    });
+
+    // Build suffixes (slots 3-5)
+    const suffixes: string[] = [];
+    affixSlots.slice(3, 6).forEach((selection) => {
+      if (selection.affixIndex === undefined) return;
+      const selectedAffix = suffixAffixes[selection.affixIndex];
+      suffixes.push(craft(selectedAffix, selection.percentage));
     });
 
     const newItem: Gear = {
       id: generateItemId(),
       equipmentType: selectedEquipmentType,
-      affixes,
+      baseStats,
+      base_affixes: base_affixes.length > 0 ? base_affixes : undefined,
+      prefixes: prefixes.length > 0 ? prefixes : undefined,
+      suffixes: suffixes.length > 0 ? suffixes : undefined,
+      blend_affix,
     };
 
     addItemToInventory(newItem);

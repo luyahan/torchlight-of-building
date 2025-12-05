@@ -100,10 +100,20 @@ export interface TalentPage {
 export interface Gear {
   id: string;
   equipmentType: EquipmentType;
-  affixes: string[];
   rarity?: "rare" | "legendary";
-  baseStats?: string;
   legendaryName?: string;
+
+  // Base stats (shared by both regular and legendary gear)
+  baseStats?: string;
+
+  // Regular gear affix properties
+  base_affixes?: string[];
+  prefixes?: string[];
+  suffixes?: string[];
+  blend_affix?: string;
+
+  // Legendary gear affix property
+  legendary_affixes?: string[];
 }
 
 export interface GearPage {

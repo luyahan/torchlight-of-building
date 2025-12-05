@@ -34,12 +34,13 @@ describe("build-code", () => {
         helmet: {
           id: "test-helmet-1",
           equipmentType: "Helmet (STR)",
-          affixes: ["+10% fire damage", "+5% attack speed"],
+          prefixes: ["+10% fire damage"],
+          suffixes: ["+5% attack speed"],
         },
         mainHand: {
           id: "test-sword-1",
           equipmentType: "One-Handed Sword",
-          affixes: ["+100 physical damage"],
+          prefixes: ["+100 physical damage"],
         },
       },
       talentPage: {},
@@ -146,12 +147,13 @@ describe("build-code", () => {
         helmet: {
           id: "test-1",
           equipmentType: "Helmet (STR)",
-          affixes: ["+10% fire damage", "+5% attack speed"],
+          prefixes: ["+10% fire damage"],
+          suffixes: ["+5% attack speed"],
         },
         chest: {
           id: "test-2",
           equipmentType: "Chest Armor (STR)",
-          affixes: ["+100 health"],
+          prefixes: ["+100 health"],
         },
       },
       talentPage: {
@@ -171,7 +173,7 @@ describe("build-code", () => {
         {
           id: "inv-1",
           equipmentType: "Ring",
-          affixes: ["+10% crit"],
+          suffixes: ["+10% crit"],
         },
       ],
       heroMemoryList: [],

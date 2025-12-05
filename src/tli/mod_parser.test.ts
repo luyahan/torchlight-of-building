@@ -51,9 +51,9 @@ test("parse decimal damage", () => {
   });
 });
 
-test("return unrecognized for invalid damage type", () => {
+test("return undefined for invalid damage type", () => {
   const result = parseMod("+10% invalid damage");
-  expect(result).toBe("unrecognized");
+  expect(result).toBeUndefined()
 });
 
 test("parse global critical strike rating", () => {
@@ -83,9 +83,9 @@ test("parse crit rating with decimal percentage", () => {
   });
 });
 
-test("return unrecognized for invalid crit rating mod type", () => {
+test("return undefined for invalid crit rating mod type", () => {
   const result = parseMod("+10% Fire Critical Strike Rating");
-  expect(result).toBe("unrecognized");
+  expect(result).toBeUndefined()
 });
 
 test("parse global critical strike damage", () => {
@@ -148,9 +148,9 @@ test("parse crit damage with decimal percentage", () => {
   });
 });
 
-test("return unrecognized for invalid crit damage mod type", () => {
+test("return undefined for invalid crit damage mod type", () => {
   const result = parseMod("+10% Fire Critical Strike Damage");
-  expect(result).toBe("unrecognized");
+  expect(result).toBeUndefined()
 });
 
 test("parse basic attack speed", () => {
