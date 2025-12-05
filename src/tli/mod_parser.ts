@@ -436,7 +436,7 @@ const parseSteepStrikeChance = (
   return { type: "SteepStrikeChance", value };
 };
 
-export const parseMod = (input: string): ParseResult => {
+export const parseMod = (input: string): Mod | undefined => {
   const normalized = input.trim().toLowerCase();
 
   const parsers = [
@@ -477,5 +477,5 @@ export const parseMod = (input: string): ParseResult => {
   }
 
   // No parser matched
-  return "unrecognized";
+  return undefined;
 };
