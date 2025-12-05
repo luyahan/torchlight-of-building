@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: don't care in test */
-import { describe, expect, it } from "vitest";
+import { expect, test } from "vitest";
 import type { SaveData } from "@/src/app/lib/save-data";
 import { loadSave } from "./load-save";
 
@@ -63,101 +63,97 @@ const createEmptyRings = () => ({
   midRing3: {},
 });
 
-describe("loadSave", () => {
-  describe("gearPage conversion", () => {
-    it("should convert gear with parseable affix", () => {
-      const saveData = createMinimalSaveData({
-        equipmentPage: {
-          mainHand: {
-            id: "test-weapon",
-            equipmentType: "One-Handed Sword",
-            affixes: ["+10% fire damage"],
-          },
-        },
-      });
-
-      const loadout = loadSave(saveData);
-
-      expect(loadout.gearPage.equippedGear.mainHand).toBeDefined();
-      const mainHand = loadout.gearPage.equippedGear.mainHand!;
-      expect(mainHand.equipmentType).toBe("One-Handed Sword");
-      expect(mainHand.affixes).toHaveLength(1);
-
-      const affix = mainHand.affixes[0];
-      expect(affix.text).toBe("+10% fire damage");
-      expect(affix.src).toBe("Gear#mainHand");
-      expect(affix.mods).toBeDefined();
-      expect(affix.mods).toHaveLength(1);
-      expect(affix.mods![0].type).toBe("DmgPct");
-      expect(affix.mods![0].src).toBe("Gear#mainHand");
-    });
-
-    it("should handle affix that fails to parse", () => {
-      const saveData = createMinimalSaveData({
-        equipmentPage: {
-          helmet: {
-            id: "test-helmet",
-            equipmentType: "Helmet (STR)",
-            affixes: ["some unparseable affix text"],
-          },
-        },
-      });
-
-      const loadout = loadSave(saveData);
-
-      expect(loadout.gearPage.equippedGear.helmet).toBeDefined();
-      const helmet = loadout.gearPage.equippedGear.helmet!;
-      expect(helmet.affixes).toHaveLength(1);
-
-      const affix = helmet.affixes[0];
-      expect(affix.text).toBe("some unparseable affix text");
-      expect(affix.src).toBe("Gear#helmet");
-      expect(affix.mods).toBeUndefined();
-    });
-
-    it("should set correct src for different gear slots", () => {
-      const saveData = createMinimalSaveData({
-        equipmentPage: {
-          helmet: {
-            id: "h",
-            equipmentType: "Helmet (STR)",
-            affixes: ["+5% armor"],
-          },
-          leftRing: {
-            id: "lr",
-            equipmentType: "Ring",
-            affixes: ["+5% max life"],
-          },
-          offHand: {
-            id: "oh",
-            equipmentType: "Shield (STR)",
-            affixes: ["+4% attack block chance"],
-          },
-        },
-      });
-
-      const loadout = loadSave(saveData);
-
-      expect(loadout.gearPage.equippedGear.helmet?.affixes[0].src).toBe(
-        "Gear#helmet",
-      );
-      expect(loadout.gearPage.equippedGear.leftRing?.affixes[0].src).toBe(
-        "Gear#leftRing",
-      );
-      expect(loadout.gearPage.equippedGear.offHand?.affixes[0].src).toBe(
-        "Gear#offHand",
-      );
-    });
-
-    it("should handle empty gear page", () => {
-      const saveData = createMinimalSaveData({
-        equipmentPage: {},
-      });
-
-      const loadout = loadSave(saveData);
-
-      expect(loadout.gearPage.equippedGear).toEqual({});
-      expect(loadout.gearPage.inventory).toEqual([]);
-    });
+test("loadSave converts gear with parseable affix", () => {
+  const saveData = createMinimalSaveData({
+    equipmentPage: {
+      mainHand: {
+        id: "test-weapon",
+        equipmentType: "One-Handed Sword",
+        affixes: ["+10% fire damage"],
+      },
+    },
   });
+
+  const loadout = loadSave(saveData);
+
+  expect(loadout.gearPage.equippedGear.mainHand).toBeDefined();
+  const mainHand = loadout.gearPage.equippedGear.mainHand!;
+  expect(mainHand.equipmentType).toBe("One-Handed Sword");
+  expect(mainHand.affixes).toHaveLength(1);
+
+  const affix = mainHand.affixes[0];
+  expect(affix.text).toBe("+10% fire damage");
+  expect(affix.src).toBe("Gear#mainHand");
+  expect(affix.mods).toBeDefined();
+  expect(affix.mods).toHaveLength(1);
+  expect(affix.mods![0].type).toBe("DmgPct");
+  expect(affix.mods![0].src).toBe("Gear#mainHand");
+});
+
+test("loadSave handles affix that fails to parse", () => {
+  const saveData = createMinimalSaveData({
+    equipmentPage: {
+      helmet: {
+        id: "test-helmet",
+        equipmentType: "Helmet (STR)",
+        affixes: ["some unparseable affix text"],
+      },
+    },
+  });
+
+  const loadout = loadSave(saveData);
+
+  expect(loadout.gearPage.equippedGear.helmet).toBeDefined();
+  const helmet = loadout.gearPage.equippedGear.helmet!;
+  expect(helmet.affixes).toHaveLength(1);
+
+  const affix = helmet.affixes[0];
+  expect(affix.text).toBe("some unparseable affix text");
+  expect(affix.src).toBe("Gear#helmet");
+  expect(affix.mods).toBeUndefined();
+});
+
+test("loadSave sets correct src for different gear slots", () => {
+  const saveData = createMinimalSaveData({
+    equipmentPage: {
+      helmet: {
+        id: "h",
+        equipmentType: "Helmet (STR)",
+        affixes: ["+5% armor"],
+      },
+      leftRing: {
+        id: "lr",
+        equipmentType: "Ring",
+        affixes: ["+5% max life"],
+      },
+      offHand: {
+        id: "oh",
+        equipmentType: "Shield (STR)",
+        affixes: ["+4% attack block chance"],
+      },
+    },
+  });
+
+  const loadout = loadSave(saveData);
+
+  expect(loadout.gearPage.equippedGear.helmet?.affixes[0].src).toBe(
+    "Gear#helmet",
+  );
+  expect(loadout.gearPage.equippedGear.leftRing?.affixes[0].src).toBe(
+    "Gear#leftRing",
+  );
+  expect(loadout.gearPage.equippedGear.offHand?.affixes[0].src).toBe(
+    "Gear#offHand",
+  );
+});
+
+test("loadSave handles empty gear page", () => {
+  const saveData = createMinimalSaveData({
+    equipmentPage: {},
+  });
+
+  const loadout = loadSave(saveData);
+
+  expect(loadout.gearPage.equippedGear).toEqual({});
+  expect(loadout.gearPage.inventory).toEqual([]);
 });
