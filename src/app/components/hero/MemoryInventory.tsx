@@ -1,6 +1,7 @@
 "use client";
 
-import type { HeroMemory, HeroPage } from "@/src/app/lib/save-data";
+import type { HeroMemory } from "@/src/app/lib/save-data";
+import type { HeroPage } from "@/src/tli/core";
 import { HeroMemoryItem } from "./HeroMemoryItem";
 
 interface MemoryInventoryProps {

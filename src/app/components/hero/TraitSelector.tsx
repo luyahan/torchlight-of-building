@@ -7,11 +7,8 @@ import {
   TooltipTitle,
 } from "@/src/app/components/ui/Tooltip";
 import { useTooltip } from "@/src/app/hooks/useTooltip";
-import type {
-  HeroMemory,
-  HeroMemorySlot,
-  HeroPage,
-} from "@/src/app/lib/save-data";
+import type { HeroMemory, HeroMemorySlot } from "@/src/app/lib/save-data";
+import type { HeroPage, HeroTraits } from "@/src/tli/core";
 import type { HeroTrait } from "@/src/data/hero_trait/types";
 import {
   getCompatibleMemoriesForSlot,
@@ -119,8 +116,9 @@ const TraitRow = ({
       ? getTraitsForHeroAtLevel(heroPage.selectedHero, level)
       : [];
 
-  const traitLevelKey = `level${level}` as keyof typeof heroPage.traits;
-  const selectedTrait = heroPage.traits[traitLevelKey];
+  const traitLevelKey = `level${level}` as keyof HeroTraits;
+  const selectedTraitAffix = heroPage.traits[traitLevelKey];
+  const selectedTraitName = selectedTraitAffix?.affixLines[0]?.text;
   const isLevel1 = level === 1;
 
   const slot: HeroMemorySlot | undefined =
@@ -180,7 +178,7 @@ const TraitRow = ({
                 <TraitItem
                   key={trait.name}
                   trait={trait}
-                  isSelected={selectedTrait === trait.name}
+                  isSelected={selectedTraitName === trait.name}
                   isLevel1={false}
                   level={level}
                   onSelect={() =>

@@ -1,10 +1,7 @@
 "use client";
 
-import type {
-  HeroMemory,
-  HeroMemorySlot,
-  HeroPage,
-} from "@/src/app/lib/save-data";
+import type { HeroMemory, HeroMemorySlot } from "@/src/app/lib/save-data";
+import type { HeroPage } from "@/src/tli/core";
 import { HeroSelector } from "./HeroSelector";
 import { MemoryCrafter } from "./MemoryCrafter";
 import { MemoryInventory } from "./MemoryInventory";

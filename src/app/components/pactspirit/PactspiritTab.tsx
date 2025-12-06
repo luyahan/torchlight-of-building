@@ -1,6 +1,6 @@
 "use client";
 
-import type { PactspiritPage } from "@/src/app/lib/save-data";
+import type { PactspiritPage } from "@/src/tli/core";
 import type {
   InstalledDestinyResult,
   PactspiritSlotIndex,

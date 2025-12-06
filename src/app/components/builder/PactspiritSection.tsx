@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import type { PactspiritPage } from "../../lib/save-data";
+import type { PactspiritPage } from "@/src/tli/core";
 import { createEmptyPactspiritSlot } from "../../lib/storage";
 import type {
   InstalledDestinyResult,
@@ -9,10 +9,11 @@ import type {
   RingSlotKey,
 } from "../../lib/types";
 import { useBuilderStore } from "../../stores/builderStore";
+import { useLoadout } from "../../stores/builderStoreSelectors";
 import { PactspiritTab } from "../pactspirit/PactspiritTab";
 
 export const PactspiritSection = () => {
-  const loadout = useBuilderStore((state) => state.loadout);
+  const loadout = useLoadout();
   const updateLoadout = useBuilderStore((state) => state.updateLoadout);
 
   const handlePactspiritSelect = useCallback(

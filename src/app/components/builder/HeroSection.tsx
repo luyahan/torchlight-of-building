@@ -5,11 +5,13 @@ import { getBaseTraitForHero } from "../../lib/hero-utils";
 import type { HeroMemory, HeroMemorySlot } from "../../lib/save-data";
 import { createEmptyHeroPage, generateItemId } from "../../lib/storage";
 import { useBuilderStore } from "../../stores/builderStore";
+import { useLoadout } from "../../stores/builderStoreSelectors";
 import { HeroTab } from "../hero/HeroTab";
 
 export const HeroSection = () => {
-  const loadout = useBuilderStore((state) => state.loadout);
+  const saveData = useBuilderStore((state) => state.loadout);
   const updateLoadout = useBuilderStore((state) => state.updateLoadout);
+  const loadout = useLoadout();
 
   const handleHeroChange = useCallback(
     (hero: string | undefined) => {
@@ -138,7 +140,7 @@ export const HeroSection = () => {
   return (
     <HeroTab
       heroPage={loadout.heroPage}
-      heroMemoryList={loadout.heroMemoryList}
+      heroMemoryList={saveData.heroMemoryList}
       onHeroChange={handleHeroChange}
       onTraitSelect={handleTraitSelect}
       onMemoryEquip={handleMemoryEquip}

@@ -6,7 +6,7 @@ import {
   TooltipTitle,
 } from "@/src/app/components/ui/Tooltip";
 import { useTooltip } from "@/src/app/hooks/useTooltip";
-import type { RingSlotState } from "@/src/app/lib/save-data";
+import type { RingSlotState } from "@/src/tli/core";
 import type { PactspiritRingDetails } from "@/src/data/pactspirit/types";
 import { isInnerRing } from "../../lib/pactspirit-utils";
 import type { RingSlotKey } from "../../lib/types";
@@ -39,11 +39,11 @@ export const RingSlot: React.FC<RingSlotProps> = ({
     const {
       destinyName,
       destinyType: dType,
-      resolvedAffix,
+      affix,
     } = ringState.installedDestiny;
     destinyType = dType;
     displayName = destinyName;
-    displayAffix = resolvedAffix;
+    displayAffix = affix.affixLines.map((line) => line.text).join("\n");
   } else {
     displayName = originalRing.name;
     displayAffix = originalRing.affix;
