@@ -1,16 +1,16 @@
 "use client";
 
 import { useCallback } from "react";
+import {
+  type DivinitySlate,
+  getAffixText,
+  type PlacedSlate,
+} from "@/src/tli/core";
 import type { DivinitySlate as SaveDataDivinitySlate } from "../../lib/save-data";
 import { generateItemId } from "../../lib/storage";
 import { useBuilderStore } from "../../stores/builderStore";
 import { useLoadout } from "../../stores/builderStoreSelectors";
 import { DivinityTab } from "../divinity/DivinityTab";
-import {
-  type DivinitySlate,
-  type PlacedSlate,
-  getAffixText,
-} from "@/src/tli/core";
 
 const toSaveDataSlate = (slate: DivinitySlate): SaveDataDivinitySlate => ({
   ...slate,

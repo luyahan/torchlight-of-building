@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { decodeBuildCode, encodeBuildCode } from "./build-code";
 import type { SaveData, SkillPage } from "./save-data";
 import {
@@ -180,14 +180,17 @@ describe("build-code", () => {
   });
 
   it("should return null for invalid build codes", () => {
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(decodeBuildCode("invalid")).toBeNull();
     expect(decodeBuildCode("")).toBeNull();
     expect(decodeBuildCode("abc123xyz")).toBeNull();
+    consoleSpy.mockRestore();
   });
 
   it("should return null for malformed JSON", () => {
-    // This would decompress but not be valid JSON
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     expect(decodeBuildCode("not-valid-lz-string")).toBeNull();
+    consoleSpy.mockRestore();
   });
 
   it("should produce URL-safe codes", () => {

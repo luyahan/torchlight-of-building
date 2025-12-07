@@ -18,11 +18,11 @@ import {
   DIVINITY_GODS,
   type DivinityGod,
   type DivinitySlate,
+  getAffixText,
   ROTATIONS,
   type Rotation,
   SLATE_SHAPES,
   type SlateShape,
-  getAffixText,
 } from "@/src/tli/core";
 import { SlatePreview } from "./SlatePreview";
 
