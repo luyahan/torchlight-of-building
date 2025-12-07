@@ -4,14 +4,17 @@ import { useCallback } from "react";
 import { getBaseTraitForHero } from "../../lib/hero-utils";
 import type { HeroMemory, HeroMemorySlot } from "../../lib/save-data";
 import { createEmptyHeroPage, generateItemId } from "../../lib/storage";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout } from "../../stores/builderStoreSelectors";
+import {
+  useBuilderActions,
+  useLoadout,
+  useSaveDataRaw,
+} from "../../stores/builderStore";
 import { HeroTab } from "../hero/HeroTab";
 
 export const HeroSection = () => {
-  const saveData = useBuilderStore((state) => state.saveData);
-  const updateSaveData = useBuilderStore((state) => state.updateSaveData);
   const loadout = useLoadout();
+  const saveData = useSaveDataRaw("hero-memory-list");
+  const { updateSaveData } = useBuilderActions();
 
   const handleHeroChange = useCallback(
     (hero: string | undefined) => {

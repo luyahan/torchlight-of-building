@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from "react";
 import { ActiveSkills, PassiveSkills } from "@/src/data/skill";
 import type { SupportSkills } from "../../lib/save-data";
-import { useBuilderStore } from "../../stores/builderStore";
+import { useBuilderActions, useLoadout } from "../../stores/builderStore";
 import { SkillSlot } from "../skills/SkillSlot";
 
 type ActiveSkillSlot =
@@ -34,20 +34,20 @@ const PASSIVE_SKILL_SLOTS: PassiveSkillSlot[] = [
 ];
 
 export const SkillsSection = () => {
-  const saveData = useBuilderStore((state) => state.saveData);
-  const updateSaveData = useBuilderStore((state) => state.updateSaveData);
+  const loadout = useLoadout();
+  const { updateSaveData } = useBuilderActions();
 
   const getSelectedActiveSkillNames = useMemo((): string[] => {
     return ACTIVE_SKILL_SLOTS.map(
-      (slot) => saveData.skillPage[slot]?.skillName,
+      (slot) => loadout.skillPage[slot]?.skillName,
     ).filter((name): name is string => name !== undefined);
-  }, [saveData.skillPage]);
+  }, [loadout.skillPage]);
 
   const getSelectedPassiveSkillNames = useMemo((): string[] => {
     return PASSIVE_SKILL_SLOTS.map(
-      (slot) => saveData.skillPage[slot]?.skillName,
+      (slot) => loadout.skillPage[slot]?.skillName,
     ).filter((name): name is string => name !== undefined);
-  }, [saveData.skillPage]);
+  }, [loadout.skillPage]);
 
   const handleSkillChange = useCallback(
     (slotKey: SkillSlotKey, skillName: string | undefined): void => {
@@ -118,7 +118,7 @@ export const SkillsSection = () => {
             <SkillSlot
               key={slotKey}
               slotLabel={`Active ${index + 1}`}
-              skill={saveData.skillPage[slotKey]}
+              skill={loadout.skillPage[slotKey]}
               availableSkills={ActiveSkills}
               excludedSkillNames={getSelectedActiveSkillNames}
               onSkillChange={(skillName) =>
@@ -141,7 +141,7 @@ export const SkillsSection = () => {
             <SkillSlot
               key={slotKey}
               slotLabel={`Passive ${index + 1}`}
-              skill={saveData.skillPage[slotKey]}
+              skill={loadout.skillPage[slotKey]}
               availableSkills={PassiveSkills}
               excludedSkillNames={getSelectedPassiveSkillNames}
               onSkillChange={(skillName) =>

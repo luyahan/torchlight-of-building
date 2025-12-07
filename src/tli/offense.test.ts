@@ -36,6 +36,7 @@ const initLoadout = (pl: Partial<Loadout> = {}): Loadout => {
       selectedHero: undefined,
       traits: {},
       memorySlots: {},
+      memoryInventory: [],
     },
     pactspiritPage: pl.pactspiritPage || {
       slot1: emptyPactspiritSlot(),

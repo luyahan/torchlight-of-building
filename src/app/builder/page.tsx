@@ -10,14 +10,14 @@ import { PactspiritSection } from "../components/builder/PactspiritSection";
 import { SkillsSection } from "../components/builder/SkillsSection";
 import { TalentsSection } from "../components/builder/TalentsSection";
 import type { ActivePage } from "../lib/types";
-import { useBuilderStore } from "../stores/builderStore";
+import { useBuilderActions } from "../stores/builderStore";
 
 const BuilderPageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const saveId = searchParams.get("id");
 
-  const loadFromSave = useBuilderStore((state) => state.loadFromSave);
+  const { loadFromSave } = useBuilderActions();
   const [mounted, setMounted] = useState(false);
   const [activePage, setActivePage] = useState<ActivePage>("equipment");
 

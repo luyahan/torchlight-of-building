@@ -102,6 +102,7 @@ export interface TalentTree {
   name: string;
   nodes: TalentNode[]; // All nodes including unallocated (0 points) and reflected
   selectedCoreTalents?: Affix[];
+  selectedCoreTalentNames?: string[]; // Original names for UI display
 }
 
 export interface CraftedPrism {
@@ -291,6 +292,7 @@ export interface HeroPage {
   selectedHero?: string;
   traits: HeroTraits;
   memorySlots: HeroMemorySlots;
+  memoryInventory: HeroMemory[];
 }
 
 export const getHeroAffixes = (heroPage: HeroPage): Affix[] => {

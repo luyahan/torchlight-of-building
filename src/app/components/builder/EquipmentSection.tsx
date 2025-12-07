@@ -15,8 +15,7 @@ import { getCompatibleItems } from "../../lib/equipment-utils";
 import type { Gear as SaveDataGear } from "../../lib/save-data";
 import { generateItemId } from "../../lib/storage";
 import type { GearSlot } from "../../lib/types";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout } from "../../stores/builderStoreSelectors";
+import { useBuilderActions, useLoadout } from "../../stores/builderStore";
 import { useEquipmentUIStore } from "../../stores/equipmentUIStore";
 import { AffixSlotComponent } from "../equipment/AffixSlotComponent";
 import { EquipmentSlotDropdown } from "../equipment/EquipmentSlotDropdown";
@@ -26,13 +25,13 @@ import { LegendaryGearModule } from "../equipment/LegendaryGearModule";
 export const EquipmentSection = () => {
   // Parsed loadout (for reads)
   const loadout = useLoadout();
-  const addItemToInventory = useBuilderStore(
-    (state) => state.addItemToInventory,
-  );
-  const copyItem = useBuilderStore((state) => state.copyItem);
-  const deleteItem = useBuilderStore((state) => state.deleteItem);
-  const selectItemForSlot = useBuilderStore((state) => state.selectItemForSlot);
-  const isItemEquipped = useBuilderStore((state) => state.isItemEquipped);
+  const {
+    addItemToInventory,
+    copyItem,
+    deleteItem,
+    selectItemForSlot,
+    isItemEquipped,
+  } = useBuilderActions();
 
   // Equipment UI store - crafting state
   const selectedEquipmentType = useEquipmentUIStore(

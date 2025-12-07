@@ -8,8 +8,14 @@ import {
   saveDebugModeToStorage,
 } from "../../lib/storage";
 import type { ActivePage } from "../../lib/types";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout } from "../../stores/builderStoreSelectors";
+import {
+  useBuilderActions,
+  useCurrentSaveId,
+  useCurrentSaveName,
+  useHasUnsavedChanges,
+  useLoadout,
+  useSaveDataRaw,
+} from "../../stores/builderStore";
 import { DebugPanel } from "../DebugPanel";
 import { ExportModal } from "../modals/ExportModal";
 import { ImportModal } from "../modals/ImportModal";
@@ -29,12 +35,11 @@ export const BuilderLayout = ({
 }: BuilderLayoutProps) => {
   const router = useRouter();
 
-  const currentSaveName = useBuilderStore((state) => state.currentSaveName);
-  const currentSaveId = useBuilderStore((state) => state.currentSaveId);
-  const hasUnsavedChanges = useBuilderStore((state) => state.hasUnsavedChanges);
-  const saveData = useBuilderStore((state) => state.saveData);
-  const save = useBuilderStore((state) => state.save);
-  const setSaveData = useBuilderStore((state) => state.setSaveData);
+  const currentSaveName = useCurrentSaveName();
+  const currentSaveId = useCurrentSaveId();
+  const hasUnsavedChanges = useHasUnsavedChanges();
+  const saveDataForExport = useSaveDataRaw("export");
+  const { save, setSaveData } = useBuilderActions();
 
   const loadout = useLoadout();
 
@@ -88,10 +93,10 @@ export const BuilderLayout = ({
   }, []);
 
   const handleExport = useCallback(() => {
-    const code = encodeBuildCode(saveData);
+    const code = encodeBuildCode(saveDataForExport);
     setBuildCode(code);
     setExportModalOpen(true);
-  }, [saveData]);
+  }, [saveDataForExport]);
 
   const handleImport = useCallback(
     (code: string): boolean => {
@@ -220,7 +225,7 @@ export const BuilderLayout = ({
 
         {debugMode && (
           <DebugPanel
-            saveData={saveData}
+            saveData={saveDataForExport}
             loadout={loadout}
             debugPanelExpanded={debugPanelExpanded}
             setDebugPanelExpanded={setDebugPanelExpanded}

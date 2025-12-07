@@ -1,0 +1,57 @@
+"use client";
+
+import { useMemo, useRef } from "react";
+import type { Loadout, TalentTree } from "@/src/tli/core";
+import { loadSave } from "@/src/tli/storage/load-save";
+import type { TreeSlot } from "../../lib/types";
+import { internalStore } from "./internal";
+import type { BuilderReadableState } from "./types";
+
+export const useLoadout = (): Loadout => {
+  const saveData = internalStore((state) => state.saveData);
+
+  const saveDataJsonRef = useRef<string>("");
+  const loadoutRef = useRef<Loadout | undefined>(undefined);
+
+  return useMemo(() => {
+    const saveDataJson = JSON.stringify(saveData);
+
+    if (saveDataJson !== saveDataJsonRef.current || !loadoutRef.current) {
+      saveDataJsonRef.current = saveDataJson;
+      loadoutRef.current = loadSave(saveData);
+    }
+
+    return loadoutRef.current;
+  }, [saveData]);
+};
+
+export const useTalentTree = (slot: TreeSlot): TalentTree | undefined => {
+  const loadout = useLoadout();
+  return loadout.talentPage.talentTrees[slot];
+};
+
+// Hook for readable state (NO saveData)
+export const useBuilderState = <T>(
+  selector: (state: BuilderReadableState) => T,
+): T => {
+  return internalStore((state) =>
+    selector({
+      hasUnsavedChanges: state.hasUnsavedChanges,
+      currentSaveId: state.currentSaveId,
+      currentSaveName: state.currentSaveName,
+      savesIndex: state.savesIndex,
+    }),
+  );
+};
+
+// Convenience hooks for common state
+export const useHasUnsavedChanges = (): boolean =>
+  internalStore((state) => state.hasUnsavedChanges);
+
+export const useCurrentSaveId = (): string | undefined =>
+  internalStore((state) => state.currentSaveId);
+
+export const useCurrentSaveName = (): string | undefined =>
+  internalStore((state) => state.currentSaveName);
+
+export const useSavesIndex = () => internalStore((state) => state.savesIndex);

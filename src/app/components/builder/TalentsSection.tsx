@@ -13,8 +13,11 @@ import {
 import { getPrismReplacedCoreTalent } from "../../lib/prism-utils";
 import { generateItemId } from "../../lib/storage";
 import type { TreeSlot } from "../../lib/types";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout, useTalentTree } from "../../stores/builderStoreSelectors";
+import {
+  useBuilderActions,
+  useLoadout,
+  useTalentTree,
+} from "../../stores/builderStore";
 import { useTalentsUIStore } from "../../stores/talentsUIStore";
 import { CoreTalentSelector } from "../talents/CoreTalentSelector";
 import { InverseImageSection } from "../talents/InverseImageSection";
@@ -23,29 +26,19 @@ import { PrismSection } from "../talents/PrismSection";
 import { TalentGrid } from "../talents/TalentGrid";
 
 export const TalentsSection = () => {
-  // Builder store - saveData
-  const saveData = useBuilderStore((state) => state.saveData);
-  const updateSaveData = useBuilderStore((state) => state.updateSaveData);
-  const addPrismToInventory = useBuilderStore(
-    (state) => state.addPrismToInventory,
-  );
-  const deletePrism = useBuilderStore((state) => state.deletePrism);
-  const addInverseImageToInventory = useBuilderStore(
-    (state) => state.addInverseImageToInventory,
-  );
-  const deleteInverseImage = useBuilderStore(
-    (state) => state.deleteInverseImage,
-  );
-  const placeInverseImage = useBuilderStore((state) => state.placeInverseImage);
-  const removePlacedInverseImage = useBuilderStore(
-    (state) => state.removePlacedInverseImage,
-  );
-  const allocateReflectedNode = useBuilderStore(
-    (state) => state.allocateReflectedNode,
-  );
-  const deallocateReflectedNode = useBuilderStore(
-    (state) => state.deallocateReflectedNode,
-  );
+  // Builder store - actions and loadout
+  const loadout = useLoadout();
+  const {
+    updateSaveData,
+    addPrismToInventory,
+    deletePrism,
+    addInverseImageToInventory,
+    deleteInverseImage,
+    placeInverseImage,
+    removePlacedInverseImage,
+    allocateReflectedNode,
+    deallocateReflectedNode,
+  } = useBuilderActions();
 
   // Talents UI store
   const activeTreeSlot = useTalentsUIStore((state) => state.activeTreeSlot);
@@ -63,22 +56,19 @@ export const TalentsSection = () => {
     (state) => state.setSelectedInverseImageId,
   );
 
-  // Get the current talent tree from core.ts (derived from SaveData)
+  // Get the current talent tree from loadout
   const currentTalentTree = useTalentTree(activeTreeSlot);
 
-  // Get the derived loadout for core.ts types
-  const derivedLoadout = useLoadout();
-  const derivedPlacedPrism = derivedLoadout.talentPage.talentTrees.placedPrism;
-  const derivedPlacedInverseImage =
-    derivedLoadout.talentPage.talentTrees.placedInverseImage;
-  const derivedPrismList = derivedLoadout.talentPage.inventory.prismList;
-  const derivedInverseImageList =
-    derivedLoadout.talentPage.inventory.inverseImageList;
+  // Derived values from loadout
+  const placedPrism = loadout.talentPage.talentTrees.placedPrism;
+  const placedInverseImage = loadout.talentPage.talentTrees.placedInverseImage;
+  const prismList = loadout.talentPage.inventory.prismList;
+  const inverseImageList = loadout.talentPage.inventory.inverseImageList;
 
   const handleTreeChange = useCallback(
     (slot: TreeSlot, newTreeName: string) => {
-      const currentTree = saveData.talentPage[slot];
-      if (currentTree && currentTree.allocatedNodes.length > 0) return;
+      const tree = loadout.talentPage.talentTrees[slot];
+      if (tree && tree.nodes.some((n) => n.points > 0)) return;
 
       if (newTreeName === "") {
         updateSaveData((prev) => {
@@ -100,13 +90,13 @@ export const TalentsSection = () => {
         },
       }));
     },
-    [saveData.talentPage, updateSaveData],
+    [loadout.talentPage.talentTrees, updateSaveData],
   );
 
   const handleResetTree = useCallback(
     (slot: TreeSlot) => {
-      const currentTree = saveData.talentPage[slot];
-      if (!currentTree || currentTree.allocatedNodes.length === 0) return;
+      const tree = loadout.talentPage.talentTrees[slot];
+      if (!tree || !tree.nodes.some((n) => n.points > 0)) return;
       if (confirm("Reset all points in this tree? This cannot be undone.")) {
         updateSaveData((prev) => ({
           ...prev,
@@ -117,7 +107,7 @@ export const TalentsSection = () => {
         }));
       }
     },
-    [saveData.talentPage, updateSaveData],
+    [loadout.talentPage.talentTrees, updateSaveData],
   );
 
   const handleAllocate = useCallback(
@@ -277,19 +267,17 @@ export const TalentsSection = () => {
       // Only allow prisms on profession trees (slots 2-4), not god/goddess tree (slot 1)
       if (treeSlot === "tree1") return;
 
-      const prism = derivedPrismList.find((p) => p.id === selectedPrismId);
+      const prism = prismList.find((p) => p.id === selectedPrismId);
       if (!prism) return;
 
       // Only allow one prism at a time
-      if (saveData.talentPage.placedPrism) return;
+      if (placedPrism) return;
 
       // Verify node has 0 points allocated
-      const tree = saveData.talentPage[treeSlot];
+      const tree = loadout.talentPage.talentTrees[treeSlot];
       if (!tree) return;
-      const existingAllocation = tree.allocatedNodes.find(
-        (n) => n.x === x && n.y === y,
-      );
-      if (existingAllocation && existingAllocation.points > 0) return;
+      const node = tree.nodes.find((n) => n.x === x && n.y === y);
+      if (node && node.points > 0) return;
 
       // Check if this prism replaces core talents
       const replacesCoreTalent = getPrismReplacedCoreTalent(prism);
@@ -327,18 +315,18 @@ export const TalentsSection = () => {
     },
     [
       selectedPrismId,
-      derivedPrismList,
-      saveData.talentPage,
+      prismList,
+      placedPrism,
+      loadout.talentPage.talentTrees,
       updateSaveData,
       setSelectedPrismId,
     ],
   );
 
   const handleRemovePrism = useCallback(() => {
-    const placedPrism = saveData.talentPage.placedPrism;
-    if (!placedPrism || !currentTalentTree || !derivedPlacedPrism) return;
+    if (!placedPrism || !currentTalentTree) return;
 
-    if (!canRemovePrism(derivedPlacedPrism, currentTalentTree.nodes)) {
+    if (!canRemovePrism(placedPrism, currentTalentTree.nodes)) {
       return;
     }
 
@@ -352,12 +340,7 @@ export const TalentsSection = () => {
         placedPrism: undefined,
       },
     }));
-  }, [
-    saveData.talentPage,
-    currentTalentTree,
-    derivedPlacedPrism,
-    updateSaveData,
-  ]);
+  }, [placedPrism, currentTalentTree, updateSaveData]);
 
   const handleSaveInverseImage = useCallback(
     (inverseImage: CraftedInverseImage) => {
@@ -403,7 +386,7 @@ export const TalentsSection = () => {
       // Only allow inverse images on profession trees (slots 2-4)
       if (treeSlot === "tree1") return;
 
-      const inverseImage = derivedInverseImageList.find(
+      const inverseImage = inverseImageList.find(
         (ii) => ii.id === selectedInverseImageId,
       );
       if (!inverseImage) return;
@@ -412,8 +395,8 @@ export const TalentsSection = () => {
         x,
         treeSlot as "tree2" | "tree3" | "tree4",
         currentTalentTree.nodes,
-        derivedPlacedPrism,
-        derivedPlacedInverseImage,
+        placedPrism,
+        placedInverseImage,
       );
 
       if (!result.canPlace) {
@@ -430,27 +413,26 @@ export const TalentsSection = () => {
     [
       selectedInverseImageId,
       currentTalentTree,
-      derivedInverseImageList,
-      derivedPlacedPrism,
-      derivedPlacedInverseImage,
+      inverseImageList,
+      placedPrism,
+      placedInverseImage,
       placeInverseImage,
       setSelectedInverseImageId,
     ],
   );
 
   const handleRemoveInverseImage = useCallback(() => {
-    if (!currentTalentTree || !derivedPlacedInverseImage) return;
+    if (!currentTalentTree || !placedInverseImage) return;
 
     if (!canRemoveInverseImage(currentTalentTree.nodes)) {
       return;
     }
 
     removePlacedInverseImage();
-  }, [currentTalentTree, derivedPlacedInverseImage, removePlacedInverseImage]);
+  }, [currentTalentTree, placedInverseImage, removePlacedInverseImage]);
 
-  const currentTree = saveData.talentPage[activeTreeSlot];
-  const currentTreeTotalPoints = currentTree
-    ? currentTree.allocatedNodes.reduce((sum, node) => sum + node.points, 0)
+  const currentTreeTotalPoints = currentTalentTree
+    ? currentTalentTree.nodes.reduce((sum, node) => sum + node.points, 0)
     : 0;
 
   return (
@@ -462,12 +444,9 @@ export const TalentsSection = () => {
           </h2>
           <div className="grid grid-cols-4 gap-2">
             {(["tree1", "tree2", "tree3", "tree4"] as const).map((slot) => {
-              const tree = saveData.talentPage[slot];
+              const tree = loadout.talentPage.talentTrees[slot];
               const totalPoints = tree
-                ? tree.allocatedNodes.reduce(
-                    (sum, node) => sum + node.points,
-                    0,
-                  )
+                ? tree.nodes.reduce((sum, node) => sum + node.points, 0)
                 : 0;
 
               return (
@@ -509,11 +488,10 @@ export const TalentsSection = () => {
           <div className="flex gap-2">
             <select
               id="tree-select"
-              value={saveData.talentPage[activeTreeSlot]?.name ?? ""}
+              value={currentTalentTree?.name ?? ""}
               onChange={(e) => handleTreeChange(activeTreeSlot, e.target.value)}
               disabled={
-                (saveData.talentPage[activeTreeSlot]?.allocatedNodes.length ??
-                  0) > 0
+                currentTalentTree?.nodes.some((n) => n.points > 0) ?? false
               }
               className="flex-1 rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-zinc-50 disabled:cursor-not-allowed disabled:opacity-50"
             >
@@ -540,10 +518,7 @@ export const TalentsSection = () => {
             <button
               type="button"
               onClick={() => handleResetTree(activeTreeSlot)}
-              disabled={
-                (saveData.talentPage[activeTreeSlot]?.allocatedNodes.length ??
-                  0) === 0
-              }
+              disabled={currentTreeTotalPoints === 0}
               className="rounded-lg bg-red-500 px-4 py-2 font-medium text-white transition-colors hover:bg-red-600 disabled:cursor-not-allowed disabled:bg-zinc-700 disabled:text-zinc-500"
             >
               Reset
@@ -551,34 +526,31 @@ export const TalentsSection = () => {
           </div>
         </div>
 
-        {currentTree && (
+        {currentTalentTree && (
           <CoreTalentSelector
-            treeName={currentTree.name}
+            treeName={currentTalentTree.name}
             treeSlot={activeTreeSlot}
-            pointsSpent={currentTree.allocatedNodes.reduce(
-              (sum, node) => sum + node.points,
-              0,
-            )}
-            selectedCoreTalents={currentTree.selectedCoreTalents ?? []}
+            pointsSpent={currentTreeTotalPoints}
+            selectedCoreTalents={
+              currentTalentTree.selectedCoreTalentNames ?? []
+            }
             onSelectCoreTalent={(slotIndex, name) =>
               handleSelectCoreTalent(activeTreeSlot, slotIndex, name)
             }
             replacedByPrism={
-              saveData.talentPage.placedPrism?.treeSlot === activeTreeSlot
-                ? getPrismReplacedCoreTalent(
-                    saveData.talentPage.placedPrism.prism,
-                  )
+              placedPrism?.treeSlot === activeTreeSlot
+                ? getPrismReplacedCoreTalent(placedPrism.prism)
                 : undefined
             }
           />
         )}
 
         <PrismCoreTalentEffect
-          placedPrism={saveData.talentPage.placedPrism}
+          placedPrism={placedPrism}
           activeTreeSlot={activeTreeSlot}
         />
 
-        {!currentTree ? (
+        {!currentTalentTree ? (
           <div className="py-12 text-center text-zinc-500">
             Select a tree to view
           </div>
@@ -604,20 +576,20 @@ export const TalentsSection = () => {
               onAllocate={(x, y) => handleAllocate(activeTreeSlot, x, y)}
               onDeallocate={(x, y) => handleDeallocate(activeTreeSlot, x, y)}
               treeSlot={activeTreeSlot}
-              placedPrism={derivedPlacedPrism}
+              placedPrism={placedPrism}
               selectedPrism={
                 // Prisms can only be placed on profession trees (slots 2-4)
                 activeTreeSlot !== "tree1"
-                  ? derivedPrismList.find((p) => p.id === selectedPrismId)
+                  ? prismList.find((p) => p.id === selectedPrismId)
                   : undefined
               }
               onPlacePrism={(x, y) => handlePlacePrism(activeTreeSlot, x, y)}
               onRemovePrism={handleRemovePrism}
-              placedInverseImage={derivedPlacedInverseImage}
+              placedInverseImage={placedInverseImage}
               selectedInverseImage={
                 // Inverse images can only be placed on profession trees (slots 2-4)
                 activeTreeSlot !== "tree1"
-                  ? derivedInverseImageList.find(
+                  ? inverseImageList.find(
                       (ii) => ii.id === selectedInverseImageId,
                     )
                   : undefined
@@ -636,27 +608,27 @@ export const TalentsSection = () => {
       </div>
 
       <PrismSection
-        prisms={derivedPrismList}
+        prisms={prismList}
         onSave={handleSavePrism}
         onUpdate={handleUpdatePrism}
         onCopy={handleCopyPrism}
         onDelete={handleDeletePrism}
         selectedPrismId={selectedPrismId}
         onSelectPrism={setSelectedPrismId}
-        hasPrismPlaced={!!saveData.talentPage.placedPrism}
+        hasPrismPlaced={!!placedPrism}
         isOnGodGoddessTree={activeTreeSlot === "tree1"}
       />
 
       <InverseImageSection
-        inverseImages={derivedInverseImageList}
+        inverseImages={inverseImageList}
         onSave={handleSaveInverseImage}
         onUpdate={handleUpdateInverseImage}
         onCopy={handleCopyInverseImage}
         onDelete={handleDeleteInverseImage}
         selectedInverseImageId={selectedInverseImageId}
         onSelectInverseImage={setSelectedInverseImageId}
-        hasInverseImagePlaced={!!saveData.talentPage.placedInverseImage}
-        hasPrismPlaced={!!saveData.talentPage.placedPrism}
+        hasInverseImagePlaced={!!placedInverseImage}
+        hasPrismPlaced={!!placedPrism}
         isOnGodGoddessTree={activeTreeSlot === "tree1"}
         treeHasPoints={currentTreeTotalPoints > 0}
       />

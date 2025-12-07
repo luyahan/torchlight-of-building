@@ -8,13 +8,12 @@ import type {
   PactspiritSlotIndex,
   RingSlotKey,
 } from "../../lib/types";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout } from "../../stores/builderStoreSelectors";
+import { useBuilderActions, useLoadout } from "../../stores/builderStore";
 import { PactspiritTab } from "../pactspirit/PactspiritTab";
 
 export const PactspiritSection = () => {
   const loadout = useLoadout();
-  const updateSaveData = useBuilderStore((state) => state.updateSaveData);
+  const { updateSaveData } = useBuilderActions();
 
   const handlePactspiritSelect = useCallback(
     (slotIndex: PactspiritSlotIndex, pactspiritName: string | undefined) => {

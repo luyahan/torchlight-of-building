@@ -8,8 +8,7 @@ import {
 } from "@/src/tli/core";
 import type { DivinitySlate as SaveDataDivinitySlate } from "../../lib/save-data";
 import { generateItemId } from "../../lib/storage";
-import { useBuilderStore } from "../../stores/builderStore";
-import { useLoadout } from "../../stores/builderStoreSelectors";
+import { useBuilderActions, useLoadout } from "../../stores/builderStore";
 import { DivinityTab } from "../divinity/DivinityTab";
 
 const toSaveDataSlate = (slate: DivinitySlate): SaveDataDivinitySlate => ({
@@ -19,7 +18,7 @@ const toSaveDataSlate = (slate: DivinitySlate): SaveDataDivinitySlate => ({
 
 export const DivinitySection = () => {
   const loadout = useLoadout();
-  const updateSaveData = useBuilderStore((state) => state.updateSaveData);
+  const { updateSaveData } = useBuilderActions();
 
   const handleSaveSlate = useCallback(
     (slate: DivinitySlate) => {

@@ -273,6 +273,7 @@ const convertTalentTree = (
     selectedCoreTalents: tree.selectedCoreTalents
       ? tree.selectedCoreTalents.map((text) => convertAffix(text, src))
       : undefined,
+    selectedCoreTalentNames: tree.selectedCoreTalents,
   };
 };
 
@@ -381,7 +382,10 @@ const convertHeroMemory = (
   };
 };
 
-const convertHeroPage = (saveDataHeroPage: SaveDataHeroPage): HeroPage => {
+const convertHeroPage = (
+  saveDataHeroPage: SaveDataHeroPage,
+  heroMemoryList: SaveDataHeroMemory[],
+): HeroPage => {
   const traits: HeroTraits = {};
 
   if (saveDataHeroPage.traits.level1) {
@@ -434,6 +438,9 @@ const convertHeroPage = (saveDataHeroPage: SaveDataHeroPage): HeroPage => {
     selectedHero: saveDataHeroPage.selectedHero,
     traits,
     memorySlots,
+    memoryInventory: heroMemoryList.map((memory, idx) =>
+      convertHeroMemory(memory, `inventory-${idx}`),
+    ),
   };
 };
 
@@ -528,7 +535,7 @@ export const loadSave = (unloadedSaveData: SaveData): Loadout => {
       saveData.divinitySlateList,
     ),
     skillPage: saveData.skillPage,
-    heroPage: convertHeroPage(saveData.heroPage),
+    heroPage: convertHeroPage(saveData.heroPage, saveData.heroMemoryList),
     pactspiritPage: convertPactspiritPage(saveData.pactspiritPage),
     customConfiguration: [],
   };
