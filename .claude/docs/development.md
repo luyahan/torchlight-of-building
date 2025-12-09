@@ -44,6 +44,7 @@ src/data/                # Scraped JSON data
 - **Use undefined:** Prefer `undefined` over `null`
 - **No localStorage migrations:** Invalidate old saves when schema changes
 - **Path alias:** `@/src/...` maps to project root
+- Functions must have return types
 
 ## Data Flow
 
