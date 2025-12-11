@@ -125,6 +125,7 @@ export const MemoryCrafter = ({ onMemorySave }: MemoryCrafterProps) => {
     const fixedAffixesData: HeroMemoryAffix[] = fixedAffixSlots
       .filter((slot) => slot.effectIndex !== undefined)
       .map((slot) => ({
+        // biome-ignore lint/style/noNonNullAssertion: filtered for defined effectIndex above
         effect: fixedAffixes[slot.effectIndex!],
         quality: slot.quality,
       }));
@@ -132,6 +133,7 @@ export const MemoryCrafter = ({ onMemorySave }: MemoryCrafterProps) => {
     const randomAffixesData: HeroMemoryAffix[] = randomAffixSlots
       .filter((slot) => slot.effectIndex !== undefined)
       .map((slot) => ({
+        // biome-ignore lint/style/noNonNullAssertion: filtered for defined effectIndex above
         effect: randomAffixes[slot.effectIndex!],
         quality: slot.quality,
       }));

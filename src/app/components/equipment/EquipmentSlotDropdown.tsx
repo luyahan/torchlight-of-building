@@ -117,6 +117,7 @@ export const EquipmentSlotDropdown: React.FC<EquipmentSlotDropdownProps> = ({
         value={selectedItemId ?? undefined}
         onChange={(value) => onSelectItem(slot, value ?? null)}
         options={compatibleItems.map((item) => ({
+          // biome-ignore lint/style/noNonNullAssertion: inventory items always have id
           value: item.id!,
           label: item.legendaryName ?? item.equipmentType,
           sublabel: `${getAllAffixes(item).length} affixes`,

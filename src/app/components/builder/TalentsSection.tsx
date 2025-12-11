@@ -102,6 +102,7 @@ export const TalentsSection = () => {
           ...prev,
           talentPage: {
             ...prev.talentPage,
+            // biome-ignore lint/style/noNonNullAssertion: slot existence checked above
             [slot]: { ...prev.talentPage[slot]!, allocatedNodes: [] },
           },
         }));

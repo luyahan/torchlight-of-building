@@ -46,6 +46,7 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
       <div className="flex gap-2">
         <button
           type="button"
+          // biome-ignore lint/style/noNonNullAssertion: inventory items always have id
           onClick={() => onCopy(item.id!)}
           className="px-2 py-1 bg-amber-500 hover:bg-amber-600 text-zinc-950 rounded text-xs"
           title="Copy item"
@@ -54,6 +55,7 @@ export const InventoryItem: React.FC<InventoryItemProps> = ({
         </button>
         <button
           type="button"
+          // biome-ignore lint/style/noNonNullAssertion: inventory items always have id
           onClick={() => onDelete(item.id!)}
           className="px-2 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs"
           title="Delete item"

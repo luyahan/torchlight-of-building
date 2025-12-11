@@ -490,6 +490,7 @@ export const EquipmentSection = () => {
                 <InventoryItem
                   key={item.id}
                   item={item}
+                  // biome-ignore lint/style/noNonNullAssertion: inventory items always have id
                   isEquipped={isItemEquipped(item.id!)}
                   onCopy={copyItem}
                   onDelete={handleDeleteItem}

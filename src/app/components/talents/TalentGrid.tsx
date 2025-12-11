@@ -116,6 +116,7 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
           {nodes
             .filter((node) => node.prerequisite && !node.isReflected)
             .map((node) => {
+              // biome-ignore lint/style/noNonNullAssertion: filtered for prerequisite above
               const prereq = node.prerequisite!;
 
               // Don't draw lines from prism nodes (prerequisite is bypassed)
@@ -336,6 +337,7 @@ export const TalentGrid: React.FC<TalentGridProps> = ({
 
               if (node.isReflected) {
                 // Reflected node - use reflected allocation functions
+                // biome-ignore lint/style/noNonNullAssertion: isReflected implies sourcePosition exists
                 const sourcePos = node.sourcePosition!;
                 canAllocate = canAllocateReflectedNode(node, nodes);
                 canDeallocate = canDeallocateReflectedNode(node, nodes);
