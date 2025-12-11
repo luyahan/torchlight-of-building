@@ -253,11 +253,7 @@ export const CoreTalents: readonly CoreTalent[] = [
     affix:
       "If you have Agility Blessing stacks when casting the Main Skill, consumes 1 stack(s) of Agility Blessing to make this skill deal +30% additional Lightning Damage",
   },
-  {
-    name: "Beacon",
-    tree: "Goddess of Knowledge",
-    affix: "+2 Max Spell Burst",
-  },
+  { name: "Beacon", tree: "Goddess of Knowledge", affix: "+2 Max Spell Burst" },
   {
     name: "Chilly",
     tree: "Goddess of Knowledge",
@@ -459,11 +455,7 @@ export const CoreTalents: readonly CoreTalent[] = [
     tree: "Ronin",
     affix: "Have Fervor\n+12% Fervor effect",
   },
-  {
-    name: "Fluke",
-    tree: "Ranger",
-    affix: "Lucky Critical Strike",
-  },
+  { name: "Fluke", tree: "Ranger", affix: "Lucky Critical Strike" },
   {
     name: "Keep It Up",
     tree: "Ranger",
@@ -488,11 +480,7 @@ export const CoreTalents: readonly CoreTalent[] = [
     affix:
       "Gains a stack of Fortitude when using a Melee Skill\n+4% additional damage per 1 stack(s) of Fortitude",
   },
-  {
-    name: "Defensiveness",
-    tree: "Sentinel",
-    affix: "+25% Block Ratio",
-  },
+  { name: "Defensiveness", tree: "Sentinel", affix: "+25% Block Ratio" },
   {
     name: "Full Defense",
     tree: "Sentinel",

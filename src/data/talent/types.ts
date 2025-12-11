@@ -46,7 +46,7 @@ export const Trees = [
 export type Tree = (typeof Trees)[number];
 
 export const isTree = (name: string): name is Tree => {
-  return name in Trees;
+  return (Trees as readonly string[]).includes(name);
 };
 
 export const Types = ["Core", "Legendary Medium", "Medium", "Micro"] as const;
