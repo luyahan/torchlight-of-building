@@ -1,8 +1,8 @@
-import { ActivationMediumSkills } from "./activation_medium";
+import type { ActivationMediumSkills } from "./activation_medium";
 import type { ActiveSkills } from "./active";
-import { SupportSkills } from "./support";
-import { MagnificentSupportSkills } from "./support_magnificent";
-import { NobleSupportSkills } from "./support_noble";
+import type { SupportSkills } from "./support";
+import type { MagnificentSupportSkills } from "./support_magnificent";
+import type { NobleSupportSkills } from "./support_noble";
 
 export const SKILL_TYPES = [
   "Activation Medium",
