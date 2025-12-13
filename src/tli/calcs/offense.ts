@@ -679,6 +679,17 @@ const multModValue = <T extends Extract<Mod.Mod, { value: number | DmgRange }>>(
   return { ...mod, value: newValue, per: undefined };
 };
 
+// todo: very basic stat calculation, will definitely need to handle things like pct, per, and conditionals
+const calculateStats = (
+  mods: Mod.Mod[],
+): { str: number; dex: number; int: number } => {
+  return {
+    str: R.sumBy(filterAffix(mods, "Str"), (m) => m.value),
+    dex: R.sumBy(filterAffix(mods, "Dex"), (m) => m.value),
+    int: R.sumBy(filterAffix(mods, "Int"), (m) => m.value),
+  };
+};
+
 // retrieves all mods, and filters or normalizes them in the following ways:
 // * value multiplied by the per? property based on the referenced StackableBuff
 // * filtered based on various criteria
@@ -686,12 +697,24 @@ const getNormalizedMods = (
   input: OffenseInput,
   skillConf: SkillConfiguration,
 ): Mod.Mod[] => {
-  const allOriginalMods = [
+  const allOriginalMods: Mod.Mod[] = [
     ...collectMods(input.loadout),
     ...skillConf.extraMods,
+    {
+      type: "DmgPct",
+      // .5% additional damage per main stat
+      // todo: verify in-game that this number is correct
+      value: 0.005,
+      modType: "global",
+      addn: true,
+      per: "stat",
+      src: "Additional Damage from skill Main Stat (.5% per stat)",
+    },
   ];
+  const stats = calculateStats(allOriginalMods);
   const willpowerStacks =
     findAffix(allOriginalMods, "MaxWillpowerStacks")?.value || 0;
+
   const normalizedMods = [];
   for (const mod of allOriginalMods) {
     if (!("per" in mod) || mod.per === undefined) {
@@ -699,11 +722,20 @@ const getNormalizedMods = (
       continue;
     }
 
-    const normalizedMod = match(mod.per)
+    const normalizedMod = match<Mod.Stackable, Mod.Mod>(mod.per)
       .with("willpower", () => multModValue(mod, willpowerStacks))
+      .with("stat", () => {
+        const mainStatTypes = skillConf.stats;
+        let totalMainStats = 0;
+        for (const mainStatType of mainStatTypes) {
+          totalMainStats += stats[mainStatType];
+        }
+        return multModValue(mod, totalMainStats);
+      })
       .exhaustive();
     normalizedMods.push(normalizedMod);
   }
+
   return normalizedMods;
 };
 

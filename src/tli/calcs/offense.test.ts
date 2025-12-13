@@ -1301,6 +1301,89 @@ describe("mod normalization with per-stack mods", () => {
   });
 });
 
+// Additional damage per stat tests
+// The calculator automatically adds +0.5% additional damage per main stat
+describe("automatic additional damage from main stats", () => {
+  test("adds additional damage based on skill main stats", () => {
+    // [Test] Simple Attack has main stats: dex, str
+    // With 100 dex + 100 str = 200 total main stats
+    // Additional damage: 200 * 0.5% = 100% additional (addn/more multiplier)
+    // Base: 100, with 100% more = 100 * 2 = 200
+    const input = createInput({
+      mods: [
+        affix([{ type: "Dex", value: 100 }]),
+        affix([{ type: "Str", value: 100 }]),
+      ],
+    });
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 200 });
+  });
+
+  test("works with only one main stat type", () => {
+    // [Test] Simple Attack has main stats: dex, str
+    // With 100 dex only = 100 total main stats
+    // Additional damage: 100 * 0.5% = 50% additional
+    // Base: 100, with 50% more = 100 * 1.5 = 150
+    const input = createInput({
+      mods: [affix([{ type: "Dex", value: 100 }])],
+    });
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 150 });
+  });
+
+  test("zero stats has no effect", () => {
+    // No stat mods = 0 total main stats
+    // Additional damage: 0 * 0.5% = 0% additional
+    // Base: 100, with 0% more = 100 * 1 = 100
+    const input = createInput({});
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 100 });
+  });
+
+  test("ignores non-main stats", () => {
+    // [Test] Simple Attack has main stats: dex, str (NOT int)
+    // With 100 int only = 0 main stats counted
+    // Additional damage: 0 * 0.5% = 0%
+    // Base: 100, with 0% more = 100
+    const input = createInput({
+      mods: [affix([{ type: "Int", value: 100 }])],
+    });
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 100 });
+  });
+
+  test("uses correct main stats for different skills", () => {
+    // Frost Spike has main stats: dex, int (NOT str)
+    // With 100 dex + 100 int = 200 total main stats
+    // Additional damage: 200 * 0.5% = 100% additional
+    // Frost Spike: 100 weapon * 2.01 = 201 phys → converted to cold
+    // With 100% more: 201 * 2 = 402
+    const input = createInput({
+      skill: "Frost Spike",
+      mods: [
+        affix([{ type: "Dex", value: 100 }]),
+        affix([{ type: "Int", value: 100 }]),
+      ],
+    });
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 402 });
+  });
+
+  test("combines with other damage modifiers", () => {
+    // [Test] Simple Attack with 100 dex = 50% additional damage
+    // Plus 50% increased damage
+    // Base: 100, with 50% inc = 150, with 50% more = 150 * 1.5 = 225
+    const input = createInput({
+      mods: [
+        affix([{ type: "Dex", value: 100 }]),
+        affix([{ type: "DmgPct", value: 0.5, modType: "global", addn: false }]),
+      ],
+    });
+    const actual = calculateOffense(input);
+    validate(actual, { avgHit: 225 });
+  });
+});
+
 describe("calculateOffense with damage conversion", () => {
   test("100% phys to cold conversion - cold gets both phys% and cold% bonuses", () => {
     // 100 phys → 100 cold via conversion
