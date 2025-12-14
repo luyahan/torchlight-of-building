@@ -699,7 +699,7 @@ const calculateStats = (
 // retrieves all mods, and filters or normalizes them in the following ways:
 // * value multiplied by the per? property based on the referenced StackableBuff
 // * filtered based on various criteria
-const getNormalizedMods = (
+const resolveMods = (
   input: OffenseInput,
   skillConf: SkillConfiguration,
 ): Mod.Mod[] => {
@@ -754,7 +754,7 @@ export const calculateOffense = (
   if (skillConf === undefined) {
     return undefined;
   }
-  const mods = getNormalizedMods(input, skillConf);
+  const mods = resolveMods(input, skillConf);
   const gearDmg = calculateGearDmg(loadout, mods);
   const flatDmg = calculateFlatDmg(mods, "attack");
 
