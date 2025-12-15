@@ -1,15 +1,16 @@
-import type { BaseSkill } from "./types";
+import type { BasePassiveSkill } from "./types";
 
 export const PassiveSkills = [
   {
     type: "Passive",
     name: "Acuteness Focus",
-    tags: ["Area", "Focus", "Physical", "Attack", "Strength"],
+    tags: ["Area", "Focus", "Physical", "Attack"],
     description: [
       "Activates Focus and gains a buff:\n13.5% additional Physical Damage\n+25% chance to inflict Trauma\nAdds 5 Base Trauma Damage\nThis skill gains 25 Focus Pts on Melee hits. Interval: 1/5s. Upon reaching 100 Focus Pts, the next Melee hit consumes all Focus Pts and casts Acute Strike on the enemy, dealing 479% Weapon Attack Damage to all enemies within a certain area",
       "Activates Focus and gains a buff:\n13.5% additional Physical Damage\n+25% chance to inflict Trauma\nAdds 5 Base Trauma Damage\nThis skill gains 25 Focus Pts on Melee hits. Interval: 0.2 s\nAfter this skill reaches 100 Focus Pts, the next Melee hit consumes 100 Focus Pts and triggers this skill on up to 4 enemies within 5m of the target hit. Generates Spikes within a rectangular area, dealing Physical Attack Damage",
       "Acute Strike:\nDeals 479% Weapon Attack Damage.",
     ],
+    mainStats: ["str"],
   },
   {
     type: "Passive",
@@ -23,15 +24,7 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Corrosion Focus",
-    tags: [
-      "Area",
-      "Focus",
-      "Erosion",
-      "Persistent",
-      "Spell",
-      "Projectile",
-      "Intelligence",
-    ],
+    tags: ["Area", "Focus", "Erosion", "Persistent", "Spell", "Projectile"],
     description: [
       "Activates Focus and gains a buff:\n13.5% additional Erosion Damage\n+25% Wilt chance\nAdds 2 Base Wilt Damage\nEvery 1/10s, this skill gains 13/2 Focus Pts. Upon reaching 100 Focus Pts, casting other skills will launch a Corrosion Orb that tracks enemies. When the Corrosion Orb is active, casting other skills will consume 50 Focus Pts and make the orb explode once, dealing 648 - 648 Spell Erosion Damage to enemies. Interval: 3/20s.",
       "The orb is destroyed when Focus Pts drop to 0, its duration expires (2s), or it is 30m away from the character. Orb Quantity is not affected by Projectile Quantity.",
@@ -39,6 +32,7 @@ export const PassiveSkills = [
       "Corrosion Focus:\nEvery 0.1 s, the skill gains 6.5 Focus Pts\nAfter this skill reaches 100 Focus Pts, if the Corrosion Orb no longer exists, using an Active Skill will trigger this skill on an enemy\nWhen Corrosion Orb is active, casting other skills will consume 50 Focus Pts and make it deal Area Damage once. Interval: 0.15 s",
       "Corrosion Orb:\nDeals 648-648 Spell Erosion Damage\nProjectile Duration: 2s",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
@@ -115,12 +109,13 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Flame Focus",
-    tags: ["Area", "Focus", "Fire", "Spell", "Strength", "Intelligence"],
+    tags: ["Area", "Focus", "Fire", "Spell"],
     description: [
       "Activates Focus and gains a buff:\n+7% additional Fire Damage\n+25% chance to Ignite targets\nAdds 2 Base Ignite Damage\nThis skill gains 12 Focus Pts when inflicting Ignite. Upon defeating an enemy, there is a 100% chance to consume 40 Focus Pts and trigger this skill on the enemy, dealing Secondary Fire Damage equal to 4% of their Max Life to enemies within 3m (not affected by bonuses).\nAdditionally increases this skill's area for each time Ignite has been inflicted recently.",
       "Activates Focus and gains a buff:\n+7% additional Fire Damage\n+25% chance to Ignite targets\nAdds 2 Base Ignite Damage",
       "Flame Focus:\nThis skill gains 12 Focus Pts when inflicting Ignite. This skill can be triggered up to 3 time(s) every 0.5 s\nUpon defeating an enemy, there is a 100% chance to consume 40 Focus Pts of the skill and trigger this skill at the location of the defeated enemy, dealing Secondary Fire Damage equal to 4% of the defeated enemy's Max Life (not affected by bonuses)\n+10% additional Skill Area for every time Ignite was inflicted recently. Stacks up to 6 time(s)",
     ],
+    mainStats: ["str", "int"],
   },
   {
     type: "Passive",
@@ -134,12 +129,13 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Ice Focus",
-    tags: ["Area", "Spell", "Focus", "Cold", "Intelligence"],
+    tags: ["Area", "Spell", "Focus", "Cold"],
     description: [
       "Activates Focus and gains a buff:\n13.5% additional Cold Damage\n+45% chance to inflict Frostbite\nGains 30 Focus Pts when dealing damage to Frostbitten enemies. Interval: 0.4 s.\nUpon reaching 100 Focus Pts, creates an Ice Storm that follows the character, inflicting Frostbite on enemies caught within it. When there are enemies inside the storm, consumes 45 Focus Pts and generates Glacial Spikes that deal Spell Cold Damage to the enemies every 0.5 s.\nFor every 1% Focus Speed, +1% Focus Pts gained, up to +200%. The Ice Storm ends when Focus Pts drop to 0.",
       "Activates Focus and gains a buff:\n13.5% additional Cold Damage\n+45% chance to inflict Frostbite\nGains 30 Focus Pts when dealing damage to Frostbitten enemies. Interval: 0.4 s.\nUpon reaching 100 Focus Pts, creates an Ice Storm that follows the character, inflicting Frostbite on enemies caught within it. When there are enemies inside the storm, consumes 45 Focus Pts and generates Glacial Spikes that deal Spell Cold Damage to the enemies every 0.5 s.\nFor every 1% Focus Speed, +1% Focus Pts gained, up to +200%. The Ice Storm ends when Focus Pts drop to 0.",
       "Glacial Spike:\nDeals 467-701 Spell Cold Damage.",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
@@ -162,12 +158,13 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Precise: Acuteness Focus",
-    tags: ["Area", "Focus", "Physical", "Attack", "Strength"],
+    tags: ["Area", "Focus", "Physical", "Attack"],
     description: [
       "Activates Focus and gains a buff:\n15.6% additional Physical Damage\n+35% chance to inflict Trauma\nAdds 5 Base Trauma Damage\nThis skill gains 25 Focus Pts on Melee hits. Interval: 1/5s. Upon reaching 100 Focus Pts, the next Melee hit consumes all Focus Pts and casts Acute Strike on the enemy, dealing 479% Weapon Attack Damage to all enemies within a certain area",
       "Activates Focus and gains a buff:\n15.6% additional Physical Damage\n+35% chance to inflict Trauma\nAdds 5 Base Trauma Damage\nThis skill gains 25 Focus Pts on Melee hits. Interval: 0.2 s\nAfter this skill reaches 100 Focus Pts, the next Melee hit consumes 100 Focus Pts and triggers this skill on up to 4 enemies within 5m of the target hit. Generates Spikes within a rectangular area, dealing Physical Attack Damage\n+4% additional damage for this skill",
       "Acute Strike:\nDeals 479% Weapon Attack Damage.",
     ],
+    mainStats: ["str"],
   },
   {
     type: "Passive",
@@ -181,15 +178,7 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Precise: Corrosion Focus",
-    tags: [
-      "Area",
-      "Focus",
-      "Erosion",
-      "Persistent",
-      "Spell",
-      "Projectile",
-      "Intelligence",
-    ],
+    tags: ["Area", "Focus", "Erosion", "Persistent", "Spell", "Projectile"],
     description: [
       "Activates Focus and gains a buff:\n15.6% additional Erosion Damage\n+35% Wilt chance\nAdds 2 Base Wilt Damage\nEvery 1/10s, this skill gains 13/2 Focus Pts. Upon reaching 100 Focus Pts, casting other skills will launch a Corrosion Orb that tracks enemies. When the Corrosion Orb is active, casting other skills will consume 50 Focus Pts and make the orb explode once, dealing 648 - 648 Spell Erosion Damage to enemies. Interval: 3/20s.",
       "The orb is destroyed when Focus Pts drop to 0, its duration expires (2s), or it is 30m away from the character. Orb Quantity is not affected by Projectile Quantity.",
@@ -197,6 +186,7 @@ export const PassiveSkills = [
       "Corrosion Focus:\nEvery 0.1 s, the skill gains 6.5 Focus Pts\nAfter this skill reaches 100 Focus Pts, if the Corrosion Orb no longer exists, using an Active Skill will trigger this skill on an enemy\nWhen Corrosion Orb is active, casting other skills will consume 50 Focus Pts and make it deal Area Damage once. Interval: 0.15 s\n+4% additional damage for this skill",
       "Corrosion Orb:\nDeals 648-648 Spell Erosion Damage\nProjectile Duration: 2s",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
@@ -273,12 +263,13 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Precise: Flame Focus",
-    tags: ["Area", "Focus", "Fire", "Spell", "Strength", "Intelligence"],
+    tags: ["Area", "Focus", "Fire", "Spell"],
     description: [
       "Activates Focus and gains a buff:\n+9% additional Fire Damage\n+35% chance to Ignite targets\nAdds 2 Base Ignite Damage\nThis skill gains 12 Focus Pts when inflicting Ignite. Upon defeating an enemy, there is a 100% chance to consume 40 Focus Pts and trigger this skill on the enemy, dealing Secondary Fire Damage equal to 4% of their Max Life to enemies within 3m (not affected by bonuses).\nAdditionally increases this skill's area for each time Ignite has been inflicted recently.",
       "Activates Focus and gains a buff:\n+9% additional Fire Damage\n+35% chance to Ignite targets\nAdds 2 Base Ignite Damage",
       "Flame Focus:\nThis skill gains 12 Focus Pts when inflicting Ignite. This skill can be triggered up to 3 time(s) every 0.5 s\nUpon defeating an enemy, there is a 100% chance to consume 40 Focus Pts of the skill and trigger this skill at the location of the defeated enemy, dealing Secondary Fire Damage equal to 4% of the defeated enemy's Max Life (not affected by bonuses)\n+10% additional Skill Area for every time Ignite was inflicted recently. Stacks up to 6 time(s)\n+4% additional damage for this skill",
     ],
+    mainStats: ["str", "int"],
   },
   {
     type: "Passive",
@@ -292,12 +283,13 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Precise: Ice Focus",
-    tags: ["Area", "Spell", "Focus", "Cold", "Intelligence"],
+    tags: ["Area", "Spell", "Focus", "Cold"],
     description: [
       "Activates Focus and gains a buff:\n15.6% additional Cold Damage\n+55% chance to inflict Frostbite\nGains 30 Focus Pts when dealing damage to Frostbitten enemies. Interval: 0.4 s.\nUpon reaching 100 Focus Pts, creates an Ice Storm that follows the character, inflicting Frostbite on enemies caught within it. When there are enemies inside the storm, consumes 45 Focus Pts and generates Glacial Spikes that deal Spell Cold Damage to the enemies every 0.5 s.\nFor every 1% Focus Speed, +1% Focus Pts gained, up to +200%. The Ice Storm ends when Focus Pts drop to 0.\n+4% additional damage for this skill",
       "Activates Focus and gains a buff:\n15.6% additional Cold Damage\n+55% chance to inflict Frostbite\nGains 30 Focus Pts when dealing damage to Frostbitten enemies. Interval: 0.4 s.\nUpon reaching 100 Focus Pts, creates an Ice Storm that follows the character, inflicting Frostbite on enemies caught within it. When there are enemies inside the storm, consumes 45 Focus Pts and generates Glacial Spikes that deal Spell Cold Damage to the enemies every 0.5 s.\nFor every 1% Focus Speed, +1% Focus Pts gained, up to +200%. The Ice Storm ends when Focus Pts drop to 0.\n+4% additional damage for this skill",
       "Glacial Spike:\nDeals 467-701 Spell Cold Damage.",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
@@ -374,13 +366,14 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Precise: Thunder Focus",
-    tags: ["Area", "Focus", "Lightning", "Attack", "Dexterity"],
+    tags: ["Area", "Focus", "Lightning", "Attack"],
     description: [
       "Activates Focus and gains a buff:\n15.6% additional Lightning Damage\n+35% Numbed chance\nFor every 2m moved, this skill gains 5 Focus Pts. Upon reaching 100 Focus Pts, using a non-Mobility Attack Skill will consume all Focus Pts and trigger this skill, summoning a Thunderstrike that deals 1109% Weapon Attack Damage to all enemies within a certain area.\nWhen triggered by a Melee Skill, the Thunderstrike attacks a fan-shaped area. When triggered by a Ranged Skill, the Thunderstrike attacks a square-shaped area.",
       "Activates Focus and gains a buff:\n15.6% additional Lightning Damage\n+35% Numbed chance",
       "Thunder Focus:\nConverts 100% of the skill's Physical Damage to Lightning Damage\nFor every 2 m moved, the skill gains 5 Focus Pts\nAfter this skill reaches 100 Focus Pts, using a non-Mobility Attack Skill will consume 100 Focus Pts and trigger this skill in front of you\n+4% additional damage for this skill\n-60% additional Ailment Damage for the skill",
       "Thunderstrike:\nDeals 1109% Weapon Attack Damage.",
     ],
+    mainStats: ["dex"],
   },
   {
     type: "Passive",
@@ -439,78 +432,62 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Summon Erosion Magus",
-    tags: ["Spell", "Summon", "Erosion", "Spirit Magus", "Intelligence"],
+    tags: ["Spell", "Summon", "Erosion", "Spirit Magus"],
     description: [
       "Activates the skill and summons 1 Erosion Magus.\nActivating the skill grants the character Origin of Spirit Magus: -6.3% additional Damage Over Time taken (Up to additional -50%).",
       "Summon Erosion Magus:\nSummons 1 Erosion Magus\nThis skill summons up to 1 Minions\nSpirit Magi become undefeatable\nWhen Spirit Magi become undefeatable, they gain Reconjuring\nConverts 100% of Physical Damage to Erosion Damage for Spirit Magi",
       "Origin of Spirit Magus:\n-9.15% additional Damage Over Time taken, up to -50% additional damage",
       "Erosion Magus:\nBase Skill: Scattered Mud\nEmpower Skill: Withering Payback\nEnhanced Skill: Bleak Grass\nUltimate: World of Thorns",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
     name: "Summon Fire Magus",
-    tags: [
-      "Spell",
-      "Summon",
-      "Fire",
-      "Spirit Magus",
-      "Strength",
-      "Intelligence",
-    ],
+    tags: ["Spell", "Summon", "Fire", "Spirit Magus"],
     description: [
       "Activates the skill and summons 1 Fire Magus.\nActivating the skill grants the character Origin of Spirit Magus: 58 Critical Strike Rating.",
       "Summon Fire Magus:\nSummons 1 Fire Magus\nThis skill summons up to 1 Minions\nSpirit Magi become undefeatable\nWhen Spirit Magi become undefeatable, they gain Reconjuring",
       "Origin of Spirit Magus:\nGains Origin of Fire, giving the summoner +115 Attack and Spell Critical Strike Rating",
       "Fire Magus:\nBase Skill: Blazing Dance.\nEmpower Skill: Blazing Spin.\nEnhanced Skill: Blazing Incineration.\nUltimate: Rising Molten.",
     ],
+    mainStats: ["str", "int"],
   },
   {
     type: "Passive",
     name: "Summon Frost Magus",
-    tags: ["Spell", "Summon", "Cold", "Spirit Magus", "Intelligence"],
+    tags: ["Spell", "Summon", "Cold", "Spirit Magus"],
     description: [
       "Activates the skill and summons 1 Frost Magus.\nActivating the skill grants the character Origin of Spirit Magus: Restores 2.4% Max Life and Max Energy Shield every second.",
       "Summon Frost Magus:\nSummons 1 Frost Magus\nThis skill summons up to 1 Minions\nSpirit Magi become undefeatable\nWhen Spirit Magi become undefeatable, they gain Reconjuring",
       "Origin of Spirit Magus:\nGains Origin of Ice, restoring 3.825% of Max Life and Max Energy Shield per second to the summoner",
       "Frost Magus:\nBase Skill: Glacier Ripples.\nEmpower Skill: Frost Release.\nEnhanced Skill: Permafrost Cast.\nUltimate: Ice Earthshaker.",
     ],
+    mainStats: ["int"],
   },
   {
     type: "Passive",
     name: "Summon Rock Magus",
-    tags: [
-      "Spell",
-      "Summon",
-      "Physical",
-      "Spirit Magus",
-      "Strength",
-      "Intelligence",
-    ],
+    tags: ["Spell", "Summon", "Physical", "Spirit Magus"],
     description: [
       "Activates the skill and summons 1 Rock Magus.\nActivating the skill grants the character Origin of Spirit Magus: -5.2% additional Hit Damage taken (Up to additional -50%).",
       "Summon Rock Magus:\nSummons 1 Rock Magus\nThis skill summons up to 1 Minions\nSpirit Magi become undefeatable\nWhen Spirit Magi become undefeatable, they gain Reconjuring",
       "Origin of Spirit Magus:\n-8.05% additional Hit Damage taken, up to -50% additional damage",
       "Rock Magus:\nBase Skill: Shattered Stone\nEmpower Skill: Gold Rush\nEnhanced Skill: Rock Blast\nUltimate: Towering Mountains",
     ],
+    mainStats: ["str", "int"],
   },
   {
     type: "Passive",
     name: "Summon Thunder Magus",
-    tags: [
-      "Spell",
-      "Summon",
-      "Lightning",
-      "Spirit Magus",
-      "Dexterity",
-      "Intelligence",
-    ],
+    tags: ["Spell", "Summon", "Lightning", "Spirit Magus"],
     description: [
       "Activates the skill and summons 1 Thunder Magus.\nActivating the skill grants the character Origin of Spirit Magus: 6% additional Attack and Cast Speed and 2.5% additional damage.",
       "Summon Thunder Magus:\nSummons 1 Thunder Magus.\nThis skill summons up to 1 Minions\nSpirit Magi become undefeatable\nWhen Spirit Magi become undefeatable, they gain Reconjuring\nConverts 100% of Spirit Magi's Physical Damage to Lightning Damage.",
       "Origin of Spirit Magus:\nGains Origin of Thunder: +6% additional Attack and Cast Speed and 7.25% additional damage to the summoner",
       "Thunder Magus:\nBase Skill: Lightning Star.\nEmpower Skill: Thundercloud Surge.\nEnhanced Skill: Thunderlight Arrow.\nUltimate: Lightning Surge.",
     ],
+    mainStats: ["dex", "int"],
   },
   {
     type: "Passive",
@@ -524,13 +501,14 @@ export const PassiveSkills = [
   {
     type: "Passive",
     name: "Thunder Focus",
-    tags: ["Area", "Focus", "Lightning", "Attack", "Dexterity"],
+    tags: ["Area", "Focus", "Lightning", "Attack"],
     description: [
       "Activates Focus and gains a buff:\n13.5% additional Lightning Damage\n+25% Numbed chance\nFor every 2m moved, this skill gains 5 Focus Pts. Upon reaching 100 Focus Pts, using a non-Mobility Attack Skill will consume all Focus Pts and trigger this skill, summoning a Thunderstrike that deals 1109% Weapon Attack Damage to all enemies within a certain area.\nWhen triggered by a Melee Skill, the Thunderstrike attacks a fan-shaped area. When triggered by a Ranged Skill, the Thunderstrike attacks a square-shaped area.",
       "Activates Focus and gains a buff:\n13.5% additional Lightning Damage\n+25% Numbed chance",
       "Thunder Focus:\nConverts 100% of the skill's Physical Damage to Lightning Damage\nFor every 2 m moved, the skill gains 5 Focus Pts\nAfter this skill reaches 100 Focus Pts, using a non-Mobility Attack Skill will consume 100 Focus Pts and trigger this skill in front of you\n-60% additional Ailment Damage for the skill",
       "Thunderstrike:\nDeals 1109% Weapon Attack Damage.",
     ],
+    mainStats: ["dex"],
   },
   {
     type: "Passive",
@@ -541,4 +519,4 @@ export const PassiveSkills = [
       "Activates the Aura, you and allies within a certain area gain the following buff:\n+34% additional Physical Damage",
     ],
   },
-] as const satisfies readonly (BaseSkill & Record<string, unknown>)[];
+] as const satisfies readonly (BasePassiveSkill & Record<string, unknown>)[];

@@ -88,6 +88,10 @@ export interface BaseSkill {
   description: string[];
 }
 
+export interface BasePassiveSkill extends BaseSkill {
+  mainStats?: ("str" | "dex" | "int")[];
+}
+
 // Support targets which cannot be identified using easily
 // machine-parseable information such as skill type or tags.
 export type InferredSkillKind =
@@ -149,6 +153,7 @@ export type SkillOffenseTemplate = SkillOffense extends infer M
   : never;
 
 export interface BaseActiveSkill extends BaseSkill {
+  mainStats?: ("str" | "dex" | "int")[];
   kinds: InferredSkillKind[];
   levelOffense?: {
     template: SkillOffenseTemplate;

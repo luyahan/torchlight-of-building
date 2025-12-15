@@ -6,6 +6,7 @@ import {
   type BaseActiveSkill,
   type BaseMagnificentSupportSkill,
   type BaseNobleSupportSkill,
+  type BasePassiveSkill,
   type BaseSkill,
   type BaseSupportSkill,
   SKILL_TAGS,
@@ -25,6 +26,7 @@ interface RawSkill {
   name: string;
   tags: string[];
   description: string[];
+  mainStats?: ("str" | "dex" | "int")[];
   parsedLevelModValues?: Record<number, number>[];
 }
 
@@ -464,7 +466,13 @@ const extractSkillFromTlidbHtml = (
     }
   });
 
-  // Extract Main Stat and add to tags
+  // Extract Main Stat as separate field (not added to tags)
+  const mainStatMap: Record<string, "str" | "dex" | "int"> = {
+    Strength: "str",
+    Dexterity: "dex",
+    Intelligence: "int",
+  };
+  let mainStats: ("str" | "dex" | "int")[] | undefined;
   currentCard.find("div.d-flex").each((_, elem) => {
     const label = $(elem).find("div").first().text().trim();
     if (label === "Main Stat:" || label === "Main Stat") {
@@ -473,8 +481,12 @@ const extractSkillFromTlidbHtml = (
       const stats = value
         .split(",")
         .map((s) => s.trim())
-        .filter(Boolean);
-      tags.push(...stats);
+        .filter(Boolean)
+        .map((s) => mainStatMap[s])
+        .filter((s): s is "str" | "dex" | "int" => s !== undefined);
+      if (stats.length > 0) {
+        mainStats = stats;
+      }
     }
   });
 
@@ -534,6 +546,7 @@ const extractSkillFromTlidbHtml = (
     name,
     tags,
     description,
+    mainStats,
     parsedLevelModValues,
   };
 };
@@ -575,6 +588,16 @@ const generateBaseSkillFile = (
   return `import type { BaseSkill } from "./types";
 
 export const ${constName} = ${toTypeScript(skills)} as const satisfies readonly (BaseSkill & Record<string, unknown>)[];
+`;
+};
+
+const generatePassiveSkillFile = (
+  constName: string,
+  skills: BasePassiveSkill[],
+): string => {
+  return `import type { BasePassiveSkill } from "./types";
+
+export const ${constName} = ${toTypeScript(skills)} as const satisfies readonly (BasePassiveSkill & Record<string, unknown>)[];
 `;
 };
 
@@ -631,6 +654,7 @@ const main = async (): Promise<void> => {
 
   // Group by skill type - separate maps for different skill interfaces
   const activeSkillGroups = new Map<SkillTypeKey, BaseActiveSkill[]>();
+  const passiveSkillGroups = new Map<SkillTypeKey, BasePassiveSkill[]>();
   const baseSkillGroups = new Map<SkillTypeKey, BaseSkill[]>();
   const supportSkillGroups = new Map<SkillTypeKey, BaseSupportSkill[]>();
   const magnificentSupportSkillGroups = new Map<
@@ -795,6 +819,7 @@ const main = async (): Promise<void> => {
 
       const skillEntry: BaseActiveSkill = {
         ...baseSkill,
+        ...(raw.mainStats !== undefined && { mainStats: raw.mainStats }),
         kinds,
         ...(levelOffense !== undefined && { levelOffense }),
         ...(levelMods !== undefined && { levelMods }),
@@ -804,8 +829,22 @@ const main = async (): Promise<void> => {
         activeSkillGroups.set(skillType, []);
       }
       activeSkillGroups.get(skillType)?.push(skillEntry);
+    } else if (skillType === "Passive") {
+      // Passive skills with optional mainStats
+      const skillEntry: BasePassiveSkill = {
+        type: raw.type as BasePassiveSkill["type"],
+        name: raw.name,
+        tags: raw.tags as unknown as BasePassiveSkill["tags"],
+        description: raw.description,
+        ...(raw.mainStats !== undefined && { mainStats: raw.mainStats }),
+      };
+
+      if (!passiveSkillGroups.has(skillType)) {
+        passiveSkillGroups.set(skillType, []);
+      }
+      passiveSkillGroups.get(skillType)?.push(skillEntry);
     } else {
-      // Other base skills (Passive only now - Activation Medium is handled by "generic" supportType)
+      // Other base skills (fallback)
       const skillEntry: BaseSkill = {
         type: raw.type as BaseSkill["type"],
         name: raw.name,
@@ -822,6 +861,7 @@ const main = async (): Promise<void> => {
 
   const totalGroups =
     activeSkillGroups.size +
+    passiveSkillGroups.size +
     baseSkillGroups.size +
     supportSkillGroups.size +
     magnificentSupportSkillGroups.size +
@@ -857,6 +897,17 @@ const main = async (): Promise<void> => {
 
     await writeFile(filePath, content, "utf-8");
     console.log(`Generated ${fileName} (${skills.length} active skills)`);
+  }
+
+  // Generate passive skill files
+  for (const [skillType, skills] of passiveSkillGroups) {
+    const config = SKILL_TYPE_CONFIG[skillType];
+    const fileName = `${config.fileKey}.ts`;
+    const filePath = join(outDir, fileName);
+    const content = generatePassiveSkillFile(config.constName, skills);
+
+    await writeFile(filePath, content, "utf-8");
+    console.log(`Generated ${fileName} (${skills.length} passive skills)`);
   }
 
   // Generate base skill type files
