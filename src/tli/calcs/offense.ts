@@ -21,7 +21,7 @@ import {
   type SkillSlot,
   type SupportSkillSlot,
 } from "../core";
-import type { DmgChunkType, Mod, Stackable } from "../mod";
+import type { DmgChunkType, Mod } from "../mod";
 import type { OffenseSkillName } from "./skill_confs";
 
 const addDR = (dr1: DmgRange, dr2: DmgRange): DmgRange => {
@@ -714,6 +714,34 @@ const multModValue = <T extends Extract<Mod, { value: number | DmgRange }>>(
   return { ...mod, value: newValue, per: undefined };
 };
 
+interface NormalizationContext {
+  willpower: number;
+  frostbiteRating: number;
+  projectile: number;
+  skillUse: number;
+  skillChargesOnUse: number;
+  mainStat: number;
+}
+
+const normalizeMod = <T extends Mod>(
+  mod: T,
+  context: NormalizationContext,
+): T => {
+  if (!("per" in mod) || mod.per === undefined) {
+    return mod;
+  }
+  const div = mod.per.amt || 1;
+  const stacks = match(mod.per.stackable)
+    .with("willpower", () => context.willpower)
+    .with("frostbite_rating", () => context.frostbiteRating)
+    .with("projectile", () => context.projectile)
+    .with("skill_use", () => context.skillUse)
+    .with("skill_charges_on_use", () => context.skillChargesOnUse)
+    .with("main_stat", () => context.mainStat)
+    .exhaustive();
+  return multModValue(mod, stacks / div) as T;
+};
+
 // todo: very basic stat calculation, will definitely need to handle things like pct, per, and conditionals
 const calculateStats = (
   mods: Mod[],
@@ -750,27 +778,22 @@ const findActiveSkill = (name: ActiveSkillName): BaseActiveSkill => {
 };
 
 // Normalizes a SkillEffPct mod by multiplying its value by the appropriate stack count
-// based on the `per` property. This is similar to the normalization in resolveMods.
+// based on the `per` property.
 const normalizeSkillEffMod = (
   mod: Extract<Mod, { type: "SkillEffPct" }>,
 ): Extract<Mod, { type: "SkillEffPct" }> => {
-  if (mod.per === undefined) {
-    return mod;
-  }
-
-  // TODO: these should come from actual skill slot configuration or user input
+  // TODO: skillUse and skillChargesOnUse should come from actual skill slot configuration or user input
   // skill_use represents number of times the buff skill has been cast (Well-Fought Battle max = 3)
   // skill_charges_on_use represents charges consumed when using the skill (Mass Effect)
-  const skillUse = 3;
-  const skillChargesOnUse = 2;
-
-  const div = mod.per.amt || 1;
-  const stacks = match(mod.per.stackable)
-    .with("skill_use", () => skillUse)
-    .with("skill_charges_on_use", () => skillChargesOnUse)
-    .otherwise(() => 0);
-
-  return { ...mod, value: mod.value * (stacks / div), per: undefined };
+  const context: NormalizationContext = {
+    willpower: 0,
+    frostbiteRating: 0,
+    projectile: 0,
+    skillUse: 3,
+    skillChargesOnUse: 2,
+    mainStat: 0,
+  };
+  return normalizeMod(mod, context);
 };
 
 // resolves mods coming from skills that provide buffs (levelBuffMods)
@@ -917,7 +940,7 @@ const normalizeModsForSkill = (
   sharedMods: Mod[],
   perSkillMods: Mod[],
   skill: BaseActiveSkill,
-  context: SharedModContext,
+  sharedContext: SharedModContext,
 ): Mod[] => {
   // Create stat-based damage mod
   const statBasedDmgMod: Mod = {
@@ -935,47 +958,29 @@ const normalizeModsForSkill = (
   // Calculate willpower stacks from ALL mods (including per-skill mods like Willpower support)
   const willpowerStacks =
     findAffix(allMods, "MaxWillpowerStacks")?.value ||
-    context.willpowerStacks ||
+    sharedContext.willpowerStacks ||
     0;
 
-  // TODO: figure these out
-  const frostbiteRating = 0;
-  const projectile = 0;
-  const skillUse = 0;
-  const skillChargesOnUse = 0;
-
-  const normalizedMods: Mod[] = [];
-  for (const mod of allMods) {
-    if ("per" in mod && mod.per !== undefined) {
-      const div = mod.per.amt || 1;
-      const normalizedMod = match<Stackable, Mod>(mod.per.stackable)
-        .with("willpower", () => multModValue(mod, willpowerStacks / div))
-        .with("frostbite_rating", () =>
-          multModValue(mod, frostbiteRating / div),
-        )
-        .with("projectile", () => multModValue(mod, projectile / div))
-        .with("skill_use", () => multModValue(mod, skillUse / div))
-        .with("skill_charges_on_use", () =>
-          multModValue(mod, skillChargesOnUse / div),
-        )
-        .with("main_stat", () => {
-          if (skill.mainStats === undefined) {
-            throw new Error(`Skill "${skill.name}" has no mainStats defined`);
-          }
-          let totalMainStats = 0;
-          for (const mainStatType of skill.mainStats) {
-            totalMainStats += context.stats[mainStatType];
-          }
-          return multModValue(mod, totalMainStats / div);
-        })
-        .exhaustive();
-      normalizedMods.push(normalizedMod);
-    } else {
-      normalizedMods.push(mod);
-    }
+  // Calculate main stat for the skill
+  if (skill.mainStats === undefined) {
+    throw new Error(`Skill "${skill.name}" has no mainStats defined`);
+  }
+  let mainStat = 0;
+  for (const mainStatType of skill.mainStats) {
+    mainStat += sharedContext.stats[mainStatType];
   }
 
-  return normalizedMods;
+  // TODO: figure these out
+  const normContext: NormalizationContext = {
+    willpower: willpowerStacks,
+    frostbiteRating: 0,
+    projectile: 0,
+    skillUse: 0,
+    skillChargesOnUse: 0,
+    mainStat,
+  };
+
+  return allMods.map((mod) => normalizeMod(mod, normContext));
 };
 
 // Calculates offense for all enabled implemented skills
