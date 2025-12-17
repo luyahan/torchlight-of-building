@@ -2325,4 +2325,42 @@ describe("resolveBuffSkillMods", () => {
     expect(buffModL1?.value).toBeCloseTo(0.33 * 1.21);
     expect(buffModL20?.value).toBeCloseTo(0.33 * 1.4);
   });
+
+  test("passive skill Precise: Cruelty provides additional attack damage", () => {
+    // Precise: Cruelty at level 20 provides: 22% additional attack damage
+    const loadout = initLoadout({
+      gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
+      skillPage: {
+        activeSkills: {
+          1: {
+            skillName: "[Test] Simple Attack",
+            enabled: true,
+            level: 20,
+            supportSkills: {},
+          },
+        },
+        passiveSkills: {
+          1: {
+            skillName: "Precise: Cruelty",
+            enabled: true,
+            level: 20,
+            supportSkills: {},
+          },
+        },
+      },
+    });
+
+    const results = calculateOffense({
+      loadout,
+      configuration: defaultConfiguration,
+    });
+    const actual = results["[Test] Simple Attack"];
+
+    expect(actual).toBeDefined();
+    const preciseCrueltyBuffMod = actual?.resolvedMods.find(
+      (m) => m.type === "DmgPct" && m.modType === "attack" && m.addn === true,
+    ) as DmgPctMod | undefined;
+    expect(preciseCrueltyBuffMod).toBeDefined();
+    expect(preciseCrueltyBuffMod?.value).toBeCloseTo(0.22);
+  });
 });

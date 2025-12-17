@@ -4,8 +4,11 @@ import {
   type ActiveSkillName,
   ActiveSkills,
   type BaseActiveSkill,
+  type BasePassiveSkill,
   type BaseSupportSkill,
   type ImplementedActiveSkillName,
+  type PassiveSkillName,
+  PassiveSkills,
   type SkillOffenseType,
   type SkillTag,
   SupportSkills,
@@ -788,6 +791,22 @@ const findActiveSkill = (name: ActiveSkillName): BaseActiveSkill => {
   return ActiveSkills.find((s) => s.name === name) as BaseActiveSkill;
 };
 
+const listPassiveSkillSlots = (loadout: Loadout): SkillSlot[] => {
+  const slots = Object.values(loadout.skillPage.passiveSkills) as (
+    | SkillSlot
+    | undefined
+  )[];
+  return slots.filter((s) => s !== undefined);
+};
+
+const findSkill = (
+  name: ActiveSkillName | PassiveSkillName,
+): BaseActiveSkill | BasePassiveSkill => {
+  const active = ActiveSkills.find((s) => s.name === name);
+  if (active) return active;
+  return PassiveSkills.find((s) => s.name === name) as BasePassiveSkill;
+};
+
 // Normalizes a SkillEffPct mod by multiplying its value by the appropriate stack count
 // based on the `per` property.
 const normalizeSkillEffMod = (
@@ -815,8 +834,10 @@ const resolveBuffSkillMods = (
   config: Configuration,
 ): Mod[] => {
   const activeSkillSlots = listActiveSkillSlots(loadout);
+  const passiveSkillSlots = listPassiveSkillSlots(loadout);
+  const allSkillSlots = [...activeSkillSlots, ...passiveSkillSlots];
   const resolvedMods = [];
-  for (const skillSlot of activeSkillSlots) {
+  for (const skillSlot of allSkillSlots) {
     if (!skillSlot.enabled) {
       continue;
     }
@@ -836,8 +857,9 @@ const resolveBuffSkillMods = (
     const skillEffMult = (1 + incSkillEff) * addnSkillEff;
 
     const level = skillSlot.level || 20;
-    // todo: refactor skillname to be an ActiveSkillName?
-    const skill = findActiveSkill(skillSlot.skillName as ActiveSkillName);
+    const skill = findSkill(
+      skillSlot.skillName as ActiveSkillName | PassiveSkillName,
+    );
 
     // todo: do we need a more granular way of applying skill effect than just multiplying
     //  it against the template value?
