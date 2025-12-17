@@ -1015,7 +1015,7 @@ const resolveSelectedSkillSupportMods = (slot: SkillSlot): Mod[] => {
 
 // Context for mods that are shared across all skill calculations
 interface SharedModContext {
-  gearMods: Mod[];
+  loadoutMods: Mod[];
   buffSkillMods: Mod[];
   stats: { str: number; dex: number; int: number };
   willpowerStacks: number;
@@ -1026,12 +1026,12 @@ const resolveSharedMods = (
   loadout: Loadout,
   config: Configuration,
 ): SharedModContext => {
-  const gearMods = collectMods(loadout);
+  const loadoutMods = collectMods(loadout);
   const buffSkillMods = resolveBuffSkillMods(loadout, config);
-  const allMods = [...gearMods, ...buffSkillMods];
+  const allMods = [...loadoutMods, ...buffSkillMods];
   const stats = calculateStats(allMods);
   const willpowerStacks = findAffix(allMods, "MaxWillpowerStacks")?.value || 0;
-  return { gearMods, buffSkillMods, stats, willpowerStacks };
+  return { loadoutMods, buffSkillMods, stats, willpowerStacks };
 };
 
 // Context for mods specific to a single skill
@@ -1126,7 +1126,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
   // Phase 1: Resolve shared mods once
   const sharedContext = resolveSharedMods(loadout, configuration);
   const sharedMods = [
-    ...sharedContext.gearMods,
+    ...sharedContext.loadoutMods,
     ...sharedContext.buffSkillMods,
   ];
 
