@@ -65,6 +65,6 @@ See [.claude/docs/](.claude/docs/) for implementation details only when needed.
 
 - prefer using undefined instead of null for typescript code
 - only make code comments that explain particularly complex pieces of code or why code is written a certain way
-- run `pnpm test` and `pnpm check` after making changes
+- run `pnpm test`, `pnpm typecheck`, and `pnpm check` after making changes
 - read [.claude/docs/development.md](.claude/docs/development.md) when planning or making code changes
 - read [.claude/docs/ui-development.md](.claude/docs/ui-development.md) when planning or making code changes related to the UI

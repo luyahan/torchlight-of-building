@@ -500,7 +500,7 @@ const calculateAspd = (loadout: Loadout, allMods: Mod[]): number => {
 const dmgModTypePerSkillTag: Partial<Record<SkillTag, DmgModType>> = {
   Attack: "attack",
   Spell: "spell",
-  Melee: "attack",
+  Melee: "melee",
   Area: "area",
 };
 
@@ -769,6 +769,30 @@ const findActiveSkill = (name: ActiveSkillName): BaseActiveSkill => {
   return ActiveSkills.find((s) => s.name === name) as BaseActiveSkill;
 };
 
+// Normalizes a SkillEffPct mod by multiplying its value by the appropriate stack count
+// based on the `per` property. This is similar to the normalization in resolveMods.
+const normalizeSkillEffMod = (
+  mod: Extract<Mod, { type: "SkillEffPct" }>,
+): Extract<Mod, { type: "SkillEffPct" }> => {
+  if (mod.per === undefined) {
+    return mod;
+  }
+
+  // TODO: these should come from actual skill slot configuration or user input
+  // skill_use represents number of times the buff skill has been cast (Well-Fought Battle max = 3)
+  // skill_charges_on_use represents charges consumed when using the skill (Mass Effect)
+  const skillUse = 3;
+  const skillChargesOnUse = 2;
+
+  const div = mod.per.amt || 1;
+  const stacks = match(mod.per.stackable)
+    .with("skill_use", () => skillUse)
+    .with("skill_charges_on_use", () => skillChargesOnUse)
+    .otherwise(() => 0);
+
+  return { ...mod, value: mod.value * (stacks / div), per: undefined };
+};
+
 // resolves mods coming from skills that are NOT the selected main skill
 // for example, "Bull's Rage" provides a buff that increases all melee damage
 const resolveBuffSkillMods = (input: OffenseInput): Mod[] => {
@@ -781,9 +805,9 @@ const resolveBuffSkillMods = (input: OffenseInput): Mod[] => {
 
     // we only care about skill effect for now
     // todo: add area, cdr, duration, and other buff-skill modifiers
-    const skillEffMods = resolveSelectedSkillSupportMods(skillSlot).filter(
-      (m) => m.type === "SkillEffPct",
-    );
+    const skillEffMods = resolveSelectedSkillSupportMods(skillSlot)
+      .filter((m) => m.type === "SkillEffPct")
+      .map(normalizeSkillEffMod);
     const incSkillEffMods = skillEffMods.filter(
       (m) => m.addn === undefined || m.addn === false,
     );
@@ -795,11 +819,6 @@ const resolveBuffSkillMods = (input: OffenseInput): Mod[] => {
     const level = skillSlot.level || 20;
     // todo: refactor skillname to be an ActiveSkillName?
     const skill = findActiveSkill(skillSlot.skillName as ActiveSkillName);
-    const extraMult = match(skill.name)
-      // Hard-code Well-Fought Battle to assume that the user has
-      // already cast the support skill the max number of times
-      .with("Well-Fought Battle", () => 3)
-      .otherwise(() => 1);
 
     // todo: do we need a more granular way of applying skill effect than just multiplying
     //  it against the template value?
@@ -807,7 +826,7 @@ const resolveBuffSkillMods = (input: OffenseInput): Mod[] => {
       skill.levelBuffMods?.map((m) => {
         return {
           ...m.template,
-          value: multValue(m.levels[level], skillEffMult * extraMult),
+          value: multValue(m.levels[level], skillEffMult),
         } as Mod;
       }) || [];
     resolvedMods.push(...buffMods);
@@ -888,21 +907,25 @@ const resolveMods = (
   const stats = calculateStats(allOriginalMods);
   const willpowerStacks =
     findAffix(allOriginalMods, "MaxWillpowerStacks")?.value || 0;
+  // TODO: figure these out
+  const frostbiteRating = 0;
+  const projectile = 0;
+  const skillUse = 0;
+  const skillChargesOnUse = 0;
 
   const normalizedMods = [];
   for (const mod of allOriginalMods) {
     if ("per" in mod && mod.per !== undefined) {
       const div = mod.per.amt || 1;
       const normalizedMod = match<Stackable, Mod>(mod.per.stackable)
-        .with(
-          P.union(
-            "willpower",
-            "frostbite_rating",
-            "projectile",
-            "skill_use",
-            "skill_charges_on_use",
-          ),
-          () => multModValue(mod, willpowerStacks / div),
+        .with("willpower", () => multModValue(mod, willpowerStacks / div))
+        .with("frostbite_rating", () =>
+          multModValue(mod, frostbiteRating / div),
+        )
+        .with("projectile", () => multModValue(mod, projectile / div))
+        .with("skill_use", () => multModValue(mod, skillUse / div))
+        .with("skill_charges_on_use", () =>
+          multModValue(mod, skillChargesOnUse / div),
         )
         .with("main_stat", () => {
           if (mainSkill.mainStats === undefined) {

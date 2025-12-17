@@ -1441,13 +1441,14 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
     // All at level 20:
     //   Haunt: DmgPct 0.008 (additional/more, global)
     //   Willpower: MaxWillpowerStacks 6, DmgPct 0.06 per stack (increased, global)
-    //   Steamroll: AspdPct -0.15 (increased), melee/ailment bonuses don't apply
+    //   Steamroll: AspdPct -0.15 (increased), DmgPct 0.405 (additional, melee)
     //   Quick Decision: AspdAndCspdPct 0.245 (additional/more)
     //
     // Damage calculation:
     //   Base: 100
     //   Willpower (6 * 0.06 = 36% increased): 100 * 1.36 = 136
     //   Haunt (+0.8% more): 136 * 1.008 = 137.088
+    //   Steamroll (+40.5% more melee): 137.088 * 1.405 = 192.60864
     //
     // Attack speed calculation:
     //   Base: 1.0
@@ -1478,7 +1479,7 @@ describe("resolveSelectedSkillSupportMods via calculateOffense", () => {
       configuration: defaultConfiguration,
     });
 
-    validate(actual, { avgHit: 137.088, aspd: 1.05825 });
+    validate(actual, { avgHit: 192.60864, aspd: 1.05825 });
   });
 
   test("support skills at different levels use correct values", () => {
@@ -1961,8 +1962,8 @@ describe("resolveBuffSkillMods", () => {
 
   test("Mass Effect increases buff skill effect", () => {
     // Ice Bond at level 20: 33% base
-    // Mass Effect at level 20: 20% increased skill effect
-    // Expected: 33% * (1 + 0.2) = 39.6%
+    // Mass Effect at level 20: 20% skill effect per charge, with 2 charges = 40%
+    // Expected: 33% * (1 + 0.4) = 46.2%
     const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", supports: [{ name: "Mass Effect" }] },
     ]);
@@ -1981,16 +1982,13 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     );
-    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.2);
+    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.4);
   });
 
   test("Well-Fought Battle increases buff skill effect", () => {
     // Ice Bond at level 20: 33% base
-    // Well-Fought Battle at level 20: 10% skill effect per use, hard-coded to 3 uses
-    // Expected: 33% * (1 + 0.1) * 3 = 108.9%
-    // Note: The hard-coded 3x multiplier only applies if the skill is Well-Fought Battle,
-    // which is a support skill, not an active skill. So the extraMult won't apply here.
-    // Actual expected: 33% * (1 + 0.1) = 36.3%
+    // Well-Fought Battle at level 20: 10% skill effect per use, with 3 uses = 30%
+    // Expected: 33% * (1 + 0.3) = 42.9%
     const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", supports: [{ name: "Well-Fought Battle" }] },
     ]);
@@ -2009,25 +2007,31 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     );
-    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.1);
+    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.3);
   });
 
   test("Ice Bond and Bull's Rage with Mass Effect and Well-Fought Battle - supports only affect their attached skill", () => {
     // Setup:
-    // - Main skill: [Test] Simple Attack
+    // - Main skill: Frost Spike (melee, cold, 2.01x weapon damage)
     // - Ice Bond with Mass Effect and Well-Fought Battle attached
     // - Bull's Rage with Mass Effect and Well-Fought Battle attached
     //
-    // Ice Bond at level 20: 33% base cold damage
-    // Bull's Rage at level 20: 27% base melee damage
-    // Mass Effect at level 20: 20% skill effect
-    // Well-Fought Battle at level 20: 10% skill effect
+    // Ice Bond at level 20: 33% base cold damage (modType: "cold")
+    // Bull's Rage at level 20: 27% base melee damage (modType: "melee")
+    // Mass Effect at level 20: 20% per charge * 2 charges = 40% skill effect
+    // Well-Fought Battle at level 20: 10% per use * 3 uses = 30% skill effect
     //
-    // Ice Bond buff = 33% * (1 + 0.2 + 0.1) = 33% * 1.3 = 42.9%
-    // Bull's Rage buff = 27% * (1 + 0.2 + 0.1) = 27% * 1.3 = 35.1%
+    // Ice Bond buff = 33% * 1.7 = 56.1% additional cold damage
+    // Bull's Rage buff = 27% * 1.7 = 45.9% additional melee damage
+    //
+    // Frost Spike damage calculation:
+    // - Base: 100 weapon * 2.01 = 201 phys → converted to 201 cold
+    // - Ice Bond buff applies (modType: "cold" matches Frost Spike's cold damage)
+    // - Bull's Rage buff applies (modType: "melee" matches Frost Spike's Melee tag)
+    // - avgHit = 201 * 1.561 * 1.459 = 457.78
     //
     // Key assertion: Each skill's supports only affect that skill's buff, not other skills
-    const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
+    const loadout = createBuffSkillLoadout({ name: "Frost Spike" }, [
       {
         name: "Ice Bond",
         supports: [{ name: "Mass Effect" }, { name: "Well-Fought Battle" }],
@@ -2040,7 +2044,7 @@ describe("resolveBuffSkillMods", () => {
 
     const actual = calculateOffense({
       loadout,
-      mainSkillName: "[Test] Simple Attack",
+      mainSkillName: "Frost Spike",
       configuration: defaultConfiguration,
     });
 
@@ -2054,13 +2058,16 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     );
-    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.3);
+    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.7);
 
     // Check Bull's Rage buff
     const bullsRageBuffMod = actual?.resolvedMods.find(
       (m) => m.type === "DmgPct" && m.modType === "melee" && m.addn === true,
     );
-    expect(bullsRageBuffMod?.value).toBeCloseTo(0.27 * 1.3);
+    expect(bullsRageBuffMod?.value).toBeCloseTo(0.27 * 1.7);
+
+    // Verify final avgHit includes both Ice Bond's cold buff and Bull's Rage's melee buff
+    expect(actual?.avgHit).toBeCloseTo(201 * 1.561 * 1.459);
   });
 
   test("supports on main skill do not affect buff skills", () => {
@@ -2094,10 +2101,10 @@ describe("resolveBuffSkillMods", () => {
 
   test("supports on one buff skill do not affect another buff skill", () => {
     // Setup:
-    // - Ice Bond with Mass Effect (20% skill effect)
+    // - Ice Bond with Mass Effect (20% per charge * 2 = 40% skill effect)
     // - Bull's Rage without supports
     //
-    // Ice Bond buff = 33% * 1.2 = 39.6%
+    // Ice Bond buff = 33% * 1.4 = 46.2%
     // Bull's Rage buff = 27% (no effect from Ice Bond's supports)
     const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", supports: [{ name: "Mass Effect" }] },
@@ -2120,7 +2127,7 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     );
-    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.2);
+    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.4);
 
     // Bull's Rage should NOT be affected by Ice Bond's Mass Effect
     const bullsRageBuffMod = actual?.resolvedMods.find(
@@ -2131,10 +2138,10 @@ describe("resolveBuffSkillMods", () => {
 
   test("multiple SkillEffPct supports stack additively", () => {
     // Setup:
-    // - Ice Bond with Mass Effect (20%) and Well-Fought Battle (10%)
+    // - Ice Bond with Mass Effect (40% after normalization) and Well-Fought Battle (30% after normalization)
     //
-    // Total skill effect = 20% + 10% = 30%
-    // Ice Bond buff = 33% * (1 + 0.3) = 42.9%
+    // Total skill effect = 40% + 30% = 70%
+    // Ice Bond buff = 33% * (1 + 0.7) = 56.1%
     const loadout = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       {
         name: "Ice Bond",
@@ -2156,16 +2163,16 @@ describe("resolveBuffSkillMods", () => {
         "cond" in m &&
         m.cond === "enemy_frostbitten",
     );
-    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.3);
+    expect(iceBondBuffMod?.value).toBeCloseTo(0.33 * 1.7);
   });
 
   test("support skill level affects skill effect bonus", () => {
-    // Mass Effect at level 1: 10.5% skill effect
-    // Mass Effect at level 20: 20% skill effect
+    // Mass Effect at level 1: 10.5% per charge * 2 charges = 21%
+    // Mass Effect at level 20: 20% per charge * 2 charges = 40%
     //
     // Ice Bond at level 20: 33% base
-    // With Mass Effect L1: 33% * (1 + 0.105) = 36.465%
-    // With Mass Effect L20: 33% * (1 + 0.2) = 39.6%
+    // With Mass Effect L1: 33% * (1 + 0.21) = 39.93%
+    // With Mass Effect L20: 33% * (1 + 0.4) = 46.2%
     const loadoutL1 = createBuffSkillLoadout({ name: "[Test] Simple Attack" }, [
       { name: "Ice Bond", supports: [{ name: "Mass Effect", level: 1 }] },
     ]);
@@ -2200,7 +2207,7 @@ describe("resolveBuffSkillMods", () => {
         m.cond === "enemy_frostbitten",
     );
 
-    expect(buffModL1?.value).toBeCloseTo(0.33 * 1.105);
-    expect(buffModL20?.value).toBeCloseTo(0.33 * 1.2);
+    expect(buffModL1?.value).toBeCloseTo(0.33 * 1.21);
+    expect(buffModL20?.value).toBeCloseTo(0.33 * 1.4);
   });
 });
