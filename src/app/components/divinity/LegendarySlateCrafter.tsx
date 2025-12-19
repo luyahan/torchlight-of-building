@@ -184,7 +184,8 @@ export const LegendarySlateCrafter: React.FC<LegendarySlateCrafterProps> = ({
 
     onSave(slate);
 
-    setAffixSlots(Array(template.affixSlots.length).fill(undefined));
+    setSelectedTemplateKey(undefined);
+    setAffixSlots([]);
     setRotation(0);
     setFlippedH(false);
     setFlippedV(false);
