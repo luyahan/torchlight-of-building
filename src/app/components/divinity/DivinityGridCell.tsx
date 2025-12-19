@@ -1,7 +1,10 @@
 "use client";
 
+import { Tooltip } from "@/src/app/components/ui/Tooltip";
+import { useTooltip } from "@/src/app/hooks/useTooltip";
 import { getSlateColor } from "@/src/app/lib/divinity-utils";
 import type { DivinitySlate } from "@/src/tli/core";
+import { SlateTooltipContent } from "./SlateTooltipContent";
 
 interface SlateEdges {
   top: boolean;
@@ -43,34 +46,52 @@ export const DivinityGridCell: React.FC<DivinityGridCellProps> = ({
   onClick,
   onMouseDown,
 }) => {
+  const { isVisible, triggerRef, triggerRect, tooltipHandlers } = useTooltip();
+
+  // Should show tooltip only when slate exists and not being dragged
+  const showTooltip = slate !== undefined && !isDragging && isVisible;
+
   // Empty out-of-bounds cell
-  if (isOutOfBounds && !slate) {
+  if (isOutOfBounds && slate === undefined) {
     return <div className="h-12 w-12" />;
   }
 
   // Out-of-bounds cell WITH a slate - show the slate with error styling
   // Hide completely if being dragged
-  if (isOutOfBounds && slate) {
+  if (isOutOfBounds && slate !== undefined) {
     if (isDragging) {
       return <div className="h-12 w-12" />;
     }
     return (
-      <div
-        role="button"
-        tabIndex={0}
-        className={`relative h-12 w-12 ${getSlateColor(slate)} cursor-grab select-none`}
-        style={getOutlineStyleForSlate(slateEdges)}
-        onClick={onClick}
-        onKeyDown={(e) => e.key === "Enter" && onClick()}
-        onMouseDown={onMouseDown}
-      >
-        <div style={invalidOverlayStyle} />
-      </div>
+      <>
+        <div
+          ref={triggerRef}
+          role="button"
+          tabIndex={0}
+          className={`relative h-12 w-12 ${getSlateColor(slate)} cursor-grab select-none`}
+          style={getOutlineStyleForSlate(slateEdges)}
+          onClick={onClick}
+          onKeyDown={(e) => e.key === "Enter" && onClick()}
+          onMouseDown={onMouseDown}
+        >
+          <div style={invalidOverlayStyle} />
+        </div>
+        {showTooltip && (
+          <Tooltip
+            isVisible={isVisible}
+            triggerRect={triggerRect}
+            variant={slate.isLegendary === true ? "legendary" : "default"}
+            {...tooltipHandlers}
+          >
+            <SlateTooltipContent slate={slate} />
+          </Tooltip>
+        )}
+      </>
     );
   }
 
   // Hide the cell if it's part of the dragged slate
-  if (isDragging && slate) {
+  if (isDragging && slate !== undefined) {
     return <div className="h-12 w-12 border border-zinc-700 bg-zinc-800" />;
   }
 
@@ -116,17 +137,30 @@ export const DivinityGridCell: React.FC<DivinityGridCellProps> = ({
   };
 
   return (
-    <div
-      role={slate ? "button" : undefined}
-      tabIndex={slate ? 0 : undefined}
-      className={`relative h-12 w-12 transition-colors select-none ${getBackgroundClass()} ${getBorderClass()} ${getCursorClass()}`}
-      style={getOutlineStyle()}
-      onClick={onClick}
-      onKeyDown={(e) => e.key === "Enter" && onClick()}
-      onMouseDown={onMouseDown}
-    >
-      {isInvalid && <div style={invalidOverlayStyle} />}
-    </div>
+    <>
+      <div
+        ref={slate !== undefined ? triggerRef : undefined}
+        role={slate !== undefined ? "button" : undefined}
+        tabIndex={slate !== undefined ? 0 : undefined}
+        className={`relative h-12 w-12 transition-colors select-none ${getBackgroundClass()} ${getBorderClass()} ${getCursorClass()}`}
+        style={getOutlineStyle()}
+        onClick={onClick}
+        onKeyDown={(e) => e.key === "Enter" && onClick()}
+        onMouseDown={onMouseDown}
+      >
+        {isInvalid && <div style={invalidOverlayStyle} />}
+      </div>
+      {showTooltip && slate !== undefined && (
+        <Tooltip
+          isVisible={isVisible}
+          triggerRect={triggerRect}
+          variant={slate.isLegendary === true ? "legendary" : "default"}
+          {...tooltipHandlers}
+        >
+          <SlateTooltipContent slate={slate} />
+        </Tooltip>
+      )}
+    </>
   );
 };
 
