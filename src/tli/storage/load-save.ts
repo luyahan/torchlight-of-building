@@ -669,7 +669,10 @@ const getCopiedAffixesForSlate = (
     const orderOfDirections: CopyDirection[] = ["up", "left", "down", "right"];
     for (const dir of orderOfDirections) {
       const adjacentSlate = adjacentSlates.get(dir);
-      if (adjacentSlate !== undefined && !copiedSlateIds.has(adjacentSlate.id)) {
+      if (
+        adjacentSlate !== undefined &&
+        !copiedSlateIds.has(adjacentSlate.id)
+      ) {
         const copiedAffix = getLastCopyableAffix(adjacentSlate, src);
         if (copiedAffix !== undefined) {
           copiedAffixes.push(copiedAffix);

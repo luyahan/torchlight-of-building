@@ -128,11 +128,15 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
   };
 
   const getCellSlateId = (row: number, col: number): string | undefined => {
+    // Exclude dragged slate so underlying overlapping slates remain visible
+    const placements = draggedSlateId
+      ? divinityPage.placedSlates.filter((p) => p.slateId !== draggedSlateId)
+      : divinityPage.placedSlates;
     const placed = findSlateAtCell(
       row,
       col,
       divinityPage.inventory,
-      divinityPage.placedSlates,
+      placements,
     );
     return placed?.slateId;
   };
@@ -370,7 +374,9 @@ export const DivinityGrid: React.FC<DivinityGridProps> = ({
         : undefined;
       const slateEdges = getSlateEdges(row, col, cellSlateId);
       const isInvalid = invalidCells.has(`${row},${col}`);
-      const isDragging = draggedSlateCells.has(`${row},${col}`);
+      // Only mark as dragging if no other slate should be shown at this position
+      const isDragging =
+        draggedSlateCells.has(`${row},${col}`) && cellSlateId === undefined;
 
       cells.push(
         <DivinityGridCell
