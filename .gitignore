@@ -43,4 +43,7 @@ yarn-error.log*
 # tanstack router generated
 src/routeTree.gen.ts
 
+# wrangler
+.wrangler
+
 .garbage
