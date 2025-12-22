@@ -125,6 +125,12 @@ const convertGear = (gear: SaveDataGear, src: string | undefined): Gear => {
     blend_affix: gear.blend_affix
       ? convertAffix(gear.blend_affix, src)
       : undefined,
+    sweet_dream_affix: gear.sweet_dream_affix
+      ? convertAffix(gear.sweet_dream_affix, src)
+      : undefined,
+    tower_sequence_affix: gear.tower_sequence_affix
+      ? convertAffix(gear.tower_sequence_affix, src)
+      : undefined,
     legendary_affixes: convertAffixArray(gear.legendary_affixes, src),
   };
 };

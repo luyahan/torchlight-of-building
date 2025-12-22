@@ -71,6 +71,8 @@ export interface Gear {
   prefixes?: Affix[];
   suffixes?: Affix[];
   blend_affix?: Affix;
+  sweet_dream_affix?: Affix;
+  tower_sequence_affix?: Affix;
 
   // Legendary gear affix property
   legendary_affixes?: Affix[];
@@ -84,6 +86,8 @@ export const getAllAffixes = (gear: Gear): Affix[] => {
     affixes.push(...gear.legendary_affixes);
   } else {
     if (gear.base_affixes) affixes.push(...gear.base_affixes);
+    if (gear.sweet_dream_affix) affixes.push(gear.sweet_dream_affix);
+    if (gear.tower_sequence_affix) affixes.push(gear.tower_sequence_affix);
     if (gear.blend_affix) affixes.push(gear.blend_affix);
     if (gear.prefixes) affixes.push(...gear.prefixes);
     if (gear.suffixes) affixes.push(...gear.suffixes);
