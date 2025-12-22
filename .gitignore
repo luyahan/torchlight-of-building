@@ -13,9 +13,10 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# vite / tanstack
+/.output/
+/dist/
+/.tanstack/tmp
 
 # production
 /build
@@ -38,6 +39,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# tanstack router generated
+src/routeTree.gen.ts
 
 .garbage

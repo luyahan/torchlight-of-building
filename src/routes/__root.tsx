@@ -1,0 +1,36 @@
+import {
+  createRootRoute,
+  HeadContent,
+  Outlet,
+  Scripts,
+} from "@tanstack/react-router";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "../globals.css";
+
+export const Route = createRootRoute({
+  component: RootLayout,
+  head: () => ({
+    meta: [
+      { title: "TLI Build Planner" },
+      {
+        name: "description",
+        content: "Torchlight Infinite character build planner",
+      },
+    ],
+  }),
+});
+
+function RootLayout(): React.ReactNode {
+  return (
+    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+      <head>
+        <HeadContent />
+      </head>
+      <body className="antialiased">
+        <Outlet />
+        <Scripts />
+      </body>
+    </html>
+  );
+}

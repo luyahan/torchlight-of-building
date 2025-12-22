@@ -1,11 +1,15 @@
 import * as R from "remeda";
-import { findSlateAtCell } from "@/src/app/lib/divinity-grid";
-import { craftHeroMemoryAffix } from "@/src/app/lib/hero-utils";
+import { CoreTalents } from "@/src/data/core_talent/core_talents";
+import { Pactspirits } from "@/src/data/pactspirit/pactspirits";
+import type { Pactspirit } from "@/src/data/pactspirit/types";
+import type { TalentNodeData, TreeName } from "@/src/data/talent_tree";
+import { findSlateAtCell } from "@/src/lib/divinity-grid";
+import { craftHeroMemoryAffix } from "@/src/lib/hero-utils";
 import {
   getEffectModifierForType,
   getTargetAreaPositions,
   reflectPosition,
-} from "@/src/app/lib/inverse-image-utils";
+} from "@/src/lib/inverse-image-utils";
 import type {
   SaveData,
   CraftedPrism as SaveDataCraftedPrism,
@@ -21,11 +25,7 @@ import type {
   PlacedPrism as SaveDataPlacedPrism,
   TalentPage as SaveDataTalentPage,
   TalentTree as SaveDataTalentTree,
-} from "@/src/app/lib/save-data";
-import { CoreTalents } from "@/src/data/core_talent/core_talents";
-import { Pactspirits } from "@/src/data/pactspirit/pactspirits";
-import type { Pactspirit } from "@/src/data/pactspirit/types";
-import type { TalentNodeData, TreeName } from "@/src/data/talent_tree";
+} from "@/src/lib/save-data";
 import { parseBaseStatMod } from "../base_stat_mod";
 import type {
   Affix,

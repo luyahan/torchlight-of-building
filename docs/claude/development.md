@@ -13,18 +13,21 @@ pnpm check        # Biome linting and formatting
 
 ## Stack
 
-- Next.js 16, React 19, TypeScript (strict), Tailwind CSS 4, Vitest
+- TanStack Start, Vite, React 19, TypeScript (strict), Tailwind CSS 4, Vitest
 - Utilities: `remeda` (lodash-like), `ts-pattern` (pattern matching), `fflate` (compression)
 
 ## Project Structure
 
 ```
-src/app/                 # Next.js app (React, UI, stores)
-├── components/          # Feature-organized React components
-├── stores/              # Zustand state management
-├── lib/                 # Utilities & types
-├── hooks/               # Custom React hooks
-└── builder/             # Builder page route
+src/routes/              # TanStack Router file-based routes
+├── __root.tsx           # Root layout
+├── index.tsx            # Home page (/)
+└── builder.tsx          # Builder page (/builder)
+
+src/components/          # Feature-organized React components
+src/stores/              # Zustand state management
+src/lib/                 # Utilities & types
+src/hooks/               # Custom React hooks
 
 src/tli/                 # Game engine (pure TypeScript, no React)
 ├── core.ts              # Base types (Gear, HeroMemory, etc.)

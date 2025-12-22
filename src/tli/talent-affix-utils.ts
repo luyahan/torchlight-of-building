@@ -1,9 +1,9 @@
-import type { PlacedPrism as SaveDataPlacedPrism } from "@/src/app/lib/save-data";
 import {
   type TalentNodeData,
   TalentTrees,
   type TreeName,
 } from "@/src/data/talent_tree";
+import type { PlacedPrism as SaveDataPlacedPrism } from "@/src/lib/save-data";
 import type { Affix, AffixLine } from "./core";
 import { parseMod } from "./mod_parser";
 

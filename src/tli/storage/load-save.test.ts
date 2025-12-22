@@ -1,6 +1,6 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: don't care in test */
 import { expect, test } from "vitest";
-import type { SaveData } from "@/src/app/lib/save-data";
+import type { SaveData } from "@/src/lib/save-data";
 import { getAffixMods, getAffixText, getAllAffixes } from "../core";
 import { loadSave } from "./load-save";
 

@@ -1,14 +1,14 @@
 # UI Development Guide
 
-## Pages
+## Routes
 
-- `src/app/page.tsx` - Saves manager (list/create/delete saves)
-- `src/app/builder/page.tsx` - Main builder (edit current save)
-- `src/app/layout.tsx` - Root layout with providers
+- `src/routes/index.tsx` - Saves manager (list/create/delete saves)
+- `src/routes/builder.tsx` - Main builder (edit current save)
+- `src/routes/__root.tsx` - Root layout with global styles
 
 ## Component Organization
 
-Feature-organized in `src/app/components/`:
+Feature-organized in `src/components/`:
 - `builder/` - Layout, tabs, sections
 - `equipment/` - Gear slots, crafting, inventory
 - `hero/` - Hero selection, memories, traits
@@ -29,8 +29,6 @@ Feature-organized in `src/app/components/`:
 ## Component Patterns
 
 ```typescript
-"use client";
-
 interface ComponentProps {
   value: string;
   onChange: (value: string) => void;
@@ -45,8 +43,6 @@ export const MyComponent: React.FC<ComponentProps> = ({ value, onChange }) => {
   );
 };
 ```
-
-**Client components:** All interactive components use `"use client"` directive
 
 **Props-driven:** Minimal internal state, prefer store integration
 
@@ -126,6 +122,6 @@ grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3
 
 | Task | Key Files |
 |------|-----------|
-| Add UI section | `src/app/components/{feature}/`, update `PageTabs.tsx` |
-| Add feature UI state | Create `src/app/stores/{feature}UIStore.ts` |
-| Add reusable component | `src/app/components/ui/` |
+| Add UI section | `src/components/{feature}/`, update `PageTabs.tsx` |
+| Add feature UI state | Create `src/stores/{feature}UIStore.ts` |
+| Add reusable component | `src/components/ui/` |

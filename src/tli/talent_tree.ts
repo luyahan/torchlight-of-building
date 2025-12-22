@@ -1,8 +1,4 @@
 import {
-  isInTargetArea,
-  isInverseImagePosition,
-} from "@/src/app/lib/inverse-image-utils";
-import {
   GOD_GODDESS_TREES,
   isGodGoddessTree,
   PROFESSION_TREES,
@@ -10,6 +6,10 @@ import {
   TalentTrees,
   type TreeName,
 } from "@/src/data/talent_tree";
+import {
+  isInTargetArea,
+  isInverseImagePosition,
+} from "@/src/lib/inverse-image-utils";
 import type { PlacedInverseImage, PlacedPrism, TalentNode } from "./core";
 
 // Re-export tree name constants and types

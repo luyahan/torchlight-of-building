@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Next.js 16 + React 19 + TypeScript character build planner for Torchlight Infinite.
+TanStack Start + Vite + React 19 + TypeScript character build planner for Torchlight Infinite.
 
 ## Commands
 
@@ -17,8 +17,9 @@ pnpm check        # Biome linting and formatting
 
 ## Architecture
 
-- **UI Components** ([src/app/components/](src/app/components/)) - React components organized by feature (equipment, talents, skills, hero, pactspirit)
-- **UI Lib** ([src/app/lib/](src/app/lib/)) - Shared types, constants, storage utilities, build-code encoding
+- **Routes** ([src/routes/](src/routes/)) - TanStack Router file-based routing
+- **UI Components** ([src/components/](src/components/)) - React components organized by feature (equipment, talents, skills, hero, pactspirit)
+- **UI Lib** ([src/lib/](src/lib/)) - Shared types, constants, storage utilities, build-code encoding
 - **Game Engine** ([src/tli/](src/tli/)) - Pure TypeScript, no React
   - [calcs/offense.ts](src/tli/calcs/offense.ts) - DPS/stat calculations
   - [mod_parser.ts](src/tli/mod_parser.ts) - String → typed Mod conversion
