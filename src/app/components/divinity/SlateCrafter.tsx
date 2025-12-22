@@ -218,7 +218,6 @@ export const SlateCrafter: React.FC<SlateCrafterProps> = ({ onSave }) => {
         </label>
         <div className="flex flex-col gap-2">
           {affixSlots.map((affix, slotIndex) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: slots are fixed positions
             <div key={slotIndex} className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-zinc-500 w-12">

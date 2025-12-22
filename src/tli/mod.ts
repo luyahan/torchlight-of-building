@@ -19,7 +19,8 @@ export type Stackable =
   | "projectile"
   | "skill_use"
   | "skill_charges_on_use"
-  | "cruelty_buff";
+  | "cruelty_buff"
+  | "fervor";
 
 export type StatType = "str" | "dex" | "int";
 
@@ -157,12 +158,6 @@ export type Mod =
     }
   | {
       type: "Fervor";
-      value: number;
-      per?: PerStackable;
-      src?: string;
-    }
-  | {
-      type: "CritDmgPerFervor";
       value: number;
       per?: PerStackable;
       src?: string;

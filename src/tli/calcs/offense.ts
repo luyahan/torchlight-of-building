@@ -25,7 +25,7 @@ import {
   type SkillSlot,
   type SupportSkillSlot,
 } from "../core";
-import type { DmgChunkType, Mod } from "../mod";
+import type { DmgChunkType, Mod, Stackable } from "../mod";
 import type { OffenseSkillName } from "./skill_confs";
 
 const addDR = (dr1: DmgRange, dr2: DmgRange): DmgRange => {
@@ -454,11 +454,7 @@ const calculateGearAspd = (loadout: Loadout, allMods: Mod[]): number => {
   return baseAspd * (1 + gearAspdPctBonus);
 };
 
-const calculateCritRating = (
-  allMods: Mod[],
-  configuration: Configuration,
-  sharedCtx: SharedCtx,
-): number => {
+const calculateCritRating = (allMods: Mod[]): number => {
   const critRatingPctMods = filterMod(allMods, "CritRatingPct");
   const mods = critRatingPctMods.map((a) => {
     return {
@@ -469,34 +465,11 @@ const calculateCritRating = (
     };
   });
 
-  // Add fervor bonus if enabled
-  if (sharedCtx.fervor.enabled) {
-    // Collect FervorEff modifiers and calculate total effectiveness
-    const fervorEffMods = filterMod(allMods, "FervorEff");
-    const fervorEffTotal = calculateInc(fervorEffMods.map((a) => a.value));
-
-    // Base fervor: 2% per point, modified by FervorEff
-    // Example: 100 points * 0.02 * (1 + 0.5) = 3.0 (with 50% FervorEff)
-    const fervorPerPoint = 0.02 * (1 + fervorEffTotal);
-    const fervorBonus = sharedCtx.fervor.points * fervorPerPoint;
-
-    mods.push({
-      type: "CritRatingPct",
-      value: fervorBonus,
-      modType: "global",
-      src: "fervor",
-    });
-  }
-
   const inc = calculateInc(mods.map((v) => v.value));
   return 0.05 * (1 + inc);
 };
 
-const calculateCritDmg = (
-  allMods: Mod[],
-  configuration: Configuration,
-  sharedCtx: SharedCtx,
-): number => {
+const calculateCritDmg = (allMods: Mod[]): number => {
   const critDmgPctMods = filterMod(allMods, "CritDmgPct");
   const mods = critDmgPctMods.map((a) => {
     return {
@@ -507,23 +480,6 @@ const calculateCritDmg = (
       src: a.src,
     };
   });
-
-  // Handle CritDmgPerFervor mods
-  if (configuration.fervor.enabled) {
-    const critDmgPerFervorMods = filterMod(allMods, "CritDmgPerFervor");
-    critDmgPerFervorMods.forEach((a) => {
-      // Calculate bonus: value * fervor points
-      // Example: 0.005 (0.5%) * 100 points = 0.5 (50% increased crit damage)
-      const bonus = a.value * sharedCtx.fervor.points;
-      mods.push({
-        type: "CritDmgPct",
-        value: bonus,
-        addn: false, // Treated as "increased" modifier
-        modType: "global",
-        src: a.src || "CritDmgPerFervor",
-      });
-    });
-  }
 
   const inc = calculateInc(mods.filter((m) => !m.addn).map((v) => v.value));
   const addn = calculateAddn(mods.filter((m) => m.addn).map((v) => v.value));
@@ -763,74 +719,54 @@ const multModValue = <T extends Extract<Mod, { value: number | DmgRange }>>(
   return { ...mod, value: newValue, per: undefined };
 };
 
-interface NormalizationContext {
-  willpower: number;
-  frostbiteRating: number;
-  projectile: number;
-  skillUse: number;
-  skillChargesOnUse: number;
-  mainStat: number;
-  crueltyBuffStacks: number;
-}
-
-interface NormalizationContextOptions {
-  mods: Mod[];
-  config: Configuration;
-  stats: Stats;
-  skill: BaseActiveSkill | BasePassiveSkill;
-}
-
-const calculateNormalizationContext = (
-  options: NormalizationContextOptions,
-): NormalizationContext => {
-  const { mods, config, stats, skill } = options;
-
-  const willpower = findMod(mods, "MaxWillpowerStacks")?.value || 0;
-  const mainStats = skill.mainStats || [];
-  let mainStat = 0;
-  for (const mainStatType of mainStats) {
-    mainStat += stats[mainStatType];
+const filterModsByFrostbittenCond = (
+  prenormalizedMods: Mod[],
+  config: EnemyFrostbittenCtx,
+): Mod[] => {
+  const condMatched = config.enabled;
+  if (!condMatched) {
+    return [];
   }
-
-  return {
-    willpower,
-    frostbiteRating: 0,
-    projectile: 0,
-    skillUse: 3,
-    skillChargesOnUse: 2,
-    mainStat,
-    crueltyBuffStacks: config.crueltyBuffStacks ?? 40,
-  };
+  return prenormalizedMods.filter((m) => {
+    return "cond" in m && m.cond === "enemy_frostbitten";
+  });
 };
 
-const normalizeMod = <T extends Mod>(
-  mod: T,
-  context: NormalizationContext,
-  config: Configuration,
-): T | undefined => {
-  if ("cond" in mod && mod.cond !== undefined) {
-    const conditionMatched = match(mod.cond)
-      .with("enemy_frostbitten", () => config.enemyFrostbitten.enabled)
-      .exhaustive();
-    if (!conditionMatched) {
-      return undefined;
-    }
-  }
+// TODO: latent bug - mods with BOTH `cond` AND `per` would be handled incorrectly:
+// - filterModsByFrostbittenCond adds them un-normalized
+// - normalizeStackables adds them normalized (ignoring the condition)
+// Result: mod appears twice, or included when condition isn't met.
+// Currently no mods have both properties, but this should be fixed if any are added.
+const normalizeStackables = (
+  prenormalizedMods: Mod[],
+  stackable: Stackable,
+  stacks: number,
+): Mod[] => {
+  return prenormalizedMods
+    .filter(
+      (mod) =>
+        "per" in mod &&
+        mod.per !== undefined &&
+        mod.per.stackable === stackable,
+    )
+    .map((mod) => normalizeStackable(mod, stackable, stacks))
+    .filter((mod) => mod !== undefined);
+};
 
-  if (!("per" in mod) || mod.per === undefined) {
-    return mod;
+const normalizeStackable = <T extends Mod>(
+  mod: T,
+  stackable: Stackable,
+  stacks: number,
+): T | undefined => {
+  if (
+    !("per" in mod) ||
+    mod.per === undefined ||
+    mod.per.stackable !== stackable
+  ) {
+    return undefined;
   }
 
   const div = mod.per.amt || 1;
-  const stacks = match(mod.per.stackable)
-    .with("willpower", () => context.willpower)
-    .with("frostbite_rating", () => context.frostbiteRating)
-    .with("projectile", () => context.projectile)
-    .with("skill_use", () => context.skillUse)
-    .with("skill_charges_on_use", () => context.skillChargesOnUse)
-    .with("main_stat", () => context.mainStat)
-    .with("cruelty_buff", () => context.crueltyBuffStacks)
-    .exhaustive();
   return multModValue(mod, stacks / div) as T;
 };
 
@@ -839,6 +775,33 @@ interface Stats {
   dex: number;
   int: number;
 }
+
+// returns mods that don't need normalization
+// excludes mods with `per`, `cond`, or that need replacement (like CoreTalent mods)
+const calculateStaticMods = (mods: Mod[]): Mod[] => {
+  const staticMods = mods.filter((m) => {
+    const hasPer = "per" in m && m.per !== undefined;
+    const hasCond = "cond" in m && m.cond !== undefined;
+    const isCoreTalent = m.type === "CoreTalent";
+    return !(hasPer || hasCond || isCoreTalent);
+  });
+  return staticMods;
+};
+
+// includes any mods that always apply, but don't come from loadout, like damage from stats
+const calculateImplicitMods = (): Mod[] => {
+  return [
+    {
+      type: "DmgPct",
+      // .5% additional damage per main stat
+      value: 0.005,
+      modType: "global",
+      addn: true,
+      per: { stackable: "main_stat" },
+      src: "Additional Damage from skill Main Stat (.5% per stat)",
+    },
+  ];
+};
 
 // todo: very basic stat calculation, will definitely need to handle things like pct, per, and conditionals
 const calculateStats = (mods: Mod[]): Stats => {
@@ -895,7 +858,6 @@ const resolveBuffSkillMods = (
   loadout: Loadout,
   loadoutMods: Mod[],
   config: Configuration,
-  stats: Stats,
 ): Mod[] => {
   const activeSkillSlots = listActiveSkillSlots(loadout);
   const passiveSkillSlots = listPassiveSkillSlots(loadout);
@@ -924,19 +886,12 @@ const resolveBuffSkillMods = (
           src: `${skill.name} Lv.${level}`,
         } as Mod;
       }) ?? [];
-    const mods = [...loadoutMods, ...supportMods, ...levelMods];
+    const prenormMods = [...loadoutMods, ...supportMods, ...levelMods];
+    const mods = normalizeModsForSkill(prenormMods, skill, config);
 
     // === Calculate SkillEffPct multiplier (from support skills + loadout mods) ===
     // todo: add area, cdr, duration, and other buff-skill modifiers
-    const effNormContext = calculateNormalizationContext({
-      mods,
-      config,
-      stats,
-      skill,
-    });
-    const skillEffMods = filterMod(mods, "SkillEffPct")
-      .map((m) => normalizeMod(m, effNormContext, config))
-      .filter((m) => m !== undefined);
+    const skillEffMods = filterMod(mods, "SkillEffPct");
     const skillEffMult = calculateEffMultiplier(skillEffMods);
 
     // === Resolve raw buff mods from skill's levelBuffMods ===
@@ -953,9 +908,7 @@ const resolveBuffSkillMods = (
     // Only applies if this is an Aura skill
     let auraEffMult = 1;
     if (isAuraSkill) {
-      const allAuraEffMods = filterMod(mods, "AuraEffPct")
-        .map((m) => normalizeMod(m, effNormContext, config))
-        .filter((m) => m !== undefined);
+      const allAuraEffMods = filterMod(mods, "AuraEffPct");
       auraEffMult = calculateEffMultiplier(allAuraEffMods);
     }
 
@@ -1031,37 +984,6 @@ const resolveSelectedSkillSupportMods = (slot: SkillSlot): Mod[] => {
   return supportMods;
 };
 
-// Context for mods that are shared across all skill calculations
-interface SharedCtx {
-  loadoutMods: Mod[];
-  buffSkillMods: Mod[];
-  stats: { str: number; dex: number; int: number };
-  willpowerStacks: number;
-  fervor: { enabled: boolean; points: number };
-}
-
-// Resolves mods that are shared across all skill calculations
-const resolveSharedMods = (
-  loadout: Loadout,
-  config: Configuration,
-): SharedCtx => {
-  const loadoutMods = collectMods(loadout);
-  const stats = calculateStats(loadoutMods);
-  const buffSkillMods = resolveBuffSkillMods(
-    loadout,
-    loadoutMods,
-    config,
-    stats,
-  );
-  const allMods = [...loadoutMods, ...buffSkillMods];
-  const willpowerStacks = findMod(allMods, "MaxWillpowerStacks")?.value || 0;
-  const fervor = {
-    enabled: config.fervor.enabled,
-    points: config.fervor.points ?? 100,
-  };
-  return { loadoutMods, buffSkillMods, stats, willpowerStacks, fervor };
-};
-
 // Context for mods specific to a single skill
 interface PerSkillModContext {
   mods: Mod[];
@@ -1095,46 +1017,125 @@ const resolvePerSkillMods = (
   };
 };
 
+interface FervorCtx {
+  enabled: boolean;
+  points: number;
+  bonusIncEff: number;
+}
+
+const calculateFervor = (mods: Mod[], config: Configuration): FervorCtx => {
+  const fervorEffMods = filterMod(mods, "FervorEff");
+  const bonusIncEff = calculateInc(fervorEffMods.map((a) => a.value));
+  return {
+    enabled: config.fervor.enabled,
+    points: config.fervor.points ?? 100,
+    bonusIncEff: bonusIncEff,
+  };
+};
+
+const calculateFervorCritRateMod = (fervor: FervorCtx): Mod => {
+  const fervorPerPoint = 0.02 * (1 + fervor.bonusIncEff);
+  const fervorBonus = fervor.points * fervorPerPoint;
+
+  return {
+    type: "CritRatingPct",
+    value: fervorBonus,
+    modType: "global",
+    src: "fervor",
+  };
+};
+
+const calculateWillpower = (normalizedMods: Mod[]) => {
+  return findMod(normalizedMods, "MaxWillpowerStacks")?.value || 0;
+};
+
+const calculateTotalMainStats = (
+  skill: BaseActiveSkill | BasePassiveSkill,
+  stats: Stats,
+) => {
+  const mainStats = skill.mainStats ?? [];
+  let totalMainStats = 0;
+  for (const mainStatType of mainStats) {
+    totalMainStats += stats[mainStatType];
+  }
+  return totalMainStats;
+};
+
+interface EnemyFrostbittenCtx {
+  enabled: boolean;
+  points: number;
+}
+
+const calculateEnemyFrostbitten = (
+  config: Configuration,
+): EnemyFrostbittenCtx => {
+  return {
+    enabled: config.enemyFrostbitten.enabled,
+    points: config.enemyFrostbitten.points ?? 0,
+  };
+};
+
 // Normalizes mods for a specific skill, handling "per" properties
 const normalizeModsForSkill = (
-  sharedMods: Mod[],
-  perSkillMods: Mod[],
-  skill: BaseActiveSkill,
-  sharedContext: SharedCtx,
+  prenormModsFromParam: Mod[],
+  skill: BaseActiveSkill | BasePassiveSkill,
   config: Configuration,
 ): Mod[] => {
   // Create stat-based damage mod
-  const statBasedDmgMod: Mod = {
-    type: "DmgPct",
-    // .5% additional damage per main stat
-    value: 0.005,
-    modType: "global",
-    addn: true,
-    per: { stackable: "main_stat" },
-    src: "Additional Damage from skill Main Stat (.5% per stat)",
-  };
+  const prenormMods = [...prenormModsFromParam, ...calculateImplicitMods()];
+  let mods = calculateStaticMods(prenormMods);
 
-  const allMods = [...sharedMods, ...perSkillMods, statBasedDmgMod];
+  const stats = calculateStats(prenormMods);
+  const totalMainStats = calculateTotalMainStats(skill, stats);
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "main_stat", totalMainStats),
+  );
+  const skillUse = 3;
+  mods = mods.concat(normalizeStackables(prenormMods, "skill_use", skillUse));
+  const skillChargesOnUse = 2;
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "skill_charges_on_use", skillChargesOnUse),
+  );
+  const willpowerStacks = calculateWillpower(prenormMods);
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "willpower", willpowerStacks),
+  );
+  const crueltyBuffStacks = config.crueltyBuffStacks ?? 40;
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "cruelty_buff", crueltyBuffStacks),
+  );
+  const frostbitten = calculateEnemyFrostbitten(config);
+  mods = mods.concat(filterModsByFrostbittenCond(prenormMods, frostbitten));
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "frostbite_rating", frostbitten.points),
+  );
 
-  const normContext = calculateNormalizationContext({
-    mods: allMods,
-    config,
-    stats: sharedContext.stats,
-    skill,
-  });
+  // todo: calculate projectile count
+  const projectiles = 0;
+  mods = mods.concat(
+    normalizeStackables(prenormMods, "projectile", projectiles),
+  );
 
-  return allMods
-    .map((mod) => normalizeMod(mod, normContext, config))
-    .filter((mod) => mod !== undefined);
+  const fervor = calculateFervor(mods, config);
+  if (fervor.enabled) {
+    mods.push(calculateFervorCritRateMod(fervor));
+    mods = mods.concat(
+      normalizeStackables(prenormMods, "fervor", fervor.points),
+    );
+  }
+
+  return mods;
 };
 
 // Calculates offense for all enabled implemented skills
 export const calculateOffense = (input: OffenseInput): OffenseResults => {
   const { loadout, configuration } = input;
+  const loadoutMods = collectMods(loadout);
 
-  // Phase 1: Resolve shared mods once
-  const sharedCtx = resolveSharedMods(loadout, configuration);
-  const sharedMods = [...sharedCtx.loadoutMods, ...sharedCtx.buffSkillMods];
+  const prenormMods = [
+    ...loadoutMods,
+    ...resolveBuffSkillMods(loadout, loadoutMods, configuration),
+  ];
 
   // Phase 2: Get enabled skill slots
   const skillSlots = listActiveSkillSlots(loadout);
@@ -1149,10 +1150,8 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     }
 
     const mods = normalizeModsForSkill(
-      sharedMods,
-      perSkillContext.mods,
+      [...prenormMods, ...perSkillContext.mods],
       perSkillContext.skill,
-      sharedCtx,
       configuration,
     );
 
@@ -1160,8 +1159,8 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     const flatDmg = calculateFlatDmg(mods, "attack");
 
     const aspd = calculateAspd(loadout, mods);
-    const critChance = calculateCritRating(mods, configuration, sharedCtx);
-    const critDmgMult = calculateCritDmg(mods, configuration, sharedCtx);
+    const critChance = calculateCritRating(mods);
+    const critDmgMult = calculateCritDmg(mods);
 
     const skillHit = calculateSkillHit(
       gearDmg,

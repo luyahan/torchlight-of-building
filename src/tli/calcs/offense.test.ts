@@ -481,7 +481,17 @@ test("calculate offense with CritDmgPerFervor single affix", () => {
   // AvgHitWithCrit: 100 * 0.15 * 2.25 + 100 * 0.85 = 33.75 + 85 = 118.75
   const { input, skillName } = createInput({
     weapon: {
-      base_affixes: [affix([{ type: "CritDmgPerFervor", value: 0.005 }])], // +0.5% crit dmg per fervor point
+      base_affixes: [
+        affix([
+          {
+            type: "CritDmgPct",
+            value: 0.005,
+            addn: false,
+            modType: "global",
+            per: { stackable: "fervor" },
+          },
+        ]),
+      ], // +0.5% crit dmg per fervor point
     },
     configuration: {
       ...createDefaultConfiguration(),
@@ -506,9 +516,29 @@ test("calculate offense with multiple CritDmgPerFervor affixes stacking", () => 
   // AvgHitWithCrit: 100 * 0.15 * 2.7 + 100 * 0.85 = 40.5 + 85 = 125.5
   const { input, skillName } = createInput({
     weapon: {
-      base_affixes: [affix([{ type: "CritDmgPerFervor", value: 0.005 }])], // +0.5% per point
+      base_affixes: [
+        affix([
+          {
+            type: "CritDmgPct",
+            value: 0.005,
+            addn: false,
+            modType: "global",
+            per: { stackable: "fervor" },
+          },
+        ]),
+      ], // +0.5% per point
     },
-    talentMods: [affix([{ type: "CritDmgPerFervor", value: 0.003 }])], // +0.3% per point
+    talentMods: [
+      affix([
+        {
+          type: "CritDmgPct",
+          value: 0.003,
+          addn: false,
+          modType: "global",
+          per: { stackable: "fervor" },
+        },
+      ]),
+    ], // +0.3% per point
     configuration: {
       ...createDefaultConfiguration(),
       fervor: { enabled: true, points: 100 },
@@ -532,7 +562,17 @@ test("calculate offense with CritDmgPerFervor with custom fervor points", () => 
   // AvgHitWithCrit: 100 * 0.10 * 2.25 + 100 * 0.90 = 22.5 + 90 = 112.5
   const { input, skillName } = createInput({
     weapon: {
-      base_affixes: [affix([{ type: "CritDmgPerFervor", value: 0.01 }])], // +1% crit dmg per fervor point
+      base_affixes: [
+        affix([
+          {
+            type: "CritDmgPct",
+            value: 0.01,
+            addn: false,
+            modType: "global",
+            per: { stackable: "fervor" },
+          },
+        ]),
+      ], // +1% crit dmg per fervor point
     },
     configuration: {
       ...createDefaultConfiguration(),
@@ -555,7 +595,17 @@ test("calculate offense with CritDmgPerFervor but fervor disabled", () => {
   // AvgHitWithCrit: 100 * 0.05 * 1.5 + 100 * 0.95 = 7.5 + 95 = 102.5
   const { input, skillName } = createInput({
     weapon: {
-      base_affixes: [affix([{ type: "CritDmgPerFervor", value: 0.005 }])], // +0.5% per point
+      base_affixes: [
+        affix([
+          {
+            type: "CritDmgPct",
+            value: 0.005,
+            addn: false,
+            modType: "global",
+            per: { stackable: "fervor" },
+          },
+        ]),
+      ], // +0.5% per point
     },
     configuration: {
       ...createDefaultConfiguration(),
@@ -583,7 +633,15 @@ test("calculate offense with CritDmgPerFervor and other crit damage modifiers", 
   const { input, skillName } = createInput({
     weapon: {
       base_affixes: [
-        affix([{ type: "CritDmgPerFervor", value: 0.005 }]), // +0.5% per point
+        affix([
+          {
+            type: "CritDmgPct",
+            value: 0.005,
+            addn: false,
+            modType: "global",
+            per: { stackable: "fervor" },
+          },
+        ]), // +0.5% per point
         affix([
           { type: "CritDmgPct", value: 0.3, modType: "global", addn: false },
         ]), // +30% increased

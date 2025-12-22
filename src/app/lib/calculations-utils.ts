@@ -69,7 +69,6 @@ export const categorizeModType = (mod: Mod): StatCategory => {
       return "critRating";
 
     case "CritDmgPct":
-    case "CritDmgPerFervor":
       return "critDmg";
 
     case "AspdPct":
@@ -168,8 +167,6 @@ export const getModDisplayName = (mod: Mod): string => {
       return "Weapon physical damage";
     case "AddnMainHandDmgPct":
       return "Additional main hand damage";
-    case "CritDmgPerFervor":
-      return "Critical damage per fervor";
     case "FervorEff":
       return "Fervor effectiveness";
     case "Fervor":
