@@ -2,14 +2,68 @@
 
 ## Routes
 
-- `src/routes/index.tsx` - Saves manager (list/create/delete saves)
-- `src/routes/builder.tsx` - Main builder (edit current save)
+**URL Structure:**
+```
+/                           → Saves manager (list/create/delete)
+/builder                    → Redirects to /builder/equipment
+/builder/equipment?id=xxx   → Equipment section
+/builder/talents            → Redirects to /builder/talents/slot_1
+/builder/talents/slot_1     → Talents, tree slot 1
+/builder/talents/slot_2     → Talents, tree slot 2
+/builder/talents/slot_3     → Talents, tree slot 3
+/builder/talents/slot_4     → Talents, tree slot 4
+/builder/skills             → Skills section
+/builder/hero               → Hero section
+/builder/pactspirit         → Pactspirit section
+/builder/divinity           → Divinity section
+/builder/configuration      → Configuration section
+/builder/calculations       → Calculations section
+```
+
+**Key files:**
 - `src/routes/__root.tsx` - Root layout with global styles
+- `src/routes/index.tsx` - Saves manager
+- `src/routes/builder.tsx` - Builder layout (validates `?id=` param, loads save, renders `<Outlet>`)
+- `src/routes/builder/*.tsx` - Section routes (component logic inlined in route files)
+- `src/routes/builder/talents/$slot.tsx` - Dynamic route with slot param validation
+
+**Routing patterns:**
+```typescript
+// Redirect in beforeLoad
+export const Route = createFileRoute("/builder/")({
+  beforeLoad: ({ search }) => {
+    throw redirect({ to: "/builder/equipment", search });
+  },
+  component: () => null,
+});
+
+// Dynamic params with validation
+export const Route = createFileRoute("/builder/talents/$slot")({
+  beforeLoad: ({ params, search }) => {
+    if (!TALENT_SLOT_PARAMS.includes(params.slot as TalentSlotParam)) {
+      throw redirect({ to: "/builder/talents/$slot", params: { slot: "slot_1" }, search });
+    }
+  },
+  component: TalentsSlotPage,
+});
+
+// Accessing params in component
+const { slot } = Route.useParams();
+const activeTreeSlot = paramToTreeSlot(slot as TalentSlotParam);
+```
+
+**Type helpers** (in `src/lib/types.ts`):
+```typescript
+type TalentSlotParam = "slot_1" | "slot_2" | "slot_3" | "slot_4";
+const TALENT_SLOT_PARAMS = ["slot_1", "slot_2", "slot_3", "slot_4"] as const;
+paramToTreeSlot(param: TalentSlotParam): TreeSlot
+treeSlotToParam(slot: TreeSlot): TalentSlotParam
+```
 
 ## Component Organization
 
 Feature-organized in `src/components/`:
-- `builder/` - Layout, tabs, sections
+- `builder/` - BuilderLayout, PageTabs (section components are inlined in route files)
 - `equipment/` - Gear slots, crafting, inventory
 - `hero/` - Hero selection, memories, traits
 - `talents/` - Talent trees, prisms, inverse images
@@ -20,11 +74,12 @@ Feature-organized in `src/components/`:
 - `ui/` - Reusable primitives (Modal, SearchableSelect, Tooltip, Toast)
 
 **Naming conventions:**
-- `*Section.tsx` - Major UI sections
 - `*Selector.tsx` - Selection components
 - `*Inventory.tsx` - List/grid displays
 - `*Crafter.tsx` - Creation interfaces
 - `*Tab.tsx` - Tab content
+
+**Note:** Section-level components are inlined directly in route files under `src/routes/builder/`.
 
 ## Component Patterns
 
@@ -65,7 +120,7 @@ const { selectedSlot } = equipmentUIStore();
 Feature UI stores hold ephemeral state (crafting in progress, selections):
 ```typescript
 // equipmentUIStore - current crafting state
-// talentsUIStore - selected tree/node
+// talentsUIStore - prism/inverse image crafting state (tree slot is in URL)
 // divinityUIStore - slate placement mode
 ```
 
@@ -122,6 +177,6 @@ grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3
 
 | Task | Key Files |
 |------|-----------|
-| Add UI section | `src/components/{feature}/`, update `PageTabs.tsx` |
+| Add UI section | Create `src/routes/builder/{section}.tsx`, update `PageTabs.tsx` |
 | Add feature UI state | Create `src/stores/{feature}UIStore.ts` |
 | Add reusable component | `src/components/ui/` |

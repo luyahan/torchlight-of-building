@@ -22,7 +22,20 @@ pnpm check        # Biome linting and formatting
 src/routes/              # TanStack Router file-based routes
 ├── __root.tsx           # Root layout
 ├── index.tsx            # Home page (/)
-└── builder.tsx          # Builder page (/builder)
+├── builder.tsx          # Builder layout (/builder) - loads save, renders Outlet
+└── builder/             # Nested builder routes (each section is a route)
+    ├── index.tsx        # Redirect → /builder/equipment
+    ├── equipment.tsx    # Equipment section
+    ├── talents.tsx      # Talents layout (renders Outlet)
+    ├── talents/
+    │   ├── index.tsx    # Redirect → /builder/talents/slot_1
+    │   └── $slot.tsx    # Dynamic slot param (slot_1, slot_2, slot_3, slot_4)
+    ├── skills.tsx       # Skills section
+    ├── hero.tsx         # Hero section
+    ├── pactspirit.tsx   # Pactspirit section
+    ├── divinity.tsx     # Divinity section
+    ├── configuration.tsx # Configuration section
+    └── calculations.tsx # Calculations section
 
 src/components/          # Feature-organized React components
 src/stores/              # Zustand state management
@@ -105,6 +118,7 @@ Two formats coexist:
 2. **Feature UI Stores** (`*UIStore.ts`) - Ephemeral crafting/preview state
    - Not persisted, reset on type changes
    - Examples: `equipmentUIStore`, `divinityUIStore`, `talentsUIStore`
+   - Note: `talentsUIStore` only holds prism/inverse image crafting state (tree slot is in URL)
 
 **Key patterns:**
 ```typescript

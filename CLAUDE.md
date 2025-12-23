@@ -17,7 +17,7 @@ pnpm check        # Biome linting and formatting
 
 ## Architecture
 
-- **Routes** ([src/routes/](src/routes/)) - TanStack Router file-based routing
+- **Routes** ([src/routes/](src/routes/)) - TanStack Router file-based routing with nested routes under `/builder/`
 - **UI Components** ([src/components/](src/components/)) - React components organized by feature (equipment, talents, skills, hero, pactspirit)
 - **UI Lib** ([src/lib/](src/lib/)) - Shared types, constants, storage utilities, build-code encoding
 - **Game Engine** ([src/tli/](src/tli/)) - Pure TypeScript, no React
