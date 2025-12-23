@@ -2,6 +2,7 @@
 
 import type {
   AllocatedTalentNode,
+  ConfigurationPage,
   CraftedInverseImage,
   CraftedPrism,
   DivinitySlate,
@@ -16,13 +17,11 @@ import type {
 import type { SavesIndex } from "../../lib/saves";
 import type {
   GearSlot,
+  InstalledDestinyResult,
   PactspiritSlotIndex,
   RingSlotKey,
   TreeSlot,
 } from "../../lib/types";
-
-// Callback type for mutations that need current state
-export type SaveDataUpdater = (current: SaveData) => SaveData;
 
 // Public readable state (NO saveData)
 export interface BuilderReadableState {
@@ -32,11 +31,13 @@ export interface BuilderReadableState {
   savesIndex: SavesIndex;
 }
 
+type SkillSlotKey = 1 | 2 | 3 | 4;
+type SupportSlotKey = 1 | 2 | 3 | 4 | 5;
+
 // Public action types
 export interface BuilderActions {
   // Core actions
   setSaveData: (saveData: SaveData) => void;
-  updateSaveData: (updater: SaveDataUpdater) => void;
   loadFromSave: (saveId: string) => boolean;
   save: () => boolean;
   resetUnsavedChanges: () => void;
@@ -128,11 +129,79 @@ export interface BuilderActions {
     skillType: "active" | "passive",
     slot: 1 | 2 | 3 | 4,
   ) => void;
+  setSkillLevel: (
+    skillType: "active" | "passive",
+    slot: SkillSlotKey,
+    level: number,
+  ) => void;
+  setSupportSkillLevel: (
+    skillType: "active" | "passive",
+    skillSlot: SkillSlotKey,
+    supportSlot: SupportSlotKey,
+    level: number,
+  ) => void;
+
+  // Divinity actions (new)
+  copySlate: (slateId: string) => void;
+
+  // Hero actions (new)
+  resetHeroPage: (hero?: string) => void;
+  equipHeroMemoryById: (
+    slot: HeroMemorySlot,
+    memoryId: string | undefined,
+  ) => void;
+
+  // Configuration actions (new)
+  updateConfiguration: (updates: Partial<ConfigurationPage>) => void;
+
+  // Pactspirit actions (new)
+  resetPactspiritSlot: (
+    slotIndex: PactspiritSlotIndex,
+    pactspiritName: string | undefined,
+  ) => void;
+  clearRingDestiny: (
+    slotIndex: PactspiritSlotIndex,
+    ringSlot: RingSlotKey,
+  ) => void;
+  installDestiny: (
+    slotIndex: PactspiritSlotIndex,
+    ringSlot: RingSlotKey,
+    destiny: InstalledDestinyResult,
+  ) => void;
+
+  // Talent actions (new)
+  allocateNode: (
+    treeSlot: TreeSlot,
+    x: number,
+    y: number,
+    maxPoints: number,
+  ) => void;
+  deallocateNode: (treeSlot: TreeSlot, x: number, y: number) => void;
+  selectCoreTalent: (
+    treeSlot: TreeSlot,
+    slotIndex: number,
+    talentName: string | undefined,
+  ) => void;
+  updatePrism: (prism: CraftedPrism) => void;
+  copyPrism: (prismId: string) => void;
+  returnPrismToInventory: () => void;
+  updateInverseImage: (inverseImage: CraftedInverseImage) => void;
+  copyInverseImage: (inverseImageId: string) => void;
+  setTreeOrClear: (
+    treeSlot: TreeSlot,
+    treeName: string,
+    clearCoreTalents?: boolean,
+  ) => void;
+  resetTree: (treeSlot: TreeSlot) => void;
+
+  // Calculations actions (new)
+  setCalculationsSelectedSkill: (skillName: string | undefined) => void;
 }
 
 // Re-export types that components may need for action parameters
 export type {
   AllocatedTalentNode,
+  ConfigurationPage,
   CraftedInverseImage,
   CraftedPrism,
   DivinitySlate,
@@ -151,6 +220,7 @@ export type {
 export type { SavesIndex } from "../../lib/saves";
 export type {
   GearSlot,
+  InstalledDestinyResult,
   PactspiritSlotIndex,
   RingSlotKey,
   TreeSlot,

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback } from "react";
 import {
   type DivinitySlate,
   getAffixText,
@@ -9,7 +8,6 @@ import {
 } from "@/src/tli/core";
 import { DivinityTab } from "../../components/divinity/DivinityTab";
 import type { DivinitySlate as SaveDataDivinitySlate } from "../../lib/save-data";
-import { generateItemId } from "../../lib/storage";
 import { useBuilderActions, useLoadout } from "../../stores/builderStore";
 
 export const Route = createFileRoute("/builder/divinity")({
@@ -23,155 +21,41 @@ const toSaveDataSlate = (slate: DivinitySlate): SaveDataDivinitySlate => ({
 
 function DivinityPage(): React.ReactNode {
   const loadout = useLoadout();
-  const { updateSaveData } = useBuilderActions();
-
-  const handleSaveSlate = useCallback(
-    (slate: DivinitySlate) => {
-      const saveDataSlate = toSaveDataSlate(slate);
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: [...prev.divinityPage.inventory, saveDataSlate],
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleCopySlate = useCallback(
-    (slate: DivinitySlate) => {
-      const saveDataSlate = toSaveDataSlate(slate);
-      const newSlate = { ...saveDataSlate, id: generateItemId() };
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: [...prev.divinityPage.inventory, newSlate],
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleDeleteSlate = useCallback(
-    (slateId: string) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: prev.divinityPage.inventory.filter(
-            (s) => s.id !== slateId,
-          ),
-          placedSlates: prev.divinityPage.placedSlates.filter(
-            (p) => p.slateId !== slateId,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handlePlaceSlate = useCallback(
-    (placement: PlacedSlate) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          placedSlates: [...prev.divinityPage.placedSlates, placement],
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleMoveSlate = useCallback(
-    (slateId: string, position: { row: number; col: number }) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          placedSlates: prev.divinityPage.placedSlates.map((p) =>
-            p.slateId === slateId ? { ...p, position } : p,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleUpdateSlateRotation = useCallback(
-    (slateId: string, rotation: Rotation) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: prev.divinityPage.inventory.map((s) =>
-            s.id === slateId ? { ...s, rotation } : s,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleUpdateSlateFlip = useCallback(
-    (slateId: string, flippedH: boolean, flippedV: boolean) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: prev.divinityPage.inventory.map((s) =>
-            s.id === slateId ? { ...s, flippedH, flippedV } : s,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleUpdateSlateShape = useCallback(
-    (slateId: string, shape: SlateShape) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          inventory: prev.divinityPage.inventory.map((s) =>
-            s.id === slateId ? { ...s, shape } : s,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
-
-  const handleUnplaceSlate = useCallback(
-    (slateId: string) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        divinityPage: {
-          ...prev.divinityPage,
-          placedSlates: prev.divinityPage.placedSlates.filter(
-            (p) => p.slateId !== slateId,
-          ),
-        },
-      }));
-    },
-    [updateSaveData],
-  );
+  const {
+    addSlateToInventory,
+    copySlate,
+    deleteSlate,
+    placeSlate,
+    removeSlate,
+    updateSlate,
+  } = useBuilderActions();
 
   return (
     <DivinityTab
       divinityPage={loadout.divinityPage}
-      onSaveSlate={handleSaveSlate}
-      onCopySlate={handleCopySlate}
-      onDeleteSlate={handleDeleteSlate}
-      onPlaceSlate={handlePlaceSlate}
-      onMoveSlate={handleMoveSlate}
-      onUnplaceSlate={handleUnplaceSlate}
-      onUpdateSlateRotation={handleUpdateSlateRotation}
-      onUpdateSlateFlip={handleUpdateSlateFlip}
-      onUpdateSlateShape={handleUpdateSlateShape}
+      onSaveSlate={(slate: DivinitySlate) =>
+        addSlateToInventory(toSaveDataSlate(slate))
+      }
+      onCopySlate={(slate: DivinitySlate) => copySlate(slate.id)}
+      onDeleteSlate={deleteSlate}
+      onPlaceSlate={(placement: PlacedSlate) =>
+        placeSlate(placement.slateId, placement.position)
+      }
+      onMoveSlate={(slateId: string, position: { row: number; col: number }) =>
+        placeSlate(slateId, position)
+      }
+      onUnplaceSlate={removeSlate}
+      onUpdateSlateRotation={(slateId: string, rotation: Rotation) =>
+        updateSlate(slateId, { rotation })
+      }
+      onUpdateSlateFlip={(
+        slateId: string,
+        flippedH: boolean,
+        flippedV: boolean,
+      ) => updateSlate(slateId, { flippedH, flippedV })}
+      onUpdateSlateShape={(slateId: string, shape: SlateShape) =>
+        updateSlate(slateId, { shape })
+      }
     />
   );
 }

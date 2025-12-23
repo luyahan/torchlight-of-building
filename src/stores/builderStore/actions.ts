@@ -1,14 +1,30 @@
 "use client";
 
-import type { Gear, HeroMemorySlot } from "../../lib/save-data";
+import { getBaseTraitForHero } from "../../lib/hero-utils";
+import type {
+  CraftedInverseImage,
+  CraftedPrism,
+  Gear,
+  HeroMemorySlot,
+} from "../../lib/save-data";
 import {
   loadSaveData,
   loadSavesIndex,
   saveSaveData,
   saveSavesIndex,
 } from "../../lib/saves";
-import { generateItemId } from "../../lib/storage";
-import type { GearSlot } from "../../lib/types";
+import {
+  createEmptyConfigurationPage,
+  createEmptyHeroPage,
+  createEmptyPactspiritSlot,
+  generateItemId,
+} from "../../lib/storage";
+import type {
+  GearSlot,
+  InstalledDestinyResult,
+  PactspiritSlotIndex,
+  RingSlotKey,
+} from "../../lib/types";
 import { internalStore } from "./internal";
 import type { BuilderActions } from "./types";
 
@@ -18,13 +34,6 @@ export const createActions = (): BuilderActions => ({
     internalStore.setState((state) => {
       state.saveData = saveData;
       state.hasUnsavedChanges = false;
-    });
-  },
-
-  updateSaveData: (updater) => {
-    internalStore.setState((state) => {
-      state.saveData = updater(state.saveData);
-      state.hasUnsavedChanges = true;
     });
   },
 
@@ -499,9 +508,14 @@ export const createActions = (): BuilderActions => ({
   // Skills actions
   setActiveSkill: (slot, skillName) => {
     internalStore.setState((state) => {
-      const skill = state.saveData.skillPage.activeSkills[slot];
-      if (skill !== undefined && skillName !== undefined) {
-        skill.skillName = skillName;
+      if (skillName === undefined) {
+        state.saveData.skillPage.activeSkills[slot] = undefined;
+      } else {
+        state.saveData.skillPage.activeSkills[slot] = {
+          skillName,
+          enabled: true,
+          supportSkills: {},
+        };
       }
       state.hasUnsavedChanges = true;
     });
@@ -509,9 +523,14 @@ export const createActions = (): BuilderActions => ({
 
   setPassiveSkill: (slot, skillName) => {
     internalStore.setState((state) => {
-      const skill = state.saveData.skillPage.passiveSkills[slot];
-      if (skill !== undefined && skillName !== undefined) {
-        skill.skillName = skillName;
+      if (skillName === undefined) {
+        state.saveData.skillPage.passiveSkills[slot] = undefined;
+      } else {
+        state.saveData.skillPage.passiveSkills[slot] = {
+          skillName,
+          enabled: true,
+          supportSkills: {},
+        };
       }
       state.hasUnsavedChanges = true;
     });
@@ -540,6 +559,290 @@ export const createActions = (): BuilderActions => ({
       const skill = skillSlots[slot];
       if (skill === undefined) return;
       skill.enabled = !skill.enabled;
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  setSkillLevel: (skillType, slot, level) => {
+    internalStore.setState((state) => {
+      const skillSlots =
+        skillType === "active"
+          ? state.saveData.skillPage.activeSkills
+          : state.saveData.skillPage.passiveSkills;
+      const skill = skillSlots[slot];
+      if (skill === undefined) return;
+      skill.level = level;
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  setSupportSkillLevel: (skillType, skillSlot, supportSlot, level) => {
+    internalStore.setState((state) => {
+      const skillSlots =
+        skillType === "active"
+          ? state.saveData.skillPage.activeSkills
+          : state.saveData.skillPage.passiveSkills;
+      const skill = skillSlots[skillSlot];
+      if (skill === undefined) return;
+      const support = skill.supportSkills[supportSlot];
+      if (support === undefined) return;
+      support.level = level;
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Divinity actions (new)
+  copySlate: (slateId) => {
+    const slate = internalStore
+      .getState()
+      .saveData.divinityPage.inventory.find((s) => s.id === slateId);
+    if (!slate) return;
+    const newSlate = { ...slate, id: generateItemId() };
+    internalStore.setState((state) => {
+      state.saveData.divinityPage.inventory.push(newSlate);
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Hero actions (new)
+  resetHeroPage: (hero) => {
+    internalStore.setState((state) => {
+      if (!hero) {
+        state.saveData.heroPage = {
+          ...createEmptyHeroPage(),
+          memoryInventory: state.saveData.heroPage.memoryInventory,
+        };
+      } else {
+        const baseTrait = getBaseTraitForHero(hero);
+        state.saveData.heroPage = {
+          selectedHero: hero,
+          traits: {
+            level1: baseTrait?.name,
+            level45: undefined,
+            level60: undefined,
+            level75: undefined,
+          },
+          memorySlots: {
+            slot45: undefined,
+            slot60: undefined,
+            slot75: undefined,
+          },
+          memoryInventory: state.saveData.heroPage.memoryInventory,
+        };
+      }
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  equipHeroMemoryById: (slot, memoryId) => {
+    internalStore.setState((state) => {
+      const memory = memoryId
+        ? state.saveData.heroPage.memoryInventory.find((m) => m.id === memoryId)
+        : undefined;
+      state.saveData.heroPage.memorySlots[slot] = memory;
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Configuration actions (new)
+  updateConfiguration: (updates) => {
+    internalStore.setState((state) => {
+      state.saveData.configurationPage = {
+        ...(state.saveData.configurationPage ?? createEmptyConfigurationPage()),
+        ...updates,
+      };
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Pactspirit actions (new)
+  resetPactspiritSlot: (slotIndex, pactspiritName) => {
+    internalStore.setState((state) => {
+      const slotKey =
+        `slot${slotIndex}` as keyof typeof state.saveData.pactspiritPage;
+      state.saveData.pactspiritPage[slotKey] = {
+        ...createEmptyPactspiritSlot(),
+        pactspiritName,
+      };
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  clearRingDestiny: (slotIndex, ringSlot) => {
+    internalStore.setState((state) => {
+      const slotKey =
+        `slot${slotIndex}` as keyof typeof state.saveData.pactspiritPage;
+      state.saveData.pactspiritPage[slotKey].rings[ringSlot] = {};
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  installDestiny: (
+    slotIndex: PactspiritSlotIndex,
+    ringSlot: RingSlotKey,
+    destiny: InstalledDestinyResult,
+  ) => {
+    internalStore.setState((state) => {
+      const slotKey =
+        `slot${slotIndex}` as keyof typeof state.saveData.pactspiritPage;
+      state.saveData.pactspiritPage[slotKey].rings[ringSlot] = {
+        installedDestiny: destiny,
+      };
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Talent actions (new)
+  allocateNode: (treeSlot, x, y, maxPoints) => {
+    internalStore.setState((state) => {
+      const tree = state.saveData.talentPage.talentTrees[treeSlot];
+      if (!tree) return;
+      const existing = tree.allocatedNodes.find((n) => n.x === x && n.y === y);
+
+      if (existing) {
+        if (existing.points >= maxPoints) return;
+        existing.points += 1;
+      } else {
+        tree.allocatedNodes.push({ x, y, points: 1 });
+      }
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  deallocateNode: (treeSlot, x, y) => {
+    internalStore.setState((state) => {
+      const tree = state.saveData.talentPage.talentTrees[treeSlot];
+      if (!tree) return;
+      const existing = tree.allocatedNodes.find((n) => n.x === x && n.y === y);
+      if (!existing) return;
+
+      if (existing.points > 1) {
+        existing.points -= 1;
+      } else {
+        tree.allocatedNodes = tree.allocatedNodes.filter(
+          (n) => !(n.x === x && n.y === y),
+        );
+      }
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  selectCoreTalent: (treeSlot, slotIndex, talentName) => {
+    internalStore.setState((state) => {
+      const tree = state.saveData.talentPage.talentTrees[treeSlot];
+      if (!tree) return;
+
+      const newSelected = [...(tree.selectedCoreTalents ?? [])];
+      if (talentName) {
+        newSelected[slotIndex] = talentName;
+      } else {
+        newSelected.splice(slotIndex, 1);
+      }
+      tree.selectedCoreTalents = newSelected.filter(Boolean);
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  updatePrism: (prism: CraftedPrism) => {
+    internalStore.setState((state) => {
+      state.saveData.talentPage.inventory.prismList =
+        state.saveData.talentPage.inventory.prismList.map((p) =>
+          p.id === prism.id ? prism : p,
+        );
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  copyPrism: (prismId) => {
+    const prism = internalStore
+      .getState()
+      .saveData.talentPage.inventory.prismList.find((p) => p.id === prismId);
+    if (!prism) return;
+    const newPrism = { ...prism, id: generateItemId() };
+    internalStore.setState((state) => {
+      state.saveData.talentPage.inventory.prismList.push(newPrism);
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  returnPrismToInventory: () => {
+    internalStore.setState((state) => {
+      const placed = state.saveData.talentPage.talentTrees.placedPrism;
+      if (!placed) return;
+      state.saveData.talentPage.inventory.prismList.push(placed.prism);
+      delete state.saveData.talentPage.talentTrees.placedPrism;
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  updateInverseImage: (inverseImage: CraftedInverseImage) => {
+    internalStore.setState((state) => {
+      state.saveData.talentPage.inventory.inverseImageList =
+        state.saveData.talentPage.inventory.inverseImageList.map((ii) =>
+          ii.id === inverseImage.id ? inverseImage : ii,
+        );
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  copyInverseImage: (inverseImageId) => {
+    const inverseImage = internalStore
+      .getState()
+      .saveData.talentPage.inventory.inverseImageList.find(
+        (ii) => ii.id === inverseImageId,
+      );
+    if (!inverseImage) return;
+    const newInverseImage = { ...inverseImage, id: generateItemId() };
+    internalStore.setState((state) => {
+      state.saveData.talentPage.inventory.inverseImageList.push(
+        newInverseImage,
+      );
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  setTreeOrClear: (treeSlot, treeName, clearCoreTalents) => {
+    internalStore.setState((state) => {
+      if (treeName === "") {
+        delete state.saveData.talentPage.talentTrees[treeSlot];
+      } else {
+        state.saveData.talentPage.talentTrees[treeSlot] = {
+          name: treeName,
+          allocatedNodes: [],
+          selectedCoreTalents: clearCoreTalents
+            ? []
+            : (state.saveData.talentPage.talentTrees[treeSlot]
+                ?.selectedCoreTalents ?? []),
+        };
+      }
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  resetTree: (treeSlot) => {
+    internalStore.setState((state) => {
+      const tree = state.saveData.talentPage.talentTrees[treeSlot];
+      if (!tree) return;
+      tree.allocatedNodes = [];
+
+      // Also clear reflected nodes if inverse image is placed on this tree
+      const placedInverseImage =
+        state.saveData.talentPage.talentTrees.placedInverseImage;
+      if (placedInverseImage?.treeSlot === treeSlot) {
+        placedInverseImage.reflectedAllocatedNodes = [];
+      }
+      state.hasUnsavedChanges = true;
+    });
+  },
+
+  // Calculations actions (new)
+  setCalculationsSelectedSkill: (skillName) => {
+    internalStore.setState((state) => {
+      if (!state.saveData.calculationsPage) {
+        state.saveData.calculationsPage = { selectedSkillName: skillName };
+      } else {
+        state.saveData.calculationsPage.selectedSkillName = skillName;
+      }
       state.hasUnsavedChanges = true;
     });
   },

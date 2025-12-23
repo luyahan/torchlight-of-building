@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import type { ImplementedActiveSkillName } from "@/src/data/skill/types";
 import { calculateOffense, type OffenseInput } from "@/src/tli/calcs/offense";
 import { ModGroup } from "../../components/calculations/ModGroup";
@@ -12,7 +12,6 @@ import {
   groupModsByEffect,
   STAT_CATEGORIES,
 } from "../../lib/calculations-utils";
-import { createEmptyCalculationsPage } from "../../lib/storage";
 import {
   useBuilderActions,
   useCalculationsSelectedSkill,
@@ -28,24 +27,11 @@ function CalculationsPage(): React.ReactNode {
   const loadout = useLoadout();
   const configuration = useConfiguration();
   const savedSkillName = useCalculationsSelectedSkill();
-  const { updateSaveData } = useBuilderActions();
+  const { setCalculationsSelectedSkill } = useBuilderActions();
 
   const selectedSkill = savedSkillName as
     | ImplementedActiveSkillName
     | undefined;
-
-  const setSelectedSkill = useCallback(
-    (skill: ImplementedActiveSkillName | undefined) => {
-      updateSaveData((prev) => ({
-        ...prev,
-        calculationsPage: {
-          ...(prev.calculationsPage ?? createEmptyCalculationsPage()),
-          selectedSkillName: skill,
-        },
-      }));
-    },
-    [updateSaveData],
-  );
 
   const offenseResults = useMemo(() => {
     const input: OffenseInput = {
@@ -74,7 +60,7 @@ function CalculationsPage(): React.ReactNode {
         <SkillSelector
           loadout={loadout}
           selectedSkill={selectedSkill}
-          onSkillChange={setSelectedSkill}
+          onSkillChange={setCalculationsSelectedSkill}
         />
       </div>
 
