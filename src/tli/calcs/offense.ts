@@ -1126,20 +1126,25 @@ const normalizeModsForSkill = (
   mods = mods.concat(
     normalizeStackables(prenormMods, "main_stat", totalMainStats),
   );
+
   const skillUse = 3;
   mods = mods.concat(normalizeStackables(prenormMods, "skill_use", skillUse));
+
   const skillChargesOnUse = 2;
   mods = mods.concat(
     normalizeStackables(prenormMods, "skill_charges_on_use", skillChargesOnUse),
   );
+
   const willpowerStacks = calculateWillpower(prenormMods);
   mods = mods.concat(
     normalizeStackables(prenormMods, "willpower", willpowerStacks),
   );
+
   const crueltyBuffStacks = config.crueltyBuffStacks ?? 40;
   mods = mods.concat(
     normalizeStackables(prenormMods, "cruelty_buff", crueltyBuffStacks),
   );
+
   const frostbitten = calculateEnemyFrostbitten(config);
   mods = mods.concat(filterModsByFrostbittenCond(prenormMods, frostbitten));
   mods = mods.concat(
