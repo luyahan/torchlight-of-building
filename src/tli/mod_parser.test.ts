@@ -471,3 +471,89 @@ test("return undefined for invalid adds damage as types", () => {
   const result = parseMod("Adds 10% of Magic Damage to Cold Damage");
   expect(result).toBeUndefined();
 });
+
+test("parse cold penetration", () => {
+  const result = parseMod("+8% Cold Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.08,
+      penType: "cold",
+    },
+  ]);
+});
+
+test("parse lightning penetration", () => {
+  const result = parseMod("+12% Lightning Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.12,
+      penType: "lightning",
+    },
+  ]);
+});
+
+test("parse fire penetration", () => {
+  const result = parseMod("+10% Fire Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.1,
+      penType: "fire",
+    },
+  ]);
+});
+
+test("parse elemental resistance penetration", () => {
+  const result = parseMod("+15% Elemental Resistance Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.15,
+      penType: "elemental",
+    },
+  ]);
+});
+
+test("parse erosion resistance penetration", () => {
+  const result = parseMod("+10% Erosion Resistance Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.1,
+      penType: "erosion",
+    },
+  ]);
+});
+
+test("parse elemental and erosion resistance penetration", () => {
+  const result = parseMod("+23% Elemental and Erosion Resistance Penetration");
+  expect(result).toEqual([
+    {
+      type: "ResPenPct",
+      value: 0.23,
+      penType: "all",
+    },
+  ]);
+});
+
+test("parse armor dmg mitigation penetration", () => {
+  const result = parseMod("+8% Armor DMG Mitigation Penetration");
+  expect(result).toEqual([
+    {
+      type: "ArmorPenPct",
+      value: 0.08,
+    },
+  ]);
+});
+
+test("parse armor dmg mitigation penetration with decimal", () => {
+  const result = parseMod("+12.5% Armor DMG Mitigation Penetration");
+  expect(result).toEqual([
+    {
+      type: "ArmorPenPct",
+      value: 0.125,
+    },
+  ]);
+});

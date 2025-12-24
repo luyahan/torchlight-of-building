@@ -49,12 +49,11 @@ export interface Configuration {
   };
   crueltyBuffStacks?: number;
   numShadowHits?: number;
-}
 
-export const createDefaultConfiguration = (): Configuration => ({
-  fervor: { enabled: false },
-  enemyFrostbitten: { enabled: false },
-});
+  // enemy defensive stats
+  enemyRes?: number;
+  enemyArmor?: number;
+}
 
 export interface Gear {
   equipmentType: EquipmentType;

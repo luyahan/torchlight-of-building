@@ -15,6 +15,17 @@ export const DmgChunkTypes = [
 
 export type DmgChunkType = (typeof DmgChunkTypes)[number];
 
+export const ResPenTypes = [
+  "cold",
+  "lightning",
+  "fire",
+  "erosion",
+  "elemental",
+  "all",
+] as const;
+
+export type ResPenType = (typeof ResPenTypes)[number];
+
 export type Stackable =
   | "willpower"
   | "main_stat"
@@ -314,6 +325,19 @@ export type Mod =
       type: "SealedManaCompPct";
       value: number;
       addn?: boolean;
+      per?: PerStackable;
+      src?: string;
+    }
+  | {
+      type: "ResPenPct";
+      value: number;
+      penType: ResPenType;
+      per?: PerStackable;
+      src?: string;
+    }
+  | {
+      type: "ArmorPenPct";
+      value: number;
       per?: PerStackable;
       src?: string;
     }

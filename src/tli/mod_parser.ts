@@ -11,6 +11,8 @@ import {
   DmgChunkTypes,
   type Mod,
   type ModOfType,
+  type ResPenType,
+  ResPenTypes,
 } from "./mod";
 
 const isValidDmgChunkType = (value: string): value is DmgChunkType => {
@@ -29,6 +31,10 @@ const isValidCritRatingModType = (
 
 const isValidCritDmgModType = (value: string): value is CritDmgModType => {
   return CRIT_DMG_MOD_TYPES.includes(value as CritDmgModType);
+};
+
+const isValidResPenType = (value: string): value is ResPenType => {
+  return ResPenTypes.includes(value as ResPenType);
 };
 
 const parseDmgPct = (input: string): ModOfType<"DmgPct"> | undefined => {
@@ -489,6 +495,60 @@ const parseAddsDmgAs = (input: string): ModOfType<"AddsDmgAs"> | undefined => {
   return { type: "AddsDmgAs", from: fromType, to: toType, value };
 };
 
+const parseResPenPct = (input: string): ModOfType<"ResPenPct"> | undefined => {
+  // Regex to parse:
+  // "+8% Cold Penetration" --> penType: cold
+  // "+23% Elemental and Erosion Resistance Penetration" --> penType: all
+  // "+10% Elemental Resistance Penetration" --> penType: elemental
+  const allPattern =
+    /^([+-])?(\d+(?:\.\d+)?)% elemental and erosion resistance penetration$/i;
+  const allMatch = input.match(allPattern);
+  if (allMatch) {
+    const value = parseFloat(allMatch[2]) / 100;
+    return { type: "ResPenPct", value, penType: "all" };
+  }
+
+  // "+10% Elemental Resistance Penetration" --> penType: elemental
+  // "+10% Erosion Resistance Penetration" --> penType: erosion
+  const resPattern =
+    /^([+-])?(\d+(?:\.\d+)?)% (elemental|erosion) resistance penetration$/i;
+  const resMatch = input.match(resPattern);
+  if (resMatch) {
+    const value = parseFloat(resMatch[2]) / 100;
+    const penType = resMatch[3].toLowerCase() as ResPenType;
+    return { type: "ResPenPct", value, penType };
+  }
+
+  // "+8% Cold Penetration", "+8% Fire Penetration", etc.
+  const elementPattern =
+    /^([+-])?(\d+(?:\.\d+)?)% (cold|lightning|fire) penetration$/i;
+  const elementMatch = input.match(elementPattern);
+  if (elementMatch) {
+    const value = parseFloat(elementMatch[2]) / 100;
+    const penType = elementMatch[3].toLowerCase();
+    if (isValidResPenType(penType)) {
+      return { type: "ResPenPct", value, penType };
+    }
+  }
+
+  return undefined;
+};
+
+const parseArmorPenPct = (
+  input: string,
+): ModOfType<"ArmorPenPct"> | undefined => {
+  // Regex to parse: +8% Armor DMG Mitigation Penetration
+  const pattern = /^([+-])?(\d+(?:\.\d+)?)% armor dmg mitigation penetration$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const value = parseFloat(match[2]) / 100;
+  return { type: "ArmorPenPct", value };
+};
+
 /**
  * Parses an affix line string and returns extracted mods.
  *
@@ -527,6 +587,8 @@ export const parseMod = (input: string): Mod[] | undefined => {
     parseShadowQuant,
     parseShadowDmgPct,
     parseAddsDmgAs,
+    parseResPenPct,
+    parseArmorPenPct,
     // parseMultistrikeChancePct,
     // Add more parsers here as they're implemented
   ];

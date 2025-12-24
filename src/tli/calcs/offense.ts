@@ -66,6 +66,10 @@ const emptyDamageRange = (): DmgRange => {
   return { min: 0, max: 0 };
 };
 
+const sumByValue = (mods: Extract<Mod, { value: number }>[]): number => {
+  return R.sumBy(mods, (m) => m.value);
+};
+
 const calculateInc = (bonuses: number[]) => {
   return R.pipe(bonuses, R.sum());
 };
@@ -644,12 +648,81 @@ const calculateAddnDmgFromShadows = (
   };
 };
 
+const filterPenMods = (
+  mods: ModOfType<"ResPenPct">[],
+  penTypes: ModOfType<"ResPenPct">["penType"][],
+): ModOfType<"ResPenPct">[] => {
+  return mods.filter((m) => penTypes.includes(m.penType));
+};
+
+const calculatePenetration = (
+  dmg: DmgRanges,
+  mods: Mod[],
+  config: Configuration,
+) => {
+  const {
+    phys: physBeforePen,
+    cold: coldBeforePen,
+    lightning: lightningBeforePen,
+    fire: fireBeforePen,
+    erosion: erosionBeforePen,
+  } = dmg;
+  const enemyRes = calculateEnemyRes(config);
+  const elePenMods = filterMod(mods, "ResPenPct");
+  const coldPenMods = filterPenMods(elePenMods, ["all", "elemental", "cold"]);
+  const lightningPenMods = filterPenMods(elePenMods, [
+    "all",
+    "elemental",
+    "lightning",
+  ]);
+  const firePenMods = filterPenMods(elePenMods, ["all", "elemental", "fire"]);
+  const erosionPenMods = filterPenMods(elePenMods, ["all", "erosion"]);
+  const enemyColdResMult = 1 - enemyRes + sumByValue(coldPenMods);
+  const enemyLightningResMult = 1 - enemyRes + sumByValue(lightningPenMods);
+  const enemyFireResMult = 1 - enemyRes + sumByValue(firePenMods);
+  const enemyErosionResMult = 1 - enemyRes + sumByValue(erosionPenMods);
+
+  const enemyArmorDmgMitigation = calculateEnemyArmorDmgMitigation(
+    calculateEnemyArmor(config),
+  );
+  const totalArmorPenPct = sumByValue(filterMod(mods, "ArmorPenPct"));
+  const enemyArmorPhysMult =
+    1 - enemyArmorDmgMitigation.phys + totalArmorPenPct;
+  const enemyArmorNonPhysMult =
+    1 - enemyArmorDmgMitigation.nonPhys + totalArmorPenPct;
+
+  const phys = multValue(physBeforePen, enemyArmorPhysMult);
+  const cold = multValue(
+    coldBeforePen,
+    enemyColdResMult,
+    enemyArmorNonPhysMult,
+  );
+  const lightning = multValue(
+    lightningBeforePen,
+    enemyLightningResMult,
+    enemyArmorNonPhysMult,
+  );
+  const fire = multValue(
+    fireBeforePen,
+    enemyFireResMult,
+    enemyArmorNonPhysMult,
+  );
+  const erosion = multValue(
+    erosionBeforePen,
+    enemyErosionResMult,
+    enemyArmorNonPhysMult,
+  );
+
+  return { phys, cold, lightning, fire, erosion };
+};
+
 const calculateSkillHit = (
   gearDmg: GearDmg,
   flatDmg: DmgRanges,
   allMods: Mod[],
   mainSkill: BaseActiveSkill,
   level: number,
+  config: Configuration,
 ): SkillHitOverview => {
   const skillWeaponDR = match(mainSkill.name)
     .with("Berserking Blade", () => {
@@ -679,25 +752,47 @@ const calculateSkillHit = (
 
   // Apply % bonuses to each pool, considering conversion history
   const allDmgPcts = filterMod(allMods, "DmgPct");
-  const phys = calculatePoolTotal(
+  const physBeforePen = calculatePoolTotal(
     dmgPools.physical,
     "physical",
     allDmgPcts,
     mainSkill,
   );
-  const cold = calculatePoolTotal(dmgPools.cold, "cold", allDmgPcts, mainSkill);
-  const lightning = calculatePoolTotal(
+  const coldBeforePen = calculatePoolTotal(
+    dmgPools.cold,
+    "cold",
+    allDmgPcts,
+    mainSkill,
+  );
+  const lightningBeforePen = calculatePoolTotal(
     dmgPools.lightning,
     "lightning",
     allDmgPcts,
     mainSkill,
   );
-  const fire = calculatePoolTotal(dmgPools.fire, "fire", allDmgPcts, mainSkill);
-  const erosion = calculatePoolTotal(
+  const fireBeforePen = calculatePoolTotal(
+    dmgPools.fire,
+    "fire",
+    allDmgPcts,
+    mainSkill,
+  );
+  const erosionBeforePen = calculatePoolTotal(
     dmgPools.erosion,
     "erosion",
     allDmgPcts,
     mainSkill,
+  );
+
+  const { phys, cold, lightning, fire, erosion } = calculatePenetration(
+    {
+      phys: physBeforePen,
+      cold: coldBeforePen,
+      lightning: lightningBeforePen,
+      fire: fireBeforePen,
+      erosion: erosionBeforePen,
+    },
+    allMods,
+    config,
   );
 
   const total = {
@@ -731,11 +826,13 @@ export type OffenseResults = Partial<
 const multValue = <T extends number | DmgRange>(
   value: T,
   multiplier: number,
+  ...multipliers: number[]
 ): T => {
+  const mult = multiplier * multipliers.reduce((a, b) => a * b, 1);
   if (typeof value === "number") {
-    return (value * multiplier) as T;
+    return (value * mult) as T;
   } else {
-    return multDR(value, multiplier) as T;
+    return multDR(value, mult) as T;
   }
 };
 
@@ -1111,6 +1208,31 @@ const calculateNumShadowHits = (mods: Mod[], config: Configuration): number => {
   return config.numShadowHits ?? shadowQuant;
 };
 
+const calculateEnemyRes = (config: Configuration): number => {
+  // enemyRes is stored as decimal (0.5 for 50%)
+  return config.enemyRes ?? 0.5;
+};
+
+const calculateEnemyArmor = (config: Configuration): number => {
+  // default to max possible enemy armor, equivalent to 50% dmg reduction
+  return config.enemyArmor ?? 27273;
+};
+
+// decimal percentages representing how much to reduce dmg by
+// e.g. .7 reduction means that a hit will do 30% of its original value
+interface ArmorDmgMitigation {
+  phys: number;
+  nonPhys: number;
+}
+
+const calculateEnemyArmorDmgMitigation = (
+  armor: number,
+): ArmorDmgMitigation => {
+  const phys = armor / (0.9 * armor + 30000);
+  const nonPhys = phys * 0.6;
+  return { phys, nonPhys };
+};
+
 // Normalizes mods for a specific skill, handling "per" properties
 const normalizeModsForSkill = (
   prenormModsFromParam: Mod[],
@@ -1219,6 +1341,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
       mods,
       perSkillContext.skill,
       perSkillContext.skillSlot.level || 20,
+      configuration,
     );
     const avgHitWithCrit =
       skillHit.avg * critChance * critDmgMult + skillHit.avg * (1 - critChance);
