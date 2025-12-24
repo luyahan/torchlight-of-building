@@ -48,6 +48,7 @@ export interface Configuration {
     points?: number;
   };
   crueltyBuffStacks?: number;
+  numShadowHits?: number;
 }
 
 export const createDefaultConfiguration = (): Configuration => ({

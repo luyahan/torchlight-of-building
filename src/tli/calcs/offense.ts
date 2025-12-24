@@ -25,7 +25,7 @@ import {
   type SkillSlot,
   type SupportSkillSlot,
 } from "../core";
-import type { DmgChunkType, Mod, Stackable } from "../mod";
+import type { DmgChunkType, Mod, ModOfType, Stackable } from "../mod";
 import type { OffenseSkillName } from "./skill_confs";
 
 const addDR = (dr1: DmgRange, dr2: DmgRange): DmgRange => {
@@ -614,6 +614,36 @@ const getLeveOffenseValue = (
   return offense.levels[level];
 };
 
+const calculateAddnDmgFromShadows = (
+  numShadowHits: number,
+): ModOfType<"DmgPct"> | undefined => {
+  if (numShadowHits <= 0) return;
+  if (numShadowHits === 1) {
+    return {
+      type: "DmgPct",
+      addn: true,
+      value: 1,
+      modType: "global",
+      src: `Shadow Strike: ${numShadowHits} hits`,
+    };
+  }
+  const falloffCoefficient = 0.7;
+
+  // Each hit deals (1 - falloff)^i of original, where i is 0-indexed
+  // Geometric series: dmgValue * (1 + r + r^2 + ... + r^(n-1)) = dmgValue * (1 - r^n) / (1 - r)
+  const retainedRatio = 1 - falloffCoefficient;
+  const geometricSum =
+    (1 - retainedRatio ** numShadowHits) / falloffCoefficient;
+
+  return {
+    type: "DmgPct",
+    addn: true,
+    value: geometricSum,
+    modType: "global",
+    src: `Shadow Strike: ${numShadowHits} hits`,
+  };
+};
+
 const calculateSkillHit = (
   gearDmg: GearDmg,
   flatDmg: DmgRanges,
@@ -1075,6 +1105,12 @@ const calculateEnemyFrostbitten = (
   };
 };
 
+const calculateNumShadowHits = (mods: Mod[], config: Configuration): number => {
+  const shadowQuantMods = filterMod(mods, "ShadowQuant");
+  const shadowQuant = R.sumBy(shadowQuantMods, (m) => m.value);
+  return config.numShadowHits ?? shadowQuant;
+};
+
 // Normalizes mods for a specific skill, handling "per" properties
 const normalizeModsForSkill = (
   prenormModsFromParam: Mod[],
@@ -1122,6 +1158,16 @@ const normalizeModsForSkill = (
     mods = mods.concat(
       normalizeStackables(prenormMods, "fervor", fervor.points),
     );
+  }
+
+  if (skill.tags.includes("Shadow Strike")) {
+    const numShadowHits = calculateNumShadowHits(mods, config);
+    const dmgFromShadowMod = calculateAddnDmgFromShadows(numShadowHits);
+    if (dmgFromShadowMod !== undefined) {
+      const shadowDmgPctMods = filterMod(mods, "ShadowDmgPct");
+      const shadowDmgMult = calculateEffMultiplier(shadowDmgPctMods);
+      mods.push(multModValue(dmgFromShadowMod, shadowDmgMult));
+    }
   }
 
   return mods;

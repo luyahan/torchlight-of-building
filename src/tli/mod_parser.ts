@@ -429,9 +429,11 @@ const parseSteepStrikeChance = (
 const parseShadowQuant = (
   input: string,
 ): ModOfType<"ShadowQuant"> | undefined => {
-  // Regex to parse: +2 Shadow Quantity
-  const pattern = /^([+-])?(\d+) shadow quantity$/i;
-  const match = input.match(pattern);
+  // Regex to parse: "+2 Shadow Quantity" or "Shadow Quantity +2"
+  const pattern1 = /^([+-])?(\d+) shadow quantity$/i;
+  const pattern2 = /^shadow quantity ([+-])?(\d+)$/i;
+
+  const match = input.match(pattern1) ?? input.match(pattern2);
 
   if (!match) {
     return undefined;
@@ -439,6 +441,31 @@ const parseShadowQuant = (
 
   const value = parseInt(match[2], 10);
   return { type: "ShadowQuant", value };
+};
+
+const parseShadowDmgPct = (
+  input: string,
+): ModOfType<"ShadowDmgPct"> | undefined => {
+  // Regex to parse: [+/-]<value>% [additional] Shadow Damage
+  const pattern = /^([+-])?(\d+(?:\.\d+)?)% (?:(additional) )?shadow damage$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const sign = match[1] === "-" ? -1 : 1;
+  const percentageStr = match[2];
+  const hasAdditional = match[3] !== undefined;
+
+  const value = (sign * parseFloat(percentageStr)) / 100;
+  const addn = hasAdditional;
+
+  return {
+    type: "ShadowDmgPct",
+    value,
+    addn,
+  };
 };
 
 const parseAddsDmgAs = (input: string): ModOfType<"AddsDmgAs"> | undefined => {
@@ -498,6 +525,7 @@ export const parseMod = (input: string): Mod[] | undefined => {
     parseFervorEff,
     parseSteepStrikeChance,
     parseShadowQuant,
+    parseShadowDmgPct,
     parseAddsDmgAs,
     // parseMultistrikeChancePct,
     // Add more parsers here as they're implemented

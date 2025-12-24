@@ -2992,3 +2992,152 @@ describe("Divinity Slate Mods", () => {
     expect(actual?.avgHit).toBeCloseTo(150);
   });
 });
+
+describe("shadow damage", () => {
+  // Shadow damage mechanics:
+  // - First shadow deals 100% of original hit damage
+  // - Each subsequent shadow deals 30% of the previous shadow's damage
+  // - Shadow damage bonuses only apply to shadow hits, not the original hit
+  //
+  // Example: 100 damage, 3 shadows, 100% shadow damage bonus
+  // Original: 100, Shadow 1: 100*2=200, Shadow 2: 30*2=60, Shadow 3: 9*2=18
+  // Total: 100 + 200 + 60 + 18 = 378
+
+  // Frost Spike at level 20: WeaponAtkDmgPct = 2.01
+  // Base weapon 100 * 2.01 = 201 base damage
+
+  test("shadow strike skill with 1 shadow hit doubles damage", () => {
+    // 1 shadow hit = 100% additional damage (doubles the hit)
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 1,
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 100 * 2.01 = 201
+    // With 1 shadow hit: 201 * (1 + 1.0) = 402
+    expect(actual?.avgHit).toBeCloseTo(402);
+  });
+
+  test("shadow strike skill with 3 shadow hits applies geometric falloff", () => {
+    // 3 shadow hits: 1 + 0.3 + 0.09 = 1.39 total shadow damage ratio
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 3,
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 201
+    // Shadow geometric sum: (1 - 0.3^3) / 0.7 ≈ 1.39
+    // Total: 201 * (1 + 1.39) ≈ 480.4
+    expect(actual?.avgHit).toBeCloseTo(480.4, 0);
+  });
+
+  test("shadow damage bonus applies to shadow hits only", () => {
+    // 100% shadow damage bonus with 3 shadows
+    // Shadow damage gets multiplied by 2, original hit does not
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      mods: [
+        affix([{ type: "ShadowDmgPct", value: 1.0, addn: false }]), // +100% shadow damage
+      ],
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 3,
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 201
+    // Shadow contribution: 1.39 * 2 (100% bonus) = 2.78
+    // Total: 201 * (1 + 2.78) = 759.8
+    expect(actual?.avgHit).toBeCloseTo(759.8, 0);
+  });
+
+  test("zero shadow hits means no shadow damage bonus", () => {
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 0,
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 201 (no shadow damage)
+    expect(actual?.avgHit).toBeCloseTo(201);
+  });
+
+  test("non-shadow strike skill ignores shadow mechanics", () => {
+    // [Test] Simple Attack does not have Shadow Strike tag
+    const { input, skillName } = createInput({
+      skill: "[Test] Simple Attack",
+      mods: [
+        affix([{ type: "ShadowDmgPct", value: 1.0, addn: false }]), // This should have no effect
+      ],
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 3, // This should have no effect
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 100 (no shadow mechanics applied)
+    expect(actual?.avgHit).toBeCloseTo(100);
+  });
+
+  test("shadow damage stacks with regular damage modifiers", () => {
+    // +50% global damage AND 3 shadow hits with 100% shadow bonus
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      mods: [
+        affix([{ type: "DmgPct", value: 0.5, modType: "global", addn: false }]), // +50% damage
+        affix([{ type: "ShadowDmgPct", value: 1.0, addn: false }]), // +100% shadow damage
+      ],
+      configuration: {
+        ...defaultConfiguration,
+        numShadowHits: 3,
+      },
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base with +50% dmg: 201 * 1.5 = 301.5
+    // Shadow contribution: 1.39 * 2 = 2.78
+    // Total: 301.5 * (1 + 2.78) = 1139.7
+    expect(actual?.avgHit).toBeCloseTo(1139.7, 0);
+  });
+
+  test("ShadowQuant mods contribute to shadow hit count", () => {
+    // +2 Shadow Quantity from mod
+    const { input, skillName } = createInput({
+      skill: "Frost Spike",
+      mods: [affix([{ type: "ShadowQuant", value: 2 }])],
+    });
+    const results = calculateOffense(input);
+    const actual = results[skillName as ImplementedActiveSkillName];
+
+    expect(actual).toBeDefined();
+    // Base: 201
+    // 2 shadow hits: geometric sum = (1 - 0.3^2) / 0.7 = 0.91 / 0.7 = 1.3
+    // Total: 201 * (1 + 1.3) = 462.3
+    expect(actual?.avgHit).toBeCloseTo(462.3, 0);
+  });
+});

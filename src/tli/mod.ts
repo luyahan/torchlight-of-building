@@ -277,6 +277,13 @@ export type Mod =
       src?: string;
     }
   | {
+      type: "ShadowDmgPct";
+      value: number;
+      addn: boolean;
+      per?: PerStackable;
+      src?: string;
+    }
+  | {
       type: "Projectile";
       value: number;
       per?: PerStackable;
