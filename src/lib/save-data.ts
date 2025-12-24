@@ -170,12 +170,12 @@ export interface CalculationsPage {
 
 export interface ConfigurationPage {
   fervorEnabled: boolean;
-  fervorPoints: number | undefined;
+  fervorPoints?: number;
   enemyFrostbittenEnabled: boolean;
-  enemyFrostbittenPoints: number | undefined;
+  enemyFrostbittenPoints?: number;
   crueltyBuffStacks: number;
-  enemyRes: number | undefined;
-  enemyArmor: number | undefined;
+  enemyRes?: number;
+  enemyArmor?: number;
 }
 
 export interface EquippedGear {
@@ -221,17 +221,17 @@ export interface DivinityPage {
 }
 
 export interface HeroPage {
-  selectedHero: string | undefined;
+  selectedHero?: string;
   traits: {
-    level1: string | undefined;
-    level45: string | undefined;
-    level60: string | undefined;
-    level75: string | undefined;
+    level1?: string;
+    level45?: string;
+    level60?: string;
+    level75?: string;
   };
   memorySlots: {
-    slot45: HeroMemory | undefined;
-    slot60: HeroMemory | undefined;
-    slot75: HeroMemory | undefined;
+    slot45?: HeroMemory;
+    slot60?: HeroMemory;
+    slot75?: HeroMemory;
   };
   memoryInventory: HeroMemory[];
 }
