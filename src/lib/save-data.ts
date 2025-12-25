@@ -221,14 +221,20 @@ export interface DivinityPage {
   inventory: DivinitySlate[];
 }
 
+export interface HeroTrait {
+  name: string;
+}
+
+export interface HeroTraits {
+  level1?: HeroTrait;
+  level45?: HeroTrait;
+  level60?: HeroTrait;
+  level75?: HeroTrait;
+}
+
 export interface HeroPage {
   selectedHero?: string;
-  traits: {
-    level1?: string;
-    level45?: string;
-    level60?: string;
-    level75?: string;
-  };
+  traits: HeroTraits;
   memorySlots: {
     slot45?: HeroMemory;
     slot60?: HeroMemory;

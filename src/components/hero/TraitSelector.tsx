@@ -172,7 +172,7 @@ const TraitRow = ({
       : [];
 
   const traitLevelKey = `level${level}` as keyof HeroTraits;
-  const selectedTraitName = heroPage.traits[traitLevelKey];
+  const selectedTrait = heroPage.traits[traitLevelKey];
   const isLevel1 = level === 1;
 
   const slot: HeroMemorySlot | undefined =
@@ -264,7 +264,7 @@ const TraitRow = ({
                 <TraitItem
                   key={trait.name}
                   trait={trait}
-                  isSelected={selectedTraitName === trait.name}
+                  isSelected={selectedTrait?.name === trait.name}
                   isLevel1={false}
                   level={level}
                   onSelect={() =>

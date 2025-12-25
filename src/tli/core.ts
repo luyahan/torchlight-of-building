@@ -339,11 +339,15 @@ export interface HeroMemory {
   affixes: Affix[];
 }
 
+export interface HeroTrait {
+  name: HeroTraitName;
+}
+
 export interface HeroTraits {
-  level1?: HeroTraitName;
-  level45?: HeroTraitName;
-  level60?: HeroTraitName;
-  level75?: HeroTraitName;
+  level1?: HeroTrait;
+  level45?: HeroTrait;
+  level60?: HeroTrait;
+  level75?: HeroTrait;
 }
 
 export interface HeroMemorySlots {
@@ -370,12 +374,12 @@ export const getHeroAffixes = (heroPage: HeroPage): Affix[] => {
     traits.level60,
     traits.level75,
   ];
-  for (const traitName of traitSlots) {
-    if (traitName !== undefined) {
+  for (const trait of traitSlots) {
+    if (trait !== undefined) {
       // defaulting to level3 for now
-      const mods = getHeroTraitMods(traitName, 3);
+      const mods = getHeroTraitMods(trait.name, 3);
       if (mods.length > 0) {
-        affixes.push({ affixLines: [{ text: traitName, mods }] });
+        affixes.push({ affixLines: [{ text: trait.name, mods }] });
       }
     }
   }

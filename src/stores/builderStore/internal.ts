@@ -398,10 +398,12 @@ export const internalStore = create(
 
       setTrait: (
         level: "level1" | "level45" | "level60" | "level75",
-        trait: string | undefined,
+        traitName: string | undefined,
       ) => {
         set((state) => {
-          state.saveData.heroPage.traits[level] = trait;
+          state.saveData.heroPage.traits[level] = traitName
+            ? { name: traitName }
+            : undefined;
         });
       },
 
@@ -678,7 +680,7 @@ export const internalStore = create(
             state.saveData.heroPage = {
               selectedHero: hero,
               traits: {
-                level1: baseTrait?.name,
+                level1: baseTrait ? { name: baseTrait.name } : undefined,
                 level45: undefined,
                 level60: undefined,
                 level75: undefined,

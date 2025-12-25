@@ -1,5 +1,6 @@
 import * as R from "remeda";
 import { CoreTalents } from "@/src/data/core_talent/core_talents";
+import type { HeroTraitName } from "@/src/data/hero_trait/types";
 import { Pactspirits } from "@/src/data/pactspirit/pactspirits";
 import type { Pactspirit } from "@/src/data/pactspirit/types";
 import type { TalentNodeData, TreeName } from "@/src/data/talent_tree";
@@ -41,6 +42,7 @@ import type {
   HeroMemory,
   HeroMemorySlots,
   HeroPage,
+  HeroTrait,
   HeroTraits,
   InstalledDestiny,
   Loadout,
@@ -410,15 +412,22 @@ const convertHeroMemory = (
   };
 };
 
+const convertHeroTrait = (
+  saveDataTrait: { name: string } | undefined,
+): HeroTrait | undefined => {
+  if (!saveDataTrait) return undefined;
+  return { name: saveDataTrait.name as HeroTraitName };
+};
+
 const convertHeroPage = (
   saveDataHeroPage: SaveDataHeroPage,
   heroMemoryList: SaveDataHeroMemory[],
 ): HeroPage => {
   const traits: HeroTraits = {
-    level1: saveDataHeroPage.traits.level1 as HeroTraits["level1"],
-    level45: saveDataHeroPage.traits.level45 as HeroTraits["level45"],
-    level60: saveDataHeroPage.traits.level60 as HeroTraits["level60"],
-    level75: saveDataHeroPage.traits.level75 as HeroTraits["level75"],
+    level1: convertHeroTrait(saveDataHeroPage.traits.level1),
+    level45: convertHeroTrait(saveDataHeroPage.traits.level45),
+    level60: convertHeroTrait(saveDataHeroPage.traits.level60),
+    level75: convertHeroTrait(saveDataHeroPage.traits.level75),
   };
 
   const memorySlots: HeroMemorySlots = {};
