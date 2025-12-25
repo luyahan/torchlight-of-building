@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { SaveData } from "@/src/lib/save-data";
 import type { Loadout } from "@/src/tli/core";
 
@@ -270,6 +270,10 @@ interface DebugPanelProps {
   onClose: () => void;
 }
 
+const MIN_HEIGHT = 100;
+const MAX_HEIGHT = 800;
+const DEFAULT_HEIGHT = 400;
+
 export const DebugPanel: React.FC<DebugPanelProps> = ({
   saveData,
   loadout,
@@ -279,6 +283,46 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
 }) => {
   const [view, setView] = useState<DebugView>("saveData");
   const [searchTerm, setSearchTerm] = useState("");
+  const [panelHeight, setPanelHeight] = useState(DEFAULT_HEIGHT);
+  const isResizing = useRef(false);
+  const startY = useRef(0);
+  const startHeight = useRef(0);
+
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      isResizing.current = true;
+      startY.current = e.clientY;
+      startHeight.current = panelHeight;
+      document.body.style.cursor = "ns-resize";
+      document.body.style.userSelect = "none";
+    },
+    [panelHeight],
+  );
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent): void => {
+      if (!isResizing.current) return;
+      const delta = startY.current - e.clientY;
+      const newHeight = Math.min(
+        MAX_HEIGHT,
+        Math.max(MIN_HEIGHT, startHeight.current + delta),
+      );
+      setPanelHeight(newHeight);
+    };
+
+    const handleMouseUp = (): void => {
+      isResizing.current = false;
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
 
   const currentData = view === "saveData" ? saveData : loadout;
   const title =
@@ -304,6 +348,11 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t-2 border-amber-500 shadow-2xl z-50">
+      {/* Resize Handle */}
+      <div
+        onMouseDown={handleMouseDown}
+        className="h-1 cursor-ns-resize hover:bg-amber-500/50 transition-colors"
+      />
       {/* Panel Header */}
       <div className="bg-zinc-950 px-4 py-2 flex justify-between items-center">
         <div className="flex items-center gap-3">
@@ -365,7 +414,7 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
 
       {/* Panel Content */}
       {debugPanelExpanded && (
-        <div className="p-4 overflow-auto" style={{ maxHeight: "400px" }}>
+        <div className="p-4 overflow-auto" style={{ height: panelHeight }}>
           <div className="text-xs font-mono">
             <JsonNode
               key={searchTerm}
