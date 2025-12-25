@@ -905,7 +905,8 @@ const normalizeStackable = <T extends Mod>(
   }
 
   const div = mod.per.amt || 1;
-  return multModValue(mod, stacks / div) as T;
+  const mult = Math.min(stacks / div, mod.per.limit ?? Infinity);
+  return multModValue(mod, mult) as T;
 };
 
 interface Stats {

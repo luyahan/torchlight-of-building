@@ -34,7 +34,9 @@ export type Stackable =
   | "skill_use"
   | "skill_charges_on_use"
   | "cruelty_buff"
-  | "fervor";
+  | "fervor"
+  | "mana"
+  | "mercury_pt";
 
 export type StatType = "str" | "dex" | "int";
 
@@ -44,6 +46,8 @@ export interface PerStackable {
   stackable: Stackable;
   // number of max stacks
   limit?: number; // default infinity
+  // max limit of mod's value
+  valueLimit?: number | DmgRange; // default infinite
   // how much to divide the stackable number by
   amt?: number; // default 1
 }
@@ -351,6 +355,28 @@ export type Mod =
       value: number;
       src?: string;
       cond?: Condition;
+    }
+  | {
+      type: "SpellDmgBonusAppliesToAtkDmg";
+      src?: string;
+    }
+  | {
+      type: "MaxManaPct";
+      value: number;
+      addn: boolean;
+      src?: string;
+    }
+  | {
+      type: "MercuryBaptism";
+      value: number;
+      cond?: Condition;
+      src?: string;
+    }
+  | {
+      type: "MaxMecuryPtsPct";
+      value: number;
+      per?: PerStackable;
+      src?: string;
     }
   | {
       type: "CoreTalent";
