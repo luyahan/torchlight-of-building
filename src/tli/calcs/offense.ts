@@ -1371,30 +1371,43 @@ const resolveModsForSkill = (
 };
 
 interface ResourcePool {
+  stats: Stats;
   maxMana: number;
 }
 
-const calculateResourcePool = (
-  mods: Mod[],
+const _calculateResourcePool = (
+  paramMods: Mod[],
   loadout: Loadout,
   config: Configuration,
-) => {};
+): ResourcePool => {
+  // potential perf issue: this is a duplicate filtering, since it also
+  //   happens in calculateOffense with a slightly larger superset.
+  //   maybe we should factor it out if performance becomes an issue
+  const mods = filterModsByCond(paramMods, loadout, config);
+  const stats = calculateStats(mods);
+
+  const maxManaFromMods = sumByValue(filterMod(mods, "MaxMana"));
+  const maxManaMult = calculateEffMultiplier(filterMod(mods, "MaxManaPct"));
+  const maxMana =
+    (40 + config.level * 5 + stats.int * 0.5 + maxManaFromMods) * maxManaMult;
+
+  return { stats, maxMana };
+};
 
 // Calculates offense for all enabled implemented skills
 export const calculateOffense = (input: OffenseInput): OffenseResults => {
-  const { loadout, configuration } = input;
+  const { loadout, configuration: config } = input;
   const loadoutMods = collectMods(loadout);
 
   const unresolvedLoadoutAndBuffMods = [
     ...loadoutMods,
-    ...resolveBuffSkillMods(loadout, loadoutMods, configuration),
+    ...resolveBuffSkillMods(loadout, loadoutMods, config),
   ];
 
-  // Phase 2: Get enabled skill slots
   const skillSlots = listActiveSkillSlots(loadout);
   const enabledSlots = skillSlots.filter((s) => s.enabled);
 
-  // Phase 3: Calculate for each implemented skill
+  //  Calculate for each implemented skill
   const results: OffenseResults = {};
   for (const slot of enabledSlots) {
     const perSkillContext = resolvePerSkillMods(slot);
@@ -1406,7 +1419,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
       [...unresolvedLoadoutAndBuffMods, ...perSkillContext.mods],
       perSkillContext.skill,
       loadout,
-      configuration,
+      config,
     );
 
     const gearDmg = calculateGearDmg(loadout, mods);
@@ -1417,7 +1430,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
       mods,
       perSkillContext.skill,
       perSkillContext.skillSlot.level || 20,
-      configuration,
+      config,
     );
 
     const aspd = calculateAspd(loadout, mods);

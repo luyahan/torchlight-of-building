@@ -52,6 +52,18 @@ export interface PerStackable {
   amt?: number; // default 1
 }
 
+export type SkillEffStackable = "skill_use" | "skill_charges_on_use";
+
+export interface PerSkillEffStackable {
+  stackable: SkillEffStackable;
+  // number of max stacks
+  limit?: number; // default infinity
+  // max limit of mod's value
+  valueLimit?: number; // default infinite
+  // how much to divide the stackable number by
+  amt?: number; // default 1
+}
+
 export type Condition = "enemy_frostbitten" | "realm_of_mercury";
 
 export type Mod =
@@ -326,7 +338,6 @@ export type Mod =
       type: "AuraEffPct";
       value: number;
       addn?: boolean;
-      per?: PerStackable;
       src?: string;
       unscalable?: boolean;
     }
@@ -358,6 +369,11 @@ export type Mod =
     }
   | {
       type: "SpellDmgBonusAppliesToAtkDmg";
+      src?: string;
+    }
+  | {
+      type: "MaxMana";
+      value: number;
       src?: string;
     }
   | {
