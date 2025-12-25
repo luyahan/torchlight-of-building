@@ -673,7 +673,7 @@ export const parseMod = (input: string): Mod[] | undefined => {
     parseGearAspdPct,
     parseDoubleDmgChancePct,
 
-    // Mana parsers
+    // Resource parsers
     parseMaxMana,
     parseMaxManaPct,
 
