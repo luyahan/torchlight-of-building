@@ -179,6 +179,14 @@ export const collectMods = (loadout: Loadout): Mod[] => {
   ];
 };
 
+// TODO: implement this
+const _resolveCoreTalentMods = (mods: Mod[]): Mod[] => {
+  const _coreTalentNames = R.unique(
+    filterMod(mods, "CoreTalent").map((m) => m.name),
+  );
+  return [];
+};
+
 interface OffenseSummary {
   critChance: number;
   critDmgMult: number;

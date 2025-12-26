@@ -1,3 +1,4 @@
+import type { CoreTalentName } from "../data/core_talent";
 import type {
   CritDmgModType,
   CritRatingModType,
@@ -122,17 +123,7 @@ interface ModDefinitions {
   MaxManaPct: { value: number; addn: boolean };
   MercuryBaptism: { value: number };
   MaxMercuryPtsPct: { value: number };
-  CoreTalent: {
-    name:
-      | "Last Stand"
-      | "Dirty Tricks"
-      | "Centralize"
-      | "Tenacity"
-      | "Hidden Mastery"
-      | "Formless"
-      | "Tradeoff"
-      | "Unmatched Valor";
-  };
+  CoreTalent: { name: CoreTalentName };
 }
 
 // Generate the Mod union type from ModDefinitions

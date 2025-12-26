@@ -4,6 +4,8 @@ import { join } from "node:path";
 import * as cheerio from "cheerio";
 import type { BaseCoreTalent } from "../data/core_talent/types";
 import { isTree } from "../data/talent";
+import type { Affix, AffixLine } from "../tli/core";
+import { parseMod } from "../tli/mod_parser";
 
 const cleanAffixText = (html: string): string => {
   const NEWLINE_PLACEHOLDER = "\x00";
@@ -79,6 +81,30 @@ export const CoreTalents = ${JSON.stringify(talents)} as const satisfies readonl
 `;
 };
 
+const parseAffixString = (affixText: string): Affix => {
+  const lines = affixText.split("\n");
+  const affixLines: AffixLine[] = lines.map((text) => ({
+    text,
+    mods: parseMod(text) ?? [],
+  }));
+  return { affixLines };
+};
+
+const generateModsFile = (talents: BaseCoreTalent[]): string => {
+  const entries = talents.map((t) => {
+    const affix = parseAffixString(t.affix);
+    return `  ${JSON.stringify(t.name)}: ${JSON.stringify(affix)}`;
+  });
+
+  return `import type { Affix } from "../../tli/core";
+import type { CoreTalentName } from "./types";
+
+export const CoreTalentMods: Record<CoreTalentName, Affix> = {
+${entries.join(",\n")}
+};
+`;
+};
+
 const main = async (): Promise<void> => {
   const inputPath = join(
     process.cwd(),
@@ -102,6 +128,10 @@ const main = async (): Promise<void> => {
   const dataPath = join(outDir, "core_talents.ts");
   await writeFile(dataPath, generateDataFile(talents), "utf-8");
   console.log(`Generated core_talents.ts`);
+
+  const modsPath = join(outDir, "core_talent_mods.ts");
+  await writeFile(modsPath, generateModsFile(talents), "utf-8");
+  console.log(`Generated core_talent_mods.ts`);
 
   console.log("\nCode generation complete!");
   execSync("pnpm format", { stdio: "inherit" });
