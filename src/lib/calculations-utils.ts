@@ -51,7 +51,6 @@ export const categorizeModType = (mod: Mod): StatCategory => {
   switch (mod.type) {
     case "DmgPct":
     case "FlatDmgToAtks":
-    case "FlatDmgToAtksAndSpells":
     case "FlatDmgToSpells":
     case "AddsDmgAs":
     case "ConvertDmgPct":
@@ -135,8 +134,8 @@ export const getModDisplayName = (mod: Mod): string => {
     }
     case "FlatDmgToAtks":
       return `Adds ${mod.dmgType} damage to attacks`;
-    case "FlatDmgToAtksAndSpells":
-      return `Adds ${mod.dmgType} damage to attacks and spells`;
+    case "FlatDmgToSpells":
+      return `Adds ${mod.dmgType} damage to spells`;
     case "CritRatingPct":
       return `${mod.modType} critical rating`;
     case "CritDmgPct": {

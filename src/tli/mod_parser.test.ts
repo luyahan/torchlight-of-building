@@ -671,3 +671,35 @@ test("parse flat lightning damage to spells", () => {
     },
   ]);
 });
+
+test("parse flat fire damage to attacks and spells", () => {
+  const result = parseMod("Adds 9 - 15 Fire Damage to Attacks and Spells");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToAtks",
+      value: { min: 9, max: 15 },
+      dmgType: "fire",
+    },
+    {
+      type: "FlatDmgToSpells",
+      value: { min: 9, max: 15 },
+      dmgType: "fire",
+    },
+  ]);
+});
+
+test("parse flat physical damage to attacks and spells", () => {
+  const result = parseMod("Adds 20 - 35 Physical Damage to Attacks and Spells");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToAtks",
+      value: { min: 20, max: 35 },
+      dmgType: "physical",
+    },
+    {
+      type: "FlatDmgToSpells",
+      value: { min: 20, max: 35 },
+      dmgType: "physical",
+    },
+  ]);
+});

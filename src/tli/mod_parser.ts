@@ -675,6 +675,31 @@ const parseGearAspdWithDmgPenalty = (
   ];
 };
 
+const parseFlatDmgToAtksAndSpells = (
+  input: string,
+): [ModOfType<"FlatDmgToAtks">, ModOfType<"FlatDmgToSpells">] | undefined => {
+  // Regex to parse: Adds 9 - 15 Fire Damage to Attacks and Spells
+  const pattern = /^adds (\d+) - (\d+) (\w+) damage to attacks and spells$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const min = parseInt(match[1], 10);
+  const max = parseInt(match[2], 10);
+  const dmgType = match[3].toLowerCase();
+
+  if (!isValidDmgChunkType(dmgType)) {
+    return undefined;
+  }
+
+  return [
+    { type: "FlatDmgToAtks", value: { min, max }, dmgType },
+    { type: "FlatDmgToSpells", value: { min, max }, dmgType },
+  ];
+};
+
 /**
  * Parses an affix line string and returns extracted mods.
  *
@@ -687,7 +712,10 @@ export const parseMod = (input: string): Mod[] | undefined => {
   const normalized = input.trim().toLowerCase();
 
   // Multi-mod parsers (return arrays directly)
-  const multiModParsers = [parseGearAspdWithDmgPenalty];
+  const multiModParsers = [
+    parseGearAspdWithDmgPenalty,
+    parseFlatDmgToAtksAndSpells,
+  ];
 
   for (const parser of multiModParsers) {
     const result = parser(normalized);
