@@ -579,6 +579,50 @@ const parseDoubleDmgChancePct = (
   return { type: "DoubleDmgChancePct", value };
 };
 
+const parseFlatDmgToAtks = (
+  input: string,
+): ModOfType<"FlatDmgToAtks"> | undefined => {
+  // Regex to parse: Adds 9 - 15 Fire Damage to Attacks
+  const pattern = /^adds (\d+) - (\d+) (\w+) damage to attacks$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const min = parseInt(match[1], 10);
+  const max = parseInt(match[2], 10);
+  const dmgType = match[3].toLowerCase();
+
+  if (!isValidDmgChunkType(dmgType)) {
+    return undefined;
+  }
+
+  return { type: "FlatDmgToAtks", value: { min, max }, dmgType };
+};
+
+const parseFlatDmgToSpells = (
+  input: string,
+): ModOfType<"FlatDmgToSpells"> | undefined => {
+  // Regex to parse: Adds 9 - 15 Fire Damage to Spells
+  const pattern = /^adds (\d+) - (\d+) (\w+) damage to spells$/i;
+  const match = input.match(pattern);
+
+  if (!match) {
+    return undefined;
+  }
+
+  const min = parseInt(match[1], 10);
+  const max = parseInt(match[2], 10);
+  const dmgType = match[3].toLowerCase();
+
+  if (!isValidDmgChunkType(dmgType)) {
+    return undefined;
+  }
+
+  return { type: "FlatDmgToSpells", value: { min, max }, dmgType };
+};
+
 const parseMaxMana = (input: string): ModOfType<"MaxMana"> | undefined => {
   // Regex to parse: +166 Max Mana
   const pattern = /^([+-])?(\d+(?:\.\d+)?) max mana$/i;
@@ -672,6 +716,8 @@ export const parseMod = (input: string): Mod[] | undefined => {
     parseArmorPenPct,
     parseGearAspdPct,
     parseDoubleDmgChancePct,
+    parseFlatDmgToAtks,
+    parseFlatDmgToSpells,
 
     // Resource parsers
     parseMaxMana,

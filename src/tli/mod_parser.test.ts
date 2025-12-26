@@ -627,3 +627,47 @@ test("parse additional percentage max mana", () => {
     },
   ]);
 });
+
+test("parse flat fire damage to attacks", () => {
+  const result = parseMod("Adds 9 - 15 Fire Damage to Attacks");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToAtks",
+      value: { min: 9, max: 15 },
+      dmgType: "fire",
+    },
+  ]);
+});
+
+test("parse flat cold damage to attacks", () => {
+  const result = parseMod("Adds 20 - 30 Cold Damage to Attacks");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToAtks",
+      value: { min: 20, max: 30 },
+      dmgType: "cold",
+    },
+  ]);
+});
+
+test("parse flat fire damage to spells", () => {
+  const result = parseMod("Adds 9 - 15 Fire Damage to Spells");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToSpells",
+      value: { min: 9, max: 15 },
+      dmgType: "fire",
+    },
+  ]);
+});
+
+test("parse flat lightning damage to spells", () => {
+  const result = parseMod("Adds 12 - 25 Lightning Damage to Spells");
+  expect(result).toEqual([
+    {
+      type: "FlatDmgToSpells",
+      value: { min: 12, max: 25 },
+      dmgType: "lightning",
+    },
+  ]);
+});
