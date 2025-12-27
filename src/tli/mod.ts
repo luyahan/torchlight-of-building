@@ -61,7 +61,8 @@ export type Condition =
   | "enemy_frostbitten"
   | "realm_of_mercury"
   | "has_focus_blessing"
-  | "has_agility_blessing";
+  | "has_agility_blessing"
+  | "enemy_paralyzed";
 
 // Common fields automatically added to all mod types
 interface ModBase {

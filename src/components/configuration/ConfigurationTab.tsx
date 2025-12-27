@@ -334,6 +334,14 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             placeholder="27273"
             className="w-20 rounded border border-zinc-700 bg-zinc-800 px-2 py-0.5 text-center text-sm text-zinc-50 placeholder:text-zinc-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500/30"
           />
+
+          <label className="text-right text-zinc-50">Enemy Paralyzed</label>
+          <input
+            type="checkbox"
+            checked={config.enemyParalyzed}
+            onChange={(e) => onUpdate({ enemyParalyzed: e.target.checked })}
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
         </div>
       </div>
     </div>

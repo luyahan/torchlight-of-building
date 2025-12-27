@@ -71,6 +71,7 @@ const createMinimalSaveData = (
     hasAgilityBlessing: false,
     enemyRes: undefined,
     enemyArmor: undefined,
+    enemyParalyzed: false,
   },
   calculationsPage: { selectedSkillName: undefined },
   ...overrides,

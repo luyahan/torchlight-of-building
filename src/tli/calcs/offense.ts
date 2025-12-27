@@ -903,6 +903,7 @@ const filterModsByCond = (
       )
       .with("has_focus_blessing", () => config.hasFocusBlessing)
       .with("has_agility_blessing", () => config.hasAgilityBlessing)
+      .with("enemy_paralyzed", () => config.enemyParalyzed)
       .exhaustive();
   });
 };
@@ -990,6 +991,14 @@ const calculateImplicitMods = (): Mod[] => {
       addn: true,
       per: { stackable: "main_stat" },
       src: "Additional Damage from skill Main Stat (.5% per stat)",
+    },
+    {
+      type: "DmgPct",
+      value: 15,
+      modType: "global",
+      addn: true,
+      cond: "enemy_paralyzed",
+      src: "Additional Damage when enemy paralyzed",
     },
     {
       type: "DmgPct",

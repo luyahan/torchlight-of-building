@@ -30,6 +30,7 @@ const createDefaultConfiguration = (): Configuration => ({
   hasAgilityBlessing: false,
   enemyRes: 0,
   enemyArmor: 0,
+  enemyParalyzed: false,
 });
 
 // Helper to create Affix objects from mods for tests
@@ -2139,6 +2140,7 @@ describe("resolveBuffSkillMods", () => {
         hasAgilityBlessing: false,
         enemyRes: undefined,
         enemyArmor: undefined,
+        enemyParalyzed: false,
       },
     });
     const actual = results.skills["[Test] Simple Attack"];

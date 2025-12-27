@@ -77,6 +77,7 @@ export const createEmptyConfigurationPage = (): ConfigurationPage => ({
   hasAgilityBlessing: false,
   enemyRes: undefined,
   enemyArmor: undefined,
+  enemyParalyzed: false,
 });
 
 export const createEmptySkillPage = (): SkillPage => ({

@@ -77,6 +77,8 @@ export interface Configuration {
   enemyRes: number | undefined;
   // default to 27273 (effective phys dmg mitigation of 50%)
   enemyArmor: number | undefined;
+  // default to false
+  enemyParalyzed: boolean;
 }
 
 export interface Gear {
