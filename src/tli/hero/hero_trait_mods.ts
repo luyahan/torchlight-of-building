@@ -39,7 +39,7 @@ const heroTraitModFactories: Partial<Record<HeroTraitName, ModFactory[]>> = {
     }),
     (i) => ({
       type: "DmgPct",
-      value: [.12, .16, .20, .24, .28][i],
+      value: [0.12, 0.16, 0.2, 0.24, 0.28][i],
       modType: "elemental",
       addn: true,
       per: { stackable: "mercury_pt" },

@@ -237,7 +237,12 @@ describe("basic damage modifiers", () => {
     // 100 * 1 (no applicable modifiers) = 100
     const input = createModsInput([
       affix([
-        { type: "DmgPct", value: 50, modType: "shadow_strike_skill", addn: false },
+        {
+          type: "DmgPct",
+          value: 50,
+          modType: "shadow_strike_skill",
+          addn: false,
+        },
       ]),
     ]);
     const results = calculateOffense(input);
@@ -253,7 +258,12 @@ describe("basic damage modifiers", () => {
         gearPage: { equippedGear: { mainHand: baseWeapon }, inventory: [] },
         customConfiguration: [
           affix([
-            { type: "DmgPct", value: 50, modType: "shadow_strike_skill", addn: false },
+            {
+              type: "DmgPct",
+              value: 50,
+              modType: "shadow_strike_skill",
+              addn: false,
+            },
           ]),
         ],
         skillPage: {

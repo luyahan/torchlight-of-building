@@ -79,6 +79,32 @@ test("parse additional damage against enemies with elemental ailments", () => {
   ]);
 });
 
+test("parse damage when focus blessing is active", () => {
+  const result = parseMod("+30% damage when Focus Blessing is active");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 30,
+      modType: "global",
+      addn: false,
+      cond: "has_focus_blessing",
+    },
+  ]);
+});
+
+test("parse damage if you have blocked recently", () => {
+  const result = parseMod("+40% damage if you have Blocked recently");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 40,
+      modType: "global",
+      addn: false,
+      cond: "has_blocked_recently",
+    },
+  ]);
+});
+
 test("parse additional damage per frostbite rating", () => {
   const result = parseMod(
     "Deals +1% additional damage to an enemy for every 2 points of Frostbite Rating the enemy has",

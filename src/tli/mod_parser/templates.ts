@@ -10,6 +10,8 @@ const AILMENT = "ailment" as const;
 const HAS_FULL_MANA = "has_full_mana" as const;
 const HAS_ELITES_NEARBY = "has_elites_nearby" as const;
 const ENEMY_HAS_AILMENT = "enemy_has_ailment" as const;
+const HAS_FOCUS_BLESSING = "has_focus_blessing" as const;
+const HAS_BLOCKED_RECENTLY = "has_blocked_recently" as const;
 const FROSTBITE_RATING = "frostbite_rating" as const;
 const MANA_CONSUMED_RECENTLY = "mana_consumed_recently" as const;
 const TARGET_ENEMY_IS_IN_PROXIMITY = "target_enemy_is_in_proximity" as const;
@@ -80,6 +82,18 @@ export const allParsers = [
     modType: GLOBAL,
     addn: true,
     cond: ENEMY_HAS_AILMENT,
+  })),
+  t("{value:dec%} damage when focus blessing is active").output("DmgPct", (c) => ({
+    value: c.value,
+    modType: GLOBAL,
+    addn: false,
+    cond: HAS_FOCUS_BLESSING,
+  })),
+  t("{value:dec%} damage if you have blocked recently").output("DmgPct", (c) => ({
+    value: c.value,
+    modType: GLOBAL,
+    addn: false,
+    cond: HAS_BLOCKED_RECENTLY,
   })),
   t(
     "deals {value:dec%} additional damage to an enemy for every {amt:int} points of frostbite rating the enemy has",
