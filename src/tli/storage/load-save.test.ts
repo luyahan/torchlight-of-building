@@ -1,7 +1,8 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: don't care in test */
 import { expect, test } from "vitest";
 import type { SaveData } from "@/src/lib/save-data";
-import { getAffixMods, getAffixText, getAllAffixes } from "../core";
+import { getAllAffixes } from "../calcs/affix-collectors";
+import { getAffixMods, getAffixText } from "../core";
 import { loadSave } from "./load-save";
 
 const createEmptySkillPage = () => ({

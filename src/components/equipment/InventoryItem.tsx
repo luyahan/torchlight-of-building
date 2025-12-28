@@ -1,6 +1,7 @@
 import { Tooltip } from "@/src/components/ui/Tooltip";
 import { useTooltip } from "@/src/hooks/useTooltip";
-import { type Gear, getAllAffixes } from "@/src/tli/core";
+import { getAllAffixes } from "@/src/tli/calcs/affix-collectors";
+import type { Gear } from "@/src/tli/core";
 import { GearTooltipContent } from "./GearTooltipContent";
 
 interface InventoryItemProps {

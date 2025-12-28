@@ -4,7 +4,8 @@ import {
   type SearchableSelectOption,
 } from "@/src/components/ui/SearchableSelect";
 import { Tooltip } from "@/src/components/ui/Tooltip";
-import { type Gear, getAllAffixes } from "@/src/tli/core";
+import { getAllAffixes } from "@/src/tli/calcs/affix-collectors";
+import type { Gear } from "@/src/tli/core";
 import type { GearSlot } from "../../lib/types";
 import { GearTooltipContent } from "./GearTooltipContent";
 

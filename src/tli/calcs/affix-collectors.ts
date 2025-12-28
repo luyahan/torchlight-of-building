@@ -1,0 +1,109 @@
+import type { Affix, Gear, HeroPage, TalentPage } from "../core";
+import { getHeroTraitMods } from "../hero/hero_trait_mods";
+import type { Mod } from "../mod";
+import { type ModWithValue, multModValue } from "./util";
+
+const hasValue = (mod: Mod): mod is ModWithValue => "value" in mod;
+
+const scaleAffixByInverseImage = (affix: Affix, multiplier: number): Affix => ({
+  ...affix,
+  affixLines: affix.affixLines.map((line) => ({
+    ...line,
+    mods: line.mods?.map((mod) =>
+      hasValue(mod) ? multModValue(mod, multiplier) : mod,
+    ),
+  })),
+});
+
+export const getAllAffixes = (gear: Gear): Affix[] => {
+  const affixes: Affix[] = [];
+
+  if (gear.legendary_affixes !== undefined) {
+    // Legendary gear: blend first, then legendary affixes
+    if (gear.blend_affix !== undefined) affixes.push(gear.blend_affix);
+    affixes.push(...gear.legendary_affixes);
+  } else {
+    if (gear.base_affixes !== undefined) affixes.push(...gear.base_affixes);
+    if (gear.sweet_dream_affix !== undefined)
+      affixes.push(gear.sweet_dream_affix);
+    if (gear.tower_sequence_affix !== undefined)
+      affixes.push(gear.tower_sequence_affix);
+    if (gear.blend_affix !== undefined) affixes.push(gear.blend_affix);
+    if (gear.prefixes !== undefined) affixes.push(...gear.prefixes);
+    if (gear.suffixes !== undefined) affixes.push(...gear.suffixes);
+  }
+
+  return affixes;
+};
+
+export const getTalentAffixes = (talentPage: TalentPage): Affix[] => {
+  const affixes: Affix[] = [];
+  const { talentTrees: allocatedTalents } = talentPage;
+
+  const trees = [
+    allocatedTalents.tree1,
+    allocatedTalents.tree2,
+    allocatedTalents.tree3,
+    allocatedTalents.tree4,
+  ];
+
+  for (const tree of trees) {
+    if (tree?.selectedCoreTalents) {
+      affixes.push(...tree.selectedCoreTalents);
+    }
+    if (tree?.additionalCoreTalentPrismAffix) {
+      affixes.push(tree.additionalCoreTalentPrismAffix);
+    }
+    if (tree?.nodes) {
+      for (const node of tree.nodes) {
+        if (node.points > 0) {
+          const multiplier = node.inverseImageEffect
+            ? 1 + node.inverseImageEffect
+            : 1;
+
+          if (multiplier !== 1) {
+            affixes.push(scaleAffixByInverseImage(node.affix, multiplier));
+            affixes.push(
+              ...node.prismAffixes.map((a) =>
+                scaleAffixByInverseImage(a, multiplier),
+              ),
+            );
+          } else {
+            affixes.push(node.affix);
+            affixes.push(...node.prismAffixes);
+          }
+        }
+      }
+    }
+  }
+
+  return affixes;
+};
+
+export const getHeroAffixes = (heroPage: HeroPage): Affix[] => {
+  const affixes: Affix[] = [];
+
+  const { memorySlots, traits } = heroPage;
+
+  const traitSlots = [
+    traits.level1,
+    traits.level45,
+    traits.level60,
+    traits.level75,
+  ];
+  for (const trait of traitSlots) {
+    if (trait !== undefined) {
+      // defaulting to level3 for now
+      const mods = getHeroTraitMods(trait.name, 3);
+      if (mods.length > 0) {
+        affixes.push({ affixLines: [{ text: trait.name, mods }] });
+      }
+    }
+  }
+
+  if (memorySlots.slot45) affixes.push(...memorySlots.slot45.affixes);
+  if (memorySlots.slot60) affixes.push(...memorySlots.slot60.affixes);
+  if (memorySlots.slot75) affixes.push(...memorySlots.slot75.affixes);
+
+  return affixes;
+};

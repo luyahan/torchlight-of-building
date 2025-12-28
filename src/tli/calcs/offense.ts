@@ -1,5 +1,5 @@
 import * as R from "remeda";
-import { match, P } from "ts-pattern";
+import { match } from "ts-pattern";
 import { CoreTalentMods } from "@/src/data/core_talent";
 import {
   type ActiveSkillName,
@@ -16,17 +16,14 @@ import {
   SupportSkills,
 } from "../../data/skill";
 import type { DmgModType } from "../constants";
-import {
-  type Affix,
-  type Configuration,
-  type DivinityPage,
-  type DmgRange,
-  getAllAffixes,
-  getHeroAffixes,
-  getTalentAffixes,
-  type Loadout,
-  type SkillSlot,
-  type SupportSkillSlot,
+import type {
+  Affix,
+  Configuration,
+  DivinityPage,
+  DmgRange,
+  Loadout,
+  SkillSlot,
+  SupportSkillSlot,
 } from "../core";
 import type {
   ConditionThreshold,
@@ -39,7 +36,13 @@ import type {
 import { getActiveSkillMods } from "../skills/active_mods";
 import { getPassiveSkillMods } from "../skills/passive_mods";
 import { getSupportSkillMods } from "../skills/support_mods";
+import {
+  getAllAffixes,
+  getHeroAffixes,
+  getTalentAffixes,
+} from "./affix-collectors";
 import type { OffenseSkillName } from "./skill_confs";
+import { type ModWithValue, multModValue, multValue } from "./util";
 
 const addDR = (dr1: DmgRange, dr2: DmgRange): DmgRange => {
   return {
@@ -864,31 +867,6 @@ export interface OffenseResults {
   skills: Partial<Record<ImplementedActiveSkillName, OffenseSummary>>;
   resourcePool: ResourcePool;
 }
-
-const multValue = <T extends number | DmgRange>(
-  value: T,
-  multiplier: number,
-  ...multipliers: number[]
-): T => {
-  const mult = multiplier * multipliers.reduce((a, b) => a * b, 1);
-  if (typeof value === "number") {
-    return (value * mult) as T;
-  } else {
-    return multDR(value, mult) as T;
-  }
-};
-
-type ModWithValue = Extract<Mod, { value: number | DmgRange }>;
-
-const multModValue = <T extends ModWithValue>(
-  mod: T,
-  multiplier: number,
-): T => {
-  const newValue = match(mod.value)
-    .with(P.number, (x) => x * multiplier)
-    .otherwise((x) => multDR(x, multiplier));
-  return { ...mod, value: newValue, per: undefined };
-};
 
 const filterModsByCond = (
   mods: Mod[],
