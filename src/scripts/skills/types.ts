@@ -1,21 +1,14 @@
-export interface ProgressionRow {
-  level: number;
-  descriptionHtml: string;
-  values: string[];
-}
-
-export interface ProgressionTable {
-  headerTemplate: string | undefined;
-  rows: ProgressionRow[];
+export interface ProgressionColumn {
+  // column header
+  header: string;
+  // maps level to text
+  rows: Record<number, string>;
 }
 
 export interface SupportParserInput {
   skillName: string;
   description: string[];
-  progressionTable: {
-    description: Record<number, string>;
-    values: Record<number, string[]>;
-  };
+  progressionTable: ProgressionColumn[];
 }
 
 /**

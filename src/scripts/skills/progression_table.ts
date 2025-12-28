@@ -1,16 +1,12 @@
 import type { CheerioAPI } from "cheerio";
-import * as cheerio from "cheerio";
-import type {
-  ProgressionRow,
-  ProgressionTable,
-  SupportParserInput,
-} from "./types";
+import { template } from "../../lib/template-compiler";
+import type { ProgressionColumn, SupportParserInput } from "./types";
 
 const EXPECTED_LEVELS = 40;
 
 export const extractProgressionTable = (
   $: CheerioAPI,
-): ProgressionTable | undefined => {
+): SupportParserInput["progressionTable"] | undefined => {
   const card = $("div.card-header:contains('Progression /40')").closest(
     "div.card",
   );
@@ -25,16 +21,18 @@ export const extractProgressionTable = (
 
   const headerRow = table.find("thead tr").first();
   const headerCells = headerRow.find("th");
-  let headerTemplate: string | undefined;
 
-  if (headerCells.length > 1) {
-    const secondHeader = $(headerCells[1]);
-    if (secondHeader.find("span.text-mod").length > 0) {
-      headerTemplate = secondHeader.html() ?? undefined;
-    }
-  }
+  const headers: string[] = [];
+  headerCells.slice(1).each((_, cell) => {
+    headers.push($(cell).text().trim());
+  });
 
-  const rows: ProgressionRow[] = [];
+  // Build column-centric structure: each column has all its level values
+  const columns: ProgressionColumn[] = headers.map((header) => ({
+    header,
+    rows: {},
+  }));
+
   table.find("tbody tr").each((_, row) => {
     const cells = $(row).find("td");
     if (cells.length < 2) return;
@@ -42,17 +40,14 @@ export const extractProgressionTable = (
     const level = Number.parseInt($(cells[0]).text().trim(), 10);
     if (Number.isNaN(level)) return;
 
-    const descriptionHtml = $(cells[1]).html() ?? "";
-
-    const values: string[] = [];
-    cells.slice(1).each((_, cell) => {
-      values.push($(cell).text().trim());
+    cells.slice(1).each((i, cell) => {
+      if (columns[i] !== undefined) {
+        columns[i].rows[level] = $(cell).text().trim();
+      }
     });
-
-    rows.push({ level, descriptionHtml, values });
   });
 
-  return { headerTemplate, rows };
+  return columns;
 };
 
 export const validateAllLevels = (
@@ -74,15 +69,6 @@ export const validateAllLevels = (
       throw new Error(`Parser for "${skillName}" missing level ${i}`);
     }
   }
-};
-
-export const extractTextModValues = (html: string): string[] => {
-  const fragment = cheerio.load(html);
-  const values: string[] = [];
-  fragment("span.text-mod").each((_, elem) => {
-    values.push(fragment(elem).text().trim());
-  });
-  return values;
 };
 
 export const parseNumericValue = (value: string): number => {
@@ -108,23 +94,15 @@ export const parseNumericValue = (value: string): number => {
   return Math.round(num * 10000) / 10000;
 };
 
-export const buildProgressionTableInput = (
-  $: CheerioAPI,
-): SupportParserInput["progressionTable"] | undefined => {
-  const table = extractProgressionTable($);
-  if (table === undefined) {
-    return undefined;
+export const findColumn = (
+  columns: ProgressionColumn[],
+  headerTemplate: string,
+  skillName: string,
+): ProgressionColumn => {
+  const t = template(headerTemplate);
+  const col = columns.find((c) => t.match(c.header) !== undefined);
+  if (col === undefined) {
+    throw new Error(`${skillName}: no column matches "${headerTemplate}"`);
   }
-
-  const description: Record<number, string> = {};
-  const values: Record<number, string[]> = {};
-
-  for (const row of table.rows) {
-    // Convert descriptionHtml to plain text
-    const descText = cheerio.load(row.descriptionHtml).text().trim();
-    description[row.level] = descText;
-    values[row.level] = row.values;
-  }
-
-  return { description, values };
+  return col;
 };
