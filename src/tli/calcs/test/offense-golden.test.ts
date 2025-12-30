@@ -19,7 +19,7 @@ describe("offense golden tests", () => {
     }
 
     const avgDps = frostSpike.avgDps;
-    const expectedDps = 12.40e12; // ~12.40 trillion
+    const expectedDps = 12.4e12; // ~12.40 trillion
     const tolerance = 0.01; // 1% tolerance
 
     expect(avgDps).toBeGreaterThan(expectedDps * (1 - tolerance));
