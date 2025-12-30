@@ -168,3 +168,111 @@ export const chargingWarcryParser: SupportLevelParser = (input) => {
     shadowStrikeSkillAspd: createConstantLevels(aspdMatch.value),
   };
 };
+
+export const mindControlParser: SupportLevelParser = (input) => {
+  const { skillName, progressionTable } = input;
+
+  // Get columns
+  const addedDmgEffCol = findColumn(
+    progressionTable,
+    "effectiveness of added damage",
+    skillName,
+  );
+  // Can't use findColumn("damage") - matches "Effectiveness of added damage" first
+  const damageCol = progressionTable.find(
+    (col) => col.header.toLowerCase() === "damage",
+  );
+  if (!damageCol) {
+    throw new Error(`${skillName}: no "damage" column found`);
+  }
+  const descriptCol = findColumn(progressionTable, "descript", skillName);
+
+  // Level-scaling values (1-20)
+  const addedDmgEffPct: Record<number, number> = {};
+  const persistentDamage: Record<number, number> = {};
+
+  for (const [levelStr, text] of Object.entries(addedDmgEffCol.rows)) {
+    const level = Number(levelStr);
+    if (level <= 20 && text !== "") {
+      const match = template("{value:dec%}").match(text, skillName);
+      addedDmgEffPct[level] = match.value;
+    }
+  }
+
+  for (const [levelStr, text] of Object.entries(damageCol.rows)) {
+    const level = Number(levelStr);
+    if (level <= 20 && text !== "") {
+      const match = template("deals {value:int}").match(text, skillName);
+      persistentDamage[level] = match.value;
+    }
+  }
+
+  // Fill levels 21-40 with level 20 values
+  const level20AddedDmgEff = addedDmgEffPct[20];
+  const level20PersistentDmg = persistentDamage[20];
+  if (level20AddedDmgEff === undefined || level20PersistentDmg === undefined) {
+    throw new Error(`${skillName}: level 20 values missing`);
+  }
+  for (let level = 21; level <= 40; level++) {
+    addedDmgEffPct[level] = level20AddedDmgEff;
+    persistentDamage[level] = level20PersistentDmg;
+  }
+
+  // Extract constants from level 1 Descript
+  const descript = descriptCol.rows[1];
+  if (descript === undefined) {
+    throw new Error(`${skillName}: no descript found for level 1`);
+  }
+
+  // "Channels up to 5 stacks"
+  const initialMaxChannel = template("channels up to {value:int} stacks").match(
+    descript,
+    skillName,
+  ).value;
+
+  // "21.5 % additional damage for every +1 additional Max Channeled Stack(s)"
+  const additionalDmgPerMaxChannel =
+    template("{value:dec} % additional damage for every").match(
+      descript,
+      skillName,
+    ).value / 100;
+
+  // "Initially has 3 maximum links"
+  const initialMaxLinks = template(
+    "initially has {value:int} maximum links",
+  ).match(descript, skillName).value;
+
+  // "+1 maximum link for every channeled stack"
+  const maxLinkPerChannel = template(
+    "{value:int} maximum link for every channeled stack",
+  ).match(descript, skillName).value;
+
+  // "-30% Movement Speed while channeling this skill"
+  const movementSpeedPctWhileChanneling = template(
+    "{value:int%} movement speed while channeling",
+  ).match(descript, skillName).value;
+
+  // "0.5% Max Life per second per link"
+  const restoreLifePctValue = template(
+    "{value:dec%} max life per second per link",
+  ).match(descript, skillName).value;
+
+  validateAllLevels(addedDmgEffPct, skillName);
+  validateAllLevels(persistentDamage, skillName);
+
+  return {
+    addedDmgEffPct,
+    persistentDamage,
+    initialMaxChannel: createConstantLevels(initialMaxChannel),
+    additionalDmgPerMaxChannel: createConstantLevels(
+      additionalDmgPerMaxChannel,
+    ),
+    initialMaxLinks: createConstantLevels(initialMaxLinks),
+    maxLinkPerChannel: createConstantLevels(maxLinkPerChannel),
+    movementSpeedPctWhileChanneling: createConstantLevels(
+      movementSpeedPctWhileChanneling,
+    ),
+    restoreLifePctValue: createConstantLevels(restoreLifePctValue),
+    restoreLifePctInterval: createConstantLevels(1),
+  };
+};

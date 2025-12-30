@@ -3,6 +3,7 @@ import {
   chargingWarcryParser,
   frostSpikeParser,
   iceBondParser,
+  mindControlParser,
 } from "./active_parsers";
 import { preciseCrueltyParser } from "./passive_parsers";
 import {
@@ -83,6 +84,11 @@ export const SKILL_PARSERS: SkillParserEntry[] = [
     skillName: "Charging Warcry",
     categories: ["active"],
     parser: chargingWarcryParser,
+  },
+  {
+    skillName: "Mind Control",
+    categories: ["active"],
+    parser: mindControlParser,
   },
   {
     skillName: "Precise: Cruelty",

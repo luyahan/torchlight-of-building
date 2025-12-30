@@ -76,27 +76,27 @@ The `v(arr, level)` helper safely accesses `arr[level - 1]` with bounds checking
 ### 3. Create Parser (extract values for those keys)
 ```typescript
 // In active_parsers.ts, support_parsers.ts, or passive_parsers.ts
-import { parseNumericValue, validateAllLevels } from "./progression_table";
+import { findColumn, validateAllLevels } from "./progression_table";
+import { template } from "./template-compiler";
 import type { SupportLevelParser } from "./types";
 import { createConstantLevels } from "./utils";
 
 export const iceBondParser: SupportLevelParser = (input) => {
   const { skillName, progressionTable } = input;
 
+  // Find column by header (uses substring matching)
+  const descriptCol = findColumn(progressionTable, "descript", skillName);
   const coldDmgPctVsFrostbitten: Record<number, number> = {};
 
-  for (const [levelStr, values] of Object.entries(progressionTable.values)) {
+  // Iterate over column rows (level → text)
+  for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
-    const descript = values[2]; // Descript column
-
-    if (descript !== undefined && descript !== "") {
-      const match = descript.match(/[+]?([\d.]+)%\s+additional\s+Cold\s+Damage/i);
-      if (match !== null) {
-        coldDmgPctVsFrostbitten[level] = parseNumericValue(match[1], {
-          asPercentage: true,
-        });
-      }
-    }
+    // Use template() for pattern matching - cleaner than regex
+    const match = template("{value:dec%} additional cold damage").match(
+      text,
+      skillName,
+    );
+    coldDmgPctVsFrostbitten[level] = match.value;
   }
 
   validateAllLevels(coldDmgPctVsFrostbitten, skillName);
@@ -105,6 +105,12 @@ export const iceBondParser: SupportLevelParser = (input) => {
   return { coldDmgPctVsFrostbitten };
 };
 ```
+
+**Template syntax for value extraction:**
+- `{name:int}` - Integer (e.g., "5" → 5)
+- `{name:dec}` - Decimal (e.g., "21.5" → 21.5)
+- `{name:dec%}` - Percentage as decimal (e.g., "96%" → 96, NOT 0.96)
+- `{name:int%}` - Percentage as integer (e.g., "-30%" → -30)
 
 For constant values (same across all levels): use `createConstantLevels(value)`
 
@@ -181,6 +187,49 @@ levelValues: {
 | Parser key doesn't match factory key | Keys must match exactly: `vals.dmgPct` needs parser to return `{ dmgPct: ... }` |
 | Forgetting parser registration | Add to SKILL_PARSERS array in `index.ts` |
 | Missing factory | Must add factory in `*_factories.ts` for mods to be applied at runtime |
+| `findColumn` substring collision | "damage" matches "Effectiveness of added damage" first - use exact matching (see below) |
+| Missing levels 21-40 | Many skills only have data for levels 1-20; fill 21-40 with level 20 values |
+
+## findColumn Gotcha: Substring Matching
+
+`findColumn` uses template substring matching. If column headers share substrings, you may get the wrong column:
+
+```typescript
+// PROBLEM: "damage" is a substring of "Effectiveness of added damage"
+// This returns the WRONG column!
+const damageCol = findColumn(progressionTable, "damage", skillName);
+
+// SOLUTION: Use exact header matching when there's a collision
+const damageCol = progressionTable.find(
+  (col) => col.header.toLowerCase() === "damage",
+);
+if (!damageCol) {
+  throw new Error(`${skillName}: no "damage" column found`);
+}
+```
+
+## Handling Levels 21-40 with Empty Data
+
+Many skills only have progression data for levels 1-20. Fill levels 21-40 with level 20 values:
+
+```typescript
+// Extract levels 1-20
+for (const [levelStr, text] of Object.entries(someCol.rows)) {
+  const level = Number(levelStr);
+  if (level <= 20 && text !== "") {
+    values[level] = parseValue(text);
+  }
+}
+
+// Fill levels 21-40 with level 20 value
+const level20Value = values[20];
+if (level20Value === undefined) {
+  throw new Error(`${skillName}: level 20 value missing`);
+}
+for (let level = 21; level <= 40; level++) {
+  values[level] = level20Value;
+}
+```
 
 ## Data Flow
 
