@@ -24,5 +24,16 @@ describe("offense golden tests", () => {
 
     expect(avgDps).toBeGreaterThan(expectedDps * (1 - tolerance));
     expect(avgDps).toBeLessThan(expectedDps * (1 + tolerance));
+
+    // Resistance checks
+    const { defenses } = results;
+    expect(defenses.coldRes).toEqual({ max: 60, potential: 46, actual: 46 });
+    expect(defenses.lightningRes).toEqual({
+      max: 60,
+      potential: 55,
+      actual: 55,
+    });
+    expect(defenses.fireRes).toEqual({ max: 60, potential: 45, actual: 45 });
+    expect(defenses.erosionRes).toEqual({ max: 63, potential: 61, actual: 61 });
   });
 });
