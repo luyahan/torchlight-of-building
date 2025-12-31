@@ -1145,6 +1145,7 @@ const calculateImplicitMods = (): Mod[] => {
       value: 15,
       dmgModType: "global",
       addn: true,
+      isEnemyDebuff: true,
       cond: "enemy_paralyzed",
       src: "Additional Damage when enemy paralyzed",
     },
@@ -1708,6 +1709,30 @@ const calculateNumAgilityBlessings = (
   return baseMaxAgilityBlessings + additionalMaxAgilityBlessings;
 };
 
+const calcAfflictionPts = (config: Configuration): number => {
+  return config.afflictionPts ?? 100;
+};
+
+const calculateAffliction = (mods: Mod[], config: Configuration): Mod[] => {
+  if (config.enemyHasAffliction !== true) {
+    return [];
+  }
+  const afflictionPts = calcAfflictionPts(config);
+  const afflictionEffMult = calculateEffMultiplier(
+    filterMod(mods, "AfflictionEffectPct"),
+  );
+  const afflictionValue = afflictionPts * afflictionEffMult;
+  return [
+    {
+      type: "DmgPct",
+      value: afflictionValue,
+      dmgModType: "damage_over_time",
+      addn: true,
+      isEnemyDebuff: true,
+    },
+  ];
+};
+
 const calculateAddedSkillLevels = (
   loadoutMods: Mod[],
   skill: BaseSkill,
@@ -1811,6 +1836,8 @@ const resolveModsForOffenseSkill = (
 
   const totalMainStats = calculateTotalMainStats(skill, stats);
   mods.push(...normalizeStackables(prenormMods, "main_stat", totalMainStats));
+
+  mods.push(...calculateAffliction(mods, config));
 
   const focusBlessings = calculateNumFocusBlessings(mods, config);
   mods.push(

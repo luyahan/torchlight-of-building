@@ -4576,3 +4576,48 @@ describe("reap mechanics", () => {
     expect(skill?.totalReapDpsSummary).toBeUndefined();
   });
 });
+
+describe("affliction mechanics", () => {
+  const skillName = "[Test] Simple Persistent Spell" as const;
+
+  const createAfflictionInput = (
+    mods: AffixLine[],
+    config: Partial<Configuration> = {},
+  ) => ({
+    loadout: initLoadout({
+      gearPage: { equippedGear: {}, inventory: [] },
+      customAffixLines: mods,
+      skillPage: simplePersistentSpellSkillPage(),
+    }),
+    configuration: { ...defaultConfiguration, ...config },
+  });
+
+  test("affliction effect percent increases affliction value", () => {
+    // Base DOT: 100 DPS
+    // Affliction: 100 pts * (1 + 50% inc) = 150 = +150% additional damage
+    // Total: 100 * 2.5 = 250
+    const input = createAfflictionInput(
+      affixLines([{ type: "AfflictionEffectPct", value: 50, addn: false }]),
+      {
+        enemyHasAffliction: true,
+        afflictionPts: 100,
+      },
+    );
+    const results = calculateOffense(input);
+    expect(results.skills[skillName]?.persistentDpsSummary?.total).toBeCloseTo(
+      250,
+    );
+  });
+
+  test("no affliction damage when enemyHasAffliction is false", () => {
+    // Base DOT: 100 DPS, no affliction bonus
+    const input = createAfflictionInput([], {
+      enemyHasAffliction: false,
+      afflictionPts: 100,
+    });
+    const results = calculateOffense(input);
+    expect(results.skills[skillName]?.persistentDpsSummary?.total).toBeCloseTo(
+      100,
+    );
+  });
+});
