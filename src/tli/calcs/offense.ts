@@ -1850,6 +1850,16 @@ const resolveModsForOffenseSkill = (
   const totalMainStats = calculateTotalMainStats(skill, stats);
   mods.push(...normalizeStackables(prenormMods, "main_stat", totalMainStats));
 
+  const additionalMaxChannel = sumByValue(filterMod(mods, "MaxChannel"));
+  // const additionalMaxChannel = 0
+  mods.push(
+    ...normalizeStackables(
+      prenormMods,
+      "additional_max_channel_stack",
+      additionalMaxChannel,
+    ),
+  );
+
   mods.push(...calculateTorment(config));
   mods.push(...calculateAffliction(mods, config));
 

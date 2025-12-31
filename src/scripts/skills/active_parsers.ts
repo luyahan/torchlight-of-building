@@ -231,11 +231,9 @@ export const mindControlParser: SupportLevelParser = (input) => {
   ).value;
 
   // "21.5 % additional damage for every +1 additional Max Channeled Stack(s)"
-  const additionalDmgPerMaxChannel =
-    template("{value:dec} % additional damage for every").match(
-      descript,
-      skillName,
-    ).value / 100;
+  const additionalDmgPctPerMaxChannel = template(
+    "{value:dec} % additional damage for every",
+  ).match(descript, skillName).value;
 
   // "Initially has 3 maximum links"
   const initialMaxLinks = template(
@@ -264,8 +262,8 @@ export const mindControlParser: SupportLevelParser = (input) => {
     addedDmgEffPct,
     persistentDamage,
     initialMaxChannel: createConstantLevels(initialMaxChannel),
-    additionalDmgPerMaxChannel: createConstantLevels(
-      additionalDmgPerMaxChannel,
+    additionalDmgPctPerMaxChannel: createConstantLevels(
+      additionalDmgPctPerMaxChannel,
     ),
     initialMaxLinks: createConstantLevels(initialMaxLinks),
     maxLinkPerChannel: createConstantLevels(maxLinkPerChannel),

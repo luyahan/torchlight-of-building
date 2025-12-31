@@ -75,7 +75,7 @@ export const activeSkillModFactories: Partial<
       { type: "InitialMaxChannel", value: v(vals.initialMaxChannel, l) },
       {
         type: "DmgPct",
-        value: v(vals.additionalDmgPerMaxChannel, l),
+        value: v(vals.additionalDmgPctPerMaxChannel, l),
         addn: true,
         dmgModType: "global",
         per: { stackable: "additional_max_channel_stack" },
