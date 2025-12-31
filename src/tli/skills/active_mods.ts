@@ -30,9 +30,7 @@ export const getActiveSkillMods = (
 
   const levelValues = skill.levelValues;
   if (levelValues === undefined) {
-    throw new Error(
-      `Active skill "${skillName}" has a factory but no levelValues`,
-    );
+    return {};
   }
 
   return factory(level, levelValues);

@@ -10,6 +10,7 @@ import {
   criticalStrikeDamageIncreaseParser,
   criticalStrikeRatingIncreaseParser,
   enhancedAilmentParser,
+  guardParser,
   hauntParser,
   massEffectParser,
   quickDecisionParser,
@@ -64,6 +65,11 @@ export const SKILL_PARSERS: SkillParserEntry[] = [
     skillName: "Mass Effect",
     categories: ["support"],
     parser: massEffectParser,
+  },
+  {
+    skillName: "Guard",
+    categories: ["support"],
+    parser: guardParser,
   },
   {
     skillName: "Frost Spike",

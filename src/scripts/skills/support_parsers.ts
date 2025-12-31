@@ -238,3 +238,22 @@ export const massEffectParser: SupportLevelParser = (input) => {
 
   return { skillEffPctPerCharges };
 };
+
+export const guardParser: SupportLevelParser = (input) => {
+  const { skillName, progressionTable } = input;
+
+  // Extract damage percentage from progression table
+  const col = findColumn(
+    progressionTable,
+    "{value:dec}% additional damage for the supported skill",
+    skillName,
+  );
+  const dmgPct: Record<number, number> = {};
+  for (const [levelStr, text] of Object.entries(col.rows)) {
+    dmgPct[Number(levelStr)] = parseNumericValue(text);
+  }
+
+  validateAllLevels(dmgPct, skillName);
+
+  return { dmgPct };
+};

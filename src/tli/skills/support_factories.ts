@@ -89,4 +89,13 @@ export const supportSkillModFactories: Partial<
       per: { stackable: "skill_charges_on_use" },
     },
   ],
+  Guard: (l, vals) => [
+    {
+      type: "DmgPct",
+      value: v(vals.dmgPct, l),
+      addn: true,
+      dmgModType: "global",
+    },
+    { type: "GeneratesBarrier" },
+  ],
 };

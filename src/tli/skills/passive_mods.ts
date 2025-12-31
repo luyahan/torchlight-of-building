@@ -29,9 +29,7 @@ export const getPassiveSkillMods = (
 
   const levelValues = skill.levelValues;
   if (levelValues === undefined) {
-    throw new Error(
-      `Passive skill "${skillName}" has a factory but no levelValues`,
-    );
+    return {};
   }
 
   return factory(level, levelValues);
