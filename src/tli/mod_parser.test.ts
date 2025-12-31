@@ -1148,6 +1148,28 @@ test("parse has hasten", () => {
   ]);
 });
 
+test("parse movement speed", () => {
+  const result = parseMod("+38% Movement Speed");
+  expect(result).toEqual([
+    {
+      type: "MovementSpeedPct",
+      value: 38,
+      addn: false,
+    },
+  ]);
+});
+
+test("parse additional movement speed", () => {
+  const result = parseMod("+15% additional Movement Speed");
+  expect(result).toEqual([
+    {
+      type: "MovementSpeedPct",
+      value: 15,
+      addn: true,
+    },
+  ]);
+});
+
 test("parse support skill level", () => {
   const result = parseMod("+7 Support Skill Level");
   expect(result).toEqual([

@@ -277,6 +277,10 @@ export const allParsers = [
   t("max focus blessing stacks \\+{value:int}").output("MaxFocusBlessing", (c) => ({ value: c.value })),
   t("max agility blessing stacks \\+{value:int}").output("MaxAgilityBlessing", (c) => ({ value: c.value })),
   t("has hasten").output("HasHasten", () => ({})),
+  t("{value:dec%} [additional] movement speed").output("MovementSpeedPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+  })),
   t("\\+{value:int} {skillLevelType:SkillLevelType} skill level").output("SkillLevel", (c) => ({
     value: c.value,
     skillLevelType: c.skillLevelType,
