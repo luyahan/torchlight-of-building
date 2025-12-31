@@ -5,7 +5,6 @@ import { Pactspirits } from "@/src/data/pactspirit/pactspirits";
 import type { Pactspirit } from "@/src/data/pactspirit/types";
 import type { TalentNodeData, TreeName } from "@/src/data/talent_tree";
 import { findSlateAtCell } from "@/src/lib/divinity-grid";
-import { craftHeroMemoryAffix } from "@/src/lib/hero-utils";
 import {
   getEffectModifierForType,
   getTargetAreaPositions,
@@ -420,16 +419,14 @@ const convertHeroMemory = (
   // Base stat
   affixes.push(convertAffix(memory.baseStat, src));
 
-  // Fixed affixes
-  for (const affix of memory.fixedAffixes) {
-    const resolvedText = craftHeroMemoryAffix(affix.effect, affix.quality);
-    affixes.push(convertAffix(resolvedText, src));
+  // Fixed affixes (already final text)
+  for (const affixText of memory.fixedAffixes) {
+    affixes.push(convertAffix(affixText, src));
   }
 
-  // Random affixes
-  for (const affix of memory.randomAffixes) {
-    const resolvedText = craftHeroMemoryAffix(affix.effect, affix.quality);
-    affixes.push(convertAffix(resolvedText, src));
+  // Random affixes (already final text)
+  for (const affixText of memory.randomAffixes) {
+    affixes.push(convertAffix(affixText, src));
   }
 
   return {

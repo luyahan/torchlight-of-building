@@ -123,17 +123,12 @@ export interface Gear {
   legendary_affixes?: string[];
 }
 
-export interface HeroMemoryAffix {
-  effect: string;
-  quality: number;
-}
-
 export interface HeroMemory {
   id: string;
   memoryType: HeroMemoryType;
   baseStat: string;
-  fixedAffixes: HeroMemoryAffix[];
-  randomAffixes: HeroMemoryAffix[];
+  fixedAffixes: string[];
+  randomAffixes: string[];
 }
 
 export interface RingSlotState {

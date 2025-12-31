@@ -1,10 +1,6 @@
 import { useMemo } from "react";
 import { SearchableSelect } from "@/src/components/ui/SearchableSelect";
-import type {
-  HeroMemory,
-  HeroMemoryAffix,
-  HeroMemoryType,
-} from "@/src/lib/save-data";
+import type { HeroMemory, HeroMemoryType } from "@/src/lib/save-data";
 import { HERO_MEMORY_TYPES } from "@/src/lib/save-data";
 import { useHeroUIStore } from "@/src/stores/heroUIStore";
 import { DEFAULT_QUALITY } from "../../lib/constants";
@@ -120,21 +116,19 @@ export const MemoryCrafter = ({ onMemorySave }: MemoryCrafterProps) => {
   const handleSaveMemory = () => {
     if (!craftingMemoryType || !craftingBaseStat) return;
 
-    const fixedAffixesData: HeroMemoryAffix[] = fixedAffixSlots
+    const fixedAffixesData: string[] = fixedAffixSlots
       .filter((slot) => slot.effectIndex !== undefined)
-      .map((slot) => ({
+      .map((slot) =>
         // biome-ignore lint/style/noNonNullAssertion: filtered for defined effectIndex above
-        effect: fixedAffixes[slot.effectIndex!],
-        quality: slot.quality,
-      }));
+        craftHeroMemoryAffix(fixedAffixes[slot.effectIndex!], slot.quality),
+      );
 
-    const randomAffixesData: HeroMemoryAffix[] = randomAffixSlots
+    const randomAffixesData: string[] = randomAffixSlots
       .filter((slot) => slot.effectIndex !== undefined)
-      .map((slot) => ({
+      .map((slot) =>
         // biome-ignore lint/style/noNonNullAssertion: filtered for defined effectIndex above
-        effect: randomAffixes[slot.effectIndex!],
-        quality: slot.quality,
-      }));
+        craftHeroMemoryAffix(randomAffixes[slot.effectIndex!], slot.quality),
+      );
 
     const newMemory: HeroMemory = {
       id: generateItemId(),

@@ -739,50 +739,20 @@
         "id": "f6d85def-c427-403f-b15e-23450a312805",
         "memoryType": "Memory of Origin",
         "baseStat": "+90 Intelligence",
-        "fixedAffixes": [
-          {
-            "effect": "+(15-21)% Attack Block Chance",
-            "quality": 69
-          },
-          {
-            "effect": "+(20-28)% Minion Damage",
-            "quality": 60
-          }
-        ],
-        "randomAffixes": [
-          {
-            "effect": "+(21-31)% Spell Block Chance",
-            "quality": 0
-          },
-          {
-            "effect": "+(21-31)% Attack Block Chance",
-            "quality": 89
-          }
-        ]
+        "fixedAffixes": ["+19% Attack Block Chance", "+25% Minion Damage"],
+        "randomAffixes": ["+21% Spell Block Chance", "+30% Attack Block Chance"]
       },
       "slot60": {
         "id": "99bf4229-f7f9-4861-a53e-ee61b2de173c",
         "memoryType": "Memory of Discipline",
         "baseStat": "+180 Max Mana",
         "fixedAffixes": [
-          {
-            "effect": "+(6-9)% Attack Block Chance",
-            "quality": 50
-          },
-          {
-            "effect": "+(26-30)% chance to avoid Elemental Ailments",
-            "quality": 100
-          }
+          "+8% Attack Block Chance",
+          "+30% chance to avoid Elemental Ailments"
         ],
         "randomAffixes": [
-          {
-            "effect": "+18% Attack and Cast Speed\n+18% Minion Attack and Cast Speed",
-            "quality": 50
-          },
-          {
-            "effect": "+(22-27)% Max Mana",
-            "quality": 27
-          }
+          "+18% Attack and Cast Speed\n+18% Minion Attack and Cast Speed",
+          "+23% Max Mana"
         ]
       },
       "slot75": {
@@ -790,24 +760,12 @@
         "memoryType": "Memory of Progress",
         "baseStat": "+36% Attack Speed",
         "fixedAffixes": [
-          {
-            "effect": "+2 to Hero Trait Level",
-            "quality": 50
-          },
-          {
-            "effect": "+(2–4)% Max Erosion Resistance",
-            "quality": 50
-          }
+          "+2 to Hero Trait Level",
+          "+3% Max Erosion Resistance"
         ],
         "randomAffixes": [
-          {
-            "effect": "+14% Attack and Cast Speed\n+14% Minion Attack and Cast Speed",
-            "quality": 50
-          },
-          {
-            "effect": "+(44–52)% Cold Damage",
-            "quality": 70
-          }
+          "+14% Attack and Cast Speed\n+14% Minion Attack and Cast Speed",
+          "+50% Cold Damage"
         ]
       }
     },
@@ -816,50 +774,20 @@
         "id": "f6d85def-c427-403f-b15e-23450a312805",
         "memoryType": "Memory of Origin",
         "baseStat": "+90 Intelligence",
-        "fixedAffixes": [
-          {
-            "effect": "+(15-21)% Attack Block Chance",
-            "quality": 69
-          },
-          {
-            "effect": "+(20-28)% Minion Damage",
-            "quality": 60
-          }
-        ],
-        "randomAffixes": [
-          {
-            "effect": "+(21-31)% Spell Block Chance",
-            "quality": 0
-          },
-          {
-            "effect": "+(21-31)% Attack Block Chance",
-            "quality": 89
-          }
-        ]
+        "fixedAffixes": ["+19% Attack Block Chance", "+25% Minion Damage"],
+        "randomAffixes": ["+21% Spell Block Chance", "+30% Attack Block Chance"]
       },
       {
         "id": "99bf4229-f7f9-4861-a53e-ee61b2de173c",
         "memoryType": "Memory of Discipline",
         "baseStat": "+180 Max Mana",
         "fixedAffixes": [
-          {
-            "effect": "+(6-9)% Attack Block Chance",
-            "quality": 50
-          },
-          {
-            "effect": "+(26-30)% chance to avoid Elemental Ailments",
-            "quality": 100
-          }
+          "+8% Attack Block Chance",
+          "+30% chance to avoid Elemental Ailments"
         ],
         "randomAffixes": [
-          {
-            "effect": "+18% Attack and Cast Speed\n+18% Minion Attack and Cast Speed",
-            "quality": 50
-          },
-          {
-            "effect": "+(22-27)% Max Mana",
-            "quality": 27
-          }
+          "+18% Attack and Cast Speed\n+18% Minion Attack and Cast Speed",
+          "+23% Max Mana"
         ]
       },
       {
@@ -867,24 +795,12 @@
         "memoryType": "Memory of Progress",
         "baseStat": "+36% Attack Speed",
         "fixedAffixes": [
-          {
-            "effect": "+2 to Hero Trait Level",
-            "quality": 50
-          },
-          {
-            "effect": "+(2–4)% Max Erosion Resistance",
-            "quality": 50
-          }
+          "+2 to Hero Trait Level",
+          "+3% Max Erosion Resistance"
         ],
         "randomAffixes": [
-          {
-            "effect": "+14% Attack and Cast Speed\n+14% Minion Attack and Cast Speed",
-            "quality": 50
-          },
-          {
-            "effect": "+(44–52)% Cold Damage",
-            "quality": 70
-          }
+          "+14% Attack and Cast Speed\n+14% Minion Attack and Cast Speed",
+          "+50% Cold Damage"
         ]
       }
     ]

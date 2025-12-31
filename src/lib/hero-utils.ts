@@ -89,19 +89,7 @@ export const craftHeroMemoryAffix = (
 };
 
 export const formatCraftedMemoryAffixes = (memory: HeroMemory): string[] => {
-  const lines: string[] = [];
-
-  lines.push(memory.baseStat);
-
-  memory.fixedAffixes.forEach((affix) => {
-    lines.push(craftHeroMemoryAffix(affix.effect, affix.quality));
-  });
-
-  memory.randomAffixes.forEach((affix) => {
-    lines.push(craftHeroMemoryAffix(affix.effect, affix.quality));
-  });
-
-  return lines;
+  return [memory.baseStat, ...memory.fixedAffixes, ...memory.randomAffixes];
 };
 
 export const canEquipMemoryInSlot = (
