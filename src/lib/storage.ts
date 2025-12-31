@@ -90,6 +90,10 @@ export const createEmptyConfigurationPage = (): ConfigurationPage => ({
   enemyHasAilment: false,
   hasCritRecently: false,
   channeling: false,
+  sagesInsightFireActivated: false,
+  sagesInsightColdActivated: false,
+  sagesInsightLightningActivated: false,
+  sagesInsightErosionActivated: false,
 });
 
 export const createEmptySkillPage = (): SkillPage => ({

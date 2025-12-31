@@ -470,6 +470,58 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             onChange={(e) => onUpdate({ channeling: e.target.checked })}
             className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
           />
+
+          <label className="text-right text-zinc-50">
+            Sage&apos;s Insight (Fire)
+            <InfoTooltip text="Enemy affected by Sage's Insight &quot;When a Spell hit inflicts Fire Damage&quot; condition" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.sagesInsightFireActivated}
+            onChange={(e) =>
+              onUpdate({ sagesInsightFireActivated: e.target.checked })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
+          <label className="text-right text-zinc-50">
+            Sage&apos;s Insight (Cold)
+            <InfoTooltip text="Enemy affected by Sage's Insight &quot;When a Spell hit inflicts Cold Damage&quot; condition" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.sagesInsightColdActivated}
+            onChange={(e) =>
+              onUpdate({ sagesInsightColdActivated: e.target.checked })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
+          <label className="text-right text-zinc-50">
+            Sage&apos;s Insight (Lightning)
+            <InfoTooltip text="Enemy affected by Sage's Insight &quot;When a Spell hit inflicts Lightning Damage&quot; condition" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.sagesInsightLightningActivated}
+            onChange={(e) =>
+              onUpdate({ sagesInsightLightningActivated: e.target.checked })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
+          <label className="text-right text-zinc-50">
+            Sage&apos;s Insight (Erosion)
+            <InfoTooltip text="Enemy affected by Sage's Insight &quot;When a Spell hit inflicts Erosion Damage&quot; condition" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.sagesInsightErosionActivated}
+            onChange={(e) =>
+              onUpdate({ sagesInsightErosionActivated: e.target.checked })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
         </div>
       </div>
 

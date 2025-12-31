@@ -98,5 +98,9 @@ export const useConfiguration = (): Configuration => {
     enemyHasAilment: configPage.enemyHasAilment,
     hasCritRecently: configPage.hasCritRecently,
     channeling: configPage.channeling,
+    sagesInsightFireActivated: configPage.sagesInsightFireActivated,
+    sagesInsightColdActivated: configPage.sagesInsightColdActivated,
+    sagesInsightLightningActivated: configPage.sagesInsightLightningActivated,
+    sagesInsightErosionActivated: configPage.sagesInsightErosionActivated,
   };
 };

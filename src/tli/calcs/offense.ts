@@ -1005,6 +1005,13 @@ const filterModsByCond = (
       .with("has_hasten", () => derivedCtx.hasHasten)
       .with("has_crit_recently", () => config.hasCritRecently)
       .with("channeling", () => config.channeling)
+      .with("sages_insight_fire", () => config.sagesInsightFireActivated)
+      .with("sages_insight_cold", () => config.sagesInsightColdActivated)
+      .with(
+        "sages_insight_lightning",
+        () => config.sagesInsightLightningActivated,
+      )
+      .with("sages_insight_erosion", () => config.sagesInsightErosionActivated)
       .exhaustive();
   });
 };

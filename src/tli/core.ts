@@ -85,6 +85,14 @@ export interface Configuration {
   hasCritRecently: boolean;
   // default fo false
   channeling: boolean;
+  // default to false
+  sagesInsightFireActivated: boolean;
+  // default to false
+  sagesInsightColdActivated: boolean;
+  // default to false
+  sagesInsightLightningActivated: boolean;
+  // default to false
+  sagesInsightErosionActivated: boolean;
 
   // --------------------
   // hero-specific config

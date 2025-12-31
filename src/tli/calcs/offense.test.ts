@@ -49,6 +49,10 @@ const createDefaultConfiguration = (): Configuration => ({
   enemyHasAilment: false,
   hasCritRecently: false,
   channeling: false,
+  sagesInsightFireActivated: false,
+  sagesInsightColdActivated: false,
+  sagesInsightLightningActivated: false,
+  sagesInsightErosionActivated: false,
 });
 
 // Helper to create Affix objects from mods for tests
@@ -2261,6 +2265,10 @@ describe("resolveBuffSkillMods", () => {
         enemyHasAilment: false,
         hasCritRecently: false,
         channeling: false,
+        sagesInsightFireActivated: false,
+        sagesInsightColdActivated: false,
+        sagesInsightLightningActivated: false,
+        sagesInsightErosionActivated: false,
       },
     });
     const actual = results.skills["[Test] Simple Attack"];

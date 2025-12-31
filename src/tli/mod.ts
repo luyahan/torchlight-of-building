@@ -104,7 +104,11 @@ export type Condition =
   | "enemy_has_ailment"
   | "has_hasten"
   | "has_crit_recently"
-  | "channeling";
+  | "channeling"
+  | "sages_insight_fire"
+  | "sages_insight_cold"
+  | "sages_insight_lightning"
+  | "sages_insight_erosion";
 
 export type ConditionThresholdTarget =
   | "num_enemies_nearby"
