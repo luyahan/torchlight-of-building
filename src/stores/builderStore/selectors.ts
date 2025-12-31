@@ -106,5 +106,6 @@ export const useConfiguration = (): Configuration => {
     afflictionPts: configPage.afflictionPts,
     enemyHasDesecration: configPage.enemyHasDesecration,
     tormentStacks: configPage.tormentStacks,
+    hasBlur: configPage.hasBlur,
   };
 };

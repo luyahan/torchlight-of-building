@@ -101,6 +101,8 @@ export interface Configuration {
   enemyHasDesecration: boolean;
   // default to 0
   tormentStacks: number;
+  // default to false
+  hasBlur: boolean;
 
   // --------------------
   // hero-specific config

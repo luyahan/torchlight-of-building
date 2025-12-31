@@ -57,6 +57,7 @@ const createDefaultConfiguration = (): Configuration => ({
   afflictionPts: undefined,
   enemyHasDesecration: false,
   tormentStacks: 0,
+  hasBlur: false,
 });
 
 // Helper to create Affix objects from mods for tests
@@ -2277,6 +2278,7 @@ describe("resolveBuffSkillMods", () => {
         afflictionPts: undefined,
         enemyHasDesecration: false,
         tormentStacks: 0,
+        hasBlur: false,
       },
     });
     const actual = results.skills["[Test] Simple Attack"];
