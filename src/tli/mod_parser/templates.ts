@@ -22,6 +22,7 @@ const TARGET_ENEMY_IS_NEARBY = "target_enemy_is_nearby" as const;
 const ALL = "all" as const;
 const ADDITIONAL_MAX_CHANNEL_STACK = "additional_max_channel_stack" as const;
 const AT_MAX_CHANNELED_STACKS = "at_max_channeled_stacks" as const;
+const ENEMY_IS_CURSED = "enemy_is_cursed" as const;
 
 const coreTalentNameSet = new Set(CoreTalentNames.map((name) => name.toLowerCase()));
 
@@ -88,6 +89,12 @@ export const allParsers = [
     dmgModType: GLOBAL,
     addn: true,
     cond: ENEMY_HAS_AILMENT,
+  })),
+  t("{value:dec%} [additional] damage against cursed enemies").output("DmgPct", (c) => ({
+    value: c.value,
+    dmgModType: GLOBAL,
+    addn: c.additional !== undefined,
+    cond: ENEMY_IS_CURSED,
   })),
   t("{value:dec%} damage when focus blessing is active").output("DmgPct", (c) => ({
     value: c.value,

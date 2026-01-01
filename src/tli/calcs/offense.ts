@@ -1,3 +1,4 @@
+import { load } from "cheerio";
 import * as R from "remeda";
 import { match } from "ts-pattern";
 import { CoreTalentMods } from "@/src/data/core_talent";
@@ -1024,6 +1025,15 @@ const filterModsByCond = (
       .with("sages_insight_erosion", () => config.sagesInsightErosionActivated)
       .with("at_max_channeled_stacks", () => true)
       .with("enemy_at_max_affliction", () => calcAfflictionPts(config) === 100)
+      .with("enemy_is_cursed", () => {
+        // assume enemy is cursed if we have an enabled curse skill
+        return (
+          listActiveSkillSlots(loadout)
+            .filter((s) => s.enabled)
+            .map((s) => findActiveSkill(s.skillName as ActiveSkillName))
+            .find((s) => s.tags.includes("Curse")) !== undefined
+        );
+      })
       .exhaustive();
   });
 };

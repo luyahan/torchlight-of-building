@@ -79,6 +79,32 @@ test("parse additional damage against enemies with elemental ailments", () => {
   ]);
 });
 
+test("parse additional damage against cursed enemies", () => {
+  const result = parseMod("+8% additional damage against Cursed enemies");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 8,
+      dmgModType: "global",
+      addn: true,
+      cond: "enemy_is_cursed",
+    },
+  ]);
+});
+
+test("parse damage against cursed enemies (non-additional)", () => {
+  const result = parseMod("+10% damage against Cursed enemies");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 10,
+      dmgModType: "global",
+      addn: false,
+      cond: "enemy_is_cursed",
+    },
+  ]);
+});
+
 test("parse damage when focus blessing is active", () => {
   const result = parseMod("+30% damage when Focus Blessing is active");
   expect(result).toEqual([
