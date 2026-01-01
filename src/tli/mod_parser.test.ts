@@ -105,6 +105,26 @@ test("parse damage against cursed enemies (non-additional)", () => {
   ]);
 });
 
+test("parse curse damage dealt and damage taken", () => {
+  const result = parseMod(
+    "+20% additional damage dealt to Cursed enemies. -20% additional damage taken from Cursed enemies",
+  );
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 20,
+      dmgModType: "global",
+      addn: true,
+      cond: "enemy_is_cursed",
+    },
+    {
+      type: "DmgTakenPct",
+      value: -20,
+      cond: "enemy_is_cursed",
+    },
+  ]);
+});
+
 test("parse additional damage when having both sealed mana and life", () => {
   const result = parseMod(
     "+10% additional damage when having both Sealed Mana and Life",

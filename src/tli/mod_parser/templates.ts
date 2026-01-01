@@ -91,6 +91,12 @@ export const allParsers = [
     addn: true,
     cond: ENEMY_HAS_AILMENT,
   })),
+  t(
+    "{dmgValue:dec%} additional damage dealt to cursed enemies. {takenValue:int%} additional damage taken from cursed enemies",
+  ).outputMany([
+    spec("DmgPct", (c) => ({ value: c.dmgValue, dmgModType: GLOBAL, addn: true, cond: ENEMY_IS_CURSED })),
+    spec("DmgTakenPct", (c) => ({ value: c.takenValue, cond: ENEMY_IS_CURSED })),
+  ]),
   t("{value:dec%} [additional] damage against cursed enemies").output("DmgPct", (c) => ({
     value: c.value,
     dmgModType: GLOBAL,
