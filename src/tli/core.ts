@@ -89,6 +89,8 @@ export interface Configuration {
   hasCritRecently: boolean;
   // default fo false
   channeling: boolean;
+  // Defaults to max channeled stacks
+  channeledStacks: number | undefined;
   // default to false
   sagesInsightFireActivated: boolean;
   // default to false

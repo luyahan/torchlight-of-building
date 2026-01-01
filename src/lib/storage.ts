@@ -92,6 +92,7 @@ export const createEmptyConfigurationPage = (): ConfigurationPage => ({
   enemyHasAilment: false,
   hasCritRecently: false,
   channeling: false,
+  channeledStacks: undefined,
   sagesInsightFireActivated: false,
   sagesInsightColdActivated: false,
   sagesInsightLightningActivated: false,

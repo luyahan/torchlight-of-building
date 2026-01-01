@@ -100,6 +100,7 @@ export const useConfiguration = (): Configuration => {
     enemyHasAilment: configPage.enemyHasAilment,
     hasCritRecently: configPage.hasCritRecently,
     channeling: configPage.channeling,
+    channeledStacks: configPage.channeledStacks,
     sagesInsightFireActivated: configPage.sagesInsightFireActivated,
     sagesInsightColdActivated: configPage.sagesInsightColdActivated,
     sagesInsightLightningActivated: configPage.sagesInsightLightningActivated,
