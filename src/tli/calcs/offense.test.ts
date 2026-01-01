@@ -3878,6 +3878,12 @@ describe("resource pool: mana and mercury pts", () => {
       gearPage: { equippedGear: { mainHand: coldWeapon }, inventory: [] },
       customAffixLines: mods,
       skillPage: simpleAttackSkillPage(),
+      heroPage: {
+        selectedHero: "Lightbringer Rosa: Unsullied Blade (#2)" as const,
+        traits: {},
+        memorySlots: {},
+        memoryInventory: [],
+      },
     }),
     configuration: defaultConfiguration,
   });

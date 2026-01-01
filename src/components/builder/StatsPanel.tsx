@@ -138,12 +138,14 @@ export const StatsPanel = (): React.ReactNode => {
               {formatStatValue.integer(resourcePool.maxMana)}
             </div>
           </div>
-          <div className="rounded bg-zinc-800 p-2">
-            <div className="text-xs text-zinc-500">Mercury</div>
-            <div className="font-medium text-purple-400">
-              {formatStatValue.integer(resourcePool.mercuryPts)}
+          {resourcePool.mercuryPts !== undefined && (
+            <div className="rounded bg-zinc-800 p-2">
+              <div className="text-xs text-zinc-500">Mercury</div>
+              <div className="font-medium text-purple-400">
+                {formatStatValue.integer(resourcePool.mercuryPts)}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 

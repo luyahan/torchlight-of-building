@@ -254,12 +254,14 @@ function CalculationsPage(): React.ReactNode {
               {formatStatValue.integer(resourcePool.maxMana)}
             </div>
           </div>
-          <div className="rounded-lg bg-zinc-800 p-4">
-            <div className="text-sm text-zinc-400">Mercury Points</div>
-            <div className="text-xl font-semibold text-purple-400">
-              {formatStatValue.integer(resourcePool.mercuryPts)}
+          {resourcePool.mercuryPts !== undefined && (
+            <div className="rounded-lg bg-zinc-800 p-4">
+              <div className="text-sm text-zinc-400">Mercury Points</div>
+              <div className="text-xl font-semibold text-purple-400">
+                {formatStatValue.integer(resourcePool.mercuryPts)}
+              </div>
             </div>
-          </div>
+          )}
           <div className="rounded-lg bg-zinc-800 p-4">
             <div className="text-sm text-zinc-400">Focus Blessings</div>
             <div className="text-xl font-semibold text-sky-400">

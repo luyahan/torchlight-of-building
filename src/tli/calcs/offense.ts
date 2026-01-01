@@ -1,6 +1,7 @@
 import * as R from "remeda";
 import { match } from "ts-pattern";
 import { CoreTalentMods } from "@/src/data/core_talent";
+import type { HeroName } from "@/src/data/hero_trait";
 import type { PactspiritName } from "@/src/data/pactspirit";
 import {
   type ActiveSkillName,
@@ -945,6 +946,10 @@ const hasPactspirit = (name: PactspiritName, loadout: Loadout): boolean => {
   );
 };
 
+const isHero = (name: HeroName, loadout: Loadout): boolean => {
+  return loadout.heroPage.selectedHero === name;
+};
+
 const filterModsByCond = (
   mods: Mod[],
   loadout: Loadout,
@@ -1605,7 +1610,13 @@ const calculateNumShadowHits = (mods: Mod[], config: Configuration): number => {
   return config.numShadowHits ?? shadowQuant;
 };
 
-const calculateMercuryPts = (mods: Mod[]): number => {
+const calculateMercuryPts = (
+  mods: Mod[],
+  loadout: Loadout,
+): number | undefined => {
+  if (!isHero("Lightbringer Rosa: Unsullied Blade (#2)", loadout)) {
+    return undefined;
+  }
   const mercuryPtMods = filterMod(mods, "MaxMercuryPtsPct");
   const mult = calculateEffMultiplier(mercuryPtMods);
   return 100 * mult;
@@ -1887,7 +1898,16 @@ const resolveModsForOffenseSkill = (
   config: Configuration,
   derivedCtx: DerivedCtx,
 ): Mod[] => {
-  const { stats, maxMana, mercuryPts } = resourcePool;
+  const {
+    stats,
+    maxMana,
+    mercuryPts,
+    focusBlessings,
+    agilityBlessings,
+    tenacityBlessings,
+    additionalMaxChanneledStacks,
+    desecration,
+  } = resourcePool;
   const prenormMods = filterModsByCondThreshold(
     filterModsByCond(prenormModsFromParam, loadout, config, derivedCtx),
     config,
@@ -1906,7 +1926,7 @@ const resolveModsForOffenseSkill = (
     ...normalizeStackables(
       prenormMods,
       "additional_max_channel_stack",
-      resourcePool.additionalMaxChanneledStacks,
+      additionalMaxChanneledStacks,
     ),
   );
 
@@ -1919,35 +1939,19 @@ const resolveModsForOffenseSkill = (
   );
 
   mods.push(
-    ...normalizeStackables(
-      prenormMods,
-      "focus_blessing",
-      resourcePool.focusBlessings,
-    ),
+    ...normalizeStackables(prenormMods, "focus_blessing", focusBlessings),
   );
 
   mods.push(
-    ...normalizeStackables(
-      prenormMods,
-      "agility_blessing",
-      resourcePool.agilityBlessings,
-    ),
+    ...normalizeStackables(prenormMods, "agility_blessing", agilityBlessings),
   );
 
   mods.push(
-    ...normalizeStackables(
-      prenormMods,
-      "tenacity_blessing",
-      resourcePool.tenacityBlessings,
-    ),
+    ...normalizeStackables(prenormMods, "tenacity_blessing", tenacityBlessings),
   );
 
   mods.push(
-    ...normalizeStackables(
-      prenormMods,
-      "desecration",
-      resourcePool.desecration ?? 0,
-    ),
+    ...normalizeStackables(prenormMods, "desecration", desecration ?? 0),
   );
 
   const willpowerStacks = calculateWillpower(prenormMods);
@@ -1983,7 +1987,9 @@ const resolveModsForOffenseSkill = (
   }
 
   mods.push(...normalizeStackables(prenormMods, "max_mana", maxMana));
-  mods.push(...normalizeStackables(prenormMods, "mercury_pt", mercuryPts));
+  if (mercuryPts !== undefined) {
+    mods.push(...normalizeStackables(prenormMods, "mercury_pt", mercuryPts));
+  }
 
   const manaConsumedRecently = config.manaConsumedRecently ?? 0;
   mods.push(
@@ -2020,7 +2026,7 @@ export interface ResourcePool {
   stats: Stats;
   maxLife: number;
   maxMana: number;
-  mercuryPts: number;
+  mercuryPts?: number;
   focusBlessings: number;
   maxFocusBlessings: number;
   agilityBlessings: number;
@@ -2063,8 +2069,10 @@ const calculateResourcePool = (
 
   mods.push(...normalizeStackables(prenormMods, "max_mana", maxMana));
 
-  const mercuryPts = calculateMercuryPts(mods);
-  mods.push(...normalizeStackables(prenormMods, "mercury_pt", mercuryPts));
+  const mercuryPts = calculateMercuryPts(mods, loadout);
+  if (mercuryPts !== undefined) {
+    mods.push(...normalizeStackables(prenormMods, "mercury_pt", mercuryPts));
+  }
 
   const maxFocusBlessings = calcMaxBlessings(mods, "focus", derivedCtx);
   const focusBlessings = calcNumFocus(maxFocusBlessings, config);
