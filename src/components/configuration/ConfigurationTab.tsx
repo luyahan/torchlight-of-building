@@ -348,23 +348,23 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
           />
 
           <label className="text-right text-zinc-50">
-            Unsealed Mana %
-            <InfoTooltip text="Percentage of mana currently unsealed. Defaults to 0." />
+            Sealed Mana %
+            <InfoTooltip text="Percentage of mana currently sealed. Defaults to 0." />
           </label>
           <NumberInput
-            value={config.unsealedManaPct}
-            onChange={(v) => onUpdate({ unsealedManaPct: v })}
+            value={config.sealedManaPct}
+            onChange={(v) => onUpdate({ sealedManaPct: v })}
             min={0}
             max={100}
           />
 
           <label className="text-right text-zinc-50">
-            Unsealed Life %
-            <InfoTooltip text="Percentage of life currently unsealed. Defaults to 0." />
+            Sealed Life %
+            <InfoTooltip text="Percentage of life currently sealed. Defaults to 0." />
           </label>
           <NumberInput
-            value={config.unsealedLifePct}
-            onChange={(v) => onUpdate({ unsealedLifePct: v })}
+            value={config.sealedLifePct}
+            onChange={(v) => onUpdate({ sealedLifePct: v })}
             min={0}
             max={100}
           />

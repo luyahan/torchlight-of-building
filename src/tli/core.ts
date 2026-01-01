@@ -53,9 +53,9 @@ export interface Configuration {
   // default to 0
   manaConsumedRecently: number | undefined;
   // default to 0
-  unsealedManaPct: number | undefined;
+  sealedManaPct: number | undefined;
   // default to 0
-  unsealedLifePct: number | undefined;
+  sealedLifePct: number | undefined;
   // default to max
   focusBlessings: number | undefined;
   hasFocusBlessing: boolean;

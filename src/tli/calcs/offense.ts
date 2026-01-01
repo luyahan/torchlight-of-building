@@ -1833,7 +1833,7 @@ const calculateAddedSkillLevels = (
   );
   const mods = filterOutPerMods(prenormMods);
 
-  const sealedLifePct = 100 - (config.unsealedLifePct ?? 0);
+  const sealedLifePct = config.sealedLifePct ?? 0;
   mods.push(
     ...normalizeStackables(prenormMods, "sealed_life_pct", sealedLifePct),
   );
@@ -2011,12 +2011,12 @@ const resolveModsForOffenseSkill = (
     ),
   );
 
-  const unsealedManaPct = config.unsealedManaPct ?? 0;
+  const unsealedManaPct = 100 - (config.sealedManaPct ?? 0);
   mods.push(
     ...normalizeStackables(prenormMods, "unsealed_mana_pct", unsealedManaPct),
   );
 
-  const unsealedLifePct = config.unsealedLifePct ?? 0;
+  const unsealedLifePct = 100 - (config.sealedLifePct ?? 0);
   mods.push(
     ...normalizeStackables(prenormMods, "unsealed_life_pct", unsealedLifePct),
   );
