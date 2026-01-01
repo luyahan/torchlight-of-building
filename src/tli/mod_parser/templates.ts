@@ -348,6 +348,7 @@ export const allParsers = [
   t("max focus blessing stacks \\+{value:int}").output("MaxFocusBlessing", (c) => ({ value: c.value })),
   t("max agility blessing stacks \\+{value:int}").output("MaxAgilityBlessing", (c) => ({ value: c.value })),
   t("max tenacity blessing stacks \\+{value:int}").output("MaxTenacityBlessing", (c) => ({ value: c.value })),
+  t("\\+{value:int} max repentance stacks").output("MaxRepentance", (c) => ({ value: c.value })),
   t("\\+{value:int} max channeled stacks when equipped in the left ring slot").output("MaxChannel", (c) => ({
     value: c.value,
     cond: "equipped_in_left_ring_slot" as const,
@@ -366,6 +367,9 @@ export const allParsers = [
     value: c.value,
   })),
   t("gains {value:int} stack\\(s\\) of focus blessing when reaping").output("GeneratesFocusBlessing", (c) => ({
+    value: c.value,
+  })),
+  t("gains {value:int} stack of repentance when gaining any blessing").output("GeneratesRepentance", (c) => ({
     value: c.value,
   })),
   t("{value:dec%} [additional] movement speed").output("MovementSpeedPct", (c) => ({

@@ -1280,6 +1280,16 @@ test("parse max agility blessing stacks with higher value", () => {
   ]);
 });
 
+test("parse max repentance stacks", () => {
+  const result = parseMod("+3 Max Repentance Stacks");
+  expect(result).toEqual([
+    {
+      type: "MaxRepentance",
+      value: 3,
+    },
+  ]);
+});
+
 test("parse max channeled stacks", () => {
   const result = parseMod("Max Channeled Stacks +1");
   expect(result).toEqual([
@@ -1843,6 +1853,18 @@ test("parse gains focus blessing when reaping", () => {
   expect(result).toEqual([
     {
       type: "GeneratesFocusBlessing",
+      value: 1,
+    },
+  ]);
+});
+
+test("parse gains repentance when gaining any blessing", () => {
+  const result = parseMod(
+    "Gains 1 stack of Repentance when gaining any Blessing",
+  );
+  expect(result).toEqual([
+    {
+      type: "GeneratesRepentance",
       value: 1,
     },
   ]);

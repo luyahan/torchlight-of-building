@@ -263,6 +263,8 @@ interface ModDefinitions {
   GeneratesBarrier: object;
   GeneratesTorment: object;
   GeneratesBlur: { value: number };
+  MaxRepentance: { value: number };
+  GeneratesRepentance: { value: number };
   SkillLevel: { value: number; skillLevelType: SkillLevelType };
   HeroTraitLevel: { value: number; heroTraitLevelType?: HeroTraitLevelType };
   CoreTalent: { name: CoreTalentName };
