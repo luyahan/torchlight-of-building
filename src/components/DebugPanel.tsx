@@ -7,7 +7,7 @@ import type { SaveData } from "@/src/lib/save-data";
 import { getAllAffixes } from "@/src/tli/calcs/affix-collectors";
 import type { Loadout } from "@/src/tli/core";
 
-type DebugView = "saveData" | "loadout" | "unparseable";
+type DebugView = "saveData" | "loadout" | "unparseable" | "affixes";
 
 // Find all paths in the JSON tree that contain or lead to matches
 const findMatchingPaths = (data: unknown, searchTerm: string): Set<string> => {
@@ -369,9 +369,10 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
   }, []);
 
   const currentData = view === "saveData" ? saveData : loadout;
+  const loadoutAffixes = useMemo(() => getAllAffixes(loadout), [loadout]);
   const unparseableAffixes = useMemo(
-    () => collectUnparseableAffixes(getAllAffixes(loadout)),
-    [loadout],
+    () => collectUnparseableAffixes(loadoutAffixes),
+    [loadoutAffixes],
   );
   const unimplementedItems = useMemo(
     () => collectUnimplementedItems(loadout),
@@ -379,23 +380,36 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
   );
   const totalIssues = unparseableAffixes.length + unimplementedItems.length;
 
+  const loadoutAffixLines = useMemo(() => {
+    return loadoutAffixes.flatMap((affix) =>
+      affix.affixLines.map((line) => ({
+        text: line.text,
+        src: affix.src ?? "Unknown",
+        hasMods: line.mods !== undefined && line.mods.length > 0,
+      })),
+    );
+  }, [loadoutAffixes]);
+
   const getTitle = (): string => {
     if (editMode) return "Debug: SaveData (Edit Mode)";
     if (view === "saveData") return "Debug: SaveData (Raw)";
     if (view === "loadout") return "Debug: Loadout (Parsed)";
-    return `Debug: Unimplemented (${totalIssues})`;
+    if (view === "unparseable") return `Debug: Unimplemented (${totalIssues})`;
+    return `Debug: Affixes (${loadoutAffixLines.length})`;
   };
   const title = getTitle();
 
   const cycleView = (): void => {
     if (view === "saveData") setView("loadout");
     else if (view === "loadout") setView("unparseable");
+    else if (view === "unparseable") setView("affixes");
     else setView("saveData");
   };
 
   const getViewButtonText = (): string => {
     if (view === "saveData") return "View Parsed";
     if (view === "loadout") return "View Unimplemented";
+    if (view === "unparseable") return "View Affixes";
     return "View Raw";
   };
 
@@ -405,6 +419,16 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
   }, [currentData, searchTerm]);
 
   const matchCount = matchingPaths?.size ?? 0;
+
+  const filteredAffixLines = useMemo(() => {
+    if (searchTerm === "") return loadoutAffixLines;
+    const searchLower = searchTerm.toLowerCase();
+    return loadoutAffixLines.filter(
+      (line) =>
+        line.text.toLowerCase().includes(searchLower) ||
+        line.src.toLowerCase().includes(searchLower),
+    );
+  }, [loadoutAffixLines, searchTerm]);
 
   const copyDebugJson = async () => {
     try {
@@ -584,6 +608,35 @@ export const DebugPanel: React.FC<DebugPanelProps> = ({
               {totalIssues === 0 && (
                 <div className="text-zinc-400 text-sm">
                   No unimplemented items or unparseable affixes
+                </div>
+              )}
+            </div>
+          ) : view === "affixes" ? (
+            <div className="space-y-1">
+              {searchTerm !== "" && (
+                <div className="text-xs text-zinc-400 mb-2">
+                  Showing {filteredAffixLines.length} of{" "}
+                  {loadoutAffixLines.length} affix lines
+                </div>
+              )}
+              {filteredAffixLines.map((line, idx) => (
+                <div
+                  key={`${line.src}-${line.text}-${idx}`}
+                  className="flex items-start gap-2 text-sm"
+                >
+                  <span className="shrink-0 px-2 py-0.5 bg-blue-900/50 text-blue-300 rounded text-xs font-medium">
+                    {line.src}
+                  </span>
+                  <span
+                    className={`font-mono ${line.hasMods ? "text-zinc-50" : "text-red-400"}`}
+                  >
+                    {line.text}
+                  </span>
+                </div>
+              ))}
+              {filteredAffixLines.length === 0 && (
+                <div className="text-zinc-400 text-sm">
+                  No affix lines match your search
                 </div>
               )}
             </div>

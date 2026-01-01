@@ -14,6 +14,14 @@ const heroTraitModFactories: Partial<Record<HeroTraitName, ModFactory[]>> = {
       dmgModType: "erosion",
     }),
   ],
+  "Onset of Depravity": [
+    () => ({
+      type: "EnemyRes",
+      resType: "erosion",
+      value: -10,
+      cond: "enemy_has_desecration_and_cc",
+    }),
+  ],
   // Rosa 2
   "Unsullied Blade": [() => ({ type: "SpellDmgBonusAppliesToAtkDmg" })],
   "Baptism of Purity": [

@@ -141,6 +141,7 @@ export type Condition =
   | "have_both_sealed_mana_and_life"
   | "equipped_in_left_ring_slot"
   | "equipped_in_right_ring_slot"
+  | "enemy_has_desecration_and_cc"
   // pactspirits
   | "has_portrait_of_a_fallen_saintess_pactspirit";
 

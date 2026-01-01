@@ -950,6 +950,11 @@ const isHero = (name: HeroName, loadout: Loadout): boolean => {
   return loadout.heroPage.selectedHero === name;
 };
 
+const enemyCcd = (config: Configuration) => {
+  // todo: update with all cc
+  return config.enemyParalyzed || config.enemyFrostbittenEnabled;
+};
+
 const filterModsByCond = (
   mods: Mod[],
   loadout: Loadout,
@@ -1020,6 +1025,10 @@ const filterModsByCond = (
       )
       .with("has_portrait_of_a_fallen_saintess_pactspirit", () =>
         hasPactspirit("Portrait of a Fallen Saintess", loadout),
+      )
+      .with(
+        "enemy_has_desecration_and_cc",
+        () => config.enemyHasDesecration && enemyCcd(config),
       )
       .exhaustive();
   });
