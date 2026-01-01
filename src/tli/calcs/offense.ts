@@ -1550,10 +1550,11 @@ interface FervorCtx {
 }
 
 const calculateFervor = (mods: Mod[], config: Configuration): FervorCtx => {
+  const haveFervor = findMod(mods, "HaveFervor") !== undefined;
   const fervorEffMods = filterMod(mods, "FervorEffPct");
   const bonusIncEff = calculateInc(fervorEffMods.map((a) => a.value));
   return {
-    enabled: config.fervorEnabled,
+    enabled: config.fervorEnabled || haveFervor,
     points: config.fervorPoints ?? 100,
     bonusIncEff: bonusIncEff,
   };

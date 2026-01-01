@@ -75,7 +75,6 @@ export const categorizeModType = (mod: Mod): StatCategory => {
       return "aspd";
 
     case "FervorEffPct":
-    case "Fervor":
     default:
       return "other";
   }

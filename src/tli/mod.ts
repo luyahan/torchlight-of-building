@@ -164,11 +164,11 @@ interface ModDefinitions {
   DoubleDmgChancePct: { value: number };
   Stat: { value: number; statModType: StatModType };
   StatPct: { value: number; statModType: StatModType };
+  HaveFervor: object;
   FervorEffPct: { value: number };
   SteepStrikeChancePct: { value: number };
   SteepStrikeDmg: { value: number; addn: boolean };
   SweepSlashDmg: { value: number; addn: boolean };
-  Fervor: { value: number };
   AddnMainHandDmgPct: { value: number };
   GearAspdPct: { value: number };
   FlatGearDmg: {
