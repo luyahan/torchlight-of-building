@@ -34,22 +34,27 @@ export const getAvailableGodGoddessCoreTalents = (
   const firstThree = allTalents.slice(0, 3);
   const lastThree = allTalents.slice(3, 6);
 
-  const filterSelected = (talents: BaseCoreTalent[]) =>
-    talents.filter((ct) => !alreadySelected.includes(ct.name));
+  // For each slot, filter out talents selected in the OTHER slot only
+  // so the current slot's selection remains visible
+  const slot1Selected = alreadySelected[0];
+  const slot2Selected = alreadySelected[1];
 
   return {
-    firstSlot: filterSelected(firstThree),
-    secondSlot: filterSelected(lastThree),
+    firstSlot: firstThree.filter(
+      (ct) => ct.name === slot1Selected || ct.name !== slot2Selected,
+    ),
+    secondSlot: lastThree.filter(
+      (ct) => ct.name === slot2Selected || ct.name !== slot1Selected,
+    ),
   };
 };
 
 export const getAvailableProfessionCoreTalents = (
   treeName: string,
-  alreadySelected: string[],
+  _alreadySelected: string[],
 ): BaseCoreTalent[] => {
-  return getCoreTalentsForTree(treeName).filter(
-    (ct) => !alreadySelected.includes(ct.name),
-  );
+  // With only one slot, show all talents including the selected one
+  return getCoreTalentsForTree(treeName);
 };
 
 export const getMaxCoreTalentSlots = (slot: TreeSlot): number =>
