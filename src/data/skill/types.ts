@@ -192,6 +192,25 @@ export interface BaseNobleSupportSkill extends BaseSkill {
   constantValues?: MagnificentConstantValues;
 }
 
+/**
+ * Affix definition for an activation medium skill at a specific tier.
+ */
+export interface ActivationMediumAffixDef {
+  /** Original affix string with ranges like "(6-20)" preserved */
+  affix: string;
+  /** Exclusive group name if mutually exclusive (e.g., "cooldown_duration") */
+  exclusiveGroup?: string;
+}
+
+export interface BaseActivationMediumSkill extends BaseSkill {
+  // support can target skill if any of the targets match
+  supportTargets: SupportTarget[];
+  // cannot support any of the matched targets (takes precedence over supportTargets)
+  cannotSupportTargets: SupportTarget[];
+  /** Affix definitions organized by tier (skill has one tier, not each affix) */
+  affixDefs?: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>;
+}
+
 export type SkillOffense =
   | { type: "WeaponAtkDmgPct"; value: number }
   | { type: "AddedDmgEffPct"; value: number }

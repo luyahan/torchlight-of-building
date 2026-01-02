@@ -223,3 +223,80 @@ export const parseTierRange = (
     max: Number.parseFloat(rangeMatch[2]),
   };
 };
+
+// ============================================
+// Activation Medium Progression Table
+// ============================================
+
+export interface ActivationMediumTierRow {
+  tier: 0 | 1 | 2 | 3;
+  affixes: string[];
+}
+
+/**
+ * Extract the 4-tier progression table for activation medium skills.
+ * Looks for "Progression /4" header.
+ * Returns an array of { tier, affixes } for each tier found.
+ */
+export const extractActivationMediumProgressionTable = (
+  $: CheerioAPI,
+): ActivationMediumTierRow[] | undefined => {
+  const card = $("div.card-header:contains('Progression /4')").closest(
+    "div.card",
+  );
+  if (card.length === 0) {
+    return undefined;
+  }
+
+  const table = card.find("table");
+  if (table.length === 0) {
+    return undefined;
+  }
+
+  const result: ActivationMediumTierRow[] = [];
+
+  table.find("tbody tr").each((_, row) => {
+    const cells = $(row).find("td");
+    if (cells.length < 2) return;
+
+    const tierNum = Number.parseInt($(cells[0]).text().trim(), 10);
+    if (Number.isNaN(tierNum) || tierNum < 0 || tierNum > 3) return;
+    const tier = tierNum as 0 | 1 | 2 | 3;
+
+    // Extract all <li> elements as affix lines
+    const affixes: string[] = [];
+    $(cells[1])
+      .find("li")
+      .each((_, li) => {
+        // Get HTML and process it
+        let html = $(li).html() ?? "";
+
+        // Replace <span class="text-mod">(min–max)</span> with (min-max) format
+        // Handle en-dash (–) by replacing with regular hyphen (-)
+        html = html.replace(
+          /<span class="text-mod">([^<]+)<\/span>/g,
+          (_match, content: string) => {
+            // Replace en-dash with hyphen for consistency with craft() function
+            return content.replace(/–/g, "-");
+          },
+        );
+
+        // Strip hyperlinks <e class="Hyperlink" ...>text</e>
+        html = html.replace(
+          /<e[^>]*class="Hyperlink"[^>]*>([^<]*)<\/e>/g,
+          "$1",
+        );
+
+        // Remove any remaining HTML tags
+        const text = html.replace(/<[^>]+>/g, "").trim();
+
+        if (text.length > 0) {
+          affixes.push(text);
+        }
+      });
+
+    result.push({ tier, affixes });
+  });
+
+  return result.length > 0 ? result : undefined;
+};

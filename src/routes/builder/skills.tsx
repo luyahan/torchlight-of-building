@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { ActiveSkills, PassiveSkills } from "@/src/data/skill";
 import { SkillSlot } from "../../components/skills/SkillSlot";
-import type { ActiveSkillSlots, PassiveSkillSlots } from "../../lib/save-data";
 import { useBuilderActions, useLoadout } from "../../stores/builderStore";
+import type { ActiveSkillSlots, PassiveSkillSlots } from "../../tli/core";
 
 export const Route = createFileRoute("/builder/skills")({
   component: SkillsPage,

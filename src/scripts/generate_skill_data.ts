@@ -3,6 +3,8 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as cheerio from "cheerio";
 import {
+  type ActivationMediumAffixDef,
+  type BaseActivationMediumSkill,
   type BaseActiveSkill,
   type BaseMagnificentSupportSkill,
   type BaseNobleSupportSkill,
@@ -21,7 +23,9 @@ import {
   getNobleParserForSkill,
   getParserForSkill,
 } from "./skills";
+import { buildActivationMediumAffixDefs } from "./skills/activation_medium_parser";
 import {
+  extractActivationMediumProgressionTable,
   extractMagnificentProgressionTable,
   extractProgressionTable,
 } from "./skills/progression_table";
@@ -40,6 +44,7 @@ interface RawSkill {
   parsedLevelModValues?: Record<string, Record<number, number>>;
   parsedMagnificentValues?: ParsedMagnificentValues;
   parsedNobleValues?: ParsedMagnificentValues;
+  parsedAffixDefs?: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>;
 }
 
 // Set for fast tag validation
@@ -417,7 +422,7 @@ const SKILL_TYPE_CONFIG = {
   "Activation Medium": {
     fileKey: "activation_medium",
     constName: "ActivationMediumSkills",
-    supportType: "generic",
+    supportType: "activation_medium",
   },
 } as const;
 
@@ -596,6 +601,18 @@ const extractSkillFromTlidbHtml = (
     });
   }
 
+  // Extract affixDefs for activation medium skills
+  let parsedAffixDefs:
+    | Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>
+    | undefined;
+
+  if (skillType === "Activation Medium") {
+    const progressionTable = extractActivationMediumProgressionTable($);
+    if (progressionTable !== undefined) {
+      parsedAffixDefs = buildActivationMediumAffixDefs(progressionTable);
+    }
+  }
+
   return {
     type: skillType,
     name,
@@ -605,6 +622,7 @@ const extractSkillFromTlidbHtml = (
     parsedLevelModValues,
     parsedMagnificentValues,
     parsedNobleValues,
+    parsedAffixDefs,
   };
 };
 
@@ -745,6 +763,16 @@ export const ${constName} = ${toTypeScript(skills)} as const satisfies readonly 
 `;
 };
 
+const generateActivationMediumSkillFile = (
+  constName: string,
+  skills: BaseActivationMediumSkill[],
+): string => {
+  return `import type { BaseActivationMediumSkill } from "./types";
+
+export const ${constName} = ${toTypeScript(skills)} as const satisfies readonly (BaseActivationMediumSkill & Record<string, unknown>)[];
+`;
+};
+
 const main = async (): Promise<void> => {
   console.log("Reading tlidb skill HTML files...");
   const allFiles = await readAllTlidbSkills();
@@ -778,6 +806,10 @@ const main = async (): Promise<void> => {
   const nobleSupportSkillGroups = new Map<
     SkillTypeKey,
     BaseNobleSupportSkill[]
+  >();
+  const activationMediumSkillGroups = new Map<
+    SkillTypeKey,
+    BaseActivationMediumSkill[]
   >();
 
   for (const raw of rawData) {
@@ -881,6 +913,29 @@ const main = async (): Promise<void> => {
         nobleSupportSkillGroups.set(skillType, []);
       }
       nobleSupportSkillGroups.get(skillType)?.push(skillEntry);
+    } else if (config.supportType === "activation_medium") {
+      // Parse support targets for activation medium skills
+      const { supportTargets, cannotSupportTargets } = parseSupportTargets(
+        firstDescription,
+        raw.name,
+      );
+
+      const skillEntry: BaseActivationMediumSkill = {
+        type: raw.type as BaseActivationMediumSkill["type"],
+        name: raw.name,
+        tags: raw.tags as unknown as BaseActivationMediumSkill["tags"],
+        description: raw.description,
+        supportTargets,
+        cannotSupportTargets,
+        ...(raw.parsedAffixDefs !== undefined && {
+          affixDefs: raw.parsedAffixDefs,
+        }),
+      };
+
+      if (!activationMediumSkillGroups.has(skillType)) {
+        activationMediumSkillGroups.set(skillType, []);
+      }
+      activationMediumSkillGroups.get(skillType)?.push(skillEntry);
     } else if (skillType === "Active") {
       // Active skills with inferred kinds
       const baseSkill: BaseSkill = {
@@ -956,7 +1011,8 @@ const main = async (): Promise<void> => {
     baseSkillGroups.size +
     supportSkillGroups.size +
     magnificentSupportSkillGroups.size +
-    nobleSupportSkillGroups.size;
+    nobleSupportSkillGroups.size +
+    activationMediumSkillGroups.size;
   console.log(`Grouped into ${totalGroups} skill types`);
 
   // Validate that all support skills have parseable support targets
@@ -1055,6 +1111,19 @@ const main = async (): Promise<void> => {
     await writeFile(filePath, content, "utf-8");
     console.log(
       `Generated ${fileName} (${skills.length} noble support skills)`,
+    );
+  }
+
+  // Generate activation medium skill type files
+  for (const [skillType, skills] of activationMediumSkillGroups) {
+    const config = SKILL_TYPE_CONFIG[skillType];
+    const fileName = `${config.fileKey}.ts`;
+    const filePath = join(outDir, fileName);
+    const content = generateActivationMediumSkillFile(config.constName, skills);
+
+    await writeFile(filePath, content, "utf-8");
+    console.log(
+      `Generated ${fileName} (${skills.length} activation medium skills)`,
     );
   }
 

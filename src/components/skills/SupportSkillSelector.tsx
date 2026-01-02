@@ -21,13 +21,20 @@ import type {
   NobleSupportSkillName,
   SupportSkillName,
 } from "@/src/data/skill/types";
-import type {
-  BaseSupportSkillSlot,
-  MagnificentSupportSkillSlot,
-  NobleSupportSkillSlot,
-} from "@/src/lib/save-data";
+import {
+  getActivationMediumSkill,
+  getWorstActivationMediumDefaults,
+} from "@/src/lib/activation-medium-utils";
+import type { BaseSupportSkillSlot as SaveDataBaseSupportSkillSlot } from "@/src/lib/save-data";
 import { listAvailableSupports } from "@/src/lib/skill-utils";
 import { getWorstSpecialDefaults } from "@/src/lib/special-support-utils";
+import type {
+  BaseSupportSkillSlot,
+  ActivationMediumSkillSlot as LoadoutActivationMediumSkillSlot,
+  MagnificentSupportSkillSlot,
+  NobleSupportSkillSlot,
+} from "@/src/tli/core";
+import { ActivationMediumEditModal } from "./ActivationMediumEditModal";
 import { OptionWithSkillTooltip } from "./OptionWithSkillTooltip";
 import { SkillTooltipContent } from "./SkillTooltipContent";
 import {
@@ -39,7 +46,7 @@ interface SupportSkillSelectorProps {
   mainSkill: BaseActiveSkill | BaseSkill | undefined;
   selectedSlot: BaseSupportSkillSlot | undefined;
   excludedSkills: string[];
-  onChange: (slot: BaseSupportSkillSlot | undefined) => void;
+  onChange: (slot: SaveDataBaseSupportSkillSlot | undefined) => void;
   slotIndex: number; // 1-indexed
 }
 
@@ -87,6 +94,8 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
 }) => {
   const [isMagnificentModalOpen, setIsMagnificentModalOpen] = useState(false);
   const [isNobleModalOpen, setIsNobleModalOpen] = useState(false);
+  const [isActivationMediumModalOpen, setIsActivationMediumModalOpen] =
+    useState(false);
 
   const selectedSkillName = selectedSlot?.name;
   const skillType = useMemo(
@@ -106,6 +115,13 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
     if (skillType !== "noble" || selectedSkillName === undefined)
       return undefined;
     return getNobleSkill(selectedSkillName);
+  }, [skillType, selectedSkillName]);
+
+  // Get activation medium skill data for modal
+  const activationMediumSkill = useMemo(() => {
+    if (skillType !== "activationMedium" || selectedSkillName === undefined)
+      return undefined;
+    return getActivationMediumSkill(selectedSkillName);
   }, [skillType, selectedSkillName]);
 
   const { options, groups } = useMemo(() => {
@@ -246,12 +262,19 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
         }
         break;
       }
-      case "activationMedium":
-        onChange({
-          skillType: "activation_medium",
-          name: skillName as ActivationMediumSkillNmae,
-        });
+      case "activationMedium": {
+        const amSkill = getActivationMediumSkill(skillName);
+        if (amSkill !== undefined) {
+          const defaults = getWorstActivationMediumDefaults(amSkill);
+          onChange({
+            skillType: "activation_medium",
+            name: skillName as ActivationMediumSkillNmae,
+            tier: defaults.tier,
+            affixes: defaults.affixes,
+          });
+        }
         break;
+      }
       default:
         onChange(undefined);
     }
@@ -278,6 +301,12 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
 
   const handleNobleConfirm = (slot: SpecialSupportSlot): void => {
     onChange(slot as NobleSupportSkillSlot);
+  };
+
+  const handleActivationMediumConfirm = (
+    slot: SaveDataBaseSupportSkillSlot,
+  ): void => {
+    onChange(slot);
   };
 
   const renderOption = (
@@ -329,7 +358,8 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
         )}
         {skillType === "magnificent" &&
           selectedSlot !== undefined &&
-          "tier" in selectedSlot && (
+          "tier" in selectedSlot &&
+          "rank" in selectedSlot && (
             <>
               <span className="text-xs text-zinc-500 font-medium">
                 T{selectedSlot.tier} R{selectedSlot.rank}
@@ -359,7 +389,8 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
           )}
         {skillType === "noble" &&
           selectedSlot !== undefined &&
-          "tier" in selectedSlot && (
+          "tier" in selectedSlot &&
+          "rank" in selectedSlot && (
             <>
               <span className="text-xs text-zinc-500 font-medium">
                 T{selectedSlot.tier} R{selectedSlot.rank}
@@ -369,6 +400,37 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
                 onClick={() => setIsNobleModalOpen(true)}
                 className="p-1 text-zinc-400 hover:text-zinc-200 transition-colors"
                 title="Edit noble support"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </button>
+            </>
+          )}
+        {skillType === "activationMedium" &&
+          selectedSlot !== undefined &&
+          "tier" in selectedSlot &&
+          !("rank" in selectedSlot) && (
+            <>
+              <span className="text-xs text-zinc-500 font-medium">
+                T{selectedSlot.tier}
+              </span>
+              <button
+                type="button"
+                onClick={() => setIsActivationMediumModalOpen(true)}
+                className="p-1 text-zinc-400 hover:text-zinc-200 transition-colors"
+                title="Edit activation medium"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -414,6 +476,20 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
             currentSlot={selectedSlot as NobleSupportSkillSlot}
             onConfirm={handleNobleConfirm}
             skillType="noble"
+          />
+        )}
+
+      {/* Activation Medium Edit Modal */}
+      {activationMediumSkill !== undefined &&
+        selectedSlot !== undefined &&
+        "tier" in selectedSlot &&
+        "affixes" in selectedSlot && (
+          <ActivationMediumEditModal
+            isOpen={isActivationMediumModalOpen}
+            onClose={() => setIsActivationMediumModalOpen(false)}
+            skill={activationMediumSkill}
+            currentSlot={selectedSlot as LoadoutActivationMediumSkillSlot}
+            onConfirm={handleActivationMediumConfirm}
           />
         )}
     </>

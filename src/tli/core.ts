@@ -22,6 +22,10 @@ export interface Affix {
   src?: string;
 }
 
+export interface SkillAffix {
+  text: string;
+}
+
 export interface BaseStatLine {
   text: string;
   mods?: Mod[];
@@ -343,6 +347,8 @@ export interface NobleSupportSkillSlot {
 export interface ActivationMediumSkillSlot {
   skillType: "activation_medium";
   name: ActivationMediumSkillNmae;
+  tier: 0 | 1 | 2 | 3;
+  affixes: SkillAffix[];
 }
 
 export type BaseSupportSkillSlot =

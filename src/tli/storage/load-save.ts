@@ -795,8 +795,10 @@ const convertSupportSkillSlot = (
       };
     case "activation_medium":
       return {
-        ...slot,
+        skillType: "activation_medium",
         name: slot.name as ActivationMediumSkillNmae,
+        tier: slot.tier ?? 3,
+        affixes: (slot.affixes ?? []).map((text) => ({ text })),
       };
   }
 };

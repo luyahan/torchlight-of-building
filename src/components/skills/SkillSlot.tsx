@@ -5,10 +5,8 @@ import {
 } from "@/src/components/ui/SearchableSelect";
 import { Tooltip } from "@/src/components/ui/Tooltip";
 import type { BaseActiveSkill, BaseSkill } from "@/src/data/skill/types";
-import type {
-  BaseSupportSkillSlot,
-  SkillSlot as SkillSlotType,
-} from "@/src/lib/save-data";
+import type { BaseSupportSkillSlot as SaveDataBaseSupportSkillSlot } from "@/src/lib/save-data";
+import type { SkillSlot as SkillSlotType } from "@/src/tli/core";
 import { OptionWithSkillTooltip } from "./OptionWithSkillTooltip";
 import { SkillTooltipContent } from "./SkillTooltipContent";
 import { SupportSkillSelector } from "./SupportSkillSelector";
@@ -32,7 +30,7 @@ interface SkillSlotProps {
   onLevelChange: (level: number) => void;
   onUpdateSupport: (
     supportKey: SupportSlotKey,
-    slot: BaseSupportSkillSlot | undefined,
+    slot: SaveDataBaseSupportSkillSlot | undefined,
   ) => void;
 }
 

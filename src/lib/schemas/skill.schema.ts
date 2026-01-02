@@ -46,6 +46,8 @@ export type NobleSupportSkillSlot = z.infer<typeof NobleSupportSkillSlotSchema>;
 export const ActivationMediumSkillSlotSchema = z.object({
   skillType: z.literal("activation_medium"),
   name: z.string(),
+  tier: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
+  affixes: z.array(z.string()),
 });
 
 export type ActivationMediumSkillSlot = z.infer<
