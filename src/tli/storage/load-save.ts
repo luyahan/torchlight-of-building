@@ -3,6 +3,12 @@ import { CoreTalents } from "@/src/data/core_talent/core_talents";
 import type { HeroName, HeroTraitName } from "@/src/data/hero_trait/types";
 import { Pactspirits } from "@/src/data/pactspirit/pactspirits";
 import type { Pactspirit } from "@/src/data/pactspirit/types";
+import type {
+  ActivationMediumSkillNmae,
+  MagnificentSupportSkillName,
+  NobleSupportSkillName,
+  SupportSkillName,
+} from "@/src/data/skill/types";
 import type { TalentNodeData, TreeName } from "@/src/data/talent_tree";
 import { findSlateAtCell } from "@/src/lib/divinity-grid";
 import {
@@ -13,6 +19,7 @@ import {
 import { extractCoreTalentAddedEffect } from "@/src/lib/prism-utils";
 import type {
   SaveData,
+  BaseSupportSkillSlot as SaveDataBaseSupportSkillSlot,
   CraftedPrism as SaveDataCraftedPrism,
   DivinityPage as SaveDataDivinityPage,
   DivinitySlate as SaveDataDivinitySlate,
@@ -25,13 +32,17 @@ import type {
   PactspiritSlot as SaveDataPactspiritSlot,
   PlacedInverseImage as SaveDataPlacedInverseImage,
   PlacedPrism as SaveDataPlacedPrism,
+  SkillPage as SaveDataSkillPage,
+  SkillSlot as SaveDataSkillSlot,
   TalentPage as SaveDataTalentPage,
   TalentTree as SaveDataTalentTree,
 } from "@/src/lib/save-data";
 import type {
+  ActiveSkillSlots,
   Affix,
   AffixLine,
   BaseStats,
+  BaseSupportSkillSlot,
   CraftedPrism,
   DivinityPage,
   DivinitySlate,
@@ -47,8 +58,12 @@ import type {
   Loadout,
   PactspiritPage,
   PactspiritSlot,
+  PassiveSkillSlots,
   PlacedPrism,
   PlacedSlate,
+  SkillPage,
+  SkillSlot,
+  SupportSkills,
   TalentInventory,
   TalentNode,
   TalentPage,
@@ -759,13 +774,83 @@ const convertDivinityPage = (
   };
 };
 
+const convertSupportSkillSlot = (
+  slot: SaveDataBaseSupportSkillSlot,
+): BaseSupportSkillSlot => {
+  switch (slot.skillType) {
+    case "support":
+      return {
+        ...slot,
+        name: slot.name as SupportSkillName,
+      };
+    case "magnificent_support":
+      return {
+        ...slot,
+        name: slot.name as MagnificentSupportSkillName,
+      };
+    case "noble_support":
+      return {
+        ...slot,
+        name: slot.name as NobleSupportSkillName,
+      };
+    case "activation_medium":
+      return {
+        ...slot,
+        name: slot.name as ActivationMediumSkillNmae,
+      };
+  }
+};
+
+const convertSupportSkills = (
+  supports: SaveDataSkillSlot["supportSkills"],
+): SupportSkills => {
+  const result: SupportSkills = {};
+  for (const key of [1, 2, 3, 4, 5] as const) {
+    const slot = supports[key];
+    if (slot !== undefined) {
+      result[key] = convertSupportSkillSlot(slot);
+    }
+  }
+  return result;
+};
+
+const convertSkillSlot = (slot: SaveDataSkillSlot): SkillSlot => ({
+  skillName: slot.skillName,
+  enabled: slot.enabled,
+  level: slot.level,
+  supportSkills: convertSupportSkills(slot.supportSkills),
+});
+
+const convertSkillPage = (saveDataSkillPage: SaveDataSkillPage): SkillPage => {
+  const activeSkills: ActiveSkillSlots = {};
+  for (const key of [1, 2, 3, 4, 5] as const) {
+    const slot = saveDataSkillPage.activeSkills[key];
+    if (slot !== undefined) {
+      activeSkills[key] = convertSkillSlot(slot);
+    }
+  }
+
+  const passiveSkills: PassiveSkillSlots = {};
+  for (const key of [1, 2, 3, 4] as const) {
+    const slot = saveDataSkillPage.passiveSkills[key];
+    if (slot !== undefined) {
+      passiveSkills[key] = convertSkillSlot(slot);
+    }
+  }
+
+  return {
+    activeSkills,
+    passiveSkills,
+  };
+};
+
 export const loadSave = (unloadedSaveData: SaveData): Loadout => {
   const saveData = R.clone(unloadedSaveData);
   return {
     gearPage: convertGearPage(saveData.equipmentPage),
     talentPage: convertTalentPage(saveData.talentPage),
     divinityPage: convertDivinityPage(saveData.divinityPage),
-    skillPage: saveData.skillPage,
+    skillPage: convertSkillPage(saveData.skillPage),
     heroPage: convertHeroPage(
       saveData.heroPage,
       saveData.heroPage.memoryInventory,

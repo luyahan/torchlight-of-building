@@ -12,9 +12,7 @@ import {
   type BaseSupportSkill,
   type ImplementedActiveSkillName,
   type MagnificentSupportSkillName,
-  MagnificentSupportSkills,
   type NobleSupportSkillName,
-  NobleSupportSkills,
   type PassiveSkillName,
   PassiveSkills,
   type SkillOffense,
@@ -31,10 +29,7 @@ import type {
   Configuration,
   DmgRange,
   Loadout,
-  MagnificentSupportSkillSlot,
-  NobleSupportSkillSlot,
   SkillSlot,
-  SupportSkillSlot,
 } from "../core";
 import { getHeroTraitMods } from "../hero/hero_trait_mods";
 import type {

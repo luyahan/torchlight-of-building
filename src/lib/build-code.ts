@@ -1,6 +1,7 @@
 import { deflateSync, inflateSync, strFromU8, strToU8 } from "fflate";
+
 import type { SaveData } from "./save-data";
-import { mergeSaveDataWithDefaults } from "./storage";
+import { parseVersionedSaveData } from "./schemas";
 
 const BUILD_CODE_VERSION = 1;
 
@@ -39,22 +40,17 @@ export const decodeBuildCode = (code: string): SaveData | null => {
   try {
     const compressed = fromBase64Url(code);
     const json = strFromU8(inflateSync(compressed));
-    if (!json) return null;
+    if (json === "") return null;
 
-    const parsed = JSON.parse(json) as VersionedLoadout;
+    const parsed = JSON.parse(json) as unknown;
 
-    // Version check - can add migration logic later
-    if (parsed.v !== BUILD_CODE_VERSION) {
-      console.warn(
-        `Build code version mismatch: expected ${BUILD_CODE_VERSION}, got ${parsed.v}`,
-      );
+    // Validate and parse using schema (Zod .catch() provides defaults)
+    const saveData = parseVersionedSaveData(parsed);
+    if (saveData === undefined) {
+      return null;
     }
 
-    if (!parsed.d || typeof parsed.d !== "object") return null;
-    if (!parsed.d.equipmentPage || !parsed.d.talentPage || !parsed.d.skillPage)
-      return null;
-
-    return mergeSaveDataWithDefaults(parsed.d);
+    return saveData;
   } catch (error) {
     console.error("Failed to decode build code:", error);
     return null;

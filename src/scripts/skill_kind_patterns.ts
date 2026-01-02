@@ -66,7 +66,7 @@ export const SKILL_KIND_PATTERNS: Record<InferredSkillKind, RegExp[]> = {
 
 // Classify a skill using regex patterns only
 export const classifyWithRegex = (skill: BaseSkill): InferredSkillKind[] => {
-  const text = skill.description.join(" ") + " " + skill.tags.join(" ");
+  const text = `${skill.description.join(" ")} ${skill.tags.join(" ")}`;
   const matches: InferredSkillKind[] = [];
 
   for (const [kind, patterns] of Object.entries(SKILL_KIND_PATTERNS)) {

@@ -56,7 +56,7 @@ export const craft = <T extends { craftableAffix: string }>(
 
     // Add + prefix for non-negative values from ranges that span negative to positive
     if (min < 0 && max > 0 && parseFloat(interpolated) >= 0) {
-      return "+" + interpolated;
+      return `+${interpolated}`;
     }
     return interpolated;
   });

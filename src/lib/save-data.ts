@@ -1,247 +1,64 @@
-import type {
-  Configuration,
-  DivinityGod,
-  HeroMemoryType,
-  Rotation,
-  SkillPage,
-  SlateShape,
-} from "@/src/tli/core";
-import type { EquipmentType } from "@/src/tli/gear_data_types";
-
-export type {
-  ActivationMediumSkillSlot,
-  ActiveSkillSlots,
-  BaseSupportSkillSlot,
-  MagnificentSupportSkillSlot,
-  NobleSupportSkillSlot,
-  PassiveSkillSlots,
-  SkillPage,
-  SkillSlot,
-  SupportSkillSlot,
-  SupportSkills,
-} from "@/src/tli/core";
-
+// Re-export types from schemas (schema is source of truth for SaveData types)
 export {
+  // Skill types
+  type ActivationMediumSkillSlot,
+  type ActiveSkillSlots,
+  // Talent types
+  type AllocatedTalentNode,
+  type BaseSupportSkillSlot,
+  // Config types
+  type CalculationsPage,
+  type ConfigurationPage,
+  type CraftedInverseImage,
+  type CraftedPrism,
+  // Common types and enums
+  DIVINITY_AFFIX_TYPES,
   DIVINITY_GODS,
   type DivinityAffixType,
   type DivinityGod,
+  // Divinity types
+  type DivinityPage,
+  type DivinitySlate,
+  // Gear types
+  type EquippedGear,
+  type Gear,
+  type GearPage,
   HERO_MEMORY_TYPES,
+  // Hero types
+  type HeroMemory,
   type HeroMemorySlot,
+  type HeroMemorySlots,
   type HeroMemoryType,
+  type HeroPage,
+  type HeroTrait,
+  type HeroTraits,
+  // Pactspirit types
+  type InstalledDestiny,
+  type MagnificentSupportSkillSlot,
+  type NobleSupportSkillSlot,
+  type PactspiritPage,
+  type PactspiritRings,
+  type PactspiritSlot,
+  type PassiveSkillSlots,
+  type PlacedInverseImage,
+  type PlacedPrism,
+  type PlacedSlate,
+  PRISM_RARITIES,
+  type PrismRarity,
+  type ReflectedAllocatedNode,
+  type RingSlotState,
   ROTATIONS,
   type Rotation,
+  // SaveData types
+  type SaveData,
+  type SkillPage,
+  type SkillSlot,
   SLATE_SHAPES,
   type SlateShape,
-} from "@/src/tli/core";
-
-export interface DivinitySlate {
-  id: string;
-  god?: DivinityGod;
-  shape: SlateShape;
-  rotation: Rotation;
-  flippedH: boolean;
-  flippedV: boolean;
-  affixes: string[];
-  // reserved for affixes from "Sparks of Moth Fire" and "When Sparks Set the Prairie Ablaze"
-  // these are affixes that aren't factored into stat calculations, but may produce
-  // other affixes which do
-  // e.g. "Sparks of Moth Fire" could copy affix from another slate
-  metaAffixes: string[];
-  isLegendary?: boolean;
-  legendaryName?: string;
-}
-
-export const PRISM_RARITIES = ["rare", "legendary"] as const;
-export type PrismRarity = (typeof PRISM_RARITIES)[number];
-
-export interface CraftedPrism {
-  id: string;
-  rarity: PrismRarity;
-  baseAffix: string;
-  gaugeAffixes: string[];
-}
-
-export interface PlacedPrism {
-  prism: CraftedPrism;
-  treeSlot: "tree1" | "tree2" | "tree3" | "tree4";
-  position: { x: number; y: number };
-}
-
-export interface CraftedInverseImage {
-  id: string;
-  microTalentEffect: number; // -100 to 200
-  mediumTalentEffect: number; // -100 to 100
-  legendaryTalentEffect: number; // -100 to 50
-}
-
-export interface ReflectedAllocatedNode {
-  x: number; // Position in target area
-  y: number;
-  sourceX: number; // Position of source node being reflected
-  sourceY: number;
-  points: number;
-}
-
-export interface PlacedInverseImage {
-  inverseImage: CraftedInverseImage;
-  treeSlot: "tree2" | "tree3" | "tree4"; // Only profession trees
-  position: { x: number; y: number };
-  reflectedAllocatedNodes: ReflectedAllocatedNode[];
-}
-
-export interface PlacedSlate {
-  slateId: string;
-  position: { row: number; col: number };
-}
-
-export interface AllocatedTalentNode {
-  x: number;
-  y: number;
-  points: number;
-}
-
-export interface TalentTree {
-  name: string;
-  allocatedNodes: AllocatedTalentNode[];
-  selectedCoreTalents?: string[];
-}
-
-export interface Gear {
-  id: string;
-  equipmentType: EquipmentType;
-  rarity?: "rare" | "legendary";
-  legendaryName?: string;
-
-  // Base stats (shared by both regular and legendary gear)
-  baseStats?: string;
-
-  // Regular gear affix properties
-  base_affixes?: string[];
-  prefixes?: string[];
-  suffixes?: string[];
-  blend_affix?: string;
-  sweet_dream_affix?: string;
-  tower_sequence_affix?: string;
-
-  // Legendary gear affix property
-  legendary_affixes?: string[];
-}
-
-export interface HeroMemory {
-  id: string;
-  memoryType: HeroMemoryType;
-  baseStat: string;
-  fixedAffixes: string[];
-  randomAffixes: string[];
-}
-
-export interface RingSlotState {
-  installedDestiny?: {
-    destinyName: string;
-    destinyType: string;
-    resolvedAffix: string;
-  };
-}
-
-export interface PactspiritSlot {
-  pactspiritName?: string;
-  level: number;
-  rings: {
-    innerRing1: RingSlotState;
-    innerRing2: RingSlotState;
-    innerRing3: RingSlotState;
-    innerRing4: RingSlotState;
-    innerRing5: RingSlotState;
-    innerRing6: RingSlotState;
-    midRing1: RingSlotState;
-    midRing2: RingSlotState;
-    midRing3: RingSlotState;
-  };
-}
-
-export interface PactspiritPage {
-  slot1: PactspiritSlot;
-  slot2: PactspiritSlot;
-  slot3: PactspiritSlot;
-}
-
-export interface CalculationsPage {
-  selectedSkillName?: string;
-}
-
-export type ConfigurationPage = Configuration;
-
-export interface EquippedGear {
-  helmet?: Gear;
-  chest?: Gear;
-  neck?: Gear;
-  gloves?: Gear;
-  belt?: Gear;
-  boots?: Gear;
-  leftRing?: Gear;
-  rightRing?: Gear;
-  mainHand?: Gear;
-  offHand?: Gear;
-}
-
-export interface GearPage {
-  equippedGear: EquippedGear;
-  inventory: Gear[];
-}
-
-export interface TalentTrees {
-  tree1?: TalentTree;
-  tree2?: TalentTree;
-  tree3?: TalentTree;
-  tree4?: TalentTree;
-  placedPrism?: PlacedPrism;
-  placedInverseImage?: PlacedInverseImage;
-}
-
-export interface TalentInventory {
-  prismList: CraftedPrism[];
-  inverseImageList: CraftedInverseImage[];
-}
-
-export interface TalentPage {
-  talentTrees: TalentTrees;
-  inventory: TalentInventory;
-}
-
-export interface DivinityPage {
-  placedSlates: PlacedSlate[];
-  inventory: DivinitySlate[];
-}
-
-export interface HeroTrait {
-  name: string;
-}
-
-export interface HeroTraits {
-  level1?: HeroTrait;
-  level45?: HeroTrait;
-  level60?: HeroTrait;
-  level75?: HeroTrait;
-}
-
-export interface HeroPage {
-  selectedHero?: string;
-  traits: HeroTraits;
-  memorySlots: {
-    slot45?: HeroMemory;
-    slot60?: HeroMemory;
-    slot75?: HeroMemory;
-  };
-  memoryInventory: HeroMemory[];
-}
-
-export interface SaveData {
-  equipmentPage: GearPage;
-  talentPage: TalentPage;
-  skillPage: SkillPage;
-  heroPage: HeroPage;
-  pactspiritPage: PactspiritPage;
-  divinityPage: DivinityPage;
-  configurationPage: ConfigurationPage;
-  calculationsPage: CalculationsPage;
-}
+  type SupportSkillSlot,
+  type SupportSkills,
+  type TalentInventory,
+  type TalentPage,
+  type TalentTree,
+  type TalentTrees,
+} from "./schemas";

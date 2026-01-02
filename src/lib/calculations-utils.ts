@@ -73,8 +73,6 @@ export const categorizeModType = (mod: Mod): StatCategory => {
     case "AspdPct":
     case "GearAspdPct":
       return "aspd";
-
-    case "FervorEffPct":
     default:
       return "other";
   }

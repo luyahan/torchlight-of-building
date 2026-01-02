@@ -75,7 +75,7 @@ const findMatchingParen = (str: string, start: number): number => {
 const escapeRegexChar = (char: string): string => {
   // biome-ignore lint/suspicious/noTemplateCurlyInString: listing regex special chars
   if (".*+?^${}()|[]\\".includes(char)) {
-    return "\\" + char;
+    return `\\${char}`;
   }
   return char;
 };
