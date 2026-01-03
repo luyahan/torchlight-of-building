@@ -14,6 +14,7 @@ export const getActiveSkillMods = (
   skillName: ActiveSkillName,
   level: number,
 ): { offense?: SkillOffense[]; mods?: Mod[]; buffMods?: Mod[] } => {
+  const clampedLevel = Math.min(level, 40);
   const factory = activeSkillModFactories[skillName];
   if (factory === undefined) {
     // Skill has no level-scaling mods
@@ -33,5 +34,5 @@ export const getActiveSkillMods = (
     return {};
   }
 
-  return factory(level, levelValues);
+  return factory(clampedLevel, levelValues);
 };

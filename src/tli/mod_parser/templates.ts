@@ -405,7 +405,7 @@ export const allParsers = [
     value: c.value,
     skillLevelType: "all" as const,
   })),
-  t("\\+{value:int} {skillLevelType:SkillLevelType} skill level").output("SkillLevel", (c) => ({
+  t("{value:int} {skillLevelType:SkillLevelType} skill level").output("SkillLevel", (c) => ({
     value: c.value,
     skillLevelType: c.skillLevelType,
   })),
