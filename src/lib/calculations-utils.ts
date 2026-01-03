@@ -59,8 +59,6 @@ export const categorizeModType = (mod: Mod): StatCategory => {
     case "AddnMainHandDmgPct":
     case "SteepStrikeDmg":
     case "SweepSlashDmg":
-    case "Stat":
-    case "StatPct":
       return "damage";
 
     case "CritRatingPct":

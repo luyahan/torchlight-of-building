@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Mod } from "@/src/tli/mod";
 import { ModRow } from "./ModRow";
 
@@ -16,6 +16,14 @@ export const ModGroup: React.FC<ModGroupProps> = ({
   defaultExpanded = false,
 }) => {
   const [expanded, setExpanded] = useState(defaultExpanded);
+
+  const sortedMods = useMemo(() => {
+    return [...mods].sort((a, b) => {
+      const srcA = a.src ?? "";
+      const srcB = b.src ?? "";
+      return srcA.localeCompare(srcB);
+    });
+  }, [mods]);
 
   if (mods.length === 0) {
     return null;
@@ -52,7 +60,7 @@ export const ModGroup: React.FC<ModGroupProps> = ({
 
       {expanded && (
         <div className="space-y-2 border-t border-zinc-700 px-4 pb-4 pt-3">
-          {mods.map((mod, idx) => (
+          {sortedMods.map((mod, idx) => (
             <ModRow key={`${mod.type}-${idx}`} mod={mod} />
           ))}
         </div>
