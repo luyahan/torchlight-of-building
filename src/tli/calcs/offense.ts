@@ -2207,6 +2207,9 @@ export interface Defenses {
   lightningRes: Resistance;
   fireRes: Resistance;
   erosionRes: Resistance;
+  // TODO: this needs to be moved into offense summary instead, since some main
+  //   skills like mind control lower your movement speed
+  movementSpeedBonusPct: number;
 }
 
 export const calculateDefenses = (
@@ -2239,11 +2242,15 @@ export const calculateDefenses = (
     return { max, potential, actual };
   };
 
+  const movementSpeedBonusPct =
+    calculateEffMultiplier(filterMod(mods, "MovementSpeedPct")) - 1;
+
   return {
     coldRes: calcRes(["cold", "elemental"]),
     lightningRes: calcRes(["lightning", "elemental"]),
     fireRes: calcRes(["fire", "elemental"]),
     erosionRes: calcRes(["erosion"]),
+    movementSpeedBonusPct,
   };
 };
 

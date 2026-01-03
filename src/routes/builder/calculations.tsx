@@ -336,6 +336,12 @@ function CalculationsPage(): React.ReactNode {
               {formatRes(defenses.erosionRes)}
             </div>
           </div>
+          <div className="rounded-lg bg-zinc-800 p-4">
+            <div className="text-sm text-zinc-400">Movement Speed</div>
+            <div className="text-xl font-semibold text-green-400">
+              {formatStatValue.percentage(defenses.movementSpeedBonusPct)}
+            </div>
+          </div>
         </div>
       </div>
 
