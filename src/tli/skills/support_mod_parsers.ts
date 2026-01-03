@@ -93,6 +93,14 @@ const allSupportParsers = [
       addn: true,
     }),
   ),
+  t("{value:dec%} [additional] damage over time for the supported skill").output(
+    "DmgPct",
+    (c) => ({
+      value: c.value,
+      dmgModType: "damage_over_time" as const,
+      addn: c.additional !== undefined,
+    }),
+  ),
   t(
     "the supported skill deals more damage to enemies with more life, up to {value:int%} additional erosion damage",
   ).output("DmgPct", (c) => ({
