@@ -785,19 +785,31 @@ const convertDivinityPage = (
 const RANK_DAMAGE_VALUES = [0, 5, 10, 15, 20] as const;
 
 /**
- * Find the tier-scaled description entry (contains a range like "(X-Y)").
- * Returns the description text and its index, or undefined if none found.
+ * Build affix texts for a magnificent/noble support skill slot.
+ * Combines: craftedAffix + fixed affixes from description[1] + rank damage bonus.
  */
-const findTierScaledDescription = (
+const buildSpecialSupportAffixTexts = (
   descriptions: string[],
-): { text: string; index: number } | undefined => {
-  for (let i = 0; i < descriptions.length; i++) {
-    // Match patterns like (16-18) or (6.1-6.6) or (6.1–6.6)
-    if (/\((-?\d+(?:\.\d+)?)[–-](-?\d+(?:\.\d+)?)\)/.test(descriptions[i])) {
-      return { text: descriptions[i], index: i };
-    }
-  }
-  return undefined;
+  craftedAffix: string,
+  rank: 1 | 2 | 3 | 4 | 5,
+): string[] => {
+  // Fixed affixes are always at description[1]
+  const fixedAffixes =
+    descriptions[1] !== undefined ? descriptions[1].split("\n") : [];
+
+  // Calculate rank damage bonus
+  const rankDmg = RANK_DAMAGE_VALUES[rank - 1];
+  const rankDmgAffix =
+    rankDmg > 0
+      ? `+${rankDmg}% additional damage for the supported skill`
+      : undefined;
+
+  // Combine all affixes: craftedAffix, fixed affixes, rank damage
+  return [
+    ...(craftedAffix !== "" ? [craftedAffix] : []),
+    ...fixedAffixes,
+    ...(rankDmgAffix !== undefined ? [rankDmgAffix] : []),
+  ];
 };
 
 const convertSupportSkillSlot = (
@@ -810,87 +822,35 @@ const convertSupportSkillSlot = (
         name: slot.name as SupportSkillName,
       };
     case "magnificent_support": {
-      // Look up skill in generated data
       const skill = MagnificentSupportSkills.find((s) => s.name === slot.name);
-      const descriptions = skill?.description ?? [];
-
-      // Find tier-scaled description entry (contains range like "(X-Y)")
-      const tierScaled = findTierScaledDescription(descriptions);
-
-      // Get fixed affixes (descriptions that are not [0] and not the tier-scaled one)
-      const fixedAffixes: string[] = [];
-      for (let i = 1; i < descriptions.length; i++) {
-        if (tierScaled === undefined || tierScaled.index !== i) {
-          fixedAffixes.push(...descriptions[i].split("\n"));
-        }
-      }
-
-      // Calculate rank damage bonus
-      const rankDmg = RANK_DAMAGE_VALUES[slot.rank - 1];
-      const rankDmgAffix =
-        rankDmg > 0
-          ? `+${rankDmg}% additional damage for the supported skill`
-          : undefined;
-
-      // Combine all affixes: craftedAffix, fixed affixes, rank damage
-      const affixTexts = [
-        ...(slot.craftedAffix !== "" ? [slot.craftedAffix] : []),
-        ...fixedAffixes,
-        ...(rankDmgAffix !== undefined ? [rankDmgAffix] : []),
-      ];
-
+      const affixTexts = buildSpecialSupportAffixTexts(
+        skill?.description ?? [],
+        slot.craftedAffix,
+        slot.rank,
+      );
       const parsedMods = parseMagnificentSupportAffixes(affixTexts);
       return {
         skillType: "magnificent_support",
         name: slot.name as MagnificentSupportSkillName,
         tier: slot.tier,
         rank: slot.rank,
-        affixes: affixTexts.map((text, i) => ({
-          text,
-          mods: parsedMods[i],
-        })),
+        affixes: affixTexts.map((text, i) => ({ text, mods: parsedMods[i] })),
       };
     }
     case "noble_support": {
-      // Look up skill in generated data
       const skill = NobleSupportSkills.find((s) => s.name === slot.name);
-      const descriptions = skill?.description ?? [];
-
-      // Find tier-scaled description entry (contains range like "(X-Y)")
-      const tierScaled = findTierScaledDescription(descriptions);
-
-      // Get fixed affixes (descriptions that are not [0] and not the tier-scaled one)
-      const fixedAffixes: string[] = [];
-      for (let i = 1; i < descriptions.length; i++) {
-        if (tierScaled === undefined || tierScaled.index !== i) {
-          fixedAffixes.push(...descriptions[i].split("\n"));
-        }
-      }
-
-      // Calculate rank damage bonus
-      const rankDmg = RANK_DAMAGE_VALUES[slot.rank - 1];
-      const rankDmgAffix =
-        rankDmg > 0
-          ? `+${rankDmg}% additional damage for the supported skill`
-          : undefined;
-
-      // Combine all affixes: craftedAffix, fixed affixes, rank damage
-      const affixTexts = [
-        ...(slot.craftedAffix !== "" ? [slot.craftedAffix] : []),
-        ...fixedAffixes,
-        ...(rankDmgAffix !== undefined ? [rankDmgAffix] : []),
-      ];
-
+      const affixTexts = buildSpecialSupportAffixTexts(
+        skill?.description ?? [],
+        slot.craftedAffix,
+        slot.rank,
+      );
       const parsedMods = parseNobleSupportAffixes(affixTexts);
       return {
         skillType: "noble_support",
         name: slot.name as NobleSupportSkillName,
         tier: slot.tier,
         rank: slot.rank,
-        affixes: affixTexts.map((text, i) => ({
-          text,
-          mods: parsedMods[i],
-        })),
+        affixes: affixTexts.map((text, i) => ({ text, mods: parsedMods[i] })),
       };
     }
     case "activation_medium": {
