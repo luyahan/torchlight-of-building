@@ -43,11 +43,11 @@ import type {
 } from "@/src/tli/core";
 import { ActivationMediumEditModal } from "./ActivationMediumEditModal";
 import { OptionWithSkillTooltip } from "./OptionWithSkillTooltip";
-import { SkillTooltipContent } from "./SkillTooltipContent";
 import {
   SpecialSupportEditModal,
   type SpecialSupportSlot,
 } from "./SpecialSupportEditModal";
+import { SupportSkillSelectedTooltipContent } from "./SupportSkillSelectedTooltipContent";
 
 interface SupportSkillSelectorProps {
   mainSkill: BaseActiveSkill | BaseSkill | undefined;
@@ -371,10 +371,13 @@ export const SupportSkillSelector: React.FC<SupportSkillSelectorProps> = ({
     tooltipHandlers: { onMouseEnter: () => void; onMouseLeave: () => void },
   ): React.ReactNode => {
     const skillData = skillsByName.get(option.value);
-    if (skillData === undefined) return null;
+    if (skillData === undefined || selectedSlot === undefined) return null;
     return (
       <Tooltip isVisible={true} triggerRect={triggerRect} {...tooltipHandlers}>
-        <SkillTooltipContent skill={skillData} />
+        <SupportSkillSelectedTooltipContent
+          skill={skillData}
+          slot={selectedSlot}
+        />
       </Tooltip>
     );
   };

@@ -785,16 +785,22 @@ const RANK_DAMAGE_VALUES = [0, 5, 10, 15, 20] as const;
 
 /**
  * Build affix texts for a magnificent/noble support skill slot.
- * Combines: craftedAffix + fixed affixes from description[1] + rank damage bonus.
+ * Combines: craftedAffix + fixed affixes + rank damage bonus.
+ *
+ * Description structure:
+ * - 2 parts: [overview, tier-scaled] → no fixed affixes
+ * - 3 parts: [overview, fixed, tier-scaled] → fixed affixes at index 1
  */
 const buildSpecialSupportAffixTexts = (
   descriptions: string[],
   craftedAffix: string,
   rank: 1 | 2 | 3 | 4 | 5,
 ): string[] => {
-  // Fixed affixes are always at description[1]
+  // Fixed affixes only exist when there are 3 description parts (at index 1)
   const fixedAffixes =
-    descriptions[1] !== undefined ? descriptions[1].split("\n") : [];
+    descriptions.length >= 3 && descriptions[1] !== undefined
+      ? descriptions[1].split("\n")
+      : [];
 
   // Calculate rank damage bonus
   const rankDmg = RANK_DAMAGE_VALUES[rank - 1];
