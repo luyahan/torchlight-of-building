@@ -2561,10 +2561,10 @@ const calcAvgSpellDps = (
   };
 };
 
-interface OffenseSpellBurstDpsSummary {
+export interface OffenseSpellBurstDpsSummary {
   burstsPerSec: number;
   maxSpellBurst: number;
-  dps: number;
+  avgDps: number;
 }
 
 const calcAvgSpellBurstDps = (
@@ -2578,9 +2578,9 @@ const calcAvgSpellBurstDps = (
   const burstsPerSec = baseBurstsPerSec * burstsPerSecMult;
   const maxSpellBurst = sumByValue(filterMod(mods, "MaxSpellBurst"));
 
-  const dps = burstsPerSec * maxSpellBurst * avgHit;
+  const avgDps = burstsPerSec * maxSpellBurst * avgHit;
 
-  return { burstsPerSec, maxSpellBurst, dps };
+  return { burstsPerSec, maxSpellBurst, avgDps };
 };
 
 // Calculates offense for all enabled implemented skills
@@ -2688,6 +2688,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     const totalDps =
       (attackHitSummary?.avgDps ?? 0) +
       (spellDpsSummary?.avgDps ?? 0) +
+      (spellBurstDpsSummary?.avgDps ?? 0) +
       (persistentDpsSummary?.total ?? 0) +
       (totalReapDpsSummary?.totalReapDps ?? 0);
 

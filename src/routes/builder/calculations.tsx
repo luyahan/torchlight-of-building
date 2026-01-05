@@ -4,6 +4,8 @@ import type { ImplementedActiveSkillName } from "@/src/data/skill/types";
 import {
   calculateOffense,
   type OffenseInput,
+  type OffenseSpellBurstDpsSummary,
+  type OffenseSpellDpsSummary,
   type PersistentDpsSummary,
   type ReapDpsSummary,
   type Resistance,
@@ -168,6 +170,84 @@ const ReapRow = ({
           <div className="text-xs text-zinc-500">Reap DPS</div>
           <div className="font-medium text-amber-400">
             {formatStatValue.dps(reap.reapDps)}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SpellHitSummarySection = ({
+  summary,
+}: {
+  summary: OffenseSpellDpsSummary;
+}): React.ReactNode => {
+  return (
+    <div className="rounded-lg border border-blue-500/30 bg-zinc-900 p-6">
+      <h3 className="mb-4 text-lg font-semibold text-blue-400">
+        Spell Hit Summary
+      </h3>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Spell DPS</div>
+          <div className="text-2xl font-bold text-amber-400">
+            {formatStatValue.dps(summary.avgDps)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Avg Hit (with crit)</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {formatStatValue.damage(summary.avgHitWithCrit)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Crit Chance</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {formatStatValue.percentage(summary.critChance)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Crit Multiplier</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {formatStatValue.multiplier(summary.critDmgMult)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Casts/sec</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {formatStatValue.aps(summary.castsPerSec)}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SpellBurstSummarySection = ({
+  summary,
+}: {
+  summary: OffenseSpellBurstDpsSummary;
+}): React.ReactNode => {
+  return (
+    <div className="rounded-lg border border-cyan-500/30 bg-zinc-900 p-6">
+      <h3 className="mb-4 text-lg font-semibold text-cyan-400">Spell Burst</h3>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Burst DPS</div>
+          <div className="text-2xl font-bold text-amber-400">
+            {formatStatValue.dps(summary.avgDps)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Bursts/sec</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {summary.burstsPerSec.toFixed(2)}
+          </div>
+        </div>
+        <div className="rounded-lg bg-zinc-800 p-4">
+          <div className="text-sm text-zinc-400">Max Spell Burst</div>
+          <div className="text-xl font-semibold text-zinc-50">
+            {formatStatValue.integer(summary.maxSpellBurst)}
           </div>
         </div>
       </div>
@@ -347,6 +427,8 @@ function CalculationsPage(): React.ReactNode {
 
       {offenseSummary !== undefined &&
         (offenseSummary.attackDpsSummary !== undefined ||
+          offenseSummary.spellDpsSummary !== undefined ||
+          offenseSummary.spellBurstDpsSummary !== undefined ||
           offenseSummary.persistentDpsSummary !== undefined ||
           offenseSummary.totalReapDpsSummary !== undefined) && (
           <div className="rounded-lg border border-amber-500/50 bg-zinc-900 p-6">
@@ -411,6 +493,16 @@ function CalculationsPage(): React.ReactNode {
         </div>
       )}
 
+      {offenseSummary?.spellDpsSummary !== undefined && (
+        <SpellHitSummarySection summary={offenseSummary.spellDpsSummary} />
+      )}
+
+      {offenseSummary?.spellBurstDpsSummary !== undefined && (
+        <SpellBurstSummarySection
+          summary={offenseSummary.spellBurstDpsSummary}
+        />
+      )}
+
       {offenseSummary?.persistentDpsSummary !== undefined && (
         <PersistentDpsSummarySection
           summary={offenseSummary.persistentDpsSummary}
@@ -422,6 +514,8 @@ function CalculationsPage(): React.ReactNode {
       )}
 
       {(offenseSummary?.attackDpsSummary !== undefined ||
+        offenseSummary?.spellDpsSummary !== undefined ||
+        offenseSummary?.spellBurstDpsSummary !== undefined ||
         offenseSummary?.persistentDpsSummary !== undefined ||
         offenseSummary?.totalReapDpsSummary !== undefined) &&
         groupedMods !== undefined && (

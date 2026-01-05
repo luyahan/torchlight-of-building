@@ -4724,7 +4724,7 @@ describe("spell burst", () => {
     expect(skill?.spellBurstDpsSummary).toBeDefined();
     expect(skill?.spellBurstDpsSummary?.maxSpellBurst).toBe(3);
     expect(skill?.spellBurstDpsSummary?.burstsPerSec).toBeCloseTo(0.5);
-    expect(skill?.spellBurstDpsSummary?.dps).toBeCloseTo(
+    expect(skill?.spellBurstDpsSummary?.avgDps).toBeCloseTo(
       0.5 * 3 * 100 * baseCritMult,
     );
   });
@@ -4744,7 +4744,7 @@ describe("spell burst", () => {
     const skill = results.skills[skillName];
     expect(skill?.spellBurstDpsSummary).toBeDefined();
     expect(skill?.spellBurstDpsSummary?.burstsPerSec).toBeCloseTo(1);
-    expect(skill?.spellBurstDpsSummary?.dps).toBeCloseTo(
+    expect(skill?.spellBurstDpsSummary?.avgDps).toBeCloseTo(
       1 * 3 * 100 * baseCritMult,
     );
   });
@@ -4759,7 +4759,7 @@ describe("spell burst", () => {
     const skill = results.skills[skillName];
     expect(skill?.spellBurstDpsSummary).toBeDefined();
     expect(skill?.spellBurstDpsSummary?.maxSpellBurst).toBe(0);
-    expect(skill?.spellBurstDpsSummary?.dps).toBe(0);
+    expect(skill?.spellBurstDpsSummary?.avgDps).toBe(0);
   });
 });
 

@@ -3,6 +3,8 @@ import type { ImplementedActiveSkillName } from "@/src/data/skill/types";
 import {
   calculateOffense,
   type OffenseInput,
+  type OffenseSpellBurstDpsSummary,
+  type OffenseSpellDpsSummary,
   type PersistentDpsSummary,
   type Resistance,
   type TotalReapDpsSummary,
@@ -74,6 +76,84 @@ const ReapDpsSection = ({
         <div className="text-xs text-zinc-400">CDR Bonus</div>
         <div className="text-lg font-semibold text-zinc-50">
           {formatStatValue.pct(summary.reapCdrBonusPct)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SpellDpsSection = ({
+  summary,
+}: {
+  summary: OffenseSpellDpsSummary;
+}): React.ReactNode => {
+  return (
+    <div className="space-y-3">
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Spell DPS</div>
+        <div className="text-xl font-bold text-amber-400">
+          {formatStatValue.dps(summary.avgDps)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Avg Hit (with crit)</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {formatStatValue.damage(summary.avgHitWithCrit)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Crit Chance</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {formatStatValue.percentage(summary.critChance)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Crit Multiplier</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {formatStatValue.multiplier(summary.critDmgMult)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Casts/sec</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {formatStatValue.aps(summary.castsPerSec)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SpellBurstDpsSection = ({
+  summary,
+}: {
+  summary: OffenseSpellBurstDpsSummary;
+}): React.ReactNode => {
+  return (
+    <div className="mt-4 space-y-3">
+      <div className="text-xs font-medium text-zinc-400">Spell Burst</div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Burst DPS</div>
+        <div className="text-xl font-bold text-amber-400">
+          {formatStatValue.dps(summary.avgDps)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Bursts/sec</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {summary.burstsPerSec.toFixed(2)}
+        </div>
+      </div>
+
+      <div className="rounded bg-zinc-800 p-3">
+        <div className="text-xs text-zinc-400">Max Spell Burst</div>
+        <div className="text-lg font-semibold text-zinc-50">
+          {formatStatValue.integer(summary.maxSpellBurst)}
         </div>
       </div>
     </div>
@@ -186,6 +266,8 @@ export const StatsPanel = (): React.ReactNode => {
       </div>
 
       {offenseSummary?.attackDpsSummary !== undefined ||
+      offenseSummary?.spellDpsSummary !== undefined ||
+      offenseSummary?.spellBurstDpsSummary !== undefined ||
       offenseSummary?.persistentDpsSummary !== undefined ||
       offenseSummary?.totalReapDpsSummary !== undefined ? (
         <>
@@ -253,6 +335,16 @@ export const StatsPanel = (): React.ReactNode => {
                 </div>
               </div>
             </div>
+          )}
+
+          {offenseSummary.spellDpsSummary !== undefined && (
+            <SpellDpsSection summary={offenseSummary.spellDpsSummary} />
+          )}
+
+          {offenseSummary.spellBurstDpsSummary !== undefined && (
+            <SpellBurstDpsSection
+              summary={offenseSummary.spellBurstDpsSummary}
+            />
           )}
 
           {offenseSummary.persistentDpsSummary !== undefined && (
