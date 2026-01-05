@@ -9,7 +9,11 @@ import {
 import { encodeBuildCode } from "../../lib/build-code";
 import {
   loadDebugModeFromStorage,
+  loadDebugPanelHeightFromStorage,
+  loadDebugPanelTabFromStorage,
   saveDebugModeToStorage,
+  saveDebugPanelHeightToStorage,
+  saveDebugPanelTabToStorage,
 } from "../../lib/storage";
 import {
   useBuilderActions,
@@ -17,7 +21,12 @@ import {
   useLoadout,
   useSaveDataRaw,
 } from "../../stores/builderStore";
-import { DebugPanel } from "../DebugPanel";
+import {
+  DEBUG_PANEL_DEFAULT_HEIGHT,
+  DEBUG_PANEL_HEADER_HEIGHT,
+  DebugPanel,
+  type DebugView,
+} from "../DebugPanel";
 import { ExportModal } from "../modals/ExportModal";
 import { PageTabs } from "../PageTabs";
 import { StatsPanel } from "./StatsPanel";
@@ -37,6 +46,10 @@ export const BuilderLayout = ({ children }: BuilderLayoutProps) => {
 
   const [debugMode, setDebugMode] = useState(false);
   const [debugPanelExpanded, setDebugPanelExpanded] = useState(true);
+  const [debugPanelHeight, setDebugPanelHeight] = useState(
+    DEBUG_PANEL_DEFAULT_HEIGHT,
+  );
+  const [debugPanelView, setDebugPanelView] = useState<DebugView>("saveData");
   const [exportModalOpen, setExportModalOpen] = useState(false);
   const [buildCode, setBuildCode] = useState("");
   const [isRenamingBuild, setIsRenamingBuild] = useState(false);
@@ -45,6 +58,10 @@ export const BuilderLayout = ({ children }: BuilderLayoutProps) => {
 
   useEffect(() => {
     setDebugMode(loadDebugModeFromStorage());
+    setDebugPanelHeight(
+      loadDebugPanelHeightFromStorage(DEBUG_PANEL_DEFAULT_HEIGHT),
+    );
+    setDebugPanelView(loadDebugPanelTabFromStorage() as DebugView);
   }, []);
 
   const handleBackToSaves = useCallback(() => {
@@ -57,6 +74,16 @@ export const BuilderLayout = ({ children }: BuilderLayoutProps) => {
       saveDebugModeToStorage(newValue);
       return newValue;
     });
+  }, []);
+
+  const handleDebugPanelHeightChange = useCallback((height: number) => {
+    setDebugPanelHeight(height);
+    saveDebugPanelHeightToStorage(height);
+  }, []);
+
+  const handleDebugPanelViewChange = useCallback((view: DebugView) => {
+    setDebugPanelView(view);
+    saveDebugPanelTabToStorage(view);
   }, []);
 
   const handleExport = useCallback(() => {
@@ -95,8 +122,16 @@ export const BuilderLayout = ({ children }: BuilderLayoutProps) => {
     [handleRenameSubmit, handleRenameCancel],
   );
 
+  // Calculate padding needed when debug panel is visible
+  const debugPanelTotalHeight = debugMode
+    ? DEBUG_PANEL_HEADER_HEIGHT + (debugPanelExpanded ? debugPanelHeight : 0)
+    : 0;
+
   return (
-    <div className="min-h-screen bg-zinc-950 p-6">
+    <div
+      className="min-h-screen bg-zinc-950 p-6"
+      style={{ paddingBottom: debugPanelTotalHeight + 24 }}
+    >
       <div className="mx-auto max-w-[1440px]">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -211,6 +246,10 @@ export const BuilderLayout = ({ children }: BuilderLayoutProps) => {
             loadout={loadout}
             debugPanelExpanded={debugPanelExpanded}
             setDebugPanelExpanded={setDebugPanelExpanded}
+            panelHeight={debugPanelHeight}
+            setPanelHeight={handleDebugPanelHeightChange}
+            view={debugPanelView}
+            setView={handleDebugPanelViewChange}
             onClose={handleDebugToggle}
             onSaveDataChange={setSaveData}
           />

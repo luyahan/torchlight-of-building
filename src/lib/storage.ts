@@ -1,5 +1,9 @@
 import { DEFAULT_CONFIGURATION } from "@/src/tli/core";
-import { DEBUG_MODE_STORAGE_KEY } from "./constants";
+import {
+  DEBUG_MODE_STORAGE_KEY,
+  DEBUG_PANEL_HEIGHT_STORAGE_KEY,
+  DEBUG_PANEL_TAB_STORAGE_KEY,
+} from "./constants";
 import type {
   CalculationsPage,
   ConfigurationPage,
@@ -91,6 +95,57 @@ export const saveDebugModeToStorage = (enabled: boolean): void => {
     localStorage.setItem(DEBUG_MODE_STORAGE_KEY, enabled.toString());
   } catch (error) {
     console.error("Failed to save debug mode to localStorage:", error);
+  }
+};
+
+export const loadDebugPanelHeightFromStorage = (
+  defaultHeight: number,
+): number => {
+  if (typeof window === "undefined") return defaultHeight;
+  try {
+    const stored = localStorage.getItem(DEBUG_PANEL_HEIGHT_STORAGE_KEY);
+    if (stored === null) return defaultHeight;
+    const parsed = Number.parseInt(stored, 10);
+    return Number.isNaN(parsed) ? defaultHeight : parsed;
+  } catch (error) {
+    console.error(
+      "Failed to load debug panel height from localStorage:",
+      error,
+    );
+    return defaultHeight;
+  }
+};
+
+export const saveDebugPanelHeightToStorage = (height: number): void => {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(DEBUG_PANEL_HEIGHT_STORAGE_KEY, height.toString());
+  } catch (error) {
+    console.error("Failed to save debug panel height to localStorage:", error);
+  }
+};
+
+const VALID_DEBUG_TABS = ["saveData", "loadout", "unparseable", "affixes"];
+
+export const loadDebugPanelTabFromStorage = (): string => {
+  if (typeof window === "undefined") return "saveData";
+  try {
+    const stored = localStorage.getItem(DEBUG_PANEL_TAB_STORAGE_KEY);
+    if (stored === null || !VALID_DEBUG_TABS.includes(stored))
+      return "saveData";
+    return stored;
+  } catch (error) {
+    console.error("Failed to load debug panel tab from localStorage:", error);
+    return "saveData";
+  }
+};
+
+export const saveDebugPanelTabToStorage = (tab: string): void => {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(DEBUG_PANEL_TAB_STORAGE_KEY, tab);
+  } catch (error) {
+    console.error("Failed to save debug panel tab to localStorage:", error);
   }
 };
 
