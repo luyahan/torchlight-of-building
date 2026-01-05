@@ -444,3 +444,31 @@ export const chainLightningParser: SupportLevelParser = (input) => {
     jump: createConstantLevels(jump),
   };
 };
+
+export const bitingColdParser: SupportLevelParser = (input) => {
+  const { skillName, progressionTable } = input;
+
+  const descriptCol = findColumn(progressionTable, "descript", skillName);
+  const dmgPct: Record<number, number> = {};
+  const inflictFrostbitePct: Record<number, number> = {};
+
+  for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
+    const level = Number(levelStr);
+    // Match "+39% additional Cold Damage taken" or "49.5% additional Cold Damage taken"
+    const dmgMatch = template(
+      "{value:dec%} additional cold damage taken",
+    ).match(text, skillName);
+    dmgPct[level] = dmgMatch.value;
+
+    // Match "+19% chance to be Frostbitten" or "19.5% chance to be Frostbitten"
+    const frostbiteMatch = template(
+      "{value:dec%} chance to be frostbitten",
+    ).match(text, skillName);
+    inflictFrostbitePct[level] = frostbiteMatch.value;
+  }
+
+  validateAllLevels(dmgPct, skillName);
+  validateAllLevels(inflictFrostbitePct, skillName);
+
+  return { dmgPct, inflictFrostbitePct };
+};

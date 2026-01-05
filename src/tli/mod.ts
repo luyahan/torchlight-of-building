@@ -303,6 +303,7 @@ interface ModDefinitions {
   // ailments
   InflictWiltPct: { value: number; isEnemyDebuff?: boolean };
   BaseWiltFlatDmg: { value: number };
+  InflictFrostbitePct: { value: number; isEnemyDebugg?: boolean };
   InflictParalysisPct: { value: number };
   // skill-specific
   MindControlMaxLink: { value: number };

@@ -1,5 +1,6 @@
 import {
   arcaneCircleParser,
+  bitingColdParser,
   bullsRageParser,
   chainLightningParser,
   chargingWarcryParser,
@@ -109,6 +110,11 @@ export const SKILL_PARSERS: SkillParserEntry[] = [
     skillName: "Chain Lightning",
     categories: ["active"],
     parser: chainLightningParser,
+  },
+  {
+    skillName: "Biting Cold",
+    categories: ["active"],
+    parser: bitingColdParser,
   },
 ];
 

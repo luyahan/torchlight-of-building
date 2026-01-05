@@ -181,6 +181,22 @@ export const activeSkillModFactories: Partial<
       },
     ],
   }),
+  "Biting Cold": (l, vals) => ({
+    buffMods: [
+      {
+        type: "DmgPct",
+        dmgModType: "cold",
+        addn: true,
+        isEnemyDebuff: true,
+        value: v(vals.dmgPct, l),
+      },
+      {
+        type: "InflictFrostbitePct",
+        isEnemyDebuff: true,
+        value: v(vals.inflictFrostbitePct, l),
+      },
+    ],
+  }),
   "Mana Boil": (l, vals) => ({
     buffMods: [
       {
