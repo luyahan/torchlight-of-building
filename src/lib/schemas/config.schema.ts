@@ -32,6 +32,7 @@ export const ConfigurationPageSchema = z
     targetEnemyIsNearby: z.boolean().catch(d.targetEnemyIsNearby),
     targetEnemyIsInProximity: z.boolean().catch(d.targetEnemyIsInProximity),
     targetEnemyHasFrail: z.boolean().catch(d.targetEnemyHasFrail),
+    targetEnemyHasWhimsySignal: z.boolean().catch(d.targetEnemyHasWhimsySignal),
     numEnemiesNearby: z.number().catch(d.numEnemiesNearby),
     numEnemiesAffectedByWarcry: z.number().catch(d.numEnemiesAffectedByWarcry),
     hasBlockedRecently: z.boolean().catch(d.hasBlockedRecently),

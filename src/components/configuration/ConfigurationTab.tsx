@@ -483,6 +483,19 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
           />
 
+          <label className="text-right text-zinc-50">
+            Target Enemy Has Whimsy Signal
+            <InfoTooltip text="Debuff from Bing2 hero trait" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.targetEnemyHasWhimsySignal}
+            onChange={(e) =>
+              onUpdate({ targetEnemyHasWhimsySignal: e.target.checked })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
           <label className="text-right text-zinc-50">Enemies Nearby</label>
           <NumberInput
             value={config.numEnemiesNearby}

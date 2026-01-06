@@ -94,6 +94,8 @@ export interface Configuration {
   targetEnemyIsInProximity: boolean;
   // default to false
   targetEnemyHasFrail: boolean;
+  // default to false
+  targetEnemyHasWhimsySignal: boolean;
   // default to 0
   numEnemiesNearby: number;
   // default to 0
@@ -196,6 +198,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   targetEnemyIsNearby: false,
   targetEnemyIsInProximity: false,
   targetEnemyHasFrail: false,
+  targetEnemyHasWhimsySignal: false,
   numEnemiesNearby: 0,
   numEnemiesAffectedByWarcry: 0,
   hasBlockedRecently: false,

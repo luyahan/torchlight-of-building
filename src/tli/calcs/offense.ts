@@ -1,7 +1,7 @@
 import * as R from "remeda";
 import { match } from "ts-pattern";
 import { CoreTalentMods } from "@/src/data/core_talent";
-import type { HeroName } from "@/src/data/hero_trait";
+import { bing2, type HeroName } from "@/src/data/hero_trait";
 import type { PactspiritName } from "@/src/data/pactspirit";
 import {
   type ActiveSkillName,
@@ -975,14 +975,16 @@ export interface OffenseResults {
 interface DerivedCtx {
   hasHasten: boolean;
   hasBlasphemer: boolean;
+  hero?: HeroName;
   luckyDmg: boolean;
 }
 
-const resolveDerivedCtx = (mods: Mod[]): DerivedCtx => {
+const resolveDerivedCtx = (loadout: Loadout, mods: Mod[]): DerivedCtx => {
   const hasHasten = findMod(mods, "HasHasten") !== undefined;
   const hasBlasphemer = findMod(mods, "Blasphemer") !== undefined;
   const luckyDmg = findMod(mods, "LuckyDmg") !== undefined;
-  return { hasHasten, hasBlasphemer, luckyDmg };
+  const hero = loadout.heroPage.selectedHero;
+  return { hasHasten, hasBlasphemer, luckyDmg, hero };
 };
 
 const hasPactspirit = (name: PactspiritName, loadout: Loadout): boolean => {
@@ -2091,6 +2093,21 @@ const resolveModsForOffenseSkill = (
   const sumStats = stats.dex + stats.int + stats.str;
   mods.push(...normalizeStackables(prenormMods, "stat", sumStats));
 
+  if (config.targetEnemyHasWhimsySignal) {
+    const whimsySignalEffMult = calculateEffMultiplier(
+      filterMod(mods, "WhimsySignalEffPct"),
+    );
+    const whimsySignalDmgPctVal = 30 * whimsySignalEffMult;
+    mods.push({
+      type: "DmgPct",
+      value: whimsySignalDmgPctVal,
+      addn: true,
+      dmgModType: "spell",
+      isEnemyDebuff: true,
+      src: "Whimsy Signal",
+    });
+  }
+
   const movementSpeedBonusPct =
     (calculateEffMultiplier(filterMod(mods, "MovementSpeedPct")) - 1) * 100;
   mods.push(
@@ -2722,7 +2739,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
     ...calculateHeroTraitMods(loadout),
   ];
 
-  const derivedCtx = resolveDerivedCtx(loadoutMods);
+  const derivedCtx = resolveDerivedCtx(loadout, loadoutMods);
   const resourcePool = calculateResourcePool(
     loadoutMods,
     loadout,

@@ -4,6 +4,8 @@ import type { Mod } from "../mod";
 type ModFactory = (levelIndex: number) => Mod;
 
 const heroTraitModFactories: Partial<Record<HeroTraitName, ModFactory[]>> = {
+  // Escapist Bing: Creative Genius (#2)
+  "Creative Genius": [() => ({ type: "MaxSpellBurst", value: 1 })],
   // Oracle Thea: Blasphemer (#3)
   Blasphemer: [() => ({ type: "Blasphemer" })],
   "Unholy Baptism": [

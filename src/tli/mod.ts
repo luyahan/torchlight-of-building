@@ -365,6 +365,9 @@ interface ModDefinitions {
   ReapPurificationPct: { value: number };
   // hero-specific mods
   Blasphemer: object;
+  // bing2
+  WhimsyRecoverySpeedPct: { value: number };
+  WhimsySignalEffPct: { value: number };
   // pactspirit stuff
   SquidnovaEffPct: { value: number };
   GeneratesSquidnova: object;
