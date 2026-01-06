@@ -301,6 +301,11 @@ export const allParsers = [
     value: c.value,
     addn: c.additional !== undefined,
   })),
+  t("{value:+dec%} [additional] minion {minionDmgModType:MinionDmgModType} damage").output("MinionDmgPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+    minionDmgModType: c.minionDmgModType,
+  })),
   t("{value:+dec%} [additional] minion damage").output("MinionDmgPct", (c) => ({
     value: c.value,
     addn: c.additional !== undefined,

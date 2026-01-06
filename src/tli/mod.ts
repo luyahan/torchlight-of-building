@@ -41,6 +41,16 @@ export const InfiltrationTypes = ["cold", "lightning", "fire"] as const;
 
 export type InfiltrationType = (typeof InfiltrationTypes)[number];
 
+export const MinionDmgModTypes = [
+  "physical",
+  "cold",
+  "lightning",
+  "fire",
+  "erosion",
+] as const;
+
+export type MinionDmgModType = (typeof MinionDmgModTypes)[number];
+
 export const SkillAreaModTypes = ["global", "curse"];
 
 export type SkillAreaModType = (typeof SkillAreaModTypes)[number];
@@ -206,7 +216,11 @@ interface ModDefinitions {
   AspdPct: { value: number; addn: boolean };
   CspdPct: { value: number; addn: boolean };
   // minions
-  MinionDmgPct: { value: number; addn?: boolean };
+  MinionDmgPct: {
+    value: number;
+    addn?: boolean;
+    minionDmgModType?: MinionDmgModType;
+  };
   MinionAspdPct: { value: number; addn: boolean };
   MinionCspdPct: { value: number; addn: boolean };
   MinionCritRatingPct: { value: number; addn?: boolean };

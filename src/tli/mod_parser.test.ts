@@ -736,6 +736,29 @@ test("parse minion cast speed", () => {
   ]);
 });
 
+test("parse projectile critical strike rating", () => {
+  const result = parseMod("+30% Projectile Critical Strike Rating");
+  expect(result).toEqual([
+    {
+      type: "CritRatingPct",
+      value: 30,
+      modType: "projectile",
+    },
+  ]);
+});
+
+test("parse minion lightning damage", () => {
+  const result = parseMod("+18% Minion Lightning Damage");
+  expect(result).toEqual([
+    {
+      type: "MinionDmgPct",
+      value: 18,
+      addn: false,
+      minionDmgModType: "lightning",
+    },
+  ]);
+});
+
 test("parse attack block chance", () => {
   const result = parseMod("+4% Attack Block Chance");
   expect(result).toEqual([

@@ -473,6 +473,9 @@ const calculateCritChance = (
   if (skill.tags.includes("Spell")) {
     modTypes.push("spell");
   }
+  if (skill.tags.includes("Projectile")) {
+    modTypes.push("projectile");
+  }
 
   const addedFlatCritRating = sumByValue(
     filterMod(allMods, "FlatCritRating").filter((m) =>
