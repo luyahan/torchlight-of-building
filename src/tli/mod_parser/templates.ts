@@ -175,6 +175,12 @@ export const allParsers = [
     addn: true,
     per: { stackable: FERVOR, amt: c.amt },
   })),
+  t("{value:+dec%} damage per {amt:int} of the highest stat").output("DmgPct", (c) => ({
+    value: c.value,
+    dmgModType: GLOBAL,
+    addn: false,
+    per: { stackable: "highest_stat" as const, amt: c.amt },
+  })),
   t("{value:+dec%} [additional] damage for every {amt:+int} additional max channeled stack\\(s\\)").output(
     "DmgPct",
     (c) => ({
@@ -438,6 +444,11 @@ export const allParsers = [
     value: c.value,
     resType: c.resType,
     per: { stackable: "repentance" as const },
+  })),
+  t("{value:+dec%} {resType:ResType} resistance per {amt:int} stats").output("ResistancePct", (c) => ({
+    value: c.value,
+    resType: c.resType,
+    per: { stackable: "stat" as const, amt: c.amt },
   })),
   t("{value:+dec%} {resType:ResType} resistance").output("ResistancePct", (c) => ({
     value: c.value,

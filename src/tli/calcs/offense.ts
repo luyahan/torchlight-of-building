@@ -2076,6 +2076,12 @@ const resolveModsForOffenseSkill = (
   const totalMainStats = calculateTotalMainStats(skill, stats);
   mods.push(...normalizeStackables(prenormMods, "main_stat", totalMainStats));
 
+  const highestStat = Math.max(stats.dex, stats.int, stats.str);
+  mods.push(...normalizeStackables(prenormMods, "highest_stat", highestStat));
+
+  const sumStats = stats.dex + stats.int + stats.str;
+  mods.push(...normalizeStackables(prenormMods, "stat", sumStats));
+
   mods.push(
     ...normalizeStackables(
       prenormMods,

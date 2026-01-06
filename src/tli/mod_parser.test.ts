@@ -2380,3 +2380,28 @@ test("parse unsigned movement speed", () => {
     },
   ]);
 });
+
+test("parse elemental resistance per stats", () => {
+  const result = parseMod("+1% Elemental Resistance per 40 stats");
+  expect(result).toEqual([
+    {
+      type: "ResistancePct",
+      value: 1,
+      resType: "elemental",
+      per: { stackable: "stat", amt: 40 },
+    },
+  ]);
+});
+
+test("parse damage per highest stat", () => {
+  const result = parseMod("+1% damage per 20 of the highest stat");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 1,
+      dmgModType: "global",
+      addn: false,
+      per: { stackable: "highest_stat", amt: 20 },
+    },
+  ]);
+});

@@ -65,6 +65,8 @@ export type HeroTraitLevelType = (typeof HeroTraitLevelTypes)[number];
 export type Stackable =
   | "willpower"
   | "main_stat"
+  | "stat"
+  | "highest_stat"
   | "frostbite_rating"
   | "projectile"
   | "skill_use"
