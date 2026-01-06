@@ -2108,6 +2108,20 @@ const resolveModsForOffenseSkill = (
     });
   }
 
+  // frail - additionally increases spell damage taken by 15%
+  if (config.targetEnemyHasFrail) {
+    const frailEffMult = calculateEffMultiplier(filterMod(mods, "FrailEffPct"));
+    const frailSpellDmgPctValue = 15 * frailEffMult;
+    mods.push({
+      type: "DmgPct",
+      value: frailSpellDmgPctValue,
+      dmgModType: "spell",
+      addn: true,
+      isEnemyDebuff: true,
+      src: "Frail",
+    });
+  }
+
   // must happen after movement_speed_bonus_pct normalization
   const maxSpellBurst = sumByValue(filterMod(mods, "MaxSpellBurst"));
   mods.push(

@@ -234,6 +234,7 @@ interface ModDefinitions {
   HaveFervor: object;
   FixedFervorPts: { value: number };
   FervorEffPct: { value: number };
+  FrailEffPct: { value: number };
   SteepStrikeChancePct: { value: number };
   SteepStrikeDmg: { value: number; addn: boolean };
   SweepSlashDmg: { value: number; addn: boolean };
