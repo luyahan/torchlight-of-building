@@ -693,6 +693,22 @@ function applyDmgBonusesAndPen(
   const { dmgPools, mods, baseDmgModTypes, config, ignoreArmor } = input;
   const allDmgPcts = filterMod(mods, "DmgPct");
 
+  // Convert ElementalSpellDmgPct to elemental DmgPct when skill is a spell
+  if (baseDmgModTypes.includes("spell")) {
+    for (const m of filterMod(mods, "ElementalSpellDmgPct")) {
+      allDmgPcts.push({
+        type: "DmgPct",
+        value: m.value,
+        dmgModType: "elemental",
+        addn: m.addn,
+        per: m.per,
+        cond: m.cond,
+        condThreshold: m.condThreshold,
+        src: m.src,
+      });
+    }
+  }
+
   // Determine if we're working with DmgRange or number based on pool contents
   const firstChunk =
     dmgPools.physical[0] ??

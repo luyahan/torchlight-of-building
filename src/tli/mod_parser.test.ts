@@ -1550,6 +1550,30 @@ test("parse additional spell damage when having squidnova", () => {
   ]);
 });
 
+test("parse additional elemental damage dealt by spell skills", () => {
+  const result = parseMod(
+    "+14% additional Elemental Damage dealt by Spell Skills",
+  );
+  expect(result).toEqual([
+    {
+      type: "ElementalSpellDmgPct",
+      value: 14,
+      addn: true,
+    },
+  ]);
+});
+
+test("parse elemental damage dealt by spell skills (non-additional)", () => {
+  const result = parseMod("+20% Elemental Damage dealt by Spell Skills");
+  expect(result).toEqual([
+    {
+      type: "ElementalSpellDmgPct",
+      value: 20,
+      addn: false,
+    },
+  ]);
+});
+
 test("parse max channeled stacks", () => {
   const result = parseMod("Max Channeled Stacks +1");
   expect(result).toEqual([

@@ -185,6 +185,10 @@ interface ModDefinitions {
     addn: boolean;
     isEnemyDebuff?: boolean;
   };
+  ElementalSpellDmgPct: {
+    value: number;
+    addn: boolean;
+  };
   FlatDmgToAtks: { value: DmgRange; dmgType: DmgChunkType };
   FlatDmgToSpells: { value: DmgRange; dmgType: DmgChunkType };
   FlatCritRating: { value: number; modType: CritRatingModType };

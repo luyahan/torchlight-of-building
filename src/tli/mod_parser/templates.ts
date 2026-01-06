@@ -230,6 +230,10 @@ export const allParsers = [
     addn: true,
     cond: BLUR_ENDED_RECENTLY,
   })),
+  t("{value:+dec%} [additional] elemental damage dealt by spell skills").output("ElementalSpellDmgPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+  })),
   t("{value:+dec%} [additional] [{modType:DmgModType}] damage").output("DmgPct", (c) => ({
     value: c.value,
     dmgModType: c.modType ?? "global",
