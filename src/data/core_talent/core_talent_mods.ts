@@ -317,7 +317,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Queer Angle": {
     affixLines: [
-      { text: "You and Minions deal Lucky Damage against Numbed enemies" },
+      {
+        text: "You and Minions deal Lucky Damage against Numbed enemies",
+        mods: [{ type: "LuckyDmg", cond: "enemy_numbed" }],
+      },
     ],
   },
   Thunderclap: {
@@ -367,7 +370,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
         text: "+30% additional Spell Damage",
         mods: [{ type: "DmgPct", value: 30, dmgModType: "spell", addn: true }],
       },
-      { text: "+25% additional Skill Cost" },
+      {
+        text: "+25% additional Skill Cost",
+        mods: [{ type: "SkillCostPct", value: 25, addn: true }],
+      },
     ],
   },
   "Burning Touch": {
@@ -876,7 +882,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   Holiness: {
     affixLines: [
       { text: "-95% Cursed Effect" },
-      { text: "-25% additional damage taken from Cursed enemies" },
+      {
+        text: "-25% additional damage taken from Cursed enemies",
+        mods: [{ type: "DmgTakenPct", value: -25, cond: "enemy_is_cursed" }],
+      },
     ],
   },
   "More With Less": {
@@ -1129,7 +1138,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Kinetic Conversion": {
     affixLines: [
-      { text: "100% chance to gain a Barrier for every 5 m you move" },
+      {
+        text: "100% chance to gain a Barrier for every 5 m you move",
+        mods: [{ type: "GeneratesBarrier" }],
+      },
       { text: "Refreshes Barrier when gaining Barrier" },
       { text: "-40% additional Barrier Shield" },
     ],
