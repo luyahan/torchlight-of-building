@@ -174,6 +174,7 @@ export type Condition =
   | "target_enemy_frozen_recently"
   | "enemy_numbed"
   | "has_used_mobility_skill_recently"
+  | "has_cast_curse_recently"
   // pactspirits
   | "has_portrait_of_a_fallen_saintess_pactspirit"
   | "has_squidnova";

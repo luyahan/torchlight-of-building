@@ -722,6 +722,7 @@ const filterModsByCond = (
         "has_used_mobility_skill_recently",
         () => config.hasUsedMobilitySkillRecently,
       )
+      .with("has_cast_curse_recently", () => config.hasCastCurseRecently)
       .exhaustive();
   });
 };

@@ -164,6 +164,8 @@ export interface Configuration {
   // default to false
   hasUsedMobilitySkillRecently: boolean;
   // default to false
+  hasCastCurseRecently: boolean;
+  // default to false
   hasAttackAggression: boolean;
   // default to false
   hasSpellAggression: boolean;
@@ -249,6 +251,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   numSpellSkillsUsedRecently: 0,
   chainLightningInstancesOnTarget: undefined,
   hasUsedMobilitySkillRecently: false,
+  hasCastCurseRecently: false,
   hasAttackAggression: false,
   hasSpellAggression: false,
   realmOfMercuryEnabled: false,
