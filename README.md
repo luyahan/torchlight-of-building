@@ -1,6 +1,6 @@
-# TLI Build Planner
+# Torchlight of Building
 
-Torchlight Infinite character build planner.
+Torchlight Infinite character build planner and dps calculator.
 
 ## Getting Started
 
