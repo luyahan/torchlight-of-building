@@ -162,6 +162,13 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
         </p>
       </div>
 
+      <CustomAffixesSection
+        lines={config.customAffixLines ?? []}
+        onChange={(lines) =>
+          onUpdate({ customAffixLines: lines.length > 0 ? lines : undefined })
+        }
+      />
+
       <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-6">
         <div className="grid w-fit grid-cols-[auto_auto] items-center gap-x-3 gap-y-2">
           <label className="text-right text-zinc-50">Level</label>
@@ -518,6 +525,21 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
           />
 
+          <label className="text-right text-zinc-50">
+            Target Enemy Is Cursed
+            <InfoTooltip text="Defaults to true if you have a curse skill" />
+          </label>
+          <input
+            type="checkbox"
+            checked={config.targetEnemyIsCursed ?? false}
+            onChange={(e) =>
+              onUpdate({
+                targetEnemyIsCursed: e.target.checked ? true : undefined,
+              })
+            }
+            className="h-4 w-4 rounded border-zinc-600 bg-zinc-800 accent-amber-500"
+          />
+
           <label className="text-right text-zinc-50">Enemies Nearby</label>
           <NumberInput
             value={config.numEnemiesNearby}
@@ -807,13 +829,6 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
           />
         </div>
       </div>
-
-      <CustomAffixesSection
-        lines={config.customAffixLines ?? []}
-        onChange={(lines) =>
-          onUpdate({ customAffixLines: lines.length > 0 ? lines : undefined })
-        }
-      />
     </div>
   );
 };

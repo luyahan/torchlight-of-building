@@ -101,6 +101,8 @@ export interface Configuration {
   targetEnemyHasFrail: boolean;
   // default to false
   targetEnemyHasWhimsySignal: boolean;
+  // default to true if you have a curse skill, false otherwise
+  targetEnemyIsCursed?: boolean;
   // default to 0
   numEnemiesNearby: number;
   // default to 0
@@ -208,6 +210,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   targetEnemyIsInProximity: false,
   targetEnemyHasFrail: false,
   targetEnemyHasWhimsySignal: false,
+  targetEnemyIsCursed: undefined,
   numEnemiesNearby: 0,
   numEnemiesAffectedByWarcry: 0,
   hasBlockedRecently: false,

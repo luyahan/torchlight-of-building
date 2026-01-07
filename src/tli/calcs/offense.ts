@@ -681,6 +681,9 @@ const filterModsByCond = (
       .with("at_max_channeled_stacks", () => true)
       .with("enemy_at_max_affliction", () => calcAfflictionPts(config) === 100)
       .with("enemy_is_cursed", () => {
+        if (config.targetEnemyIsCursed !== undefined) {
+          return config.targetEnemyIsCursed;
+        }
         // assume enemy is cursed if we have an enabled curse skill
         return (
           listActiveSkillSlots(loadout)
