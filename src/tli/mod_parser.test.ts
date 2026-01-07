@@ -2903,3 +2903,87 @@ test("parse lightning infiltration effect", () => {
     },
   ]);
 });
+
+test("parse additional damage on critical strike", () => {
+  const result = parseMod("+10% additional damage on Critical Strike");
+  expect(result).toEqual([
+    {
+      type: "CritDmgPct",
+      value: 10,
+      modType: "global",
+      addn: true,
+    },
+  ]);
+});
+
+test("parse damage on critical strike (non-additional)", () => {
+  const result = parseMod("+15% damage on Critical Strike");
+  expect(result).toEqual([
+    {
+      type: "CritDmgPct",
+      value: 15,
+      modType: "global",
+      addn: false,
+    },
+  ]);
+});
+
+test("parse attack/cast/movement speed when having hasten", () => {
+  const result = parseMod(
+    "+8% Attack Speed, Cast Speed, and Movement Speed when having Hasten",
+  );
+  expect(result).toEqual([
+    {
+      type: "AspdPct",
+      value: 8,
+      addn: false,
+      cond: "has_hasten",
+    },
+    {
+      type: "CspdPct",
+      value: 8,
+      addn: false,
+      cond: "has_hasten",
+    },
+    {
+      type: "MovementSpeedPct",
+      value: 8,
+      addn: false,
+      cond: "has_hasten",
+    },
+  ]);
+});
+
+test("parse gear energy shield percentage", () => {
+  const result = parseMod("+50% gear Energy Shield");
+  expect(result).toEqual([
+    {
+      type: "GearEnergyShieldPct",
+      value: 50,
+    },
+  ]);
+});
+
+test("parse damage per stats", () => {
+  const result = parseMod("+1% damage per 12 stats");
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 1,
+      dmgModType: "global",
+      addn: false,
+      per: { stackable: "stat", amt: 12 },
+    },
+  ]);
+});
+
+test("parse generates barrier", () => {
+  const result = parseMod(
+    "100% chance to gain a Barrier for every 5 m you move",
+  );
+  expect(result).toEqual([
+    {
+      type: "GeneratesBarrier",
+    },
+  ]);
+});

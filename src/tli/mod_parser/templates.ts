@@ -177,6 +177,12 @@ export const allParsers = [
     addn: false,
     per: { stackable: "highest_stat" as const, amt: c.amt },
   })),
+  t("{value:+dec%} damage per {amt:int} stats").output("DmgPct", (c) => ({
+    value: c.value,
+    dmgModType: GLOBAL,
+    addn: false,
+    per: { stackable: "stat" as const, amt: c.amt },
+  })),
   t("{value:+dec%} [additional] damage for every {amt:+int} additional max channeled stack\\(s\\)").output(
     "DmgPct",
     (c) => ({
@@ -311,6 +317,11 @@ export const allParsers = [
     addn: c.additional !== undefined,
     modType: "erosion_skill" as const,
   })),
+  t("{value:+dec%} [additional] damage on critical strike").output("CritDmgPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+    modType: "global" as const,
+  })),
   t("{value:+dec%} [additional] [{modType:CritDmgModType}] critical strike damage").output("CritDmgPct", (c) => ({
     value: c.value,
     addn: c.additional !== undefined,
@@ -352,6 +363,11 @@ export const allParsers = [
   t("{value:+dec%} [additional] attack and cast speed when at full mana").outputMany([
     spec("AspdPct", (c) => ({ value: c.value, addn: c.additional !== undefined, cond: HAS_FULL_MANA })),
     spec("CspdPct", (c) => ({ value: c.value, addn: c.additional !== undefined, cond: HAS_FULL_MANA })),
+  ]),
+  t("{value:+dec%} attack speed, cast speed, and movement speed when having hasten").outputMany([
+    spec("AspdPct", (c) => ({ value: c.value, addn: false, cond: "has_hasten" as const })),
+    spec("CspdPct", (c) => ({ value: c.value, addn: false, cond: "has_hasten" as const })),
+    spec("MovementSpeedPct", (c) => ({ value: c.value, addn: false, cond: "has_hasten" as const })),
   ]),
   t("{value:+dec%} [additional] attack and cast speed").outputMany([
     spec("AspdPct", (c) => ({ value: c.value, addn: c.additional !== undefined })),
@@ -487,6 +503,7 @@ export const allParsers = [
   })),
   t("{value:+dec%} defense").output("DefensePct", (c) => ({ value: c.value })),
   t("{value:+int} gear energy shield").output("GearEnergyShield", (c) => ({ value: c.value })),
+  t("{value:+dec%} gear energy shield").output("GearEnergyShieldPct", (c) => ({ value: c.value })),
   t("{value:+int} gear armor").output("GearArmor", (c) => ({ value: c.value })),
   t("{value:+dec%} energy shield charge speed").output("EnergyShieldChargeSpeedPct", (c) => ({ value: c.value })),
   t("{value:+int} gear evasion").output("GearEvasion", (c) => ({ value: c.value })),
@@ -620,6 +637,7 @@ export const allParsers = [
     value: c.value,
   })),
   t("{value:dec%} chance to gain spell aggression on defeat").output("GeneratesSpellAggression", () => ({})),
+  t("{value:dec%} chance to gain a barrier for every {dist:int} m you move").output("GeneratesBarrier", () => ({})),
   t("{value:+dec%} [additional] movement speed").output("MovementSpeedPct", (c) => ({
     value: c.value,
     addn: c.additional !== undefined,
