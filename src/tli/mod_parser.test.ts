@@ -2800,3 +2800,106 @@ test("parse lucky damage against numbed enemies", () => {
     },
   ]);
 });
+
+test("parse numbed chance and effect combined", () => {
+  const result = parseMod("+15% Numbed chance, and 7.5% Numbed Effect");
+  expect(result).toEqual([
+    {
+      type: "NumbedChancePct",
+      value: 15,
+    },
+    {
+      type: "NumbedEffPct",
+      value: 7.5,
+    },
+  ]);
+});
+
+test("parse additional damage after using mobility skills", () => {
+  const result = parseMod(
+    "+10% additional damage for 4s after using Mobility Skills",
+  );
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 10,
+      dmgModType: "global",
+      addn: true,
+      cond: "has_used_mobility_skill_recently",
+    },
+  ]);
+});
+
+test("parse attack and spell critical strike rating", () => {
+  const result = parseMod("+97 Attack and Spell Critical Strike Rating");
+  expect(result).toEqual([
+    {
+      type: "FlatCritRating",
+      value: 97,
+      modType: "attack",
+    },
+    {
+      type: "FlatCritRating",
+      value: 97,
+      modType: "spell",
+    },
+  ]);
+});
+
+test("parse inflicts cold infiltration when dealing damage", () => {
+  const result = parseMod(
+    "Inflicts Cold Infiltration when dealing damage. Interval for each enemy: 1 s",
+  );
+  expect(result).toEqual([
+    {
+      type: "InflictsInfiltration",
+      infiltrationType: "cold",
+    },
+  ]);
+});
+
+test("parse inflicts lightning infiltration when dealing damage", () => {
+  const result = parseMod(
+    "Inflicts Lightning Infiltration when dealing damage. Interval for each enemy: 2 s",
+  );
+  expect(result).toEqual([
+    {
+      type: "InflictsInfiltration",
+      infiltrationType: "lightning",
+    },
+  ]);
+});
+
+test("parse inflicts fire infiltration when dealing damage", () => {
+  const result = parseMod(
+    "Inflicts Fire Infiltration when dealing damage. Interval for each enemy: 1 s",
+  );
+  expect(result).toEqual([
+    {
+      type: "InflictsInfiltration",
+      infiltrationType: "fire",
+    },
+  ]);
+});
+
+test("parse cold infiltration effect", () => {
+  const result = parseMod("+11% Cold Infiltration Effect");
+  expect(result).toEqual([
+    {
+      type: "InfiltrationEffPct",
+      value: 11,
+      infiltrationType: "cold",
+    },
+  ]);
+});
+
+test("parse lightning infiltration effect", () => {
+  const result = parseMod("+15% Lightning Infiltration Effect");
+  expect(result).toEqual([
+    {
+      type: "InfiltrationEffPct",
+      value: 15,
+      infiltrationType: "lightning",
+    },
+  ]);
+});

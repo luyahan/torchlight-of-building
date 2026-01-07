@@ -400,34 +400,6 @@ const calculateImplicitMods = (): Mod[] => {
       cond: "has_hasten",
       src: "Hasten",
     },
-    // Infiltrations
-    {
-      type: "DmgPct",
-      value: 13,
-      addn: true,
-      dmgModType: "cold",
-      cond: "enemy_has_cold_infiltration",
-      isEnemyDebuff: true,
-      src: "Cold Infiltration",
-    },
-    {
-      type: "DmgPct",
-      value: 13,
-      addn: true,
-      dmgModType: "lightning",
-      cond: "enemy_has_lightning_infiltration",
-      isEnemyDebuff: true,
-      src: "Lightning Infiltration",
-    },
-    {
-      type: "DmgPct",
-      value: 13,
-      addn: true,
-      dmgModType: "fire",
-      cond: "enemy_has_fire_infiltration",
-      isEnemyDebuff: true,
-      src: "Fire Infiltration",
-    },
     // Pactspirit: Portrait of a Fallen Saintess
     {
       type: "DmgPct",
@@ -1264,6 +1236,37 @@ const calcChainLightningInstances = (
   return 1 + jumps;
 };
 
+const calcInfiltration = (
+  mods: Mod[],
+  type: "cold" | "lightning" | "fire",
+  config: Configuration,
+): Mod | undefined => {
+  if (type === "cold" && !config.targetEnemyHasColdInfiltration) {
+    return undefined;
+  }
+  if (type === "lightning" && !config.targetEnemyHasLightningInfiltration) {
+    return undefined;
+  }
+  if (type === "fire" && !config.targetEnemyHasFireInfiltration) {
+    return undefined;
+  }
+  const infiltrationEffMult = calcEffMult(
+    filterMods(mods, "InfiltrationEffPct").filter(
+      (m) => m.infiltrationType === type,
+    ),
+  );
+  const baseVal = 13;
+  const finalVal = baseVal * infiltrationEffMult;
+  return {
+    type: "DmgPct",
+    value: finalVal,
+    addn: true,
+    dmgModType: type,
+    isEnemyDebuff: true,
+    src: `${type} Infiltration`,
+  };
+};
+
 interface DerivedOffenseCtx {
   maxSpellBurst: number;
   movementSpeedBonusPct: number;
@@ -1332,6 +1335,19 @@ const resolveModsForOffenseSkill = (
       movementSpeedBonusPct,
     ),
   );
+
+  const coldInfiltration = calcInfiltration(mods, "cold", config);
+  if (coldInfiltration !== undefined) {
+    mods.push(coldInfiltration);
+  }
+  const lightningInfiltration = calcInfiltration(mods, "lightning", config);
+  if (lightningInfiltration !== undefined) {
+    mods.push(lightningInfiltration);
+  }
+  const fireInfiltration = calcInfiltration(mods, "fire", config);
+  if (fireInfiltration !== undefined) {
+    mods.push(fireInfiltration);
+  }
 
   if (config.enemyNumbed) {
     const numbedStacks = R.clamp(config.enemyNumbedStacks ?? 10, {

@@ -349,6 +349,11 @@ interface ModDefinitions {
   SkillCostPct: { value: number; addn?: boolean };
   // infiltrations
   InflictsInfiltration: { infiltrationType: InfiltrationType };
+  InfiltrationEffPct: {
+    value: number;
+    infiltrationType: InfiltrationType;
+    addn?: boolean;
+  };
   // ailments
   InflictWiltPct: { value: number; isEnemyDebuff?: boolean };
   BaseWiltFlatDmg: { value: number };

@@ -1,4 +1,4 @@
-import type { PerStackable } from "../mod";
+import type { InfiltrationType, PerStackable } from "../mod";
 import { StatWordMapping } from "./enums";
 import { spec, t } from "./template";
 
@@ -30,6 +30,7 @@ const TARGET_ENEMY_IS_ELITE = "target_enemy_is_elite" as const;
 const MOVEMENT_SPEED_BONUS_PCT = "movement_speed_bonus_pct" as const;
 const HAS_HIT_ENEMY_WITH_ELEMENTAL_DMG_RECENTLY = "has_hit_enemy_with_elemental_dmg_recently" as const;
 const NUM_SPELL_SKILLS_USED_RECENTLY = "num_spell_skills_used_recently" as const;
+const HAS_USED_MOBILITY_SKILL_RECENTLY = "has_used_mobility_skill_recently" as const;
 
 export const allParsers = [
   t("{aspd:+dec%} gear attack speed. {dmg:+dec%} additional attack damage").outputMany([
@@ -241,6 +242,12 @@ export const allParsers = [
     addn: true,
     cond: BLUR_ENDED_RECENTLY,
   })),
+  t("{value:+dec%} additional damage for {dur:int}s after using mobility skills").output("DmgPct", (c) => ({
+    value: c.value,
+    dmgModType: GLOBAL,
+    addn: true,
+    cond: HAS_USED_MOBILITY_SKILL_RECENTLY,
+  })),
   t("{value:+dec%} [additional] elemental damage dealt by spell skills").output("ElementalSpellDmgPct", (c) => ({
     value: c.value,
     addn: c.additional !== undefined,
@@ -254,6 +261,10 @@ export const allParsers = [
     value: c.value,
     modType: c.modType ?? "global",
   })),
+  t("{value:+int} attack and spell critical strike rating").outputMany([
+    spec("FlatCritRating", (c) => ({ value: c.value, modType: "attack" as const })),
+    spec("FlatCritRating", (c) => ({ value: c.value, modType: "spell" as const })),
+  ]),
   t("{value:+int} [{modType:CritRatingModType}] critical strike rating").output("FlatCritRating", (c) => ({
     value: c.value,
     modType: c.modType ?? "global",
@@ -728,6 +739,13 @@ export const allParsers = [
     infiltrationType: "cold" as const,
   })),
   t(
+    "inflicts {infiltrationType:InfiltrationType} infiltration when dealing damage. interval for each enemy: {interval:int} s",
+  ).output("InflictsInfiltration", (c) => ({ infiltrationType: c.infiltrationType as InfiltrationType })),
+  t("{value:+dec%} {infiltrationType:InfiltrationType} infiltration effect").output("InfiltrationEffPct", (c) => ({
+    value: c.value,
+    infiltrationType: c.infiltrationType as InfiltrationType,
+  })),
+  t(
     "spell skills on hit have a {chancePct:dec%} chance to spawn a pulse, dealing true damage equal to {pctOfHitDmg:dec%} of hit damage. interval: {interval:dec}s",
   ).output("SpellRipple", (c) => ({
     chancePct: c.chancePct,
@@ -772,6 +790,11 @@ export const allParsers = [
   t("{value:+dec%} numbed effect").output("NumbedEffPct", (c) => ({ value: c.value })),
   // Numbed chance
   t("{value:+dec%} numbed chance").output("NumbedChancePct", (c) => ({ value: c.value })),
+  // Numbed chance and effect combined
+  t("{chance:+dec%} numbed chance, and {effect:dec%} numbed effect").outputMany([
+    spec("NumbedChancePct", (c) => ({ value: c.chance })),
+    spec("NumbedEffPct", (c) => ({ value: c.effect })),
+  ]),
   // Mana regen with focus blessing
   t("regenerates {value:dec%} mana per second when focus blessing is active").output("ManaRegenPerSecPct", (c) => ({
     value: c.value,

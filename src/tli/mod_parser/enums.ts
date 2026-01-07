@@ -6,6 +6,7 @@ import {
 } from "../constants";
 import {
   DmgChunkTypes,
+  InfiltrationTypes,
   MinionDmgModTypes,
   ResPenTypes,
   ResTypes,
@@ -30,6 +31,7 @@ registerEnum("ResPenType", ResPenTypes);
 registerEnum("CoreTalentName", CoreTalentNames);
 registerEnum("SkillLevelType", SkillLevelTypes);
 registerEnum("ResType", ResTypes);
+registerEnum("InfiltrationType", InfiltrationTypes);
 
 // Custom word mappings for enums (input word -> output value)
 export const StatWordMapping: Record<string, string> = {
