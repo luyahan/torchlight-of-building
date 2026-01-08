@@ -2147,3 +2147,19 @@ test("parse additional origin of spirit magus effect", () => {
     { type: "SpiritMagusOriginEffPct", value: 30, addn: true },
   ]);
 });
+
+test("parse joined force disable offhand", () => {
+  const result = parseMod(
+    "Off-Hand Weapons do not participate in Attacks while Dual Wielding",
+  );
+  expect(result).toEqual([{ type: "JoinedForceDisableOffhand" }]);
+});
+
+test("parse joined force add offhand to mainhand", () => {
+  const result = parseMod(
+    "Adds 60% of the damage of the Off-Hand Weapon to the final damage of the Main-Hand Weapon",
+  );
+  expect(result).toEqual([
+    { type: "JoinedForceAddOffhandToMainhandPct", value: 60 },
+  ]);
+});

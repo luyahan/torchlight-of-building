@@ -190,7 +190,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
         text: "-90% additional Min Physical Damage, and +80% additional Max Physical Damage",
       },
       { text: "-40% additional min damage" },
-      { text: "+40% additional max damage" },
+      {
+        text: "+40% additional max damage",
+        mods: [{ type: "AddnMaxDmgPct", value: 40, addn: true }],
+      },
     ],
   },
   Rushed: {
@@ -249,15 +252,20 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
     affixLines: [
       {
         text: "Off-Hand Weapons do not participate in Attacks while Dual Wielding",
+        mods: [{ type: "JoinedForceDisableOffhand" }],
       },
       {
         text: "Adds 60% of the damage of the Off-Hand Weapon to the final damage of the Main-Hand Weapon",
+        mods: [{ type: "JoinedForceAddOffhandToMainhandPct", value: 60 }],
       },
     ],
   },
   "Quick Advancement": {
     affixLines: [
-      { text: "Multistrikes deal 55% increasing damage" },
+      {
+        text: "Multistrikes deal 55% increasing damage",
+        mods: [{ type: "MultistrikeIncDmgPct", value: 55 }],
+      },
       { text: "Minions' Multistrikes deal 55% increasing damage" },
     ],
   },

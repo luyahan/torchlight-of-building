@@ -821,4 +821,13 @@ export const allParsers = [
   t("you and minions deal lucky damage against numbed enemies").output("LuckyDmg", () => ({
     cond: "enemy_numbed" as const,
   })),
+  // Joined Force (core talent)
+  t("off-hand weapons do not participate in attacks while dual wielding").output(
+    "JoinedForceDisableOffhand",
+    () => ({}),
+  ),
+  t("adds {value:dec%} of the damage of the off-hand weapon to the final damage of the main-hand weapon").output(
+    "JoinedForceAddOffhandToMainhandPct",
+    (c) => ({ value: c.value }),
+  ),
 ];
