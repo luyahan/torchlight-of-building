@@ -1301,6 +1301,108 @@ const calcInfiltration = (
   };
 };
 
+const pushInfiltrations = (mods: Mod[], config: Configuration): void => {
+  const coldInfiltration = calcInfiltration(mods, "cold", config);
+  if (coldInfiltration !== undefined) {
+    mods.push(coldInfiltration);
+  }
+  const lightningInfiltration = calcInfiltration(mods, "lightning", config);
+  if (lightningInfiltration !== undefined) {
+    mods.push(lightningInfiltration);
+  }
+  const fireInfiltration = calcInfiltration(mods, "fire", config);
+  if (fireInfiltration !== undefined) {
+    mods.push(fireInfiltration);
+  }
+};
+
+const pushWhimsy = (mods: Mod[], config: Configuration): void => {
+  if (!config.targetEnemyHasWhimsySignal) return;
+
+  const whimsySignalEffMult = calcEffMult(mods, "WhimsySignalEffPct");
+  const whimsySignalDmgPctVal = 30 * whimsySignalEffMult;
+  mods.push({
+    type: "DmgPct",
+    value: whimsySignalDmgPctVal,
+    addn: true,
+    dmgModType: "spell",
+    isEnemyDebuff: true,
+    src: "Whimsy Signal",
+  });
+};
+
+const pushNumbed = (mods: Mod[], config: Configuration): void => {
+  if (!config.enemyNumbed) return;
+
+  const numbedStacks = R.clamp(config.enemyNumbedStacks ?? 10, {
+    min: 0,
+    max: 10,
+  });
+  const numbedEffMult = calcEffMult(mods, "NumbedEffPct");
+  const baseNumbedValPerStack = 5;
+  const numbedVal = baseNumbedValPerStack * numbedEffMult * numbedStacks;
+  mods.push({
+    type: "DmgPct",
+    value: numbedVal,
+    dmgModType: "global",
+    addn: true,
+    src: "Numbed",
+  });
+};
+
+const pushSquidnova = (mods: Mod[], config: Configuration): void => {
+  if (!config.hasSquidnova) return;
+  const squidNovaEffMult = calcEffMult(mods, "SquidnovaEffPct");
+  const squidNovaDmgPctValue = 16 * squidNovaEffMult;
+  mods.push({
+    type: "DmgPct",
+    value: squidNovaDmgPctValue,
+    dmgModType: "hit",
+    addn: true,
+    src: "Squidnova",
+  });
+};
+
+const pushChainLightning = (
+  mods: Mod[],
+  config: Configuration,
+  jumps: number,
+): void => {
+  const chainLightningInstances = calcChainLightningInstances(
+    mods,
+    config,
+    jumps,
+  );
+
+  const chainLightningMerge = findMod(mods, "ChainLightningMerge");
+  if (chainLightningMerge !== undefined) {
+    mods.push({
+      type: "DmgPct",
+      value:
+        (chainLightningInstances - 1) *
+        (100 - chainLightningMerge.shotgunFalloffCoefficient),
+      addn: true,
+      dmgModType: "global",
+      src: "Chain Lightning: Merge (Noble)",
+    });
+  }
+};
+
+const pushFrail = (mods: Mod[], config: Configuration) => {
+  if (!config.targetEnemyHasFrail) return;
+
+  const frailEffMult = calcEffMult(mods, "FrailEffPct");
+  const frailSpellDmgPctValue = 15 * frailEffMult;
+  mods.push({
+    type: "DmgPct",
+    value: frailSpellDmgPctValue,
+    dmgModType: "spell",
+    addn: true,
+    isEnemyDebuff: true,
+    src: "Frail",
+  });
+};
+
 const pushAttackAggression = (mods: Mod[], config: Configuration): void => {
   if (!config.hasAttackAggression) {
     return;
@@ -1432,24 +1534,11 @@ const resolveModsForOffenseSkill = (
   const sumStats = stats.dex + stats.int + stats.str;
   mods.push(...normalizeStackables(prenormMods, "stat", sumStats));
 
-  if (config.targetEnemyHasWhimsySignal) {
-    const whimsySignalEffMult = calcEffMult(mods, "WhimsySignalEffPct");
-    const whimsySignalDmgPctVal = 30 * whimsySignalEffMult;
-    mods.push({
-      type: "DmgPct",
-      value: whimsySignalDmgPctVal,
-      addn: true,
-      dmgModType: "spell",
-      isEnemyDebuff: true,
-      src: "Whimsy Signal",
-    });
-  }
-
+  pushWhimsy(mods, config);
   // must happen before movement speed
   pushAttackAggression(mods, config);
   // must happen before spell burst charge speed calculation (adds CspdPct mods)
   pushSpellAggression(mods, config);
-
   pushMark(mods, config);
 
   // must happen before max_spell_burst normalization
@@ -1464,85 +1553,15 @@ const resolveModsForOffenseSkill = (
     ),
   );
 
-  const coldInfiltration = calcInfiltration(mods, "cold", config);
-  if (coldInfiltration !== undefined) {
-    mods.push(coldInfiltration);
-  }
-  const lightningInfiltration = calcInfiltration(mods, "lightning", config);
-  if (lightningInfiltration !== undefined) {
-    mods.push(lightningInfiltration);
-  }
-  const fireInfiltration = calcInfiltration(mods, "fire", config);
-  if (fireInfiltration !== undefined) {
-    mods.push(fireInfiltration);
-  }
-
-  if (config.enemyNumbed) {
-    const numbedStacks = R.clamp(config.enemyNumbedStacks ?? 10, {
-      min: 0,
-      max: 10,
-    });
-    const numbedEffMult = calcEffMult(mods, "NumbedEffPct");
-    const baseNumbedValPerStack = 5;
-    const numbedVal = baseNumbedValPerStack * numbedEffMult * numbedStacks;
-    mods.push({
-      type: "DmgPct",
-      value: numbedVal,
-      dmgModType: "global",
-      addn: true,
-      src: "Numbed",
-    });
-  }
-
-  // squidnova
-  if (config.hasSquidnova) {
-    const squidNovaEffMult = calcEffMult(mods, "SquidnovaEffPct");
-    const squidNovaDmgPctValue = 16 * squidNovaEffMult;
-    mods.push({
-      type: "DmgPct",
-      value: squidNovaDmgPctValue,
-      dmgModType: "hit",
-      addn: true,
-      src: "Squidnova",
-    });
-  }
+  pushInfiltrations(mods, config);
+  pushNumbed(mods, config);
+  pushSquidnova(mods, config);
 
   const jumps = sumByValue(filterMods(mods, "Jump"));
   mods.push(...normalizeStackables(prenormMods, "jump", jumps));
 
-  // chain lightning
-  const chainLightningInstances = calcChainLightningInstances(
-    mods,
-    config,
-    jumps,
-  );
-
-  const chainLightningMerge = findMod(mods, "ChainLightningMerge");
-  if (chainLightningMerge !== undefined) {
-    mods.push({
-      type: "DmgPct",
-      value:
-        (chainLightningInstances - 1) *
-        (100 - chainLightningMerge.shotgunFalloffCoefficient),
-      addn: true,
-      dmgModType: "global",
-      src: "Chain Lightning: Merge (Noble)",
-    });
-  }
-
-  // frail - additionally increases spell damage taken by 15%
-  if (config.targetEnemyHasFrail) {
-    const frailEffMult = calcEffMult(mods, "FrailEffPct");
-    const frailSpellDmgPctValue = 15 * frailEffMult;
-    mods.push({
-      type: "DmgPct",
-      value: frailSpellDmgPctValue,
-      dmgModType: "spell",
-      addn: true,
-      isEnemyDebuff: true,
-      src: "Frail",
-    });
-  }
+  pushChainLightning(mods, config, jumps);
+  pushFrail(mods, config);
 
   // must happen after movement_speed_bonus_pct normalization
   const maxSpellBurst = sumByValue(filterMods(mods, "MaxSpellBurst"));
