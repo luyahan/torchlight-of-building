@@ -36,6 +36,7 @@ const NUM_SPELL_SKILLS_USED_RECENTLY =
 const HAS_USED_MOBILITY_SKILL_RECENTLY =
   "has_used_mobility_skill_recently" as const;
 const HAS_MOVED_RECENTLY = "has_moved_recently" as const;
+const ENEMY_NUMBED = "enemy_numbed" as const;
 
 export const allParsers = [
   t(
@@ -344,6 +345,15 @@ export const allParsers = [
     dmgModType: "damage_over_time" as const,
     addn: c.additional !== undefined,
   })),
+  // Additional damage against Numbed enemies
+  t(
+    "{value:+dec%} additional {modType:DmgModType} damage against numbed enemies",
+  ).output("DmgPct", (c) => ({
+    value: c.value,
+    dmgModType: c.modType,
+    addn: true,
+    cond: ENEMY_NUMBED,
+  })),
   t("{value:dec%} additional damage applied to life").output("DmgPct", (c) => ({
     value: c.value,
     dmgModType: GLOBAL,
@@ -562,6 +572,18 @@ export const allParsers = [
     spec("AddnMinDmgPct", (c) => ({ value: c.minValue, addn: true as const })),
     spec("AddnMaxDmgPct", (c) => ({ value: c.maxValue, addn: true as const })),
   ]),
+  // Additional max damage with Numbed threshold
+  t(
+    "{value:+dec%} additional max {dmgType:DmgChunkType} damage to an enemy when they have at least {threshold:int} stack\\(s\\) of numbed",
+  ).output("AddnMaxDmgPct", (c) => ({
+    value: c.value,
+    addn: true as const,
+    condThreshold: {
+      target: "enemy_numbed_stacks" as const,
+      comparator: "gte" as const,
+      value: c.threshold,
+    },
+  })),
   t("{value:+dec%} additional max damage").output("AddnMaxDmgPct", (c) => ({
     value: c.value,
     addn: true as const,
@@ -1303,11 +1325,22 @@ export const allParsers = [
   t("{value:+dec%} numbed effect").output("NumbedEffPct", (c) => ({
     value: c.value,
   })),
+  // Numbed effect on critical strike with damage type
+  t(
+    "{value:+dec%} additional numbed effect on critical strike with {dmgType:DmgChunkType} damage for {dur:int} s",
+  ).output("NumbedEffPct", (c) => ({
+    value: c.value,
+    cond: HAS_CRIT_RECENTLY,
+  })),
   // Inflicts Numbed
   t("inflicts {value:int} additional stack\\(s\\) of numbed").output(
     "InflictNumbed",
     () => ({}),
   ),
+  // Inflicts Numbed per Numbed chance
+  t(
+    "inflicts {stacks:int} additional stack\\(s\\) of numbed per {value:+dec%} numbed chance",
+  ).output("InflictNumbed", () => ({})),
   // Numbed chance
   t("{value:+dec%} numbed chance").output("NumbedChancePct", (c) => ({
     value: c.value,

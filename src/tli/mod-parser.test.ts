@@ -2293,3 +2293,52 @@ test("parse tradeoff str >= dex attack damage", () => {
   );
   expect(result).toEqual([{ type: "TradeoffStrGteDexDmgPct", value: 25 }]);
 });
+
+test("parse additional lightning damage against numbed enemies", () => {
+  const result = parseMod(
+    "+35% additional Lightning Damage against Numbed enemies",
+  );
+  expect(result).toEqual([
+    {
+      type: "DmgPct",
+      value: 35,
+      dmgModType: "lightning",
+      addn: true,
+      cond: "enemy_numbed",
+    },
+  ]);
+});
+
+test("parse additional max lightning damage with numbed threshold", () => {
+  const result = parseMod(
+    "+35% additional Max Lightning Damage to an enemy when they have at least 8 stack(s) of Numbed",
+  );
+  expect(result).toEqual([
+    {
+      type: "AddnMaxDmgPct",
+      value: 35,
+      addn: true,
+      condThreshold: {
+        target: "enemy_numbed_stacks",
+        comparator: "gte",
+        value: 8,
+      },
+    },
+  ]);
+});
+
+test("parse inflicts numbed per numbed chance", () => {
+  const result = parseMod(
+    "Inflicts 1 additional stack(s) of Numbed per +30% Numbed chance",
+  );
+  expect(result).toEqual([{ type: "InflictNumbed" }]);
+});
+
+test("parse additional numbed effect on critical strike", () => {
+  const result = parseMod(
+    "+24% additional Numbed Effect on Critical Strike with Lightning Damage for 2 s",
+  );
+  expect(result).toEqual([
+    { type: "NumbedEffPct", value: 24, cond: "has_crit_recently" },
+  ]);
+});

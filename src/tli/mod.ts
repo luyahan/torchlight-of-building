@@ -191,6 +191,7 @@ export type Condition =
   | "has_squidnova";
 
 export type ConditionThresholdTarget =
+  | "enemy_numbed_stacks"
   | "num_enemies_nearby"
   | "num_enemies_affected_by_warcry";
 

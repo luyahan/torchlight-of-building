@@ -104,6 +104,9 @@ export const filterModsByCondThreshold = (
           condThreshold,
         ),
       )
+      .with("enemy_numbed_stacks", () =>
+        condThresholdSatisfied(config.enemyNumbedStacks ?? 10, condThreshold),
+      )
       .exhaustive();
   });
 };
