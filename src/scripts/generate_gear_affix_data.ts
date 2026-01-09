@@ -366,24 +366,27 @@ const parseCraftAffixes = (
 const normalizeEquipmentType = (type: string): string => {
   return type
     .toLowerCase()
-    .replace(/\s*\(([^)]+)\)\s*/g, "_$1")
-    .replace(/\s+/g, "_")
-    .replace(/-/g, "_");
+    .replace(/\s*\(([^)]+)\)\s*/g, "-$1")
+    .replace(/\s+/g, "-");
 };
 
 const normalizeAffixType = (type: string): string => {
-  return type.toLowerCase().replace(/\s+/g, "_");
+  return type.toLowerCase().replace(/\s+/g, "-");
 };
 
 const normalizeFileKey = (equipmentType: string, affixType: string): string => {
-  return `${normalizeEquipmentType(equipmentType)}_${normalizeAffixType(affixType)}`;
+  return `${normalizeEquipmentType(equipmentType)}-${normalizeAffixType(affixType)}`;
+};
+
+const fileKeyToConstName = (fileKey: string): string => {
+  return `${fileKey.replace(/-/g, "_").toUpperCase()}_AFFIXES`;
 };
 
 const generateEquipmentAffixFile = (
   fileKey: string,
   affixes: BaseGearAffix[],
 ): string => {
-  const constName = `${fileKey.toUpperCase()}_AFFIXES`;
+  const constName = fileKeyToConstName(fileKey);
 
   return `import type { BaseGearAffix } from "../../tli/gear_data_types";
 
@@ -394,13 +397,13 @@ export const ${constName}: readonly BaseGearAffix[] = ${JSON.stringify(affixes)}
 const generateAllAffixesFile = (fileKeys: string[]): string => {
   const imports = fileKeys
     .map((key) => {
-      const constName = `${key.toUpperCase()}_AFFIXES`;
+      const constName = fileKeyToConstName(key);
       return `import { ${constName} } from "./${key}";`;
     })
     .join("\n");
 
   const arraySpread = fileKeys
-    .map((key) => `  ...${key.toUpperCase()}_AFFIXES,`)
+    .map((key) => `  ...${fileKeyToConstName(key)},`)
     .join("\n");
 
   return `${imports}
@@ -413,7 +416,7 @@ ${arraySpread}
 
 const main = async (): Promise<void> => {
   const gearDir = join(process.cwd(), ".garbage", "tlidb", "gear");
-  const outDir = join(process.cwd(), "src", "data", "gear_affix");
+  const outDir = join(process.cwd(), "src", "data", "gear-affix");
 
   console.log("Reading gear files from tlidb...");
   const files = await readdir(gearDir);

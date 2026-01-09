@@ -83,7 +83,7 @@ src/scripts/             # Build-time scripts (scraping, code generation)
 └── generate_*.ts        # Data generation scripts
 
 src/data/                # Generated TypeScript data (from scripts)
-├── gear_affix/          # Gear affixes by slot/type
+├── gear-affix/          # Gear affixes by slot/type
 ├── skill/               # Active, passive, support skill data
 ├── talent_tree/         # Talent tree node data
 ├── talent/              # Talent affix data
