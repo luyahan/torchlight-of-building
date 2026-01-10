@@ -278,6 +278,22 @@ export const StatsPanel = (): React.ReactNode => {
                     />
                   </>
                 )}
+                {offenseSummary.attackDpsSummary.multistrikeChancePct > 0 && (
+                  <>
+                    <StatLine
+                      label="Multistrike Chance"
+                      value={formatStatValue.pct(
+                        offenseSummary.attackDpsSummary.multistrikeChancePct,
+                      )}
+                    />
+                    <StatLine
+                      label="Multistrike Dmg Inc"
+                      value={formatStatValue.pct(
+                        offenseSummary.attackDpsSummary.multistrikeIncDmgPct,
+                      )}
+                    />
+                  </>
+                )}
               </>
             )}
 

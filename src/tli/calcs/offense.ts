@@ -76,7 +76,7 @@ import {
   sumByValue,
 } from "./mod-utils";
 import type { OffenseSkillName } from "./skill-confs";
-import { ModWithValue, multModValue, multValue } from "./util";
+import { type ModWithValue, multModValue, multValue } from "./util";
 
 // Re-export types that consumers expect from offense.ts
 export type { DmgChunk, DmgPools, DmgRanges };
@@ -94,6 +94,8 @@ export interface OffenseAttackDpsSummary {
   offhand?: WeaponAttackSummary;
   critDmgMult: number;
   avgDps: number;
+  multistrikeChancePct: number;
+  multistrikeIncDmgPct: number;
 }
 
 interface OffenseSummary {
@@ -1574,7 +1576,9 @@ const pushMultistrikeDmgBonus = (
   if (multistrikeChancePct <= 0 || multistrikeIncDmgPct <= 0) {
     return;
   }
-  const initialCount = sumByValue(filterMods(mods, "InitialMultistrikeCount"));
+  const initialCount = Math.trunc(
+    sumByValue(filterMods(mods, "InitialMultistrikeCount")),
+  );
   const maxHits = initialCount + Math.floor(multistrikeChancePct / 100) + 2;
   let expectedDmgMult = 0;
   for (let hitNumber = initialCount; hitNumber < maxHits; hitNumber++) {
@@ -1664,6 +1668,8 @@ interface DerivedOffenseCtx {
   maxSpellBurst: number;
   spellBurstChargeSpeedBonusPct: number;
   movementSpeedBonusPct: number;
+  multistrikeChancePct: number;
+  multistrikeIncDmgPct: number;
   mods: Mod[];
 }
 
@@ -1846,6 +1852,8 @@ const resolveModsForOffenseSkill = (
     mods,
     maxSpellBurst,
     movementSpeedBonusPct,
+    multistrikeChancePct,
+    multistrikeIncDmgPct,
     spellBurstChargeSpeedBonusPct,
   };
 };
@@ -2126,6 +2134,7 @@ const calcAvgAttackDps = (
   loadout: Loadout,
   perSkillContext: PerSkillModContext,
   skillLevel: number,
+  derivedOffenseCtx: DerivedOffenseCtx,
   derivedCtx: DerivedCtx,
   config: Configuration,
 ): OffenseAttackDpsSummary | undefined => {
@@ -2185,6 +2194,8 @@ const calcAvgAttackDps = (
     offhand: disableOffhand ? undefined : offhandAtk,
     critDmgMult,
     avgDps,
+    multistrikeChancePct: derivedOffenseCtx.multistrikeChancePct,
+    multistrikeIncDmgPct: derivedOffenseCtx.multistrikeIncDmgPct,
   };
 };
 
@@ -2453,6 +2464,7 @@ export const calculateOffense = (input: OffenseInput): OffenseResults => {
       loadout,
       perSkillContext,
       skillLevel,
+      derivedOffenseCtx,
       derivedCtx,
       config,
     );
