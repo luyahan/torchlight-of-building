@@ -1,7 +1,7 @@
+import { ts } from "@/src/tli/mod-parser";
 import { findColumn, validateAllLevels } from "./progression-table";
-import { template } from "./template-compiler";
 import type { SupportLevelParser } from "./types";
-import { createConstantLevels } from "./utils";
+import { createConstantLevels, findMatch } from "./utils";
 
 export const preciseCrueltyParser: SupportLevelParser = (input) => {
   const { skillName, progressionTable } = input;
@@ -13,17 +13,18 @@ export const preciseCrueltyParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+12.5% additional Attack Damage" or "12.5% additional Attack Damage"
-    const dmgMatch = template("{value:dec%} additional attack damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional attack damage"),
       skillName,
     );
     attackDmgPct[level] = dmgMatch.value;
 
-    // Match "2.5% additional Aura Effect per stack of the buff"
-    const auraEffMatch = template(
-      "{value:dec%} additional aura effect per stack",
-    ).match(text, skillName);
+    const auraEffMatch = findMatch(
+      text,
+      ts("{value:?dec%} additional aura effect per stack of the buff"),
+      skillName,
+    );
     auraEffPctPerCrueltyStack[level] = auraEffMatch.value;
   }
 
@@ -42,9 +43,9 @@ export const spellAmplificationParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+15% additional Spell Damage" or "15% additional Spell Damage"
-    const dmgMatch = template("{value:dec%} additional spell damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional spell damage"),
       skillName,
     );
     spellDmgPct[level] = dmgMatch.value;
@@ -64,9 +65,9 @@ export const preciseDeepPainParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+21% additional Damage Over Time" or "21% additional Damage Over Time"
-    const dmgMatch = template("{value:dec%} additional damage over time").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional damage over time"),
       skillName,
     );
     dotDmgPct[level] = dmgMatch.value;
@@ -88,9 +89,9 @@ export const preciseErosionAmplificationParser: SupportLevelParser = (
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+21% additional Erosion Damage" or "21% additional Erosion Damage"
-    const dmgMatch = template("{value:dec%} additional erosion damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional erosion damage"),
       skillName,
     );
     erosionDmgPct[level] = dmgMatch.value;
@@ -111,14 +112,16 @@ export const corrosionFocusParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    const dmgMatch = template("{value:dec%} additional erosion damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional erosion damage"),
       skillName,
     );
     erosionDmgPct[level] = dmgMatch.value;
 
-    const wiltMatch = template("{value:dec%} wilt chance").match(
+    const wiltMatch = findMatch(
       text,
+      ts("{value:?dec%} wilt chance"),
       skillName,
     );
     inflictWiltPct[level] = wiltMatch.value;
@@ -143,9 +146,9 @@ export const deepPainParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+15% additional Damage Over Time" or "35.5% additional Damage Over Time"
-    const dmgMatch = template("{value:dec%} additional damage over time").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional damage over time"),
       skillName,
     );
     dotDmgPct[level] = dmgMatch.value;
@@ -165,9 +168,9 @@ export const erosionAmplificationParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+15% additional Erosion Damage" or "35.5% additional Erosion Damage"
-    const dmgMatch = template("{value:dec%} additional erosion damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional erosion damage"),
       skillName,
     );
     erosionDmgPct[level] = dmgMatch.value;
@@ -187,9 +190,9 @@ export const electricConversionParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+15% additional Lightning Damage" or "35.5% additional Lightning Damage"
-    const dmgMatch = template("{value:dec%} additional lightning damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional lightning damage"),
       skillName,
     );
     lightningDmgPct[level] = dmgMatch.value;
@@ -209,10 +212,13 @@ export const frigidDomainParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+18% additional Cold Damage against enemies" or "38.5% additional Cold Damage against enemies"
-    const dmgMatch = template(
-      "{value:dec%} additional cold damage against enemies",
-    ).match(text, skillName);
+    const dmgMatch = findMatch(
+      text,
+      ts(
+        "{value:?dec%} additional cold damage against enemies affected by the skill",
+      ),
+      skillName,
+    );
     coldDmgPct[level] = dmgMatch.value;
   }
 
@@ -230,10 +236,13 @@ export const preciseFrigidDomainParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+25% additional Cold Damage against enemies" or "54.5% additional Cold Damage against enemies"
-    const dmgMatch = template(
-      "{value:dec%} additional cold damage against enemies",
-    ).match(text, skillName);
+    const dmgMatch = findMatch(
+      text,
+      ts(
+        "{value:?dec%} additional cold damage against enemies affected by the skill",
+      ),
+      skillName,
+    );
     coldDmgPct[level] = dmgMatch.value;
   }
 
@@ -251,20 +260,19 @@ export const summonThunderMagusParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "2.5% additional damage to the summoner" or "+3% additional damage to the summoner"
-    const dmgMatch = template(
-      "{value:dec%} additional damage to the summoner",
-    ).match(text, skillName);
+    const dmgMatch = findMatch(
+      text,
+      ts(
+        "{_:+int}% additional attack and cast speed and {value:?dec%} additional damage to the summoner",
+      ),
+      skillName,
+    );
     dmgPct[level] = dmgMatch.value;
   }
 
   validateAllLevels(dmgPct, skillName);
 
-  return {
-    // Attack and Cast Speed is constant at 6%
-    aspdAndCspdPct: createConstantLevels(6),
-    dmgPct,
-  };
+  return { aspdAndCspdPct: createConstantLevels(6), dmgPct };
 };
 
 export const summonFireMagusParser: SupportLevelParser = (input) => {
@@ -276,10 +284,13 @@ export const summonFireMagusParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+58 Attack and Spell Critical Strike Rating"
-    const match = template(
-      "{value:+int} attack and spell critical strike rating",
-    ).match(text, skillName);
+    const match = findMatch(
+      text,
+      ts(
+        "giving the summoner {value:?int} attack and spell critical strike rating",
+      ),
+      skillName,
+    );
     critRating[level] = match.value;
   }
 
@@ -297,9 +308,9 @@ export const preciseElectricConversionParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+21% additional Lightning Damage" or "50.5% additional Lightning Damage"
-    const dmgMatch = template("{value:dec%} additional lightning damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional lightning damage"),
       skillName,
     );
     lightningDmgPct[level] = dmgMatch.value;
@@ -319,9 +330,9 @@ export const preciseSpellAmplificationParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+21% additional Spell Damage" or "50.5% additional Spell Damage"
-    const dmgMatch = template("{value:dec%} additional spell damage").match(
+    const dmgMatch = findMatch(
       text,
+      ts("{value:?dec%} additional spell damage"),
       skillName,
     );
     spellDmgPct[level] = dmgMatch.value;
@@ -342,23 +353,24 @@ export const preciseFearlessParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+60% Critical Strike Rating for Melee Skills" or "80.5% Critical Strike Rating for Melee Skills"
-    const critMatch = template(
-      "{value:dec%} critical strike rating for melee",
-    ).match(text, skillName);
+    const critMatch = findMatch(
+      text,
+      ts("{value:?dec%} critical strike rating for melee skills"),
+      skillName,
+    );
     meleeCritRatingPct[level] = critMatch.value;
 
-    // Match "+10% additional Melee Skill Damage" or "30.5% additional Melee Skill Damage"
-    const dmgMatch = template(
-      "{value:dec%} additional melee skill damage",
-    ).match(text, skillName);
+    const dmgMatch = findMatch(
+      text,
+      ts("{value:?dec%} additional melee skill damage"),
+      skillName,
+    );
     meleeDmgPct[level] = dmgMatch.value;
   }
 
   validateAllLevels(meleeCritRatingPct, skillName);
   validateAllLevels(meleeDmgPct, skillName);
 
-  // Melee Attack Speed is constant at 8%
   return {
     meleeCritRatingPct,
     meleeDmgPct,
@@ -375,9 +387,9 @@ export const preciseSwiftnessParser: SupportLevelParser = (input) => {
   for (const [levelStr, text] of Object.entries(descriptCol.rows)) {
     const level = Number(levelStr);
 
-    // Match "+11% Movement Speed" or "20.5% Movement Speed"
-    const match = template("{value:dec%} movement speed").match(
+    const match = findMatch(
       text,
+      ts("{value:?dec%} movement speed"),
       skillName,
     );
     movementSpeedPct[level] = match.value;

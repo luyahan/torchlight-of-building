@@ -2,7 +2,8 @@ import type { Mod } from "../mod";
 import { allParsers } from "./templates";
 import type { ModParser } from "./types";
 
-export { spec, t } from "./template";
+export { spec, t, ts } from "./template";
+export type { TemplateBuilder } from "./types";
 
 const multi = (parsers: ModParser[]): ModParser => ({
   parse(input: string): Mod[] | undefined {

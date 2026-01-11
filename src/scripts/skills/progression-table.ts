@@ -1,5 +1,5 @@
 import type { CheerioAPI } from "cheerio";
-import { template } from "./template-compiler";
+import { t } from "@/src/tli/mod-parser";
 import type { ProgressionColumn, SupportParserInput } from "./types";
 
 const EXPECTED_LEVELS = 40;
@@ -45,10 +45,11 @@ export const extractProgressionTable = (
         const header = columns[i].header.toLowerCase().trim();
 
         if (header === "descript") {
-          // For Descript columns, preserve structure by converting <br/> to \n
+          // For Descript columns, preserve structure by converting <br/> and <hr> to \n
           let html = $(cell).html() ?? "";
-          // Convert <br/> to \n
+          // Convert <br/> and <hr> to \n (both act as line separators)
           html = html.replace(/<br\s*\/?>/gi, "\n");
+          html = html.replace(/<hr[^>]*\/?>/gi, "\n");
           // Strip remaining HTML tags (like <span class="text-mod">)
           const text = html.replace(/<[^>]+>/g, "");
           columns[i].rows[level] = text.trim();
@@ -111,8 +112,8 @@ export const findColumn = (
   headerTemplate: string,
   skillName: string,
 ): ProgressionColumn => {
-  const t = template(headerTemplate);
-  const col = columns.find((c) => t.tryMatch(c.header) !== undefined);
+  const matcher = t(headerTemplate);
+  const col = columns.find((c) => matcher.tryMatch(c.header) !== undefined);
   if (col === undefined) {
     throw new Error(`${skillName}: no column matches "${headerTemplate}"`);
   }

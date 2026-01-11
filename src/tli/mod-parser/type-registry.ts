@@ -30,6 +30,12 @@ export interface CaptureTypeRegistry {
   "+int%": number;
   "+dec%": number;
 
+  // Optional sign numeric types (allow +/- prefix but don't require it)
+  "?int": number;
+  "?dec": number;
+  "?int%": number;
+  "?dec%": number;
+
   // Enum types (registered in enums.ts)
   DmgModType: DmgModType;
   CritRatingModType: CritRatingModType;

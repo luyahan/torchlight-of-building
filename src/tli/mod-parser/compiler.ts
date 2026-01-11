@@ -7,17 +7,31 @@ const getCapturePattern = (type: string): string => {
   const isPercent = type.endsWith("%");
   const baseType = isPercent ? type.slice(0, -1) : type;
 
-  // Check for signed prefix (+int, +dec)
-  const isSigned = baseType.startsWith("+");
-  const numericType = isSigned ? baseType.slice(1) : baseType;
+  // Check for sign prefix: + (required sign), ? (optional sign), or none (unsigned)
+  const isRequiredSign = baseType.startsWith("+");
+  const isOptionalSign = baseType.startsWith("?");
+  const numericType =
+    isRequiredSign || isOptionalSign ? baseType.slice(1) : baseType;
 
   let pattern: string;
   switch (numericType) {
     case "int":
-      pattern = isSigned ? "([+-]\\d+)" : "(\\d+)";
+      if (isRequiredSign) {
+        pattern = "([+-]\\d+)";
+      } else if (isOptionalSign) {
+        pattern = "([+-]?\\d+)";
+      } else {
+        pattern = "(\\d+)";
+      }
       break;
     case "dec":
-      pattern = isSigned ? "([+-]\\d+(?:\\.\\d+)?)" : "(\\d+(?:\\.\\d+)?)";
+      if (isRequiredSign) {
+        pattern = "([+-]\\d+(?:\\.\\d+)?)";
+      } else if (isOptionalSign) {
+        pattern = "([+-]?\\d+(?:\\.\\d+)?)";
+      } else {
+        pattern = "(\\d+(?:\\.\\d+)?)";
+      }
       break;
     default:
       // Enum type - use word pattern
@@ -38,8 +52,11 @@ const getExtractor = (
   const isPercent = type.endsWith("%");
   const baseType = isPercent ? type.slice(0, -1) : type;
 
-  // Strip signed prefix if present (+int, +dec)
-  const numericType = baseType.startsWith("+") ? baseType.slice(1) : baseType;
+  // Strip sign prefix if present (+int, +dec, ?int, ?dec)
+  const numericType =
+    baseType.startsWith("+") || baseType.startsWith("?")
+      ? baseType.slice(1)
+      : baseType;
 
   switch (numericType) {
     case "int":
@@ -61,10 +78,16 @@ const getExtractor = (
   }
 };
 
+export interface CompileOptions {
+  /** If true, match substring instead of full string (no ^ and $ anchors) */
+  substring?: boolean;
+}
+
 // Compile a template string into a regex and extractors
 export const compileTemplate = (
   template: string,
   enumMappings: Map<string, Record<string, string>>,
+  options?: CompileOptions,
 ): CompiledTemplate => {
   const captureNames: string[] = [];
   const extractors = new Map<string, (match: string) => string | number>();
@@ -195,7 +218,14 @@ export const compileTemplate = (
     pos++;
   }
 
-  return { regex: new RegExp(`^${regexStr}$`, "i"), captureNames, extractors };
+  const pattern = options?.substring === true ? regexStr : `^${regexStr}$`;
+
+  return {
+    templateStr: template,
+    regex: new RegExp(pattern, "i"),
+    captureNames,
+    extractors,
+  };
 };
 
 // Compile inner content (for optionals) without wrapping in ^...$

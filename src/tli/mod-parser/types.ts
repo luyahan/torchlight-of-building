@@ -12,6 +12,7 @@ export type ModTypeMap = {
 
 // A compiled template ready to parse
 export interface CompiledTemplate {
+  templateStr: string;
   regex: RegExp;
   captureNames: string[];
   extractors: Map<string, (match: string) => string | number>;
@@ -58,6 +59,12 @@ export interface TemplateBuilder<
 
   // Output multiple mods from same template
   outputMany(specs: MultiOutput<TCaptures>[]): ModParser;
+
+  // Match against input (full string), returning captures. Throws if no match.
+  match(input: string, context?: string): TCaptures;
+
+  // Match against input (full string), returning captures or undefined.
+  tryMatch(input: string): TCaptures | undefined;
 }
 
 // Multi-pattern builder (for alternate syntaxes)
