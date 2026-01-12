@@ -1548,34 +1548,6 @@ const pushAttackAggression = (mods: Mod[], config: Configuration): void => {
   });
 };
 
-const pushSpellAggression = (mods: Mod[], config: Configuration): void => {
-  if (!config.hasSpellAggression) {
-    return;
-  }
-  const cspdBase = 7;
-  const dmgBase = 7;
-  const mobilityCdr = 7;
-  const mult = calcEffMult(mods, "SpellAggressionEffPct");
-  mods.push({
-    type: "CspdPct",
-    value: cspdBase * mult,
-    addn: true,
-    src: "Spell Aggression",
-  });
-  mods.push({
-    type: "DmgPct",
-    value: dmgBase * mult,
-    dmgModType: "spell",
-    addn: true,
-    src: "Spell Aggression",
-  });
-  mods.push({
-    type: "MobilitySkillCdrPct",
-    value: mobilityCdr * mult,
-    src: "Spell Aggression",
-  });
-};
-
 const pushMark = (mods: Mod[], config: Configuration): void => {
   if (!config.targetEnemyMarked) {
     return;
@@ -1722,11 +1694,16 @@ const createSelfReferential = <T extends Record<string, (keyof T)[]>>(
 // dependency graph of mod resolution steps that much be done in order
 // examples:
 //   * stalker, from erika1's hero trait, affects multistrike calculations
-//     and this is a dependency of multistrike_calc
+//     and this is a dependency of multistrike
 //   * spell burst charge speed may be dependent on dependent on cast speed (from core talent playsafe)
+//   * cast speed depends on many other things, including spell aggression
+// WHENEVER ADDING A TEMPLATE WITH DEPENDENCY, CHECK HERE TO MAKE SURE IT'S CODIFIED
 const stepDeps = createSelfReferential({
   stalker: [],
-  multistrike_calc: ["stalker"],
+  multistrike: ["stalker"],
+  spellAggression: [],
+  castSpeed: ["spellAggression"],
+  spellBurstChargeSpeed: ["castSpeed"],
 });
 
 const modSteps = Object.keys(stepDeps) as (keyof typeof stepDeps)[];
@@ -1810,7 +1787,7 @@ const resolveModsForOffenseSkill = (
     mods.push(...normalizeStackables(prenormMods, "stalker", stacks));
   };
   const pushMultistrike = () => {
-    step("multistrike_calc");
+    step("multistrike");
     const multistrikeChancePct = sumByValue(
       filterMods(mods, "MultistrikeChancePct"),
     );
@@ -1820,6 +1797,75 @@ const resolveModsForOffenseSkill = (
     pushMultistrikeAspd(mods, multistrikeChancePct);
     pushMultistrikeDmgBonus(mods, multistrikeChancePct, multistrikeIncDmgPct);
     return { multistrikeChancePct, multistrikeIncDmgPct };
+  };
+  const pushShadowStrike = () => {
+    if (skill.tags.includes("Shadow Strike")) {
+      const numShadowHits = calculateNumShadowHits(mods, config);
+      const dmgFromShadowMod = calculateAddnDmgFromShadows(numShadowHits);
+      if (dmgFromShadowMod !== undefined) {
+        const shadowDmgPctMods = filterMods(mods, "ShadowDmgPct");
+        const shadowDmgMult = calcEffMult(shadowDmgPctMods);
+        mods.push({
+          ...multModValue(dmgFromShadowMod, shadowDmgMult),
+          per: undefined,
+        });
+      }
+    }
+  };
+  const pushProjectiles = () => {
+    const maxProjectiles = findMod(mods, "MaxProjectile")?.value;
+    const projectiles = Math.trunc(
+      Math.min(
+        sumByValue(filterMods(mods, "Projectile")),
+        maxProjectiles ?? Infinity,
+      ),
+    );
+    normalize("projectile", projectiles);
+  };
+  const pushFervor = () => {
+    if (resourcePool.hasFervor) {
+      mods.push(calculateFervorCritRateMod(mods, resourcePool));
+      normalize("fervor", resourcePool.fervorPts);
+    }
+  };
+  const pushSpellAggression = (): void => {
+    step("spellAggression");
+    if (!config.hasSpellAggression) {
+      return;
+    }
+    const cspdBase = 7;
+    const dmgBase = 7;
+    const mobilityCdr = 7;
+    const mult = calcEffMult(mods, "SpellAggressionEffPct");
+    mods.push({
+      type: "CspdPct",
+      value: cspdBase * mult,
+      addn: true,
+      src: "Spell Aggression",
+    });
+    mods.push({
+      type: "DmgPct",
+      value: dmgBase * mult,
+      dmgModType: "spell",
+      addn: true,
+      src: "Spell Aggression",
+    });
+    mods.push({
+      type: "MobilitySkillCdrPct",
+      value: mobilityCdr * mult,
+      src: "Spell Aggression",
+    });
+  };
+  const pushSpellBurstChargeSpeed = () => {
+    step("castSpeed");
+    step("spellBurstChargeSpeed");
+    const spellBurstChargeSpeedBonusPct =
+      calcSpellBurstChargeSpeedBonusPct(mods);
+    normalize(
+      "spell_burst_charge_speed_bonus_pct",
+      spellBurstChargeSpeedBonusPct,
+    );
+    return { spellBurstChargeSpeedBonusPct };
   };
 
   const totalMainStats = calculateTotalMainStats(skill, stats);
@@ -1848,7 +1894,7 @@ const resolveModsForOffenseSkill = (
   pushMainStatDmgPct(mods, totalMainStats);
   pushWhimsy(mods, config);
   pushAttackAggression(mods, config); // must happen before movement speed
-  pushSpellAggression(mods, config); // must happen before spell burst charge speed calculation
+  pushSpellAggression();
   pushMark(mods, config);
 
   // must happen before max_spell_burst normalization, after attack aggression
@@ -1902,33 +1948,9 @@ const resolveModsForOffenseSkill = (
   normalize("willpower", willpowerStacks);
   normalize("frostbite_rating", frostbitten.points);
 
-  // Note: BaseProjectileQuant is NOT counted toward "projectile" stackable
-  const maxProjectiles = findMod(mods, "MaxProjectile")?.value;
-  const projectiles = Math.trunc(
-    Math.min(
-      sumByValue(filterMods(mods, "Projectile")),
-      maxProjectiles ?? Infinity,
-    ),
-  );
-  normalize("projectile", projectiles);
-
-  if (resourcePool.hasFervor) {
-    mods.push(calculateFervorCritRateMod(mods, resourcePool));
-    normalize("fervor", resourcePool.fervorPts);
-  }
-
-  if (skill.tags.includes("Shadow Strike")) {
-    const numShadowHits = calculateNumShadowHits(mods, config);
-    const dmgFromShadowMod = calculateAddnDmgFromShadows(numShadowHits);
-    if (dmgFromShadowMod !== undefined) {
-      const shadowDmgPctMods = filterMods(mods, "ShadowDmgPct");
-      const shadowDmgMult = calcEffMult(shadowDmgPctMods);
-      mods.push({
-        ...multModValue(dmgFromShadowMod, shadowDmgMult),
-        per: undefined,
-      });
-    }
-  }
+  pushProjectiles();
+  pushFervor();
+  pushShadowStrike();
 
   const unsealedManaPct = 100 - (config.sealedManaPct ?? 0);
   const unsealedLifePct = 100 - (config.sealedLifePct ?? 0);
@@ -1945,12 +1967,7 @@ const resolveModsForOffenseSkill = (
 
   // must happen after spell aggression and any other normalizations that can
   // affect cast speed
-  const spellBurstChargeSpeedBonusPct = calcSpellBurstChargeSpeedBonusPct(mods);
-  normalize(
-    "spell_burst_charge_speed_bonus_pct",
-    spellBurstChargeSpeedBonusPct,
-  );
-
+  const { spellBurstChargeSpeedBonusPct } = pushSpellBurstChargeSpeed();
   pushErika1();
   const { multistrikeChancePct, multistrikeIncDmgPct } = pushMultistrike();
 
