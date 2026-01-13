@@ -13,9 +13,6 @@ export const OptionWithSkillTooltip: React.FC<OptionWithSkillTooltipProps> = ({
   skill,
   selected,
 }) => {
-  // Force re-render when locale changes
-  void i18n.locale;
-
   const [isHovered, setIsHovered] = useState(false);
   const [rect, setRect] = useState<DOMRect | undefined>(undefined);
   const ref = useRef<HTMLDivElement>(null);
