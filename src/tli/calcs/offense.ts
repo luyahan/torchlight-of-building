@@ -240,7 +240,7 @@ const calculateDefenseStat = (
 
   const finalMultPct = calcEffMult(mods, modTypes.finalMultPct);
 
-  return totalFlat * finalMultPct;
+  return Math.round(totalFlat * finalMultPct);
 };
 
 // === Resource Pool Types ===
