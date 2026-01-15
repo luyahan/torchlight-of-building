@@ -6,6 +6,7 @@ Torchlight Infinite character build planner and dps calculator.
 
 ```bash
 pnpm install
+pnpm lingui:compile
 pnpm dev
 ```
 
