@@ -1336,6 +1336,12 @@ const calculateAddedSkillLevels = (
       .with("erosion", () => skill.tags.includes("Erosion"))
       .with("spell", () => skill.tags.includes("Spell"))
       .with("lightning", () => skill.tags.includes("Lightning"))
+      .with("cold", () => skill.tags.includes("Cold"))
+      .with("fire", () => skill.tags.includes("Fire"))
+      .with("melee", () => skill.tags.includes("Melee"))
+      .with("minion", () => skill.tags.includes("Summon"))
+      .with("mobility", () => skill.tags.includes("Mobility"))
+      .with("physical", () => skill.tags.includes("Physical"))
       .with("all", () => true)
       .exhaustive();
     if (matches) {

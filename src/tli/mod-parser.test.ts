@@ -1384,6 +1384,48 @@ test("parse main skill level per sealed life at full mana", () => {
   ]);
 });
 
+test("parse cold skill level", () => {
+  const result = parseMod("+1 Cold Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "cold" },
+  ]);
+});
+
+test("parse fire skill level", () => {
+  const result = parseMod("+1 Fire Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "fire" },
+  ]);
+});
+
+test("parse melee skill level", () => {
+  const result = parseMod("+1 Melee Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "melee" },
+  ]);
+});
+
+test("parse minion skill level", () => {
+  const result = parseMod("+1 Minion Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "minion" },
+  ]);
+});
+
+test("parse mobility skill level", () => {
+  const result = parseMod("+1 Mobility Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "mobility" },
+  ]);
+});
+
+test("parse physical skill level", () => {
+  const result = parseMod("+1 Physical Skill Level");
+  expect(result).toEqual([
+    { type: "SkillLevel", value: 1, skillLevelType: "physical" },
+  ]);
+});
+
 test("parse hero trait level", () => {
   const result = parseMod("+2 to Hero Trait Level");
   expect(result).toEqual([{ type: "HeroTraitLevel", value: 2 }]);

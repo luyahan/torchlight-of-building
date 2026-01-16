@@ -71,6 +71,12 @@ export const SkillLevelTypes = [
   "erosion",
   "spell",
   "lightning",
+  "cold",
+  "fire",
+  "melee",
+  "minion",
+  "mobility",
+  "physical",
   "all",
 ] as const;
 
