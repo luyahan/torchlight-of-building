@@ -1902,6 +1902,35 @@ const resolveModsForOffenseSkill = (
       src: "Frail",
     });
   };
+  const pushBerserkingBlade = (): void => {
+    const maxBBStacks = sumByValue(
+      filterMods(mods, "MaxBerserkingBladeStacks"),
+    );
+    const bbStacks = config.numBerserkingBladeBuffStacks || maxBBStacks;
+    normalize("berserking_blade_buff", bbStacks);
+  };
+  const pushMspd = (): number => {
+    step("movementSpeed");
+    const movementSpeedBonusPct =
+      (calcEffMult(mods, "MovementSpeedPct") - 1) * 100;
+    normalize("movement_speed_bonus_pct", movementSpeedBonusPct);
+    return movementSpeedBonusPct;
+  };
+  const pushMaxSpellBurst = (): number => {
+    step("maxSpellBurst");
+    const maxSpellBurst = sumByValue(filterMods(mods, "MaxSpellBurst"));
+    normalize("max_spell_burst", maxSpellBurst);
+    return maxSpellBurst;
+  };
+  const pushMindControlLinks = (): void => {
+    const maxChannelStacks =
+      (findMod(mods, "InitialMaxChannel")?.value ?? 0) +
+      additionalMaxChanneledStacks;
+    const mcMaxLinks = maxChannelStacks;
+    const mcLinks = config.numMindControlLinksUsed ?? mcMaxLinks;
+    normalize("mind_control_link", mcLinks);
+    normalize("unused_mind_control_link", mcMaxLinks - mcLinks);
+  };
 
   const totalMainStats = calculateTotalMainStats(skill, stats);
   const highestStat = Math.max(stats.dex, stats.int, stats.str);
@@ -1921,52 +1950,29 @@ const resolveModsForOffenseSkill = (
     R.unique([mainHand?.equipmentType ?? "", offHand?.equipmentType ?? ""])
       .length,
   );
-  const maxBBStacks = sumByValue(filterMods(mods, "MaxBerserkingBladeStacks"));
-  const bbStacks = config.numBerserkingBladeBuffStacks || maxBBStacks;
-  normalize("berserking_blade_buff", bbStacks);
-
+  pushBerserkingBlade();
   pushTradeoff();
   pushMainStatDmgPct();
   pushWhimsy();
   pushAttackAggression();
   pushSpellAggression();
   pushMark();
-
-  step("movementSpeed");
-  const movementSpeedBonusPct =
-    (calcEffMult(mods, "MovementSpeedPct") - 1) * 100;
-  normalize("movement_speed_bonus_pct", movementSpeedBonusPct);
-
+  const movementSpeedBonusPct = pushMspd();
   pushInfiltrations();
   pushNumbed();
-
   const jumps = sumByValue(filterMods(mods, "Jump"));
   normalize("jump", jumps);
-
   pushChainLightning();
   pushFrail();
   pushYouga2();
-
-  step("maxSpellBurst");
-  const maxSpellBurst = sumByValue(filterMods(mods, "MaxSpellBurst"));
-  normalize("max_spell_burst", maxSpellBurst);
+  const maxSpellBurst = pushMaxSpellBurst();
   normalize("additional_max_channel_stack", additionalMaxChanneledStacks);
-
-  const maxChannelStacks =
-    (findMod(mods, "InitialMaxChannel")?.value ?? 0) +
-    additionalMaxChanneledStacks;
-  const mcMaxLinks = maxChannelStacks;
-  const mcLinks = config.numMindControlLinksUsed ?? mcMaxLinks;
-  normalize("mind_control_link", mcLinks);
-  normalize("unused_mind_control_link", mcMaxLinks - mcLinks);
-
+  pushMindControlLinks();
   mods.push(...calculateTorment(config));
   mods.push(...calculateAffliction(mods, config));
-
   const repentanceStacks = 4 + sumByValue(filterMods(mods, "MaxRepentance"));
   const willpowerStacks = calculateWillpower(prenormMods);
   const frostbitten = calculateEnemyFrostbitten(config);
-
   normalize("repentance", repentanceStacks);
   normalize("focus_blessing", focusBlessings);
   normalize("agility_blessing", agilityBlessings);
@@ -1982,7 +1988,6 @@ const resolveModsForOffenseSkill = (
   );
   normalize("willpower", willpowerStacks);
   normalize("frostbite_rating", frostbitten.points);
-
   pushProjectiles();
   pushFervor();
   pushShadowStrike();
@@ -1999,9 +2004,7 @@ const resolveModsForOffenseSkill = (
     "num_enemies_affected_by_warcry",
     config.numEnemiesAffectedByWarcry,
   );
-
   pushPactspirits();
-
   const { spellBurstChargeSpeedBonusPct } = pushSpellBurstChargeSpeed();
   pushErika1();
   const { multistrikeChancePct, multistrikeIncDmgPct } = pushMultistrike();
