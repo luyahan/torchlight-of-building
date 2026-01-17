@@ -259,6 +259,7 @@ interface ModDefinitions {
     minionDmgModType?: MinionDmgModType;
   };
   AddnMaxMinionDmgPct: { value: number };
+  FlatDmgToMinions: { value: DmgRange; dmgType: DmgChunkType };
   MinionAspdPct: { value: number; addn: boolean };
   MinionCspdPct: { value: number; addn: boolean };
   MinionCritRatingPct: { value: number; addn?: boolean };
@@ -318,6 +319,7 @@ interface ModDefinitions {
   EnergyShieldChargeSpeedPct: { value: number };
   RestoreLifePctPerSec: { value: number };
   DmgTakenPct: { value: number; addn?: boolean };
+  ConvertDmgTakenPct: { value: number; from: DmgChunkType; to: DmgChunkType };
   // end defenses
   Reap: { duration: number; cooldown: number };
   ReapDurationPct: { value: number };

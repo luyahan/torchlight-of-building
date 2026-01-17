@@ -2777,3 +2777,19 @@ test("parse steep strike chance (signed with period)", () => {
   const result = parseMod("+12% Steep Strike chance.");
   expect(result).toEqual([{ type: "SteepStrikeChancePct", value: 12 }]);
 });
+
+test("parse convert damage taken", () => {
+  const result = parseMod(
+    "Converts 14% of Physical Damage taken to Cold Damage",
+  );
+  expect(result).toEqual([
+    { type: "ConvertDmgTakenPct", value: 14, from: "physical", to: "cold" },
+  ]);
+});
+
+test("parse flat damage to minions", () => {
+  const result = parseMod("Adds 83 - 110 Fire Damage to Minions");
+  expect(result).toEqual([
+    { type: "FlatDmgToMinions", value: { min: 83, max: 110 }, dmgType: "fire" },
+  ]);
+});

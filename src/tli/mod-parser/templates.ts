@@ -802,6 +802,12 @@ export const allParsers = [
     value: { min: c.min, max: c.max },
     dmgType: c.dmgType,
   })),
+  t(
+    "adds {min:int} - {max:int} {dmgType:DmgChunkType} damage to minions",
+  ).output("FlatDmgToMinions", (c) => ({
+    value: { min: c.min, max: c.max },
+    dmgType: c.dmgType,
+  })),
   t("{value:+dec} max mana").output("MaxMana", (c) => ({ value: c.value })),
   t("{value:+dec} mana per {amt:int} intelligence").output("MaxMana", (c) => ({
     value: c.value,
@@ -1534,6 +1540,13 @@ export const allParsers = [
     "DmgTakenPct",
     (c) => ({ value: c.value }),
   ),
+  t(
+    "converts {value:dec%} of {from:DmgChunkType} damage taken to {to:DmgChunkType} damage",
+  ).output("ConvertDmgTakenPct", (c) => ({
+    value: c.value,
+    from: c.from,
+    to: c.to,
+  })),
   t("{value:+dec%} [additional] aura effect").output("AuraEffPct", (c) => ({
     value: c.value,
     addn: c.additional !== undefined,
