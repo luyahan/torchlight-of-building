@@ -201,6 +201,7 @@ export type Condition =
   | "has_moved_recently"
   | "is_moving"
   | "has_cast_curse_recently"
+  | "taking_damage_over_time"
   // pactspirits
   | "has_portrait_of_a_fallen_saintess_pactspirit"
   | "has_squidnova";
@@ -299,6 +300,7 @@ interface ModDefinitions {
   GearEnergyShieldPct: { value: number };
   MaxEnergyShieldPct: { value: number; addn: boolean };
   MaxEnergyShield: { value: number };
+  EnergyShieldRegenPerSecPct: { value: number };
   GearArmor: { value: number };
   GearArmorPct: { value: number };
   Armor: { value: number };

@@ -841,6 +841,7 @@ const filterModsByCond = (
           (offHand !== undefined && isOneHandedWeapon(offHand))
         );
       })
+      .with("taking_damage_over_time", () => config.takingDamageOverTime)
       .exhaustive();
   });
 };

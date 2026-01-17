@@ -2660,3 +2660,40 @@ test("parse gains attack aggression when casting attack skill", () => {
   );
   expect(result).toEqual([{ type: "GeneratesAttackAggression" }]);
 });
+
+test("parse mana regen while moving", () => {
+  const result = parseMod("Regenerates 1% Mana per second while moving");
+  expect(result).toEqual([
+    { type: "ManaRegenPerSecPct", value: 1, cond: "is_moving" },
+  ]);
+});
+
+test("parse life regen while moving (with 'of')", () => {
+  const result = parseMod("Regenerates 1% of Life per second while moving");
+  expect(result).toEqual([
+    { type: "LifeRegenPerSecPct", value: 1, cond: "is_moving" },
+  ]);
+});
+
+test("parse life regen while moving (without 'of')", () => {
+  const result = parseMod("Regenerates 1% Life per second while moving");
+  expect(result).toEqual([
+    { type: "LifeRegenPerSecPct", value: 1, cond: "is_moving" },
+  ]);
+});
+
+test("parse life regen when taking damage over time", () => {
+  const result = parseMod(
+    "Regenerates 10% Life per second when taking Damage Over Time",
+  );
+  expect(result).toEqual([
+    { type: "LifeRegenPerSecPct", value: 10, cond: "taking_damage_over_time" },
+  ]);
+});
+
+test("parse energy shield restore while moving", () => {
+  const result = parseMod("Restores 2% Energy Shield per second while moving");
+  expect(result).toEqual([
+    { type: "EnergyShieldRegenPerSecPct", value: 2, cond: "is_moving" },
+  ]);
+});

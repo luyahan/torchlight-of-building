@@ -1512,7 +1512,26 @@ export const allParsers = [
     "MainSkillSupportedBy",
     (c) => ({ skillName: c.skillName, level: c.level }),
   ),
-  // Life regeneration
+  // Life, Mana, Energy Shield regeneration (conditional - must come before generic)
+  t("regenerates {value:dec%} mana per second while moving").output(
+    "ManaRegenPerSecPct",
+    (c) => ({ value: c.value, cond: "is_moving" as const }),
+  ),
+  t("regenerates {value:dec%} [of] life per second while moving").output(
+    "LifeRegenPerSecPct",
+    (c) => ({ value: c.value, cond: "is_moving" as const }),
+  ),
+  t(
+    "regenerates {value:dec%} life per second when taking damage over time",
+  ).output("LifeRegenPerSecPct", (c) => ({
+    value: c.value,
+    cond: "taking_damage_over_time" as const,
+  })),
+  t("restores {value:dec%} energy shield per second while moving").output(
+    "EnergyShieldRegenPerSecPct",
+    (c) => ({ value: c.value, cond: "is_moving" as const }),
+  ),
+  // Life regeneration (generic)
   t("regenerates {value:dec%} life per second").output(
     "LifeRegenPerSecPct",
     (c) => ({ value: c.value }),
