@@ -2065,7 +2065,7 @@ test("parse chance for minions to inflict trauma", () => {
 
 test("parse trauma damage", () => {
   const result = parseMod("+8% Trauma Damage");
-  expect(result).toEqual([{ type: "TraumaDmgPct", value: 8 }]);
+  expect(result).toEqual([{ type: "TraumaDmgPct", value: 8, addn: false }]);
 });
 
 test("parse minions deal additional damage to life", () => {
@@ -2817,4 +2817,51 @@ test("parse generates blur from movement", () => {
 test("parse mana before life", () => {
   const result = parseMod("18% of damage is taken from Mana before life");
   expect(result).toEqual([{ type: "ManaBeforeLifePct", value: 18 }]);
+});
+
+test("parse wilt duration", () => {
+  const result = parseMod("+56% Wilt Duration");
+  expect(result).toEqual([{ type: "WiltDurationPct", value: 56 }]);
+});
+
+test("parse trauma duration", () => {
+  const result = parseMod("+56% Trauma Duration");
+  expect(result).toEqual([{ type: "TraumaDurationPct", value: 56 }]);
+});
+
+test("parse ignite duration", () => {
+  const result = parseMod("+56% Ignite Duration");
+  expect(result).toEqual([
+    { type: "IgniteDurationPct", value: 56, addn: false },
+  ]);
+});
+
+test("parse additional steep strike damage", () => {
+  const result = parseMod("+56% additional Steep Strike Damage");
+  expect(result).toEqual([{ type: "SteepStrikeDmg", value: 56, addn: true }]);
+});
+
+test("parse steep strike damage (non-additional)", () => {
+  const result = parseMod("+56% Steep Strike Damage");
+  expect(result).toEqual([{ type: "SteepStrikeDmg", value: 56, addn: false }]);
+});
+
+test("parse additional wilt damage", () => {
+  const result = parseMod("+52% additional Wilt Damage");
+  expect(result).toEqual([{ type: "WiltDmgPct", value: 52, addn: true }]);
+});
+
+test("parse additional trauma damage", () => {
+  const result = parseMod("+52% additional Trauma Damage");
+  expect(result).toEqual([{ type: "TraumaDmgPct", value: 52, addn: true }]);
+});
+
+test("parse additional ignite damage", () => {
+  const result = parseMod("+52% additional Ignite Damage");
+  expect(result).toEqual([{ type: "IgniteDmgPct", value: 52, addn: true }]);
+});
+
+test("parse sweep slash damage", () => {
+  const result = parseMod("+56% additional Sweep Slash Damage");
+  expect(result).toEqual([{ type: "SweepSlashDmg", value: 56, addn: true }]);
 });

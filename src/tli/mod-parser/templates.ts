@@ -725,6 +725,14 @@ export const allParsers = [
     "SteepStrikeChancePct",
     (c) => ({ value: c.value }),
   ),
+  t("{value:+dec%} [additional] steep strike damage").output(
+    "SteepStrikeDmg",
+    (c) => ({ value: c.value, addn: c.additional !== undefined }),
+  ),
+  t("{value:+dec%} [additional] sweep slash damage").output(
+    "SweepSlashDmg",
+    (c) => ({ value: c.value, addn: c.additional !== undefined }),
+  ),
   t
     .multi([
       t("{value:+int} shadow quantity"),
@@ -1342,13 +1350,32 @@ export const allParsers = [
   t("{value:+dec%} ailment duration").output("AilmentDurationPct", (c) => ({
     value: c.value,
   })),
+  t("{value:+dec%} wilt duration").output("WiltDurationPct", (c) => ({
+    value: c.value,
+  })),
+  t("{value:+dec%} trauma duration").output("TraumaDurationPct", (c) => ({
+    value: c.value,
+  })),
+  t("{value:+dec%} [additional] ignite duration").output(
+    "IgniteDurationPct",
+    (c) => ({ value: c.value, addn: c.additional !== undefined }),
+  ),
   t("inflicts frail on spell hit").output("InflictFrail", () => ({})),
   t("{value:+dec%} chance to inflict trauma").output(
     "InflictTrauma",
     () => ({}),
   ),
-  t("{value:+dec%} trauma damage").output("TraumaDmgPct", (c) => ({
+  t("{value:+dec%} [additional] wilt damage").output("WiltDmgPct", (c) => ({
     value: c.value,
+    addn: c.additional !== undefined,
+  })),
+  t("{value:+dec%} [additional] trauma damage").output("TraumaDmgPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+  })),
+  t("{value:+dec%} [additional] ignite damage").output("IgniteDmgPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
   })),
   t("inflicts cold infiltration when dealing damage to frozen enemies").output(
     "InflictsInfiltration",

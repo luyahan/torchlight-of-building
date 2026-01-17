@@ -420,7 +420,9 @@ interface ModDefinitions {
   // ailments
   AilmentDurationPct: { value: number };
   InflictWiltPct: { value: number; isEnemyDebuff?: boolean };
+  WiltDurationPct: { value: number };
   BaseWiltFlatDmg: { value: number };
+  WiltDmgPct: { value: number; addn?: boolean };
   InflictFrostbitePct: { value: number; isEnemyDebugg?: boolean };
   InflictParalysisPct: { value: number };
   FreezeDurationPct: { value: number };
@@ -430,7 +432,10 @@ interface ModDefinitions {
   NumbedChancePct: { value: number };
   InflictTrauma: object;
   BaseTraumaFlatDmg: { value: number };
-  TraumaDmgPct: { value: number };
+  TraumaDmgPct: { value: number; addn?: boolean };
+  TraumaDurationPct: { value: number };
+  IgniteDurationPct: { value: number; addn?: boolean };
+  IgniteDmgPct: { value: number; addn?: boolean };
   BaseIgniteFlatDmg: { value: number };
   // non-ailment debuffs
   InflictsMark: object;
@@ -441,7 +446,6 @@ interface ModDefinitions {
   AfflictionInflictedPerSec: { value: number };
   AfflictionEffectPct: { value: number; addn?: boolean };
   CannotInflictWilt: object;
-  IgniteDurationPct: { value: number; addn?: boolean };
   ChainLightningWebOfLightning: object;
   ChainLightningMerge: { shotgunFalloffCoefficient: number };
   MaxBerserkingBladeStacks: { value: number };
