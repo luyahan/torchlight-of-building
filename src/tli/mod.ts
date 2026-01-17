@@ -356,6 +356,7 @@ interface ModDefinitions {
   ArmorPenPct: { value: number };
   ManaBeforeLifePct: { value: number };
   HasHasten: object;
+  GeneratesHasten: object;
   MovementSpeedPct: { value: number; addn?: boolean };
   MobilitySkillCdrPct: { value: number; addn?: boolean };
   SpellDmgBonusAppliesToAtkDmg: object;
@@ -379,6 +380,10 @@ interface ModDefinitions {
   GeneratesTenacityBlessing: object;
   GeneratesFortitude: object;
   MaxChannel: { value: number };
+  MinChannel: { value: number };
+  MaxTerraChargeStack: { value: number };
+  MaxTerraQuant: { value: number };
+  MaxSentryQuant: { value: number };
   GeneratesBarrier: object;
   GeneratesTorment: object;
   GeneratesBlur: { value: number };

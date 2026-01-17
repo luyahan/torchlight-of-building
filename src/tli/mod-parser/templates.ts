@@ -1512,4 +1512,28 @@ export const allParsers = [
   t(
     "minion damage penetrates {value:dec%} {penType:ResPenType} resistance",
   ).output("MinionResPenPct", (c) => ({ value: c.value, penType: c.penType })),
+  // Min/Max Channeled Stacks
+  t("min channeled stacks {value:+int}").output("MinChannel", (c) => ({
+    value: c.value,
+  })),
+  // Terra and Sentry quantities
+  t("max terra charge stacks {value:+int}").output(
+    "MaxTerraChargeStack",
+    (c) => ({ value: c.value }),
+  ),
+  t("max terra quantity {value:+int}").output("MaxTerraQuant", (c) => ({
+    value: c.value,
+  })),
+  t("max sentry quantity {value:+int}").output("MaxSentryQuant", (c) => ({
+    value: c.value,
+  })),
+  // Attack Aggression generation
+  t("gains attack aggression when minions land a critical strike").output(
+    "GeneratesAttackAggression",
+    () => ({}),
+  ),
+  t("gains attack aggression when casting an attack skill").output(
+    "GeneratesAttackAggression",
+    () => ({}),
+  ),
 ];

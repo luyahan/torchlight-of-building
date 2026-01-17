@@ -2594,3 +2594,37 @@ test("parse minion damage penetrates elemental resistance", () => {
     { type: "MinionResPenPct", value: 14, penType: "elemental" },
   ]);
 });
+
+test("parse min channeled stacks", () => {
+  const result = parseMod("Min Channeled Stacks +1");
+  expect(result).toEqual([{ type: "MinChannel", value: 1 }]);
+});
+
+test("parse max terra charge stacks", () => {
+  const result = parseMod("Max Terra Charge Stacks -1");
+  expect(result).toEqual([{ type: "MaxTerraChargeStack", value: -1 }]);
+});
+
+test("parse max terra quantity", () => {
+  const result = parseMod("Max Terra Quantity +1");
+  expect(result).toEqual([{ type: "MaxTerraQuant", value: 1 }]);
+});
+
+test("parse max sentry quantity", () => {
+  const result = parseMod("Max Sentry Quantity +2");
+  expect(result).toEqual([{ type: "MaxSentryQuant", value: 2 }]);
+});
+
+test("parse gains attack aggression when minions land critical strike", () => {
+  const result = parseMod(
+    "Gains Attack Aggression when Minions land a Critical Strike",
+  );
+  expect(result).toEqual([{ type: "GeneratesAttackAggression" }]);
+});
+
+test("parse gains attack aggression when casting attack skill", () => {
+  const result = parseMod(
+    "Gains Attack Aggression when casting an Attack Skill",
+  );
+  expect(result).toEqual([{ type: "GeneratesAttackAggression" }]);
+});
