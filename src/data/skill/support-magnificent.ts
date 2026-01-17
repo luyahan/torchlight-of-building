@@ -640,27 +640,6 @@ export const MagnificentSupportSkills = [
   },
   {
     type: "Support (Magnificent)",
-    name: "Icebound Beam: Numbing Cold (Magnificent)",
-    tags: ["Cold"],
-    description: [
-      "Supports Icebound Beam.\nThis skill can only be installed in the third Support Skill Slot of each Active Skill.\n+20% additional damage for the supported skill\nInflicts Frostbite and 5 Frostbite Rating every second for 3s when the supported skill's Beam hits an enemy",
-      "Inflicts Frostbite and 5 Frostbite Rating every second for 3s when the supported skill's Beam hits an enemy",
-      "+(12–14)% additional damage for the supported skill",
-    ],
-    supportTarget: "Icebound Beam",
-  },
-  {
-    type: "Support (Magnificent)",
-    name: "Icy Blade: Frozen Edge (Magnificent)",
-    tags: ["Cold"],
-    description: [
-      "Supports Icy Blade.\nThis skill can only be installed in the third Support Skill Slot of each Active Skill.\n+20% additional damage for the supported skill",
-      "Upon hitting a Frozen enemy, the supported skill extends this enemy's Freeze Duration by (0.36–0.38) s. Interval for each enemy: 1 s",
-    ],
-    supportTarget: "Icy Blade",
-  },
-  {
-    type: "Support (Magnificent)",
     name: "Icy Blade: Quick Freeze (Magnificent)",
     tags: ["Cold"],
     description: [

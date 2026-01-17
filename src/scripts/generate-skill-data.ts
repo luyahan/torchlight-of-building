@@ -86,16 +86,39 @@ const SKILL_TYPES = [
   },
 ] as const;
 
-const delay = (ms: number): Promise<void> =>
-  new Promise((resolve) => setTimeout(resolve, ms));
-
 const fetchPage = async (url: string): Promise<string> => {
-  console.log(`Fetching: ${url}`);
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch ${url}: ${response.status}`);
   }
   return response.text();
+};
+
+// Run async functions with limited concurrency
+const runWithConcurrency = async <T>(
+  tasks: Array<() => Promise<T>>,
+  concurrency: number,
+): Promise<T[]> => {
+  const results: T[] = [];
+  let index = 0;
+
+  const runNext = async (): Promise<void> => {
+    while (index < tasks.length) {
+      const currentIndex = index;
+      index++;
+      const task = tasks[currentIndex];
+      if (task !== undefined) {
+        results[currentIndex] = await task();
+      }
+    }
+  };
+
+  const workers = Array.from(
+    { length: Math.min(concurrency, tasks.length) },
+    runNext,
+  );
+  await Promise.all(workers);
+  return results;
 };
 
 const extractSkillLinks = (html: string, tabId: string): string[] => {
@@ -146,9 +169,15 @@ const extractSkillLinks = (html: string, tabId: string): string[] => {
   return [...new Set(links)];
 };
 
-const fetchSkillType = async (
+interface SkillFetchTask {
+  url: string;
+  filepath: string;
+  skillName: string;
+}
+
+const collectSkillFetchTasks = async (
   skillType: (typeof SKILL_TYPES)[number],
-): Promise<number> => {
+): Promise<SkillFetchTask[]> => {
   const skillDir = join(SKILL_OUTPUT_DIR, skillType.outputDir);
   await mkdir(skillDir, { recursive: true });
 
@@ -166,49 +195,63 @@ const fetchSkillType = async (
     );
   }
 
-  for (const link of skillLinks) {
+  return skillLinks.map((link) => {
     const decodedLink = decodeURIComponent(link);
     const filename = `${decodedLink}.html`;
     const filepath = join(skillDir, filename);
-
-    try {
-      const url = `${BASE_URL}/${encodeURIComponent(decodedLink)}`;
-      const html = await fetchPage(url);
-      await writeFile(filepath, html);
-      console.log(`Saved: ${filepath}`);
-      await delay(200);
-    } catch (error) {
-      console.error(`Error fetching ${link}:`, error);
-    }
-  }
-
-  return skillLinks.length;
+    const url = `${BASE_URL}/${encodeURIComponent(decodedLink)}`;
+    return { url, filepath, skillName: decodedLink };
+  });
 };
+
+const FETCH_CONCURRENCY = 10;
 
 const fetchSkillPages = async (): Promise<void> => {
   await mkdir(SKILL_OUTPUT_DIR, { recursive: true });
 
-  let totalSkills = 0;
   const expectedTotal = SKILL_TYPES.reduce(
     (sum, type) => sum + type.expectedCount,
     0,
   );
 
-  for (const skillType of SKILL_TYPES) {
-    console.log(`\n--- Processing ${skillType.name} Skills ---`);
-    const count = await fetchSkillType(skillType);
-    totalSkills += count;
-  }
-
-  console.log(`\n=== Summary ===`);
-  console.log(
-    `Total skills fetched: ${totalSkills} (expected: ${expectedTotal})`,
+  // First, fetch all list pages in parallel to collect skill links
+  console.log("Fetching skill list pages...");
+  const taskArrays = await Promise.all(
+    SKILL_TYPES.map((skillType) => collectSkillFetchTasks(skillType)),
   );
 
-  if (totalSkills !== expectedTotal) {
+  // Flatten all tasks
+  const allTasks = taskArrays.flat();
+  console.log(
+    `\nCollected ${allTasks.length} skill pages to fetch (expected: ${expectedTotal})`,
+  );
+
+  if (allTasks.length !== expectedTotal) {
     console.warn(`Warning: Total count mismatch!`);
   }
 
+  // Fetch all skill pages with controlled concurrency
+  let completed = 0;
+  const fetchTasks = allTasks.map((task) => async (): Promise<void> => {
+    try {
+      const html = await fetchPage(task.url);
+      await writeFile(task.filepath, html);
+      completed++;
+      if (completed % 50 === 0 || completed === allTasks.length) {
+        console.log(`Progress: ${completed}/${allTasks.length} skills fetched`);
+      }
+    } catch (error) {
+      console.error(`Error fetching ${task.skillName}:`, error);
+    }
+  });
+
+  console.log(`Fetching with concurrency of ${FETCH_CONCURRENCY}...`);
+  await runWithConcurrency(fetchTasks, FETCH_CONCURRENCY);
+
+  console.log(`\n=== Summary ===`);
+  console.log(
+    `Total skills fetched: ${completed} (expected: ${expectedTotal})`,
+  );
   console.log("Fetching complete!");
 };
 

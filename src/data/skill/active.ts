@@ -226,16 +226,6 @@ export const ActiveSkills = [
   },
   {
     type: "Active",
-    name: "Blind",
-    tags: ["Spell", "Area", "Persistent", "Curse"],
-    description: [
-      "Casts the skill and Curses enemies within the target area. Enemies Cursed will be Blinded and gains -1% additional Movement Speed.",
-      "Casts the skill and Curses enemies within the target area.\n-20% additional Movement Speed for Cursed enemies\nCursed enemies will become Blinded\nLasts 5s.",
-    ],
-    kinds: [],
-  },
-  {
-    type: "Active",
     name: "Blink",
     tags: ["Mobility", "Spell"],
     description: [

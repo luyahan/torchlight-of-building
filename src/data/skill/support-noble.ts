@@ -742,16 +742,6 @@ export const NobleSupportSkills = [
   },
   {
     type: "Support (Noble)",
-    name: "Icy Blade: Ice Blast (Noble)",
-    tags: ["Cold"],
-    description: [
-      "Supports Icy Blade.\nThis skill can only be installed in the fifth Support Skill Slot of each Active Skill.\n+20% additional damage for the supported skill",
-      "When the supported skill's Steep Strike hits a Frozen enemy, +(5.3–5.6)% additional Explosion Damage and +3% additional Explosion Area for explosions per 0.1s Freeze Duration the enemy has. Removes Freeze from the enemy afterwards",
-    ],
-    supportTarget: "Icy Blade",
-  },
-  {
-    type: "Support (Noble)",
     name: "Inexhaustible Barrage: Fatal Pursuit (Noble)",
     tags: ["Physical"],
     description: [
