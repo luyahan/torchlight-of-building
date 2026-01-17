@@ -429,7 +429,9 @@ interface ModDefinitions {
   NumbedEffPct: { value: number };
   NumbedChancePct: { value: number };
   InflictTrauma: object;
+  BaseTraumaFlatDmg: { value: number };
   TraumaDmgPct: { value: number };
+  BaseIgniteFlatDmg: { value: number };
   // non-ailment debuffs
   InflictsMark: object;
   MarkEffPct: { value: number };

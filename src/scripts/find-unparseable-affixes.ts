@@ -3,10 +3,15 @@ import { craft } from "@/src/tli/crafting/craft";
 import { parseMod } from "@/src/tli/mod-parser";
 
 const main = (): void => {
-  // Collect all unique affix lines
+  // Collect all unique affix lines (excluding base stats)
   const allLines = new Set<string>();
 
   for (const affix of ALL_GEAR_AFFIXES) {
+    // Skip base stats - they don't need to be parsed
+    if (affix.affixType === "Base Stats") {
+      continue;
+    }
+
     const craftedAffix = craft(affix, 50);
     const lines = craftedAffix.split("\n");
     for (const line of lines) {

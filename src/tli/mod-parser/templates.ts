@@ -1256,7 +1256,6 @@ export const allParsers = [
   t(
     "additionally settles {value:dec%} of the remaining total damage when reaping, then removes all damage over time acting on the target",
   ).output("ReapPurificationPct", (c) => ({ value: c.value })),
-  // Sage's Insight resistance reduction mods
   t(
     "when a spell hit inflicts fire damage, {value:+dec%} cold, lightning, and erosion resistance for the target for {dur:dec} s",
   ).outputMany([
@@ -1333,7 +1332,6 @@ export const allParsers = [
       cond: "sages_insight_erosion" as const,
     })),
   ]),
-  // Ailments
   t("{value:+dec%} chance to inflict frostbite").output(
     "InflictFrostbitePct",
     (c) => ({ value: c.value }),
@@ -1345,7 +1343,6 @@ export const allParsers = [
     value: c.value,
   })),
   t("inflicts frail on spell hit").output("InflictFrail", () => ({})),
-  // Trauma
   t("{value:+dec%} chance to inflict trauma").output(
     "InflictTrauma",
     () => ({}),
@@ -1353,7 +1350,6 @@ export const allParsers = [
   t("{value:+dec%} trauma damage").output("TraumaDmgPct", (c) => ({
     value: c.value,
   })),
-  // Infiltrations
   t("inflicts cold infiltration when dealing damage to frozen enemies").output(
     "InflictsInfiltration",
     () => ({ infiltrationType: "cold" as const }),
@@ -1414,9 +1410,7 @@ export const allParsers = [
       cond: "enemy_at_max_affliction" as const,
     })),
   ]),
-  // Jumps
   t("{value:+int} jumps").output("Jump", (c) => ({ value: c.value })),
-  // Paralysis
   t(
     "upon dealing damage to a cursed target, there is a {value:+dec%} chance to paralyze it",
   ).output("InflictParalysisPct", (c) => ({ value: c.value })),
@@ -1623,7 +1617,6 @@ export const allParsers = [
   t("{value:+int} max fortitude stacks").output("MaxFortitudeStack", (c) => ({
     value: c.value,
   })),
-  // Attack Aggression generation
   t("gains attack aggression when minions land a critical strike").output(
     "GeneratesAttackAggression",
     () => ({}),
@@ -1631,5 +1624,25 @@ export const allParsers = [
   t("gains attack aggression when casting an attack skill").output(
     "GeneratesAttackAggression",
     () => ({}),
+  ),
+  t("adds {min:int} - {max:int} base wilt damage").output(
+    "BaseWiltFlatDmg",
+    (c) => ({ value: (c.min + c.max) / 2 }),
+  ),
+  t("adds {min:int} - {max:int} base trauma damage").output(
+    "BaseTraumaFlatDmg",
+    (c) => ({ value: (c.min + c.max) / 2 }),
+  ),
+  t("adds {min:int} - {max:int} base ignite damage").output(
+    "BaseIgniteFlatDmg",
+    (c) => ({ value: (c.min + c.max) / 2 }),
+  ),
+  t("{value:dec%} chance to gain blur per {dist:int} m you move").output(
+    "GeneratesBlur",
+    (c) => ({ value: c.value }),
+  ),
+  t("{value:dec%} of damage is taken from mana before life").output(
+    "ManaBeforeLifePct",
+    (c) => ({ value: c.value }),
   ),
 ];

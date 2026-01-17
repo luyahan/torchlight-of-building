@@ -2793,3 +2793,28 @@ test("parse flat damage to minions", () => {
     { type: "FlatDmgToMinions", value: { min: 83, max: 110 }, dmgType: "fire" },
   ]);
 });
+
+test("parse base wilt damage", () => {
+  const result = parseMod("Adds 56 - 70 Base Wilt Damage");
+  expect(result).toEqual([{ type: "BaseWiltFlatDmg", value: 63 }]);
+});
+
+test("parse base trauma damage", () => {
+  const result = parseMod("Adds 360 - 840 Base Trauma Damage");
+  expect(result).toEqual([{ type: "BaseTraumaFlatDmg", value: 600 }]);
+});
+
+test("parse base ignite damage", () => {
+  const result = parseMod("Adds 250 - 470 Base Ignite Damage");
+  expect(result).toEqual([{ type: "BaseIgniteFlatDmg", value: 360 }]);
+});
+
+test("parse generates blur from movement", () => {
+  const result = parseMod("50% chance to gain Blur per 8 m you move");
+  expect(result).toEqual([{ type: "GeneratesBlur", value: 50 }]);
+});
+
+test("parse mana before life", () => {
+  const result = parseMod("18% of damage is taken from Mana before life");
+  expect(result).toEqual([{ type: "ManaBeforeLifePct", value: 18 }]);
+});
