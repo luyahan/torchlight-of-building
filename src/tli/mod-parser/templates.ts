@@ -1602,10 +1602,12 @@ export const allParsers = [
     "InflictFrail",
     () => ({}),
   ),
-  t("main skill is supported by lv. {level:int} {skillName:words}").output(
-    "MainSkillSupportedBy",
-    (c) => ({ skillName: c.skillName, level: c.level }),
-  ),
+  t(
+    "(the main skill is|main skill is) supported by [a] lv. {level:int} {skillName:words}",
+  ).output("MainSkillSupportedBy", (c) => ({
+    skillName: c.skillName,
+    level: c.level,
+  })),
   t("regenerates {value:dec%} mana per second while moving").output(
     "ManaRegenPerSecPct",
     (c) => ({ value: c.value, cond: C.is_moving }),
@@ -1777,6 +1779,12 @@ export const allParsers = [
     spec("TriggersSkill", (c) => ({ skillName: c.skillName1, level: c.level })),
     spec("TriggersSkill", (c) => ({ skillName: c.skillName2, level: c.level })),
   ]),
+  t(
+    "triggers lv. {level:int} {skillName:words} curse when minions deal damage. cooldown: {cooldown:dec} s",
+  ).output("TriggersSkill", (c) => ({
+    skillName: c.skillName,
+    level: c.level,
+  })),
   t(
     "triggers lv. {level:int} {skillName:words} curse upon inflicting damage. cooldown: {cooldown:dec} s",
   ).output("TriggersSkill", (c) => ({

@@ -2610,6 +2610,33 @@ test("parse main skill supported by Multistrike", () => {
   ]);
 });
 
+test("parse main skill supported by with 'The' prefix", () => {
+  const result = parseMod(
+    "The Main Skill is supported by Lv. 25 Control Spell",
+  );
+  expect(result).toEqual([
+    { type: "MainSkillSupportedBy", skillName: "Control Spell", level: 25 },
+  ]);
+});
+
+test("parse main skill supported by with 'The' prefix and 'a' before level", () => {
+  const result = parseMod(
+    "The Main Skill is supported by a Lv. 25 Servant Damage",
+  );
+  expect(result).toEqual([
+    { type: "MainSkillSupportedBy", skillName: "Servant Damage", level: 25 },
+  ]);
+});
+
+test("parse triggers curse skill when minions deal damage", () => {
+  const result = parseMod(
+    "Triggers Lv. 20 Entangled Pain Curse when Minions deal damage. Cooldown: 0.2 s",
+  );
+  expect(result).toEqual([
+    { type: "TriggersSkill", skillName: "Entangled Pain", level: 20 },
+  ]);
+});
+
 test("parse triggers curse skill", () => {
   const result = parseMod(
     "Triggers Lv. 20 Timid Curse upon inflicting damage. Cooldown: 0.2 s",
