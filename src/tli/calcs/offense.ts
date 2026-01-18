@@ -2102,6 +2102,10 @@ const calculateSealedResources = (
     loadoutMods,
     "SealedManaCompPct",
   );
+  const overrideSupportManaMultPct = findMod(
+    loadoutMods,
+    "OverrideSupportSkillManaMultPct",
+  )?.value;
   const sealPerSkill: Record<
     string,
     { sealedManaPct?: number; sealedLifePct?: number }
@@ -2130,7 +2134,9 @@ const calculateSealedResources = (
       if (supportSlot === undefined) {
         continue;
       }
-      const manaCostMultPct = getSupportSkillManaCostMultiplierPct(supportSlot);
+      const manaCostMultPct =
+        overrideSupportManaMultPct ??
+        getSupportSkillManaCostMultiplierPct(supportSlot);
       combinedManaCostMult *= manaCostMultPct / 100;
     }
 

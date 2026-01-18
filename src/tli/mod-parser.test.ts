@@ -3284,3 +3284,10 @@ test("parse additional lightning damage and penetration with agility blessing th
     },
   ]);
 });
+
+test("parse support skill mana multiplier override", () => {
+  const result = parseMod("Support Skill's Mana Multiplier is set to 95%.");
+  expect(result).toEqual([
+    { type: "OverrideSupportSkillManaMultPct", value: 95 },
+  ]);
+});

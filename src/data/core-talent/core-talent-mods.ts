@@ -39,7 +39,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   "Hidden Mastery": {
     affixLines: [
       { text: "Unable to evade" },
-      { text: "Gains Attack Aggression when casting an Attack Skill" },
+      {
+        text: "Gains Attack Aggression when casting an Attack Skill",
+        mods: [{ type: "GeneratesAttackAggression" }],
+      },
       {
         text: "+15% Attack Speed and +15% additional Attack Damage when having Attack Aggression",
       },
@@ -232,9 +235,17 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Three Birds with One Stone": {
     affixLines: [
-      { text: "Projectile Quantity +2" },
+      {
+        text: "Projectile Quantity +2",
+        mods: [{ type: "Projectile", value: 2 }],
+      },
       { text: "+2 to Parabolic Projectile Splits quantity" },
-      { text: "+10% additional Projectile Damage" },
+      {
+        text: "+10% additional Projectile Damage",
+        mods: [
+          { type: "DmgPct", value: 10, dmgModType: "projectile", addn: true },
+        ],
+      },
     ],
   },
   "Steady Accumulation": {
@@ -478,7 +489,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   Mana: {
     affixLines: [
-      { text: "20% of damage is taken from Mana before life" },
+      {
+        text: "20% of damage is taken from Mana before life",
+        mods: [{ type: "ManaBeforeLifePct", value: 20 }],
+      },
       {
         text: "+12% additional Max Mana",
         mods: [{ type: "MaxManaPct", value: 12, addn: true }],
@@ -548,7 +562,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Quick Ritual": {
     affixLines: [
-      { text: "Min Channeled Stacks +1" },
+      {
+        text: "Min Channeled Stacks +1",
+        mods: [{ type: "MinChannel", value: 1 }],
+      },
       { text: "+20% additional Channeled Skill damage" },
     ],
   },
@@ -634,7 +651,12 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Shooting Arrows": {
     affixLines: [
-      { text: "+25% additional Projectile Damage" },
+      {
+        text: "+25% additional Projectile Damage",
+        mods: [
+          { type: "DmgPct", value: 25, dmgModType: "projectile", addn: true },
+        ],
+      },
       { text: "+50% Knockback distance" },
     ],
   },
@@ -780,7 +802,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   Plague: {
     affixLines: [
       { text: "+20% Movement Speed when defeating Wilted enemies recently" },
-      { text: "+15% additional Wilt Damage" },
+      {
+        text: "+15% additional Wilt Damage",
+        mods: [{ type: "WiltDmgPct", value: 15, addn: true }],
+      },
     ],
   },
   Mixture: { affixLines: [{ text: "+50% Deterioration Chance" }] },
@@ -1002,7 +1027,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   Sentry: {
     affixLines: [
-      { text: "Max Sentry Quantity +1" },
+      {
+        text: "Max Sentry Quantity +1",
+        mods: [{ type: "MaxSentryQuant", value: 1 }],
+      },
       { text: "+100% additional Cast Speed for Sentry Skills" },
     ],
   },
@@ -1014,7 +1042,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Mighty Guard": {
     affixLines: [
-      { text: "+2 Minion Skill Level" },
+      {
+        text: "+2 Minion Skill Level",
+        mods: [{ type: "SkillLevel", value: 2, skillLevelType: "minion" }],
+      },
       { text: "+ 4 Command per second" },
       { text: "+40 initial Growth for Spirit Magi" },
     ],

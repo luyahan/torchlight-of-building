@@ -1878,4 +1878,8 @@ export const allParsers = [
     skillName: c.skillName,
     level: c.level,
   })),
+  t("support skill's mana multiplier is set to {value:dec%}.").output(
+    "OverrideSupportSkillManaMultPct",
+    (c) => ({ value: c.value }),
+  ),
 ];

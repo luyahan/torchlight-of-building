@@ -444,6 +444,7 @@ interface ModDefinitions {
   TriggersSkill: { skillName: string; level: number };
   EliminationPct: { value: number };
   SealConversion: object;
+  OverrideSupportSkillManaMultPct: { value: number };
   // infiltrations
   InflictsInfiltration: { infiltrationType: InfiltrationType };
   InfiltrationEffPct: {
