@@ -220,7 +220,7 @@ export const ConfigurationTab: React.FC<ConfigurationTabProps> = ({
             <>
               <label className="text-right text-zinc-50">
                 Frostbite Rating
-                <InfoTooltip text="Defaults to max" />
+                <InfoTooltip text="Defaults to max frostbite rating" />
               </label>
               <NumberInput
                 value={config.enemyFrostbittenPoints}

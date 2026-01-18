@@ -1437,6 +1437,10 @@ export const allParsers = [
       cond: C.sages_insight_erosion,
     })),
   ]),
+  t("{value:+int} to max frostbite rating").output(
+    "MaxFrostbiteRating",
+    (c) => ({ value: c.value }),
+  ),
   t("{value:+dec%} chance to inflict frostbite").output(
     "InflictFrostbitePct",
     (c) => ({ value: c.value }),

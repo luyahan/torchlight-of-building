@@ -60,7 +60,7 @@ export interface Configuration {
   // default to max
   fervorPoints?: number;
   enemyFrostbittenEnabled: boolean;
-  // default to 100
+  // default to max
   enemyFrostbittenPoints?: number;
   // default to max
   crueltyBuffStacks?: number;

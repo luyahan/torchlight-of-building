@@ -1908,7 +1908,7 @@ const resolveModsForOffenseSkill = (
       mods.push({
         type: "DmgPct",
         value: numbedVal,
-        dmgModType: "global",
+        dmgModType: "lightning",
         addn: true,
         isEnemyDebuff: true,
         src: "Numbed",
@@ -1925,6 +1925,23 @@ const resolveModsForOffenseSkill = (
         src: "Numbed:Conductive",
       });
     }
+  };
+  const pushFrostbite = (): void => {
+    if (!config.enemyFrostbittenEnabled) return;
+
+    const maxFrostbiteRating =
+      10 + sumByValue(filterMods(mods, "MaxFrostbiteRating"));
+    const frostbitePoints = config.enemyFrostbittenPoints ?? maxFrostbiteRating;
+    const baseFrostbiteValPerPoint = 5;
+    const frostbiteVal = baseFrostbiteValPerPoint * frostbitePoints;
+    mods.push({
+      type: "DmgPct",
+      value: frostbiteVal,
+      dmgModType: "cold",
+      addn: true,
+      isEnemyDebuff: true,
+      src: "Frostbite",
+    });
   };
   const pushChainLightning = (): void => {
     const chainLightningInstances = calcChainLightningInstances(
@@ -2009,6 +2026,7 @@ const resolveModsForOffenseSkill = (
   const movementSpeedBonusPct = pushMspd();
   pushInfiltrations();
   pushNumbed();
+  pushFrostbite();
   const jumps = sumByValue(filterMods(mods, "Jump"));
   normalize("jump", jumps);
   pushChainLightning();

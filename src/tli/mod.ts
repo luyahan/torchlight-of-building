@@ -461,6 +461,7 @@ interface ModDefinitions {
   WiltDurationPct: { value: number };
   BaseWiltFlatDmg: { value: number };
   WiltDmgPct: { value: number; addn?: boolean };
+  MaxFrostbiteRating: { value: number };
   InflictFrostbitePct: { value: number; isEnemyDebugg?: boolean };
   InflictParalysisPct: { value: number };
   FreezeDurationPct: { value: number };

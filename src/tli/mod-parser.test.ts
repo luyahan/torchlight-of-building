@@ -3382,3 +3382,8 @@ test("parse additional damage taken at low mana", () => {
     { type: "DmgTakenPct", value: -13, addn: true, cond: "has_low_mana" },
   ]);
 });
+
+test("parse max frostbite rating", () => {
+  const result = parseMod("+9 to Max Frostbite Rating");
+  expect(result).toEqual([{ type: "MaxFrostbiteRating", value: 9 }]);
+});
