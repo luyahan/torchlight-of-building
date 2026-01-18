@@ -100,6 +100,7 @@ export type LevelValues = Readonly<Record<string, readonly number[]>>;
 
 export interface BasePassiveSkill extends BaseSkill {
   mainStats?: ("str" | "dex" | "int")[];
+  sealedManaPct: number;
   // Named value arrays for level-scaling mods (1-40).
   // Keys must match factory function expectations.
   levelValues?: LevelValues;

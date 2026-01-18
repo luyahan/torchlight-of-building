@@ -266,6 +266,7 @@ interface RawSkill {
   description: string[];
   mainStats?: ("str" | "dex" | "int")[];
   manaCostMultiplierPct?: number;
+  sealedManaPct?: number;
   parsedLevelModValues?: Record<string, Record<number, number>>;
   parsedAffixDefs?: Record<0 | 1 | 2 | 3, ActivationMediumAffixDef[]>;
   progressionTable?: ProgressionColumn[];
@@ -755,6 +756,20 @@ const extractSkillFromTlidbHtml = (
     }
   });
 
+  // Extract Sealed Mana for passive skills (e.g., "20%" → 20)
+  let sealedManaPct: number | undefined;
+  currentCard.find("div.d-flex").each((_, elem) => {
+    const label = $(elem).find("div").first().text().trim();
+    if (label === "Sealed Mana") {
+      const value = $(elem).find("div.ps-2").text().trim();
+      // Parse "20%" to 20
+      const match = value.match(/^([\d.]+)%$/);
+      if (match?.[1] !== undefined) {
+        sealedManaPct = parseFloat(match[1]);
+      }
+    }
+  });
+
   // Remove <small class="description"> elements (level scaling info)
   currentCard.find("small.description").remove();
 
@@ -839,6 +854,7 @@ const extractSkillFromTlidbHtml = (
     description,
     mainStats,
     manaCostMultiplierPct,
+    sealedManaPct,
     parsedLevelModValues,
     parsedAffixDefs,
     progressionTable,
@@ -1345,11 +1361,17 @@ const main = async (options: Options): Promise<void> => {
         );
       }
 
+      // Sealed Mana is required for passive skills
+      if (raw.sealedManaPct === undefined) {
+        throw new Error(`Missing Sealed Mana for passive skill "${raw.name}"`);
+      }
+
       const skillEntry: BasePassiveSkill = {
         type: raw.type as BasePassiveSkill["type"],
         name: raw.name,
         tags: raw.tags as unknown as BasePassiveSkill["tags"],
         description: raw.description,
+        sealedManaPct: raw.sealedManaPct,
         ...(raw.mainStats !== undefined && { mainStats: raw.mainStats }),
         ...(levelValues !== undefined && { levelValues }),
       };
