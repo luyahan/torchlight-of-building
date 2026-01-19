@@ -3452,3 +3452,60 @@ test("parse chance to avoid spell damage", () => {
   const result = parseMod("+28% chance to avoid Spell Damage");
   expect(result).toEqual([{ type: "AvoidSpellDmgChancePct", value: 28 }]);
 });
+
+test("parse additional max energy shield while moving", () => {
+  const result = parseMod("+7% additional Max Energy Shield while moving");
+  expect(result).toEqual([
+    { type: "MaxEnergyShieldPct", value: 7, addn: true, cond: "is_moving" },
+  ]);
+});
+
+test("parse knockback distance", () => {
+  const result = parseMod("+69% Knockback distance");
+  expect(result).toEqual([
+    { type: "KnockbackDistancePct", value: 69, addn: false },
+  ]);
+});
+
+test("parse additional knockback distance", () => {
+  const result = parseMod("+50% additional Knockback distance");
+  expect(result).toEqual([
+    { type: "KnockbackDistancePct", value: 50, addn: true },
+  ]);
+});
+
+test("parse xp earned", () => {
+  const result = parseMod("+5% XP earned");
+  expect(result).toEqual([{ type: "XPEarnedPct", value: 5 }]);
+});
+
+test("parse critical strike rating and damage per attack block", () => {
+  const result = parseMod(
+    "+5% Critical Strike Rating and Critical Strike Damage for every 5% of Attack Block",
+  );
+  expect(result).toEqual([
+    {
+      type: "CritRatingPct",
+      value: 5,
+      modType: "global",
+      per: { stackable: "attack_block_pct", amt: 5 },
+    },
+    {
+      type: "CritDmgPct",
+      value: 5,
+      modType: "global",
+      addn: false,
+      per: { stackable: "attack_block_pct", amt: 5 },
+    },
+  ]);
+});
+
+test("parse gear armor percentage", () => {
+  const result = parseMod("+40% Gear Armor");
+  expect(result).toEqual([{ type: "GearArmorPct", value: 40 }]);
+});
+
+test("parse gear evasion percentage", () => {
+  const result = parseMod("+40% gear Evasion");
+  expect(result).toEqual([{ type: "GearEvasionPct", value: 40 }]);
+});

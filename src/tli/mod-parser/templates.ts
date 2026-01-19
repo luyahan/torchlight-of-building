@@ -1982,4 +1982,40 @@ export const allParsers = [
     "DmgTakenPct",
     (c) => ({ value: c.value, addn: true, cond: C.has_low_mana }),
   ),
+  t("{value:+dec%} [additional] max energy shield while moving").output(
+    "MaxEnergyShieldPct",
+    (c) => ({
+      value: c.value,
+      addn: c.additional !== undefined,
+      cond: C.is_moving,
+    }),
+  ),
+  t("{value:+dec%} [additional] knockback distance").output(
+    "KnockbackDistancePct",
+    (c) => ({ value: c.value, addn: c.additional !== undefined }),
+  ),
+  t("{value:+dec%} xp earned").output("XPEarnedPct", (c) => ({
+    value: c.value,
+  })),
+  t(
+    "{value:+dec%} critical strike rating and critical strike damage for every {amt:dec%} of attack block",
+  ).outputMany([
+    spec("CritRatingPct", (c) => ({
+      value: c.value,
+      modType: GLOBAL,
+      per: { stackable: S.attack_block_pct, amt: c.amt },
+    })),
+    spec("CritDmgPct", (c) => ({
+      value: c.value,
+      modType: GLOBAL,
+      addn: false,
+      per: { stackable: S.attack_block_pct, amt: c.amt },
+    })),
+  ]),
+  t("{value:+dec%} gear armor").output("GearArmorPct", (c) => ({
+    value: c.value,
+  })),
+  t("{value:+dec%} gear evasion").output("GearEvasionPct", (c) => ({
+    value: c.value,
+  })),
 ];

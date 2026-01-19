@@ -160,6 +160,7 @@ const StackableValues = [
   "energy_shield",
   "total_block_pct",
   "block_ratio",
+  "attack_block_pct",
 ] as const;
 
 export const Stackables = createUnionMap(StackableValues);
@@ -386,6 +387,7 @@ interface ModDefinitions {
     skillAreaModType: SkillAreaModType;
     addn?: boolean;
   };
+  KnockbackDistancePct: { value: number; addn?: boolean };
   SkillEffDurationPct: { value: number };
   SkillEffPct: { value: number; addn?: boolean };
   AuraEffPct: {
@@ -411,6 +413,7 @@ interface ModDefinitions {
   MaxLifePct: { value: number; addn: boolean };
   LifeRegenPerSecPct: { value: number };
   FlatLifeRegenPerSec: { value: number };
+  LifeRegenSpeedPct: { value: number };
   MaxMana: { value: number };
   MaxManaPct: { value: number; addn: boolean };
   ManaRegenPerSecPct: { value: number };
@@ -457,6 +460,7 @@ interface ModDefinitions {
   EliminationPct: { value: number };
   SealConversion: object;
   OverrideSupportSkillManaMultPct: { value: number };
+  XPEarnedPct: { value: number };
   // infiltrations
   InflictsInfiltration: { infiltrationType: InfiltrationType };
   InfiltrationEffPct: {

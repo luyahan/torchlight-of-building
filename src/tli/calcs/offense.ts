@@ -1697,6 +1697,7 @@ const resolveModsForOffenseSkill = (
       defenses.attackBlockPct + defenses.spellBlockPct,
     );
     normalize("block_ratio", defenses.blockRatioPct);
+    normalize("attack_block_pct", defenses.attackBlockPct);
   };
   const pushErika1 = (): void => {
     step("stalker");
