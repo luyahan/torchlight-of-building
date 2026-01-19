@@ -2571,6 +2571,20 @@ test("parse additional aura effect", () => {
   expect(result).toEqual([{ type: "AuraEffPct", value: 15, addn: true }]);
 });
 
+test("parse skill-specific aura effect without 'effect' suffix", () => {
+  const result = parseMod("+25% Electric Conversion Aura");
+  expect(result).toEqual([
+    { type: "AuraEffPct", value: 25, skillName: "Electric Conversion" },
+  ]);
+});
+
+test("parse skill-specific aura effect with 'effect' suffix", () => {
+  const result = parseMod("+25% Precise Projectiles Aura effect");
+  expect(result).toEqual([
+    { type: "AuraEffPct", value: 25, skillName: "Precise Projectiles" },
+  ]);
+});
+
 test("parse max mana + skill cost combo", () => {
   const result = parseMod("+10% Max Mana. +80 Skill Cost");
   expect(result).toEqual([

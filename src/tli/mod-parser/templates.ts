@@ -1720,6 +1720,10 @@ export const allParsers = [
     value: c.value,
     addn: c.additional !== undefined,
   })),
+  t("{value:+dec%} {skillName:words} aura [effect]").output(
+    "AuraEffPct",
+    (c) => ({ value: c.value, skillName: c.skillName }),
+  ),
   t("{mana:+dec%} max mana. {cost:+int} skill cost").outputMany([
     spec("MaxManaPct", (c) => ({ value: c.mana, addn: false })),
     spec("SkillCost", (c) => ({ value: c.cost })),

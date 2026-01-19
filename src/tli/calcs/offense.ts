@@ -1031,7 +1031,13 @@ const resolveBuffSkillMods = (
       auraEffMult,
       curseEffMult,
       spiritMagusOriginEffMult,
-    } = resolveBuffSkillEffMults(prenormMods, loadout, config, derivedCtx);
+    } = resolveBuffSkillEffMults(
+      prenormMods,
+      loadout,
+      config,
+      derivedCtx,
+      skill.name,
+    );
 
     // === Apply multipliers to buff mods ===
     for (const mod of rawBuffMods) {
@@ -1275,6 +1281,7 @@ const resolveBuffSkillEffMults = (
   loadout: Loadout,
   config: Configuration,
   derivedCtx: DerivedCtx,
+  buffSkillName: string,
 ): {
   skillEffMult: number;
   auraEffMult: number;
@@ -1283,10 +1290,12 @@ const resolveBuffSkillEffMults = (
 } => {
   const buffSkillEffMods = unresolvedModsFromParam.filter(
     (m) =>
-      m.type === "AuraEffPct" ||
       m.type === "SkillEffPct" ||
       m.type === "CurseEffPct" ||
-      m.type === "SpiritMagusOriginEffPct",
+      m.type === "SpiritMagusOriginEffPct" ||
+      // AuraEffPct: include if no skillName (global) or skillName matches
+      (m.type === "AuraEffPct" &&
+        (m.skillName === undefined || m.skillName === buffSkillName)),
   );
   const { prenormMods, mods } = applyModFilters(
     buffSkillEffMods,
