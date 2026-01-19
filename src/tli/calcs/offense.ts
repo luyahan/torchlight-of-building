@@ -246,8 +246,6 @@ const calculateDefenseStat = (
   return Math.round(totalFlat * finalMultPct);
 };
 
-// === Resource Pool Types ===
-
 export interface ResourcePool {
   stats: Stats;
   maxLife: number;

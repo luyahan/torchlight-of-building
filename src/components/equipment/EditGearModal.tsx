@@ -1,3 +1,5 @@
+import { i18n } from "@lingui/core";
+import { Trans } from "@lingui/react/macro";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   type FilterAffixType,
@@ -10,13 +12,18 @@ import {
   formatBlendPreview,
   getBlendAffixes,
 } from "@/src/lib/blend-utils";
-import { DEFAULT_QUALITY } from "@/src/lib/constants";
+import {
+  DEFAULT_QUALITY,
+  SLOT_TO_VALID_EQUIPMENT_TYPES,
+} from "@/src/lib/constants";
 import type { Gear as SaveDataGear } from "@/src/lib/save-data";
+import { generateItemId } from "@/src/lib/storage";
 import type { AffixSlotState } from "@/src/lib/types";
 import { type Gear, getAffixText } from "@/src/tli/core";
 import { craft } from "@/src/tli/crafting/craft";
-import type { BaseGearAffix } from "@/src/tli/gear-data-types";
+import type { BaseGearAffix, EquipmentType } from "@/src/tli/gear-data-types";
 import { Modal, ModalActions, ModalButton } from "../ui/Modal";
+import { SearchableSelect } from "../ui/SearchableSelect";
 import { AffixSlotComponent } from "./AffixSlotComponent";
 import { ExistingAffixDisplay } from "./ExistingAffixDisplay";
 import { GroupedAffixSlotComponent } from "./GroupedAffixSlotComponent";
@@ -49,8 +56,8 @@ const getBaseStatsText = (baseStats: NonNullable<Gear["baseStats"]>): string =>
 interface EditGearModalProps {
   isOpen: boolean;
   onClose: () => void;
-  item: Gear | undefined;
-  onSave: (itemId: string, updatedItem: SaveDataGear) => void;
+  item: Gear | undefined; // undefined = creation mode
+  onSave: (itemId: string | undefined, updatedItem: SaveDataGear) => void;
 }
 
 export const EditGearModal = ({
@@ -75,8 +82,14 @@ export const EditGearModal = ({
   const [prefixes, setPrefixes] = useState<EditableAffixSlot[]>([]);
   const [suffixes, setSuffixes] = useState<EditableAffixSlot[]>([]);
 
-  // Get available affixes based on equipment type
-  const equipmentType = item?.equipmentType;
+  // Equipment type state for creation mode
+  const [selectedEquipmentType, setSelectedEquipmentType] = useState<
+    EquipmentType | undefined
+  >(undefined);
+
+  // Derive mode and equipment type
+  const mode = item === undefined ? "create" : "edit";
+  const equipmentType = item?.equipmentType ?? selectedEquipmentType;
 
   const prefixAffixes = useMemo(
     () => (equipmentType ? getFilteredAffixes(equipmentType, "Prefix") : []),
@@ -123,75 +136,88 @@ export const EditGearModal = ({
 
   // Initialize state from item when modal opens
   useEffect(() => {
-    if (isOpen && item !== undefined) {
-      // Base Stats
-      if (item.baseStats !== undefined) {
-        setBaseStats(createExistingSlot(getBaseStatsText(item.baseStats)));
+    if (isOpen) {
+      if (item !== undefined) {
+        // Edit mode: initialize from existing item
+        // Base Stats
+        if (item.baseStats !== undefined) {
+          setBaseStats(createExistingSlot(getBaseStatsText(item.baseStats)));
+        } else {
+          setBaseStats(createNewSlot());
+        }
+
+        // Base Affixes (2 max)
+        const initialBaseAffixes: EditableAffixSlot[] = [];
+        if (item.base_affixes !== undefined) {
+          for (const affix of item.base_affixes) {
+            initialBaseAffixes.push(createExistingSlot(getAffixText(affix)));
+          }
+        }
+        // Pad to 2 slots
+        while (initialBaseAffixes.length < 2) {
+          initialBaseAffixes.push(createNewSlot());
+        }
+        setBaseAffixes(initialBaseAffixes);
+
+        // Sweet Dream Affix
+        if (item.sweet_dream_affix !== undefined) {
+          setSweetDreamAffix(
+            createExistingSlot(getAffixText(item.sweet_dream_affix)),
+          );
+        } else {
+          setSweetDreamAffix(createNewSlot());
+        }
+
+        // Tower Sequence Affix
+        if (item.tower_sequence_affix !== undefined) {
+          setTowerSequenceAffix(
+            createExistingSlot(getAffixText(item.tower_sequence_affix)),
+          );
+        } else {
+          setTowerSequenceAffix(createNewSlot());
+        }
+
+        // Blend Affix (belt only)
+        if (item.blend_affix !== undefined) {
+          setBlendAffix(createExistingSlot(getAffixText(item.blend_affix)));
+        } else {
+          setBlendAffix(createNewSlot());
+        }
+
+        // Prefixes (3 max)
+        const initialPrefixes: EditableAffixSlot[] = [];
+        if (item.prefixes !== undefined) {
+          for (const affix of item.prefixes) {
+            initialPrefixes.push(createExistingSlot(getAffixText(affix)));
+          }
+        }
+        while (initialPrefixes.length < 3) {
+          initialPrefixes.push(createNewSlot());
+        }
+        setPrefixes(initialPrefixes);
+
+        // Suffixes (3 max)
+        const initialSuffixes: EditableAffixSlot[] = [];
+        if (item.suffixes !== undefined) {
+          for (const affix of item.suffixes) {
+            initialSuffixes.push(createExistingSlot(getAffixText(affix)));
+          }
+        }
+        while (initialSuffixes.length < 3) {
+          initialSuffixes.push(createNewSlot());
+        }
+        setSuffixes(initialSuffixes);
       } else {
+        // Creation mode: reset everything
+        setSelectedEquipmentType(undefined);
         setBaseStats(createNewSlot());
-      }
-
-      // Base Affixes (2 max)
-      const initialBaseAffixes: EditableAffixSlot[] = [];
-      if (item.base_affixes !== undefined) {
-        for (const affix of item.base_affixes) {
-          initialBaseAffixes.push(createExistingSlot(getAffixText(affix)));
-        }
-      }
-      // Pad to 2 slots
-      while (initialBaseAffixes.length < 2) {
-        initialBaseAffixes.push(createNewSlot());
-      }
-      setBaseAffixes(initialBaseAffixes);
-
-      // Sweet Dream Affix
-      if (item.sweet_dream_affix !== undefined) {
-        setSweetDreamAffix(
-          createExistingSlot(getAffixText(item.sweet_dream_affix)),
-        );
-      } else {
+        setBaseAffixes([createNewSlot(), createNewSlot()]);
         setSweetDreamAffix(createNewSlot());
-      }
-
-      // Tower Sequence Affix
-      if (item.tower_sequence_affix !== undefined) {
-        setTowerSequenceAffix(
-          createExistingSlot(getAffixText(item.tower_sequence_affix)),
-        );
-      } else {
         setTowerSequenceAffix(createNewSlot());
-      }
-
-      // Blend Affix (belt only)
-      if (item.blend_affix !== undefined) {
-        setBlendAffix(createExistingSlot(getAffixText(item.blend_affix)));
-      } else {
         setBlendAffix(createNewSlot());
+        setPrefixes([createNewSlot(), createNewSlot(), createNewSlot()]);
+        setSuffixes([createNewSlot(), createNewSlot(), createNewSlot()]);
       }
-
-      // Prefixes (3 max)
-      const initialPrefixes: EditableAffixSlot[] = [];
-      if (item.prefixes !== undefined) {
-        for (const affix of item.prefixes) {
-          initialPrefixes.push(createExistingSlot(getAffixText(affix)));
-        }
-      }
-      while (initialPrefixes.length < 3) {
-        initialPrefixes.push(createNewSlot());
-      }
-      setPrefixes(initialPrefixes);
-
-      // Suffixes (3 max)
-      const initialSuffixes: EditableAffixSlot[] = [];
-      if (item.suffixes !== undefined) {
-        for (const affix of item.suffixes) {
-          initialSuffixes.push(createExistingSlot(getAffixText(affix)));
-        }
-      }
-      while (initialSuffixes.length < 3) {
-        initialSuffixes.push(createNewSlot());
-      }
-      setSuffixes(initialSuffixes);
     }
   }, [isOpen, item]);
 
@@ -379,9 +405,10 @@ export const EditGearModal = ({
     });
   }, []);
 
-  // Build and save the updated item
+  // Build and save the item
   const handleSave = useCallback(() => {
-    if (item === undefined || item.id === undefined) return;
+    // Guard: need equipment type for both modes
+    if (equipmentType === undefined) return;
 
     // Build base stats
     let newBaseStats: string | undefined;
@@ -472,24 +499,42 @@ export const EditGearModal = ({
       }
     }
 
-    const updatedItem: SaveDataGear = {
-      id: item.id,
-      equipmentType: item.equipmentType,
-      rarity: item.rarity === "rare" ? undefined : item.rarity,
-      legendaryName: item.legendaryName,
-      baseStats: newBaseStats,
-      base_affixes: newBaseAffixes.length > 0 ? newBaseAffixes : undefined,
-      sweet_dream_affix: newSweetDreamAffix,
-      tower_sequence_affix: newTowerSequenceAffix,
-      blend_affix: newBlendAffix,
-      prefixes: newPrefixes.length > 0 ? newPrefixes : undefined,
-      suffixes: newSuffixes.length > 0 ? newSuffixes : undefined,
-    };
-
-    onSave(item.id, updatedItem);
+    if (mode === "create") {
+      // Creation mode: generate new ID
+      const newItem: SaveDataGear = {
+        id: generateItemId(),
+        equipmentType,
+        baseStats: newBaseStats,
+        base_affixes: newBaseAffixes.length > 0 ? newBaseAffixes : undefined,
+        sweet_dream_affix: newSweetDreamAffix,
+        tower_sequence_affix: newTowerSequenceAffix,
+        blend_affix: newBlendAffix,
+        prefixes: newPrefixes.length > 0 ? newPrefixes : undefined,
+        suffixes: newSuffixes.length > 0 ? newSuffixes : undefined,
+      };
+      onSave(undefined, newItem);
+    } else if (item !== undefined && item.id !== undefined) {
+      // Edit mode: preserve existing item properties
+      const updatedItem: SaveDataGear = {
+        id: item.id,
+        equipmentType,
+        rarity: item.rarity === "rare" ? undefined : item.rarity,
+        legendaryName: item.legendaryName,
+        baseStats: newBaseStats,
+        base_affixes: newBaseAffixes.length > 0 ? newBaseAffixes : undefined,
+        sweet_dream_affix: newSweetDreamAffix,
+        tower_sequence_affix: newTowerSequenceAffix,
+        blend_affix: newBlendAffix,
+        prefixes: newPrefixes.length > 0 ? newPrefixes : undefined,
+        suffixes: newSuffixes.length > 0 ? newSuffixes : undefined,
+      };
+      onSave(item.id, updatedItem);
+    }
     onClose();
   }, [
+    mode,
     item,
+    equipmentType,
     baseStats,
     baseStatsAffixes,
     baseAffixes,
@@ -509,14 +554,36 @@ export const EditGearModal = ({
     onClose,
   ]);
 
-  if (item === undefined) return null;
-
   const toAffixSlotStates = (slots: EditableAffixSlot[]): AffixSlotState[] => {
     return slots.map((slot) => ({
       affixIndex: slot.affixIndex,
       percentage: slot.percentage,
     }));
   };
+
+  // Equipment type options for creation mode
+  const allEquipmentTypes = useMemo(() => {
+    const types = new Set<EquipmentType>();
+    for (const slotTypes of Object.values(SLOT_TO_VALID_EQUIPMENT_TYPES)) {
+      for (const type of slotTypes) {
+        types.add(type);
+      }
+    }
+    return Array.from(types).sort();
+  }, []);
+
+  const equipmentTypeOptions = useMemo(
+    () =>
+      allEquipmentTypes.map((type) => ({ value: type, label: i18n._(type) })),
+    [allEquipmentTypes],
+  );
+
+  const handleEquipmentTypeChange = useCallback(
+    (value: EquipmentType | undefined) => {
+      setSelectedEquipmentType(value);
+    },
+    [],
+  );
 
   const renderAffixSlot = (
     slot: EditableAffixSlot,
@@ -585,194 +652,232 @@ export const EditGearModal = ({
     );
   };
 
+  const modalTitle =
+    mode === "create"
+      ? i18n._("Craft New Item")
+      : i18n._("Edit {equipmentType}", { equipmentType });
+
   return (
-    <Modal
-      isOpen={isOpen}
-      onClose={onClose}
-      title={`Edit ${item.equipmentType}`}
-      maxWidth="xl"
-    >
+    <Modal isOpen={isOpen} onClose={onClose} title={modalTitle} maxWidth="xl">
       <div className="max-h-[70vh] space-y-6 overflow-y-auto pr-2">
-        {/* Base Stats Section */}
-        {baseStatsAffixes.length > 0 && (
+        {/* Equipment Type Selector (creation mode only) */}
+        {mode === "create" && (
           <div>
-            <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-              Base Stats (1 max)
-            </h3>
-            {renderAffixSlot(
-              baseStats,
-              0,
-              "Base Stats",
-              baseStatsAffixes,
-              handleBaseStatsSelect,
-              () => {},
-              handleDeleteBaseStats,
-              handleDeleteBaseStats,
-              { hideQualitySlider: true },
-            )}
+            <label
+              htmlFor="equipment-type-select"
+              className="mb-2 block text-sm font-medium text-zinc-50"
+            >
+              <Trans>Equipment Type</Trans>
+            </label>
+            <SearchableSelect
+              value={selectedEquipmentType}
+              onChange={handleEquipmentTypeChange}
+              options={equipmentTypeOptions}
+              placeholder={i18n._("Select equipment type...")}
+            />
           </div>
         )}
 
-        {/* Base Affixes Section */}
-        {baseAffixOptions.length > 0 && (
-          <div>
-            <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-              Base Affixes (2 max)
-            </h3>
-            <div className="space-y-4">
-              {baseAffixes.map((slot, index) =>
-                renderAffixSlot(
-                  slot,
-                  index,
-                  "Base Affix",
-                  baseAffixOptions,
-                  handleBaseAffixSelect,
-                  handleBaseAffixSliderChange,
-                  handleClearBaseAffix,
-                  () => handleDeleteBaseAffix(index),
-                  { allSlotStates: toAffixSlotStates(baseAffixes) },
-                ),
-              )}
+        {/* Affix sections - only show when equipment type is selected */}
+        {equipmentType !== undefined && (
+          <>
+            {/* Base Stats Section */}
+            {baseStatsAffixes.length > 0 && (
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                  <Trans>Base Stats (1 max)</Trans>
+                </h3>
+                {renderAffixSlot(
+                  baseStats,
+                  0,
+                  "Base Stats",
+                  baseStatsAffixes,
+                  handleBaseStatsSelect,
+                  () => {},
+                  handleDeleteBaseStats,
+                  handleDeleteBaseStats,
+                  { hideQualitySlider: true },
+                )}
+              </div>
+            )}
+
+            {/* Base Affixes Section */}
+            {baseAffixOptions.length > 0 && (
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                  <Trans>Base Affixes (2 max)</Trans>
+                </h3>
+                <div className="space-y-4">
+                  {baseAffixes.map((slot, index) =>
+                    renderAffixSlot(
+                      slot,
+                      index,
+                      "Base Affix",
+                      baseAffixOptions,
+                      handleBaseAffixSelect,
+                      handleBaseAffixSliderChange,
+                      handleClearBaseAffix,
+                      () => handleDeleteBaseAffix(index),
+                      { allSlotStates: toAffixSlotStates(baseAffixes) },
+                    ),
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Sweet Dream Affix Section */}
+            {sweetDreamAffixes.length > 0 && (
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                  <Trans>Sweet Dream Affix (1 max)</Trans>
+                </h3>
+                {renderAffixSlot(
+                  sweetDreamAffix,
+                  0,
+                  "Sweet Dream Affix",
+                  sweetDreamAffixes,
+                  handleSweetDreamSelect,
+                  handleSweetDreamSliderChange,
+                  handleClearSweetDream,
+                  handleDeleteSweetDream,
+                  {},
+                )}
+              </div>
+            )}
+
+            {/* Tower Sequence Affix Section */}
+            {towerSequenceAffixes.length > 0 && (
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                  <Trans>Tower Sequence (1 max)</Trans>
+                </h3>
+                {renderAffixSlot(
+                  towerSequenceAffix,
+                  0,
+                  "Tower Sequence",
+                  towerSequenceAffixes,
+                  handleTowerSequenceSelect,
+                  () => {},
+                  handleClearTowerSequence,
+                  handleDeleteTowerSequence,
+                  { hideQualitySlider: true },
+                )}
+              </div>
+            )}
+
+            {/* Blending Affix Section (Belts Only) */}
+            {isBelt && (
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                  <Trans>Blending (1 max)</Trans>
+                </h3>
+                {renderAffixSlot(
+                  blendAffix,
+                  0,
+                  "Blend",
+                  blendAffixes.map((blend) => ({
+                    craftableAffix: blend.affix,
+                    tier: "0",
+                    equipmentSlot: "Trinket",
+                    equipmentType: "Belt",
+                    affixType: "Prefix",
+                    craftingPool: "",
+                  })) as BaseGearAffix[],
+                  handleBlendSelect,
+                  () => {},
+                  handleClearBlend,
+                  handleDeleteBlend,
+                  {
+                    hideQualitySlider: true,
+                    formatOption: (affix) => {
+                      const blend = blendAffixes.find(
+                        (b) => b.affix === affix.craftableAffix,
+                      );
+                      return blend
+                        ? formatBlendOption(blend)
+                        : affix.craftableAffix;
+                    },
+                    formatCraftedText: (affix) => {
+                      const blend = blendAffixes.find(
+                        (b) => b.affix === affix.craftableAffix,
+                      );
+                      return blend
+                        ? formatBlendPreview(blend)
+                        : affix.craftableAffix;
+                    },
+                  },
+                )}
+              </div>
+            )}
+
+            {/* Prefixes Section */}
+            <div>
+              <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                <Trans>Prefixes (3 max)</Trans>
+              </h3>
+              <div className="space-y-4">
+                {prefixes.map((slot, index) =>
+                  renderAffixSlot(
+                    slot,
+                    index,
+                    "Prefix",
+                    prefixAffixes,
+                    handlePrefixSelect,
+                    handlePrefixSliderChange,
+                    handleClearPrefix,
+                    () => handleDeletePrefix(index),
+                    { allSlotStates: toAffixSlotStates(prefixes) },
+                  ),
+                )}
+              </div>
             </div>
-          </div>
+
+            {/* Suffixes Section */}
+            <div>
+              <h3 className="mb-3 text-lg font-semibold text-zinc-50">
+                <Trans>Suffixes (3 max)</Trans>
+              </h3>
+              <div className="space-y-4">
+                {suffixes.map((slot, index) =>
+                  renderAffixSlot(
+                    slot,
+                    index,
+                    "Suffix",
+                    suffixAffixes,
+                    handleSuffixSelect,
+                    handleSuffixSliderChange,
+                    handleClearSuffix,
+                    () => handleDeleteSuffix(index),
+                    { allSlotStates: toAffixSlotStates(suffixes) },
+                  ),
+                )}
+              </div>
+            </div>
+          </>
         )}
 
-        {/* Sweet Dream Affix Section */}
-        {sweetDreamAffixes.length > 0 && (
-          <div>
-            <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-              Sweet Dream Affix (1 max)
-            </h3>
-            {renderAffixSlot(
-              sweetDreamAffix,
-              0,
-              "Sweet Dream Affix",
-              sweetDreamAffixes,
-              handleSweetDreamSelect,
-              handleSweetDreamSliderChange,
-              handleClearSweetDream,
-              handleDeleteSweetDream,
-              {},
-            )}
-          </div>
+        {/* Message when no equipment type selected in creation mode */}
+        {mode === "create" && equipmentType === undefined && (
+          <p className="py-8 text-center italic text-zinc-500">
+            <Trans>Select an equipment type to begin crafting</Trans>
+          </p>
         )}
-
-        {/* Tower Sequence Affix Section */}
-        {towerSequenceAffixes.length > 0 && (
-          <div>
-            <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-              Tower Sequence (1 max)
-            </h3>
-            {renderAffixSlot(
-              towerSequenceAffix,
-              0,
-              "Tower Sequence",
-              towerSequenceAffixes,
-              handleTowerSequenceSelect,
-              () => {},
-              handleClearTowerSequence,
-              handleDeleteTowerSequence,
-              { hideQualitySlider: true },
-            )}
-          </div>
-        )}
-
-        {/* Blending Affix Section (Belts Only) */}
-        {isBelt && (
-          <div>
-            <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-              Blending (1 max)
-            </h3>
-            {renderAffixSlot(
-              blendAffix,
-              0,
-              "Blend",
-              blendAffixes.map((blend) => ({
-                craftableAffix: blend.affix,
-                tier: "0",
-                equipmentSlot: "Trinket",
-                equipmentType: "Belt",
-                affixType: "Prefix",
-                craftingPool: "",
-              })) as BaseGearAffix[],
-              handleBlendSelect,
-              () => {},
-              handleClearBlend,
-              handleDeleteBlend,
-              {
-                hideQualitySlider: true,
-                formatOption: (affix) => {
-                  const blend = blendAffixes.find(
-                    (b) => b.affix === affix.craftableAffix,
-                  );
-                  return blend
-                    ? formatBlendOption(blend)
-                    : affix.craftableAffix;
-                },
-                formatCraftedText: (affix) => {
-                  const blend = blendAffixes.find(
-                    (b) => b.affix === affix.craftableAffix,
-                  );
-                  return blend
-                    ? formatBlendPreview(blend)
-                    : affix.craftableAffix;
-                },
-              },
-            )}
-          </div>
-        )}
-
-        {/* Prefixes Section */}
-        <div>
-          <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-            Prefixes (3 max)
-          </h3>
-          <div className="space-y-4">
-            {prefixes.map((slot, index) =>
-              renderAffixSlot(
-                slot,
-                index,
-                "Prefix",
-                prefixAffixes,
-                handlePrefixSelect,
-                handlePrefixSliderChange,
-                handleClearPrefix,
-                () => handleDeletePrefix(index),
-                { allSlotStates: toAffixSlotStates(prefixes) },
-              ),
-            )}
-          </div>
-        </div>
-
-        {/* Suffixes Section */}
-        <div>
-          <h3 className="mb-3 text-lg font-semibold text-zinc-50">
-            Suffixes (3 max)
-          </h3>
-          <div className="space-y-4">
-            {suffixes.map((slot, index) =>
-              renderAffixSlot(
-                slot,
-                index,
-                "Suffix",
-                suffixAffixes,
-                handleSuffixSelect,
-                handleSuffixSliderChange,
-                handleClearSuffix,
-                () => handleDeleteSuffix(index),
-                { allSlotStates: toAffixSlotStates(suffixes) },
-              ),
-            )}
-          </div>
-        </div>
       </div>
 
       <ModalActions>
         <ModalButton variant="secondary" onClick={onClose} fullWidth>
-          Cancel
+          <Trans>Cancel</Trans>
         </ModalButton>
-        <ModalButton onClick={handleSave} fullWidth>
-          Save
+        <ModalButton
+          onClick={handleSave}
+          fullWidth
+          disabled={equipmentType === undefined}
+        >
+          {mode === "create" ? (
+            <Trans>Save to Inventory</Trans>
+          ) : (
+            <Trans>Save</Trans>
+          )}
         </ModalButton>
       </ModalActions>
     </Modal>

@@ -69,7 +69,7 @@ interface EquipmentUIState {
   setSelectedGearSlot: (slot: GearSlot) => void;
 
   // Edit modal actions
-  openEditModal: (itemId: string) => void;
+  openEditModal: (itemId?: string) => void;
   closeEditModal: () => void;
 
   // Advanced crafting modal actions
