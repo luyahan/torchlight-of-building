@@ -81,7 +81,9 @@ const initialLocale = ((): Locale => {
     return defaultLocale;
   }
   const detected = detectBrowserLocale();
-  setStoredLocale(detected);
+  // Store the detected locale (sync), but don't call loadLocale here
+  // to avoid a race condition with the await below
+  localStorage.setItem("locale", detected);
   return detected;
 })();
 
