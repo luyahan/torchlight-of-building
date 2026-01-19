@@ -1,3 +1,4 @@
+import { useStorageErrorStore } from "@/src/stores/storageErrorStore";
 import { decodeBuildCode, encodeBuildCode } from "./build-code";
 import {
   SAVE_DATA_STORAGE_KEY_PREFIX,
@@ -5,6 +6,13 @@ import {
 } from "./constants";
 import type { SaveData } from "./save-data";
 import { createEmptySaveData } from "./storage";
+
+const isQuotaExceededError = (error: unknown): boolean => {
+  return (
+    error instanceof DOMException &&
+    (error.name === "QuotaExceededError" || error.code === 22)
+  );
+};
 
 export interface SaveMetadata {
   id: string;
@@ -39,6 +47,9 @@ export const saveSavesIndex = (index: SavesIndex): void => {
     localStorage.setItem(SAVES_INDEX_STORAGE_KEY, JSON.stringify(index));
   } catch (error) {
     console.error("Failed to save saves index:", error);
+    if (isQuotaExceededError(error)) {
+      useStorageErrorStore.getState().showStorageError();
+    }
   }
 };
 
@@ -63,6 +74,9 @@ export const saveSaveData = (saveId: string, data: SaveData): boolean => {
     return true;
   } catch (error) {
     console.error("Failed to save data:", error);
+    if (isQuotaExceededError(error)) {
+      useStorageErrorStore.getState().showStorageError();
+    }
     return false;
   }
 };
