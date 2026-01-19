@@ -313,6 +313,9 @@ export interface Gear {
 
   // Legendary gear affix property
   legendary_affixes?: Affix[];
+
+  // Custom affixes from advanced crafting (raw text, parsed like other affixes)
+  custom_affixes?: Affix[];
 }
 
 // Unified talent node type with all derived data

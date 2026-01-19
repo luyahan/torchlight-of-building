@@ -110,6 +110,11 @@ export const getGearAffixes = (gear: Gear | undefined): Affix[] => {
     if (gear.suffixes !== undefined) affixes.push(...gear.suffixes);
   }
 
+  // Always include custom affixes (for both legendary and regular gear)
+  if (gear.custom_affixes !== undefined) {
+    affixes.push(...gear.custom_affixes);
+  }
+
   return affixes;
 };
 

@@ -43,6 +43,9 @@ interface EquipmentUIState {
   isEditModalOpen: boolean;
   editModalItemId: string | undefined;
 
+  // Advanced crafting modal state
+  isAdvancedCraftingModalOpen: boolean;
+
   // Actions
   setSelectedEquipmentType: (type: EquipmentType | undefined) => void;
   setAffixSlot: (index: number, update: Partial<AffixSlotState>) => void;
@@ -68,6 +71,10 @@ interface EquipmentUIState {
   // Edit modal actions
   openEditModal: (itemId: string) => void;
   closeEditModal: () => void;
+
+  // Advanced crafting modal actions
+  openAdvancedCraftingModal: () => void;
+  closeAdvancedCraftingModal: () => void;
 }
 
 export const useEquipmentUIStore = create<EquipmentUIState>()(
@@ -86,6 +93,7 @@ export const useEquipmentUIStore = create<EquipmentUIState>()(
     selectedGearSlot: "helmet",
     isEditModalOpen: false,
     editModalItemId: undefined,
+    isAdvancedCraftingModalOpen: false,
 
     // Actions
     setSelectedEquipmentType: (type) =>
@@ -198,6 +206,16 @@ export const useEquipmentUIStore = create<EquipmentUIState>()(
       set((state) => {
         state.isEditModalOpen = false;
         state.editModalItemId = undefined;
+      }),
+
+    openAdvancedCraftingModal: () =>
+      set((state) => {
+        state.isAdvancedCraftingModalOpen = true;
+      }),
+
+    closeAdvancedCraftingModal: () =>
+      set((state) => {
+        state.isAdvancedCraftingModalOpen = false;
       }),
   })),
 );

@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useMemo } from "react";
 import { craft } from "@/src/tli/crafting/craft";
 import type { BaseGearAffix, EquipmentType } from "@/src/tli/gear-data-types";
+import { AdvancedCraftingModal } from "../../components/equipment/AdvancedCraftingModal";
 import { AffixSlotComponent } from "../../components/equipment/AffixSlotComponent";
 import { EditGearModal } from "../../components/equipment/EditGearModal";
 import { EquipmentSlotDropdown } from "../../components/equipment/EquipmentSlotDropdown";
@@ -47,6 +48,17 @@ function EquipmentPage(): React.ReactNode {
   const editModalItemId = useEquipmentUIStore((state) => state.editModalItemId);
   const openEditModal = useEquipmentUIStore((state) => state.openEditModal);
   const closeEditModal = useEquipmentUIStore((state) => state.closeEditModal);
+
+  // Advanced crafting modal state
+  const isAdvancedCraftingModalOpen = useEquipmentUIStore(
+    (state) => state.isAdvancedCraftingModalOpen,
+  );
+  const openAdvancedCraftingModal = useEquipmentUIStore(
+    (state) => state.openAdvancedCraftingModal,
+  );
+  const closeAdvancedCraftingModal = useEquipmentUIStore(
+    (state) => state.closeAdvancedCraftingModal,
+  );
 
   const editingItem = useMemo(
     () =>
@@ -419,9 +431,18 @@ function EquipmentPage(): React.ReactNode {
 
       <div className="space-y-6">
         <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-6">
-          <h2 className="mb-4 text-xl font-semibold text-zinc-50">
-            <Trans>Craft New Item</Trans>
-          </h2>
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-zinc-50">
+              <Trans>Craft New Item</Trans>
+            </h2>
+            <button
+              type="button"
+              onClick={openAdvancedCraftingModal}
+              className="rounded-lg border border-zinc-600 bg-zinc-800 px-3 py-1.5 text-sm font-medium text-zinc-300 transition-colors hover:bg-zinc-700 hover:text-zinc-100"
+            >
+              <Trans>Advanced Crafting</Trans>
+            </button>
+          </div>
 
           <div className="mb-6">
             <label
@@ -663,6 +684,12 @@ function EquipmentPage(): React.ReactNode {
         onClose={closeEditModal}
         item={editingItem}
         onSave={updateItem}
+      />
+
+      <AdvancedCraftingModal
+        isOpen={isAdvancedCraftingModalOpen}
+        onClose={closeAdvancedCraftingModal}
+        onSave={addItemToInventory}
       />
     </div>
   );

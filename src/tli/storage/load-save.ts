@@ -218,6 +218,7 @@ const convertGear = (gear: SaveDataGear, src: string | undefined): Gear => {
       ? convertAffix(gear.tower_sequence_affix, src)
       : undefined,
     legendary_affixes: convertAffixArray(gear.legendary_affixes, src),
+    custom_affixes: convertAffixArray(gear.custom_affixes, src),
   };
 };
 

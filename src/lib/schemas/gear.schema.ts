@@ -16,6 +16,7 @@ const BaseGearSchema = z.object({
   sweet_dream_affix: z.string().optional(),
   tower_sequence_affix: z.string().optional(),
   legendary_affixes: z.array(z.string()).optional(),
+  custom_affixes: z.array(z.string()).optional(),
 });
 
 export type Gear = z.infer<typeof BaseGearSchema>;
