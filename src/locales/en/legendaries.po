@@ -739,14 +739,14 @@ msgid "Hunting the Eye of the Kraken"
 msgstr "Hunting the Eye of the Kraken"
 
 #. js-lingui-explicit-id
-#: src/data/translate/legendary-names.ts:149
-msgid "Ice and Fire"
-msgstr "Ice and Fire"
-
-#. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:150
 msgid "Ice Pulse"
 msgstr "Ice Pulse"
+
+#. js-lingui-explicit-id
+#: src/data/translate/legendary-names.ts:149
+msgid "Ice and Fire"
+msgstr "Ice and Fire"
 
 #. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:151
@@ -1359,14 +1359,14 @@ msgid "Stream of Steel"
 msgstr "Stream of Steel"
 
 #. js-lingui-explicit-id
-#: src/data/translate/legendary-names.ts:273
-msgid "Sun-shooter Long Bow"
-msgstr "Sun-shooter Long Bow"
-
-#. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:274
 msgid "Sun's Embrace"
 msgstr "Sun's Embrace"
+
+#. js-lingui-explicit-id
+#: src/data/translate/legendary-names.ts:273
+msgid "Sun-shooter Long Bow"
+msgstr "Sun-shooter Long Bow"
 
 #. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:275

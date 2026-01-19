@@ -737,14 +737,14 @@ msgid "Hunting the Eye of the Kraken"
 msgstr "追猎海妖之眼"
 
 #. js-lingui-explicit-id
-#: src/data/translate/legendary-names.ts:149
-msgid "Ice and Fire"
-msgstr "冰火交融"
-
-#. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:150
 msgid "Ice Pulse"
 msgstr "寒冰法脉"
+
+#. js-lingui-explicit-id
+#: src/data/translate/legendary-names.ts:149
+msgid "Ice and Fire"
+msgstr "冰火交融"
 
 #. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:151
@@ -1357,14 +1357,14 @@ msgid "Stream of Steel"
 msgstr "钢铁涓流"
 
 #. js-lingui-explicit-id
-#: src/data/translate/legendary-names.ts:273
-msgid "Sun-shooter Long Bow"
-msgstr "射日长弓"
-
-#. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:274
 msgid "Sun's Embrace"
 msgstr "烈阳之拥"
+
+#. js-lingui-explicit-id
+#: src/data/translate/legendary-names.ts:273
+msgid "Sun-shooter Long Bow"
+msgstr "射日长弓"
 
 #. js-lingui-explicit-id
 #: src/data/translate/legendary-names.ts:275
