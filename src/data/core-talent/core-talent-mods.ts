@@ -577,7 +577,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   "Extreme Coldness": {
     affixLines: [
-      { text: "+50 to Max Frostbite Rating" },
+      {
+        text: "+50 to Max Frostbite Rating",
+        mods: [{ type: "MaxFrostbiteRating", value: 50 }],
+      },
       { text: "You can only deal Cold Damage" },
     ],
   },
@@ -657,7 +660,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
           { type: "DmgPct", value: 25, dmgModType: "projectile", addn: true },
         ],
       },
-      { text: "+50% Knockback distance" },
+      {
+        text: "+50% Knockback distance",
+        mods: [{ type: "KnockbackDistancePct", value: 50, addn: false }],
+      },
     ],
   },
   Brutality: {
@@ -744,7 +750,11 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
       },
     ],
   },
-  Fluke: { affixLines: [{ text: "Lucky Critical Strike" }] },
+  Fluke: {
+    affixLines: [
+      { text: "Lucky Critical Strike", mods: [{ type: "LuckyCrit" }] },
+    ],
+  },
   "Keep It Up": {
     affixLines: [
       {
@@ -1046,7 +1056,10 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
         text: "+2 Minion Skill Level",
         mods: [{ type: "SkillLevel", value: 2, skillLevelType: "minion" }],
       },
-      { text: "+ 4 Command per second" },
+      {
+        text: "+ 4 Command per second",
+        mods: [{ type: "CommandPerSec", value: 4 }],
+      },
       { text: "+40 initial Growth for Spirit Magi" },
     ],
   },
@@ -1118,7 +1131,17 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   Knowledgeable: {
     affixLines: [
       { text: "+100% additional Focus Skill Damage" },
-      { text: "+50% Sealed Mana Compensation for Focus Skills" },
+      {
+        text: "+50% Sealed Mana Compensation for Focus Skills",
+        mods: [
+          {
+            type: "SealedManaCompPct",
+            value: 50,
+            addn: false,
+            skillName: "Focus Skills",
+          },
+        ],
+      },
       { text: "Focus Skills can be equipped to Active Skill slots" },
     ],
   },
@@ -1130,7 +1153,17 @@ export const CoreTalentMods: Record<CoreTalentName, Affix> = {
   },
   Source: {
     affixLines: [
-      { text: "+50% Sealed Mana Compensation for Spirit Magus Skills" },
+      {
+        text: "+50% Sealed Mana Compensation for Spirit Magus Skills",
+        mods: [
+          {
+            type: "SealedManaCompPct",
+            value: 50,
+            addn: false,
+            skillName: "Spirit Magus Skills",
+          },
+        ],
+      },
       {
         text: "+30% additional Origin of Spirit Magus Effect",
         mods: [{ type: "SpiritMagusOriginEffPct", value: 30, addn: true }],
