@@ -399,6 +399,7 @@ interface ModDefinitions {
     skillName?: string;
   };
   FocusBuffEffPct: { value: number; addn?: boolean };
+  FocusSpeedPct: { value: number; addn?: boolean };
   SpiritMagusOriginEffPct: { value: number; addn?: boolean };
   CurseEffPct: { value: number; addn?: boolean };
   CurseDurationPct: { value: number };
@@ -443,9 +444,12 @@ interface ModDefinitions {
   MaxSentryQuant: { value: number };
   CommandPerSec: { value: number };
   GeneratesBarrier: object;
+  BarrierShieldPct: { value: number; addn?: boolean };
+  GeneratesHardened: object;
   GeneratesTorment: object;
   GeneratesDeflection: object;
   GeneratesBlur: { value: number };
+  BlurEffPct: { value: number };
   MaxRepentance: { value: number };
   GeneratesRepentance: { value: number };
   SkillLevel: { value: number; skillLevelType: SkillLevelType };

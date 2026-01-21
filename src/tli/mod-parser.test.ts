@@ -3667,3 +3667,35 @@ test("parse gains hasten when minions crit", () => {
   const result = parseMod("Gains Hasten when Minions land a Critical Strike");
   expect(result).toEqual([{ type: "GeneratesHasten" }]);
 });
+
+test("parse chance to gain barrier on defeat", () => {
+  const result = parseMod("13% chance to gain a Barrier on defeat");
+  expect(result).toEqual([{ type: "GeneratesBarrier" }]);
+});
+
+test("parse chance to gain hardened when hit", () => {
+  const result = parseMod("50% chance to gain Hardened when you are hit");
+  expect(result).toEqual([{ type: "GeneratesHardened" }]);
+});
+
+test("parse chance to inflict additional wilt stacks", () => {
+  const result = parseMod("7% chance to inflict 1 additional stack(s) of Wilt");
+  expect(result).toEqual([{ type: "InflictWiltPct", value: 7 }]);
+});
+
+test("parse blur effect", () => {
+  const result = parseMod("+7% Blur Effect");
+  expect(result).toEqual([{ type: "BlurEffPct", value: 7 }]);
+});
+
+test("parse focus speed", () => {
+  const result = parseMod("+65% Focus Speed");
+  expect(result).toEqual([{ type: "FocusSpeedPct", value: 65, addn: false }]);
+});
+
+test("parse barrier shield", () => {
+  const result = parseMod("+52% Barrier Shield");
+  expect(result).toEqual([
+    { type: "BarrierShieldPct", value: 52, addn: false },
+  ]);
+});

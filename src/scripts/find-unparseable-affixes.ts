@@ -35,7 +35,14 @@ const main = (): void => {
   // Output results
   console.log("=== Unparseable Affix Lines ===\n");
 
-  for (const line of unparseable.sort()) {
+  const getFirstAlpha = (s: string): string => {
+    const match = s.match(/[a-zA-Z]/);
+    return match !== null ? match[0].toLowerCase() : "";
+  };
+
+  for (const line of unparseable.sort((a, b) =>
+    getFirstAlpha(a).localeCompare(getFirstAlpha(b)),
+  )) {
     console.log(line);
   }
 

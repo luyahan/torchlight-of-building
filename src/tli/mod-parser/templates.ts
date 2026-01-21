@@ -2086,4 +2086,26 @@ export const allParsers = [
     "GeneratesHasten",
     () => ({}),
   ),
+  t("{value:dec%} chance to gain a barrier on defeat").output(
+    "GeneratesBarrier",
+    () => ({}),
+  ),
+  t("{value:dec%} chance to gain hardened when you are hit").output(
+    "GeneratesHardened",
+    () => ({}),
+  ),
+  t(
+    "{value:dec%} chance to inflict {stacks:int} additional stack(s) of wilt",
+  ).output("InflictWiltPct", (c) => ({ value: c.value })),
+  t("{value:+dec%} blur effect").output("BlurEffPct", (c) => ({
+    value: c.value,
+  })),
+  t("{value:+dec%} [additional] focus speed").output("FocusSpeedPct", (c) => ({
+    value: c.value,
+    addn: c.additional !== undefined,
+  })),
+  t("{value:+dec%} [additional] barrier shield").output(
+    "BarrierShieldPct",
+    (c) => ({ value: c.value, addn: c.additional !== undefined }),
+  ),
 ];
