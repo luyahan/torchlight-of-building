@@ -1494,6 +1494,34 @@ test("parse reap", () => {
   expect(result).toEqual([{ type: "Reap", duration: 0.17, cooldown: 1 }]);
 });
 
+test("parse reap with recovery time wording", () => {
+  const result = parseMod(
+    "Reaps 0.07 s of Damage Over Time when dealing Damage Over Time. The effect has a 1 s Recovery Time against the same target",
+  );
+  expect(result).toEqual([{ type: "Reap", duration: 0.07, cooldown: 1 }]);
+});
+
+test("parse reap when inflicting ignite", () => {
+  const result = parseMod(
+    "Reaps 0.04 s of Damage Over Time when inflicting Ignite. The effect has a 1 s Recovery Time against the same target",
+  );
+  expect(result).toEqual([{ type: "Reap", duration: 0.04, cooldown: 1 }]);
+});
+
+test("parse reap when inflicting trauma", () => {
+  const result = parseMod(
+    "Reaps 0.04 s of Damage Over Time when inflicting Trauma. The effect has a 1 s Recovery Time against the same target",
+  );
+  expect(result).toEqual([{ type: "Reap", duration: 0.04, cooldown: 1 }]);
+});
+
+test("parse reap when inflicting wilt", () => {
+  const result = parseMod(
+    "Reaps 0.04 s of Damage Over Time when inflicting Wilt. The effect has a 1 s Recovery Time against the same target",
+  );
+  expect(result).toEqual([{ type: "Reap", duration: 0.04, cooldown: 1 }]);
+});
+
 test("parse reaping duration", () => {
   const result = parseMod("+56% Reaping Duration");
   expect(result).toEqual([{ type: "ReapDurationPct", value: 56 }]);

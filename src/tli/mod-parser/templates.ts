@@ -1331,6 +1331,9 @@ export const allParsers = [
   t(
     "reaps {duration:dec} s of damage over time when dealing damage over time. the effect has a {cooldown:dec} s cooldown against the same target",
   ).output("Reap", (c) => ({ duration: c.duration, cooldown: c.cooldown })),
+  t(
+    "reaps {duration:dec} s of damage over time when {(dealing damage over time|inflicting ignite|inflicting trauma|inflicting wilt)}. the effect has a {cooldown:dec} s recovery time against the same target",
+  ).output("Reap", (c) => ({ duration: c.duration, cooldown: c.cooldown })),
   t("{value:+dec%} reaping duration").output("ReapDurationPct", (c) => ({
     value: c.value,
   })),

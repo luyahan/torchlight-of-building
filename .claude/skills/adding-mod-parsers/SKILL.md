@@ -83,7 +83,7 @@ t("{value:dec%} attack and cast speed").outputMany([
 **Optional syntax:**
 - `[additional]` - Optional literal, sets `c.additional?: true`
 - `[{modType:DmgModType}]` - Optional capture, sets `c.modType?: DmgModType`
-- `(effect|damage)` - Alternation (regex-style)
+- `{(effect|damage)}` - Alternation (regex-style)
 
 ### 3. Add Enum Mapping (if needed)
 
