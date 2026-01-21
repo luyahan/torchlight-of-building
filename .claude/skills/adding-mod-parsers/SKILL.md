@@ -247,7 +247,6 @@ t("energy shield starts to charge when blocking").outputNone(),
 | Missing `as const` on string literals | Add `as const` for type narrowing: `statModType: "all" as const` |
 | Handler doesn't account for new variant | Update `offense.ts` to handle new values (e.g., `statModType === "all"`) |
 | Generic template before specific | Move specific templates earlier in `allParsers` array |
-| Forgot to escape special chars | Use `\\` for regex special chars: `\\(`, `\\)` |
 
 ## Data Flow
 

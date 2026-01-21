@@ -31,7 +31,7 @@ export const allParsers = [
     spec("DmgPct", (c) => ({ value: c.dmg, addn: true, dmgModType: ATTACK })),
   ]),
   t(
-    "adds {min:int} - {max:int} {dmgType:DmgChunkType} damage to attacks and spells for every {amt:int} mana consumed recently. stacks up to {limit:int} time\\(s\\)",
+    "adds {min:int} - {max:int} {dmgType:DmgChunkType} damage to attacks and spells for every {amt:int} mana consumed recently. stacks up to {limit:int} time(s)",
   ).outputMany([
     spec("FlatDmgToAtks", (c) => {
       const per: PerStackable = {
@@ -295,7 +295,7 @@ export const allParsers = [
     per: { stackable: S.stat, amt: c.amt },
   })),
   t(
-    "{value:+dec%} [additional] damage for every {amt:+int} additional max channeled stack\\(s\\)",
+    "{value:+dec%} [additional] damage for every {amt:+int} additional max channeled stack(s)",
   ).output("DmgPct", (c) => ({
     value: c.value,
     dmgModType: GLOBAL,
@@ -303,7 +303,7 @@ export const allParsers = [
     per: { stackable: S.additional_max_channel_stack, amt: c.amt },
   })),
   t(
-    "deals up to {value:+dec%} additional attack damage to enemies in proximity, and this (effect|damage) reduces as the distance from the enemy grows",
+    "deals up to {value:+dec%} additional attack damage to enemies in proximity, and this {(effect|damage)} reduces as the distance from the enemy grows",
   ).output("DmgPct", (c) => ({
     value: c.value,
     dmgModType: ATTACK,
@@ -452,7 +452,7 @@ export const allParsers = [
     (c) => ({ value: c.value, modType: c.modType ?? "global" }),
   ),
   t(
-    "for each spell skill used recently, {value:+dec%} critical strike damage, stacking up to {limit:int} time\\(s\\)",
+    "for each spell skill used recently, {value:+dec%} critical strike damage, stacking up to {limit:int} time(s)",
   ).output("CritDmgPct", (c) => ({
     value: c.value,
     addn: false,
@@ -625,7 +625,7 @@ export const allParsers = [
     })),
   ]),
   t(
-    "{value:+dec%} additional max {dmgType:DmgChunkType} damage to an enemy when they have at least {threshold:int} stack\\(s\\) of numbed",
+    "{value:+dec%} additional max {dmgType:DmgChunkType} damage to an enemy when they have at least {threshold:int} stack(s) of numbed",
   ).output("AddnMaxDmgPct", (c) => ({
     value: c.value,
     dmgType: "lightning" as const,
@@ -751,7 +751,7 @@ export const allParsers = [
   t("{value:+dec%} fervor effect").output("FervorEffPct", (c) => ({
     value: c.value,
   })),
-  t("{value:+dec%} steep strike chance\\.").output(
+  t("{value:+dec%} steep strike chance.").output(
     "SteepStrikeChancePct",
     (c) => ({ value: c.value }),
   ),
@@ -778,7 +778,7 @@ export const allParsers = [
     addn: c.additional !== undefined,
   })),
   t(
-    "adds {value:dec%} of {from:DmgChunkType} damage (to|as) {to:DmgChunkType} damage",
+    "adds {value:dec%} of {from:DmgChunkType} damage {(to|as)} {to:DmgChunkType} damage",
   ).output("AddsDmgAsPct", (c) => ({ from: c.from, to: c.to, value: c.value })),
   t(
     "converts {value:dec%} of {from:DmgChunkType} damage to {to:DmgChunkType} damage",
@@ -1018,7 +1018,7 @@ export const allParsers = [
   t("{value:dec%} life regain").output("LifeRegainPct", (c) => ({
     value: c.value,
   })),
-  t("{value:+dec} {statModType:StatWord} per {amt:int} level\\(s\\)")
+  t("{value:+dec} {statModType:StatWord} per {amt:int} level(s)")
     .enum("StatWord", StatWordMapping)
     .output("Stat", (c) => ({
       value: c.value,
@@ -1040,7 +1040,7 @@ export const allParsers = [
     statModType: "all" as const,
   })),
   t(
-    "{dmgValue:+dec%} additional cold damage and {penValue:+dec%} cold penetration when you have at least {threshold:int} stack\\(s\\) of focus blessing",
+    "{dmgValue:+dec%} additional cold damage and {penValue:+dec%} cold penetration when you have at least {threshold:int} stack(s) of focus blessing",
   ).outputMany([
     spec("DmgPct", (c) => ({
       value: c.dmgValue,
@@ -1063,7 +1063,7 @@ export const allParsers = [
     })),
   ]),
   t(
-    "{dmgValue:+dec%} additional fire damage and {penValue:+dec%} fire penetration when you have at least {threshold:int} stack\\(s\\) of tenacity blessing",
+    "{dmgValue:+dec%} additional fire damage and {penValue:+dec%} fire penetration when you have at least {threshold:int} stack(s) of tenacity blessing",
   ).outputMany([
     spec("DmgPct", (c) => ({
       value: c.dmgValue,
@@ -1086,7 +1086,7 @@ export const allParsers = [
     })),
   ]),
   t(
-    "{dmgValue:+dec%} additional lightning damage and {penValue:+dec%} lightning penetration when you have at least {threshold:int} stack\\(s\\) of agility blessing",
+    "{dmgValue:+dec%} additional lightning damage and {penValue:+dec%} lightning penetration when you have at least {threshold:int} stack(s) of agility blessing",
   ).outputMany([
     spec("DmgPct", (c) => ({
       value: c.dmgValue,
@@ -1148,7 +1148,7 @@ export const allParsers = [
     (c) => ({ value: c.value, cond: C.has_squidnova }),
   ),
   t(
-    "activating spell burst with at least {stacks:int} stack\\(s\\) of max spell burst grants {grant:int} stack of squidnova",
+    "activating spell burst with at least {stacks:int} stack(s) of max spell burst grants {grant:int} stack of squidnova",
   ).output("GeneratesSquidnova", () => ({})),
   t("{value:+dec%} squidnova effect").output("SquidnovaEffPct", (c) => ({
     value: c.value,
@@ -1197,10 +1197,10 @@ export const allParsers = [
   })),
   t("has hasten").output("HasHasten", () => ({})),
   t(
-    "damage becomes lucky and at least {stacks:int} stack\\(s\\) of spell burst charge is consumed when spell burst is activated",
+    "damage becomes lucky and at least {stacks:int} stack(s) of spell burst charge is consumed when spell burst is activated",
   ).output("LuckyDmg", () => ({})),
   t("have fervor").output("HaveFervor", () => ({})),
-  t("has {value:int} point\\(s\\) of fixed fervor rating").output(
+  t("has {value:int} point(s) of fixed fervor rating").output(
     "FixedFervorPts",
     (c) => ({ value: c.value }),
   ),
@@ -1218,12 +1218,12 @@ export const allParsers = [
     "GeneratesBlur",
     (c) => ({ value: c.value }),
   ),
-  t("gains {value:int} stack\\(s\\) of focus blessing when reaping").output(
+  t("gains {value:int} stack(s) of focus blessing when reaping").output(
     "GeneratesFocusBlessing",
     () => ({}),
   ),
   t(
-    "gains {value:int} stack\\(s\\) of focus blessing when activating spell burst",
+    "gains {value:int} stack(s) of focus blessing when activating spell burst",
   ).output("GeneratesFocusBlessing", () => ({})),
   t(
     "{value:+dec%} chance to gain {stacks:int} stack of focus blessing when casting a summon skill. interval: {interval:int} s",
@@ -1613,12 +1613,12 @@ export const allParsers = [
     value: c.value,
     cond: C.has_crit_recently,
   })),
-  t("inflicts {value:int} additional stack\\(s\\) of numbed").output(
+  t("inflicts {value:int} additional stack(s) of numbed").output(
     "InflictNumbed",
     () => ({}),
   ),
   t(
-    "inflicts {stacks:int} additional stack\\(s\\) of numbed per {value:+dec%} numbed chance",
+    "inflicts {stacks:int} additional stack(s) of numbed per {value:+dec%} numbed chance",
   ).output("InflictNumbed", () => ({})),
   t("{value:+dec%} numbed chance").output("NumbedChancePct", (c) => ({
     value: c.value,
@@ -1753,7 +1753,7 @@ export const allParsers = [
     () => ({}),
   ),
   t(
-    "(the main skill is|main skill is) supported by [a] lv. {level:int} {skillName:words}",
+    "{(the main skill is|main skill is)} supported by [a] lv. {level:int} {skillName:words}",
   ).output("MainSkillSupportedBy", (c) => ({
     skillName: c.skillName,
     level: c.level,
@@ -1967,7 +1967,7 @@ export const allParsers = [
     (c) => ({ value: c.value }),
   ),
   t(
-    "gains {stacks:int} stack\\(s\\) of all blessings when casting a restoration skill",
+    "gains {stacks:int} stack(s) of all blessings when casting a restoration skill",
   ).outputMany([
     spec("GeneratesFocusBlessing", () => ({})),
     spec("GeneratesAgilityBlessing", () => ({})),
@@ -2046,7 +2046,7 @@ export const allParsers = [
     spec("MaxLifePct", (c) => ({ value: c.value, addn: false })),
     spec("MaxManaPct", (c) => ({ value: c.value, addn: false })),
   ]),
-  t("minions can cast {value:int} additional curse\\(s\\)").output(
+  t("minions can cast {value:int} additional curse(s)").output(
     "AddnCurse",
     (c) => ({ value: c.value }),
   ),
@@ -2055,22 +2055,22 @@ export const allParsers = [
     () => ({}),
   ),
   t(
-    "for every {dist:int} m moved, gains {value:int} stack\\(s\\) of deflection",
+    "for every {dist:int} m moved, gains {value:int} stack(s) of deflection",
   ).output("GeneratesDeflection", () => ({})),
   t("gains a stack of torment when reaping").output(
     "GeneratesTorment",
     () => ({}),
   ),
   t("energy shield starts to charge when blocking").outputNone(),
-  t("you can cast {value:int} additional curse\\(s\\)").output(
+  t("you can cast {value:int} additional curse(s)").output(
     "AddnCurse",
     (c) => ({ value: c.value }),
   ),
   t(
-    "restores {value:dec%} energy shield on block\\. interval: {interval:dec}s",
+    "restores {value:dec%} energy shield on block. interval: {interval:dec}s",
   ).outputNone(),
   t(
-    "restores {value:dec%} life on block\\. interval: {interval:dec}s",
+    "restores {value:dec%} life on block. interval: {interval:dec}s",
   ).outputNone(),
   t("takes {value:int} true damage every {interval:dec}s").outputNone(),
   t("warcry is cast immediately").outputNone(),
