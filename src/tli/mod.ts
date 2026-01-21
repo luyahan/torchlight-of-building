@@ -401,6 +401,7 @@ interface ModDefinitions {
   SpiritMagusOriginEffPct: { value: number; addn?: boolean };
   CurseEffPct: { value: number; addn?: boolean };
   CurseDurationPct: { value: number };
+  AddnCurse: { value: number };
   SealedManaCompPct: { value: number; addn?: boolean; skillName?: string };
   ResPenPct: { value: number; penType: ResPenType };
   ArmorPenPct: { value: number };

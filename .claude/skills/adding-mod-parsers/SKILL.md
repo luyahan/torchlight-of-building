@@ -227,6 +227,16 @@ t("{value:+dec%} [additional] attack and cast speed").outputMany([
 t("{value:+dec} max mana").output("MaxMana", (c) => ({ value: c.value })),
 ```
 
+### No-Op Parser (Recognized but produces no mods)
+
+**Input:** `"Energy Shield starts to Charge when Blocking"`
+
+Use `outputNone()` when a mod string should be recognized (not flagged as unparsed) but has no effect on calculations:
+
+```typescript
+t("energy shield starts to charge when blocking").outputNone(),
+```
+
 ## Common Mistakes
 
 | Mistake | Fix |

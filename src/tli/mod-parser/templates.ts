@@ -2046,4 +2046,20 @@ export const allParsers = [
     spec("MaxLifePct", (c) => ({ value: c.value, addn: false })),
     spec("MaxManaPct", (c) => ({ value: c.value, addn: false })),
   ]),
+  t("minions can cast {value:int} additional curse\\(s\\)").output(
+    "AddnCurse",
+    (c) => ({ value: c.value }),
+  ),
+  t("gains spell aggression when minion spells land a critical strike").output(
+    "GeneratesSpellAggression",
+    () => ({}),
+  ),
+  t(
+    "for every {dist:int} m moved, gains {value:int} stack\\(s\\) of deflection",
+  ).output("GeneratesDeflection", () => ({})),
+  t("gains a stack of torment when reaping").output(
+    "GeneratesTorment",
+    () => ({}),
+  ),
+  t("energy shield starts to charge when blocking").outputNone(),
 ];

@@ -3565,3 +3565,32 @@ test("parse critical strike damage mitigation", () => {
     { type: "CriticalStrikeDmgMitigationPct", value: 28 },
   ]);
 });
+
+test("parse minions can cast additional curses", () => {
+  const result = parseMod("Minions can cast 1 additional Curse(s)");
+  expect(result).toEqual([{ type: "AddnCurse", value: 1 }]);
+});
+
+test("parse gains spell aggression when minion spells crit", () => {
+  const result = parseMod(
+    "Gains Spell Aggression when Minion Spells land a Critical Strike",
+  );
+  expect(result).toEqual([{ type: "GeneratesSpellAggression" }]);
+});
+
+test("parse gains deflection when moving", () => {
+  const result = parseMod(
+    "For every 5 m moved, gains 1 stack(s) of Deflection",
+  );
+  expect(result).toEqual([{ type: "GeneratesDeflection" }]);
+});
+
+test("parse gains torment when reaping", () => {
+  const result = parseMod("Gains a stack of Torment when Reaping");
+  expect(result).toEqual([{ type: "GeneratesTorment" }]);
+});
+
+test("parse energy shield starts to charge when blocking (empty)", () => {
+  const result = parseMod("Energy Shield starts to Charge when Blocking");
+  expect(result).toEqual([]);
+});
